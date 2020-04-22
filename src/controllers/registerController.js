@@ -2,6 +2,7 @@ const axios = require("axios");
 const User = require("../model/User");
 const bcrypt = require("bcrypt");
 
+// Register function
 exports.postRegister = (req, res) => {
   console.log("Start postRegister: ");
   const { name, email, password, password2 } = req.body;

@@ -1,5 +1,5 @@
 {
-  "name": "express-weather",
+  "name": "webilizerr",
   "version": "1.0.0",
   "main": "app.js",
   "scripts": {
@@ -25,8 +25,16 @@
     "passport": "^0.4.1",
     "passport-local": "^1.0.0"
   },
-  "description": "",
+  "description": "Webilizerr is a website audit tool ",
   "devDependencies": {
     "nodemon": "^2.0.3"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sindri55/webilizerr.git"
+  },
+  "bugs": {
+    "url": "https://github.com/sindri55/webilizerr/issues"
+  },
+  "homepage": "https://github.com/sindri55/webilizerr#readme"
 }

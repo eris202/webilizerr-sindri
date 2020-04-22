@@ -3,6 +3,7 @@ const passport = require("passport");
 exports.postLogin = (req, res, next) => {
   console.log("POST-Login... ");
 
+  // passport authenticate
   passport.authenticate("local", {
     successRedirect: "/index",
     failureRedirect: "/about-us",
@@ -28,6 +29,7 @@ exports.postLogin = (req, res, next) => {
   })(req, res, next);
 };
 
+// Render login page
 exports.renderLoginPage = (req, res) => {
   res.render("login");
   console.log("starting login controller");
