@@ -1,0 +1,21 @@
+#dropzone.panel
+	.panel-header
+		h3.panel-title DropzoneJS
+	.panel-body
+		p DropzoneJS is an open-source library that allows to drag and drop files with a feature of image preview.
+		p Plugin and style sheets linking occurs when the element that matches the #[code .dropzone-form] selector is present on the page.
+
+		p Plugin operation example:
+		form.dropzone-form.mt-1( action='components/dropzone/dropzone.php', data-dropzone!={ maxFilesize: 2, maxfiles: 10 } ) Drop Files Here (or click)
+		p An additional example of plugin operation is available on the following page: #[a( href='uploaders.html' ) Uploaders].
+
+		p Markup example:
+		pre.highlight.html.scroller.scroller-horizontal
+			= '<form class="dropzone-form" action="components/dropzone/dropzone.php">Drop Files Here (or click)</form>'
+
+		p This template provides a #[code data-dropzone] attribute for DropzoneJS that can accept a JSON object with the plugin parameters, e.g.:
+		pre.highlight.html.scroller.scroller-horizontal
+			= '<form class="dropzone-form " action="components/dropzone/dropzone.php" data-dropzone=\'{ "maxFilesize": 2,"maxfiles": 10 }\'>...</form>'
+
+		p A #[code components/dropzone/dropzone.php] file is provided exclusively for demonstration of plugin operation.
+		p All available parameters of the plugin can be viewed on #[a( href="https://www.dropzonejs.com" ) DropzoneJS] website.

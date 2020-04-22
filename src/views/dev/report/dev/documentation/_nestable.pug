@@ -1,0 +1,45 @@
+#nestable.panel
+	.panel-header
+		h3.panel-title Nestable jQuery Plugin
+	.panel-body
+		p Nestable jQuery Plugin is an hierarchical list plugin with drag-and-drop elements.
+		p Plugin and style sheets linking occurs when the element that matches the #[code .nestable] selector is present on the page.
+
+		p Plugin operation example:
+		.mt-1
+			.dd.nestable
+				ol.dd-list
+					li.dd-item
+						.dd-handle Item 1
+						ol.dd-list
+							li.dd-item
+								.dd-handle Item 2
+							li.dd-item
+								.dd-handle Item 3
+							li.dd-item
+								.dd-handle Item 4
+
+		p See more plugin operation examples on the following page: #[a( href='nestable.html' ) Nestable].
+
+		p Markup example:
+		pre.highlight.html.scroller.scroller-horizontal
+			= '<div class="dd nestable">\n'
+			= '  <ol class="dd-list">\n'
+			= '    <li class="dd-item">\n'
+			= '      <div class="dd-handle">Item 1</div>\n'
+			= '      <ol class="dd-list">\n'
+			= '        <li class="dd-item">\n'
+			= '          <div class="dd-handle">Item 2</div>\n'
+			= '        </li>\n'
+			= '        <li class="dd-item">\n'
+			= '          <div class="dd-handle">Item 3</div>\n'
+			= '        </li>\n'
+			= '        <li class="dd-item">\n'
+			= '          <div class="dd-handle">Item 4</div>\n'
+			= '        </li>\n'
+			= '      </ol>\n'
+			= '    </li>\n'
+			= '  </ol>\n'
+			= '</div>'
+
+		p All available parameters of the plugin can be viewed in its #[a( href="https://github.com/dbushell/Nestable" ) GitHub repository].

@@ -1,0 +1,206 @@
+extends ../components/base/_skeleton
+include ../components/rd-navbar/_rd-navbar
+include ../components/breadcrumbs/_breadcrumbs
+
+block variables
+	- pageName = 'Nestable'
+
+block page
+	header.section.page-header
+		+rd-navbar
+
+	section.topbar
+		+breadcrumbs( breadcrumbs )
+
+	section.bg-white.section-sm
+		.container
+			.row.row-30
+				.col-sm-5.col-md-4
+					h4 jQuery Nestable - #[small Nesting done well]
+					ul.list-unstyled.list-md.mt-2
+						li
+							span.fa-exclamation-circle.pr-2
+							b Author:
+							span  David Bushell
+						li
+							span.fa-exclamation-circle.pr-2
+							b License:
+							span  MIT license
+						li
+							span.fa-exclamation-circle.pr-2
+							b Website:
+							a( href='https://github.com/dbushell/Nestable' )  www.github.com/dbushell/Nestable
+				.col-sm-5.col-md-4
+					h4 Simple Nesting System!
+					pre.highlight.html.scroller.scroller-horizontal.mt-2
+						= '<ol class="dd-list">\n'
+						= '  <li class="dd-item">\n'
+						= '    <div class="dd-handle">Title</div>\n'
+						= '  </li>\n'
+						= '</ol>'
+					p.mt-2 Note: Nestable requires additional javascript #[span.text-warning nestable.js]
+				.col-sm-5.col-md-4
+					h4 Animations OnLoad:
+					p Animations are fired immeditiely when the page loads and are a great way to introduce new content.
+					h4 Adding an Animation to an Element:
+					p.mt-2
+						code.code-bg= '<div class="animated fadeIn">..</div>'
+
+	section.section-sm
+		.container
+			.nestable-menu.text-right
+				button.btn.btn-sm.btn-primary( type='button', data-nestable-action!={expandAll: '.dd'} ) Expand all
+				button.btn.btn-sm.btn-primary( type='button', data-nestable-action!={collapseAll: '.dd'} ) Collapse all
+			.row.row-50
+				.col-md-12
+					h4 Nestable list only with titles
+					hr.divider.divider-dashed
+					.dd.nestable
+						//- list
+						ol.dd-list
+							li.dd-item
+								.dd-handle LifeStyle
+							li.dd-item
+								.dd-handle Sports
+							li.dd-item
+								.dd-handle Gossip
+								//- list
+								ol.dd-list
+									li.dd-item
+										.dd-handle Item 4
+										//- list
+										ol.dd-list
+											li.dd-item
+												.dd-handle Item 5
+											li.dd-item
+												.dd-handle Item 6
+											li.dd-item
+												.dd-handle Item 7
+									li.dd-item
+										.dd-handle Item 8
+									li.dd-item
+										.dd-handle Item 9
+
+				.col-md-12
+					h4 Example Styled Nestable List
+					hr.divider.divider-dashed
+					.dd.nestable
+						//- list
+						ol.dd-list
+							li.dd-item
+								.dd-handle LifeStyle
+								//- list
+								ol.dd-list
+									li.dd-item
+										.dd-handle Camping trips for Girls
+										.dd-content
+											.media.group-10
+												.media-item
+													img( src='images/users/user-02-50x50.jpg', width='50', height='50', alt='' )
+												.media-body
+													h4 Sara Downs #[small - 08/16/22]
+													.mt-1
+														span Last Updated 36 days ago by
+														= ' '
+														a( href='#' ) Max
+											.border-top.pt-2.mt-2
+												div
+													span.h4 Attachments
+													.badge.badge-success Updated
+												ul.list-unstyled.list-md.mt-2
+													li
+														span.fa-paperclip.pr-2
+														| The-Grand-Canyon_Cover.jpeg
+													li
+														span.fa-paperclip.pr-2
+														| military_vet_interview-questions.text
+							li.dd-item
+								.dd-handle Sports
+								//- list
+								ol.dd-list
+									li.dd-item
+										.dd-handle Camping trips for Girls
+										.dd-content
+											.media.group-10
+												.media-item
+													img( src='images/users/user-02-50x50.jpg', width='50', height='50', alt='' )
+												.media-body
+													h4 Sara Downs #[small - 08/16/22]
+													.mt-1
+														span Last Updated 36 days ago by
+														= ' '
+														a( href='#' ) Max
+									li.dd-item
+										.dd-handle What Women Love
+										.dd-content
+											.media.group-10
+												.media-item
+													img( src='images/users/user-02-50x50.jpg', width='50', height='50', alt='' )
+												.media-body
+													h4 Sara Downs #[small - 08/16/22]
+													.mt-1
+														span Last Updated 36 days ago by
+														= ' '
+														a( href='#' ) Max
+
+				.col-md-12
+					h4 Example with Contextual Nodes
+					hr.divider.divider-dashed
+					.dd.nestable
+						//- list
+						ol.dd-list
+							li.dd-item.dd-item-primary
+								.dd-handle LifeStyle
+								//- list
+								ol.dd-list
+									li.dd-item.dd-item-primary
+										.dd-handle Camping trips for Girls
+										.dd-content
+											.media.group-10
+												.media-item
+													img( src='images/users/user-02-50x50.jpg', width='50', height='50', alt='' )
+												.media-body
+													h4 Sara Downs #[small - 08/16/22]
+													.mt-1
+														span Last Updated 36 days ago by
+														= ' '
+														a( href='#' ) Max
+											.border-top.pt-2.mt-2
+												div
+													span.h4 Attachments
+													.badge.badge-success Updated
+												ul.list-unstyled.list-md.mt-2
+													li
+														span.fa-paperclip.pr-2
+														| The-Grand-Canyon_Cover.jpeg
+													li
+														span.fa-paperclip.pr-2
+														| military_vet_interview-questions.text
+							li.dd-item.dd-item-info
+								.dd-handle Sports
+								//- list
+								ol.dd-list
+									li.dd-item.dd-item-info
+										.dd-handle Camping trips for Girls
+										.dd-content
+											.media.group-10
+												.media-item
+													img( src='images/users/user-02-50x50.jpg', width='50', height='50', alt='' )
+												.media-body
+													h4 Sara Downs #[small - 08/16/22]
+													.mt-1
+														span Last Updated 36 days ago by
+														= ' '
+														a( href='#' ) Max
+									li.dd-item.dd-item-info
+										.dd-handle What Women Love
+										.dd-content
+											.media.group-10
+												.media-item
+													img( src='images/users/user-02-50x50.jpg', width='50', height='50', alt='' )
+												.media-body
+													h4 Sara Downs #[small - 08/16/22]
+													.mt-1
+														span Last Updated 36 days ago by
+														= ' '
+														a( href='#' ) Max

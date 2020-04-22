@@ -1,0 +1,14 @@
+//- Counter box 1
+	@param {dataect} data
+	@param {number} data.value
+	@param {string} [data.title]
+	@param {string} [data.postfix]
+	@param {number} [data.duration]
+mixin box-counter-1( data )
+	//Counter
+	.box-counter-1&attributes( attributes )
+		.box-counter-1-item
+			.box-counter-1-icon( class= data.iconClass )
+		.box-counter-1-body
+			.counter.counter-1= data.value
+			.box-counter-1-title= data.title

@@ -1,0 +1,21 @@
+#xzoom.panel
+	.panel-header
+		h3.panel-title xZoom
+	.panel-body
+		p xZoom is a jQuery plugin for zooming images.
+		p Plugin and style sheets linking occurs when the element that matches the #[code .xzoom] selector is present on the page.
+
+		p Plugin operation example:
+		.mt-1
+			img.xzoom( src='images/img-01-720x330.jpg', data-xoriginal='images/img-01-1440x660.jpg', alt='', data-xzoom-opts!={ position: 'lens', lensShape: 'circle', zoomWidth: 300, zoomHeight: 300 } )
+		p See more plugin operation examples on the following page: #[a( href='image-tools.html' ) Image Tools].
+
+		p Markup example:
+		pre.highlight.html.scroller.scroller-horizontal
+			= '<img class="xzoom" src="images/img-01-720x330.jpg" data-xoriginal="images/img-01-1440x660.jpg" alt="">'
+
+		p This template provides a #[code data-xzoom-opts] attribute for xZoom that can accept a JSON object with the plugin parameters, e.g.:
+		pre.highlight.html.scroller.scroller-horizontal
+			= '<img ... data-xzoom-opts=\'{ "position": "lens", "zoomWidth": 300, "zoomHeight": 300 }\'>'
+
+		p All available parameters of the plugin can be viewed in its #[a( href="https://github.com/payalord/xZoom#xzoom" ) GitHub repository].

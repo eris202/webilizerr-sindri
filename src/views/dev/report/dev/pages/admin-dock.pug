@@ -1,0 +1,156 @@
+extends ../components/base/_skeleton
+include ../components/rd-navbar/_rd-navbar
+include ../components/breadcrumbs/_breadcrumbs
+
+block variables
+	- pageName = 'Admin Dock';
+
+block page
+	header.section.page-header
+		+rd-navbar
+
+	section.topbar
+		+breadcrumbs( breadcrumbs )
+
+	section.section-md
+		.container-fluid
+			h2.text-center Send just about #[span.text-primary Anything] to AdminDock
+			h4.text-center Give it a try below! Select a type of content and click 'Send to Admin Dock'.
+			.container.mt-4
+				.panel
+					.panel-body
+						.row
+							.col-lg-4.border-lg-right.d-flex.flex-column.justify-content-center
+								h3.text-center Selected Modal Content
+								.row.row-30.px-lg-3.mt-4
+									.col-sm-6
+										.icon-box.text-center.active( data-class-switcher!={ group: '.dockmodal-wrap', target: '.dockmodal-1', targetClass: 'dockmodal-active' } )
+											.icon-box-icon.fa-image
+											p Image
+									.col-sm-6
+										.icon-box.text-center( data-class-switcher!={ group: '.dockmodal-wrap', target: '.dockmodal-2' } )
+											.icon-box-icon.fa-text-height
+											p Panel
+									.col-sm-6
+										.icon-box.text-center( data-class-switcher!={ group: '.dockmodal-wrap', target: '.dockmodal-3' } )
+											.icon-box-icon.fa-pencil-square-o
+											p Table
+									.col-sm-6
+										.icon-box.text-center( data-class-switcher!={ group: '.dockmodal-wrap', target: '.dockmodal-4' } )
+											.icon-box-icon.fa-map-marker
+											p Form
+									.col-sm-6
+										.icon-box.text-center( data-class-switcher!={ group: '.dockmodal-wrap', target: '.dockmodal-5' } )
+											.icon-box-icon.fa-film
+											p Text
+									.col-sm-6
+										.icon-box.text-center( data-class-switcher!={ group: '.dockmodal-wrap', target: '.dockmodal-6' } )
+											.icon-box-icon.fa-spinner
+											p Video
+									.col-md-12
+										button.btn.btn-primary( data-dockmodal-button='.dockmodal-active .dockmodal-inner' ) Send to admin dock
+		
+							.col-lg-8.dockmodal-wrap.d-flex.flex-column.justify-content-center
+								.px-lg-3.py-4
+									//- Image
+									.dockmodal-container.dockmodal-1.dockmodal-active
+										.dockmodal-inner.text-center( data-dockmodal-title='Image' )
+											img( src='images/image-01-1000x500.jpg', alt='' )
+		
+									//- Panel
+									.dockmodal-container.dockmodal-2
+										.dockmodal-inner( data-dockmodal-title='Panel' )
+											.panel
+												.panel-header
+													h4.panel-title
+														span.panel-icon.fa-trophy
+														= ' '
+														span Title With Icon
+												.panel-body
+													p Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+													p Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
+													p Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
+													p Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur.
+		
+									//- Table
+									.dockmodal-container.dockmodal-3
+										.dockmodal-inner( data-dockmodal-title='Table' )
+											.table-responsive
+												table.table
+													thead
+														tr
+															th( scope='col' ) #
+															th( scope='col' ) First name
+															th( scope='col' ) Second name
+													tbody
+														tr
+															th( scope='row' ) 1
+															td Mark
+															td Otto
+														tr
+															th( scope='row' ) 2
+															td Jacob
+															td Thornton
+														tr
+															th( scope='row' ) 3
+															td Larry
+															td Bird
+														tr
+															th( scope='row' ) 4
+															td Tom
+															td Read
+														tr
+															th( scope='row' ) 5
+															td Sara
+															td Smith
+		
+									//- Form
+									.dockmodal-container.dockmodal-4
+										.dockmodal-inner( data-dockmodal-title='Admin form' )
+											.panel
+												.panel-body
+													.container-fluid
+														h4.text-center Simple form
+														form.row.row-15
+															.col-12
+																.input-group.form-group.input-group-sm
+																	.input-group-prepend
+																		span.input-group-text
+																			span.fa.fa-user
+																	input.form-control.form-control-sm( type='text', placeholder='First name' )
+															.col-12
+																.input-group.form-group.input-group-sm
+																	.input-group-prepend
+																		span.input-group-text
+																			span.fa.fa-user
+																	input.form-control.form-control-sm( type='text', placeholder='Last name' )
+															.col-12
+																.input-group.form-group.input-group-sm
+																	.input-group-prepend
+																		span.input-group-text
+																			span.fa.fa-envelope
+																	input.form-control.form-control-sm( type='email', placeholder='Email address' )
+															.col-12
+																.input-group.form-group.input-group-sm
+																	.input-group-prepend
+																		span.input-group-text
+																			span.fa.fa-globe
+																	input.form-control.form-control-sm( type='text', placeholder='Website url' )
+															.col-12
+																.input-group.form-group
+																	.input-group-prepend
+																		span.input-group-text.align-items-start
+																			span.fa.fa-comments
+																	textarea.form-control( placeholder='Your comment' )
+		
+									//- Text
+									.dockmodal-container.dockmodal-5
+										.dockmodal-inner.text-center( data-dockmodal-title='Text' )
+											p Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+											p Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
+		
+									//- Video
+									.dockmodal-container.dockmodal-6
+										.dockmodal-inner( data-dockmodal-title='Video online' )
+											.embed-responsive.embed-responsive-16by9
+												iframe( src='about:blank', data-pended-iframe='http://www.youtube.com/embed/-AhmuMqZB0s', width='300', height='300', style='width: 100%' )

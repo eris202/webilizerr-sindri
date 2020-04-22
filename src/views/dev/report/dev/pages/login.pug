@@ -1,0 +1,66 @@
+extends ../components/base/_skeleton
+include ../components/input/_input
+
+block variables
+	-
+		htmlClass[ htmlClass.indexOf( 'rd-navbar-sidebar-active' ) ] = '';
+		pageClass = 'page-image-bg';
+		pageName = 'Login';
+
+block page
+	section.section-lg.section-one-screen
+		.container
+			.row.justify-content-center
+				.col-lg-8
+					.row.row-10.align-items-end
+						.col-6.col-sm-7
+							a( href='index.html' ): img( src=logo.default, alt='' )
+						.col-6.col-sm-5.text-right
+							a.font-weight-bold( href='login.html' ) Sign In
+							span.px-2 |
+							a( href='register.html' ) Register
+					form.panel( method='post' )
+						.panel-header
+							.row.row-10
+								.col-md-4
+									button.btn.btn-primary.btn-block 
+										span.fa-facebook-f
+										|  Facebook
+								.col-md-4
+									button.btn.btn-info.btn-block
+										span.fa-twitter
+										|  Twitter
+								.col-md-4
+									button.btn.btn-danger.btn-block
+										span.fa-google-plus
+										|  Google +
+						.panel-body
+							.row.row-30
+								.col-lg-5.order-lg-2
+									h4 You'll Have Access To Your:
+									ul
+										li Unlimited Email Storage
+										li Unlimited Photo Sharing/Storage
+										li Unlimited Downloads
+										li Unlimited Service Tickets
+								.col-lg-7.order-lg-1
+									.form-group
+										label( for='user' ) Username
+										.input-group
+											.input-group-prepend
+												span.input-group-text.fa-user
+											input#user.form-control( type='text', name='user', placeholder='Enter username' )
+									.form-group
+										label( for='pass' ) Password
+										.input-group
+											.input-group-prepend
+												span.input-group-text.fa-lock
+											input#pass.form-control( type='password', name='password', placeholder='Enter password' )
+						.panel-footer
+							.row.row-10.align-items-center
+								.col-sm-6
+									+switch.custom-switch-primary Remember me
+								.col-sm-6.text-sm-right
+									button.btn.btn-primary( type='submit' ) Sign In
+
+block sidebar

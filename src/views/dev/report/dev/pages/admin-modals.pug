@@ -1,0 +1,143 @@
+extends ../components/base/_skeleton
+include ../components/rd-navbar/_rd-navbar
+include ../components/breadcrumbs/_breadcrumbs
+
+block variables
+	- pageName = 'Admin Modals';
+
+block page
+	header.section.page-header
+		+rd-navbar
+
+	section.topbar
+		+breadcrumbs( breadcrumbs )
+
+	section.section-md
+		.container
+			h2.text-center We have created a #[span.text-primary Modal] System you will love
+			h4.text-center Packed with all the CSS3 animations you crave.
+		.container.bg-white.mt-4.border
+			.row
+				.col-lg-4.pt-4.py-lg-3.border-lg-right.d-flex.flex-column.justify-content-center
+					h3.text-center Selected Modal Content
+					.row.row-30.px-lg-3.mt-4
+						.col-sm-6
+							.icon-box.text-center.active( data-class-switcher!={ group: 'body', target: '.modal-1', targetClass: 'modal-active' } )
+								.icon-box-icon.fa-image
+								p Image
+						.col-sm-6
+							.icon-box.text-center( data-class-switcher!={ group: 'body', target: '.modal-2' } )
+								.icon-box-icon.fa-text-height
+								p Text
+						.col-sm-6
+							.icon-box.text-center( data-class-switcher!={ group: 'body', target: '.modal-3' } )
+								.icon-box-icon.fa-edit
+								p Form
+						.col-sm-6
+							.icon-box.text-center( data-class-switcher!={ group: 'body', target: '.modal-4' } )
+								.icon-box-icon.fa-map
+								p Panel
+
+				.col-lg-8
+					.row.row-30.px-lg-3.py-4
+						.col-sm-6.text-center
+							h5 Zoom effects
+							button.btn.btn-sm.btn-primary.btn-block( data-modal-trigger!={ target: '.modal-active', animClass: 'zoom-in' } ) Zoom In
+							button.btn.btn-sm.btn-primary.btn-block( data-modal-trigger!={ target: '.modal-active', animClass: 'zoom-out' } ) Zoom Out
+							h5 Slide effects
+							button.btn.btn-sm.btn-primary.btn-block( data-modal-trigger!={ target: '.modal-active', animClass: 'slide-up' } ) Slide Up
+							button.btn.btn-sm.btn-primary.btn-block( data-modal-trigger!={ target: '.modal-active', animClass: 'slide-down' } ) Slide Down
+							button.btn.btn-sm.btn-primary.btn-block( data-modal-trigger!={ target: '.modal-active', animClass: 'slide-left' } ) Slide Left
+							button.btn.btn-sm.btn-primary.btn-block( data-modal-trigger!={ target: '.modal-active', animClass: 'slide-right' } ) Slide Right
+							h5 Normal effects
+							button.btn.btn-sm.btn-primary.btn-block( data-modal-trigger!={ target: '.modal-active', animClass: 'fade-in' } ) Fade
+							button.btn.btn-sm.btn-primary.btn-block( data-modal-trigger!={ target: '.modal-active', animClass: 'fullscale' } ) Fullscale
+
+						.col-sm-6.text-center
+							h5 Flip effects
+							button.btn.btn-sm.btn-primary.btn-block( data-modal-trigger!={ target: '.modal-active', animClass: 'rotate-y' } ) Flip Y
+							button.btn.btn-sm.btn-primary.btn-block( data-modal-trigger!={ target: '.modal-active', animClass: 'rotate-x' } ) Flip X
+							h5 Rotate effects
+							button.btn.btn-sm.btn-primary.btn-block( data-modal-trigger!={ target: '.modal-active', animClass: 'rotate-up' } ) Rotate Up
+							button.btn.btn-sm.btn-primary.btn-block( data-modal-trigger!={ target: '.modal-active', animClass: 'rotate-down' } ) Rotate Down
+							button.btn.btn-sm.btn-primary.btn-block( data-modal-trigger!={ target: '.modal-active', animClass: 'rotate-left' } ) Rotate Left
+							button.btn.btn-sm.btn-primary.btn-block( data-modal-trigger!={ target: '.modal-active', animClass: 'rotate-right' } ) Rotate Right
+							h5 Special effects
+							button.btn.btn-sm.btn-primary.btn-block( data-modal-trigger!={ target: '.modal-active', animClass: 'flip-down' } ) Sign Flip
+							button.btn.btn-sm.btn-primary.btn-block( data-modal-trigger!={ target: '.modal-active', animClass: 'rotate-full' } ) Newspaper
+
+block modal
+	.modal.modal-1.modal-active.fade( tabindex='-1', role='dialog', aria-hidden='true' )
+		.modal-dialog( role='document' )
+			.modal-content
+				.modal-header
+					h3.modal-title Image
+					button.close( data-dismiss='modal', aria-label='Close' ): span ×
+				.text-center
+					img( src='images/image-01-350x250.jpg', width='350', height='250', alt='', style='width: 100%;' )
+
+	.modal.modal-2.fade( tabindex='-1', role='dialog', aria-hidden='true' )
+		.modal-dialog( role='document' )
+			.modal-content
+				.modal-header
+					h3.modal-title Text
+					button.close( data-dismiss='modal', aria-label='Close' ): span ×
+				.modal-body You may put any HTML here. This is dummy copy. It is not meant to be read. It has been placed here solely to demonstrate the look and feel of finished, typeset text. Only for show. He who searches for meaning here will be sorely disappointed.
+
+	.modal.modal-3.fade( tabindex='-1', role='dialog', aria-hidden='true' )
+		.modal-dialog( role='document' )
+			form.modal-content
+				.modal-header
+					h3.modal-title Leave a comment
+					button.close( data-dismiss='modal', aria-label='Close' ): span ×
+				.modal-body
+					.container-fluid
+						.row.row-10
+							.col-lg-6
+								.input-group.form-group
+									.input-group-prepend
+										span.input-group-text
+											span.fa.fa-user
+									input.form-control( type='text', placeholder='First name', required )
+							.col-lg-6
+								.input-group.form-group
+									.input-group-prepend
+										span.input-group-text
+											span.fa.fa-user
+									input.form-control( type='text', placeholder='Last name', required )
+							.col-lg-6
+								.input-group.form-group
+									.input-group-prepend
+										span.input-group-text
+											span.fa.fa-envelope
+									input.form-control( type='email', placeholder='Email address', required )
+							.col-lg-6
+								.input-group.form-group
+									.input-group-prepend
+										span.input-group-text
+											span.fa.fa-globe
+									input.form-control( type='text', placeholder='Website url' )
+							.col-lg-12
+								.input-group.form-group
+									.input-group-prepend
+										span.input-group-text.align-items-start
+											span.fa.fa-comments
+									textarea.form-control( placeholder='Your comment', required )
+				.modal-footer.justify-content-start
+					button.btn.btn-primary( type='submit' ) Send message
+
+	.modal.modal-4.fade( tabindex='-1', role='dialog', aria-hidden='true' )
+		.modal-dialog( role='document' )
+			.modal-content
+				.panel
+					.panel-header.d-flex.flex-wrap.align-items-center.justify-content-between
+						h4.panel-title
+							span.panel-icon.fa-trophy
+							= ' '
+							span Panel
+						button.close( data-dismiss='modal', aria-label='Close' ): span ×
+					.panel-body
+						p.panel-text
+							| Some quick example text to build on the panel title and make up the bulk of the panel's content.
+					.panel-footer
+						| Some quick example text to build on the panel title and make up the bulk of the panel's content.

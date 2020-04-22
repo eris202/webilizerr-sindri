@@ -1,0 +1,472 @@
+extends ../components/base/_skeleton
+include ../components/dropdown/_dropdown
+include ../components/rd-navbar/_rd-navbar
+include ../components/breadcrumbs/_breadcrumbs
+
+block variables
+	- pageName = 'Topbar menu';
+
+block page
+	header.section.page-header
+		+rd-navbar
+
+	section.topbar
+		.container-fluid
+			.row.row-15.align-items-center
+				.col-md-5
+					ul.nav.nav-tabs.scroller.scroller-horizontal( role='tablist' )
+						li.nav-item: a.nav-link.active( data-toggle='tab', href='#panelTab1', role='tab', aria-selected='true' ) Active
+						li.nav-item: a.nav-link( data-toggle='tab', href='#panelTab2', role='tab', aria-selected='false' ) Active
+						li.nav-item: a.nav-link( data-toggle='tab', href='#panelTab3', role='tab', aria-selected='false' ) Active
+						li.nav-item: a.nav-link( data-toggle='tab', href='#panelTab4', role='tab', aria-selected='false' ) Active
+				.col-md-7.text-md-right
+					.group-10
+						button.btn.btn-secondary( type='button' )
+							span.fa-plus
+							span.pl-2 Button Link
+						button.btn.btn-secondary( type='button' )
+							span.fa-check
+							span.pl-2 Button Link
+						button.btn.btn-secondary( type='button' )
+							span.fa-user
+							span.pl-2 Button Link
+
+	section.section-md
+		.tab-content
+			#panelTab1.tab-pane.fade.show.active( role='tabpanel' )
+				.container-fluid
+					.row.row-30
+						.col-lg-6.col-xl-5
+							.panel
+								.panel-header
+									.group-5.d-flex.flex-wrap.align-items-center.justify-content-between
+										h4.panel-title
+											span.panel-icon.fa-table
+											= ' '
+											span Base Table
+										code.code-bg .table
+								.panel-body.p-0
+									.table-responsive.scroller.scroller-horizontal
+										table.table
+											thead
+												tr
+													th( scope='col' ) #
+													th( scope='col' ) First
+													th( scope='col' ) Last
+													th( scope='col' ) Handle
+											tbody
+												tr
+													th( scope='row' ) 1
+													td Mark
+													td Otto
+													td @mdo
+												tr
+													th( scope='row' ) 2
+													td Jacob
+													td Thornton
+													td @fat
+												tr
+													th( scope='row' ) 3
+													td Larry
+													td Bird
+													td @twitter
+
+							.panel
+								.panel-header
+									h4.panel-title
+										span.fa-pencil.panel-icon
+										span About Me
+								.panel-body
+									h6 Experience
+									h4.mt-1 Facebook Internship
+									p University of Missouri, Columbia #[br]Student Health Center, June 2010 - 2012
+									hr
+									h6 Education
+									h4.mt-1 Bachelor of Science, PhD
+									p University of Missouri, Columbia #[br]Student Health Center, June 2010 through Aug 2011
+									hr
+									h6 Accomplishments
+									h4.mt-1 Business Management Practice
+									p University of Missouri, Columbia #[br]Student Health Center, June 2010 through Aug 2011
+
+						.col-lg-6.col-xl-7
+							.panel
+								.panel-header
+									h4.panel-title
+										span.fa-users.panel-icon
+										span Social
+								.panel-body
+									.media.group-15.flex-column.flex-sm-row
+										.media-item
+											img( src='images/users/user-02-40x40.jpg', width='40', height='40', alt='' )
+										.media-body
+											h5 Simon Rivers Posted - #[small.text-muted 3 hours ago]
+											.group-10
+												img( src='images/image-01-140x90.jpg', width='140', height='90', alt='' )
+												img( src='images/image-02-140x90.jpg', width='140', height='90', alt='' )
+												img( src='images/image-03-140x90.jpg', width='140', height='90', alt='' )
+											ul.list-inline.small.mt-2
+												li.list-inline-item
+													.group-5
+														span.fa-thumbs-o-up.text-primary
+														span Like
+												li.list-inline-item
+													.group-5
+														span.fa-share.text-primary
+														span Share
+												li.list-inline-item
+													.group-5
+														span.fa-download.text-primary
+														span Save
+												li.list-inline-item
+													.group-5
+														span.fa-comments-o.text-primary
+														span Comment
+									.media.group-15
+										.media-item
+											img( src='images/users/user-03-40x40.jpg', width='40', height='40', alt='' )
+										.media-body
+											h5 Simon Rivers Posted - #[small.text-muted 3 hours ago]
+											p.text-muted Omg so freaking sweet dude. This song is amazing. I love when you write with your hands...
+											.media.group-10
+												.media-item
+													img( src='images/users/user-02-40x40.jpg', width='40', height='40', alt='' )
+												.media-body
+													h5 Jessica Wong - #[small.text-muted 3 hours ago]
+													p.text-muted What a pleasure to bring you back to my life at this place. It had this wonderful vibe from the first moment I sat down in the chair and walked by the window.
+											.media.group-10
+												.media-item
+													img( src='images/users/user-03-40x40.jpg', width='40', height='40', alt='' )
+												.media-body
+													h5 Jessica Wong - #[small.text-muted 3 hours ago]
+													p.text-muted I'm so so super proud of this place and so glad I came here. The atmosphere is so amazing, the service is great, we had a great time...and we will continue it for years. Thank you for giving me the opportunity to
+									.media.group-15.flex-column.flex-sm-row
+										.media-item
+											img( src='images/users/user-03-40x40.jpg', width='40', height='40', alt='' )
+										.media-body
+											h5 Simon Rivers Posted - #[small.text-muted 3 hours ago]
+											.group-10
+												img( src='images/image-04-140x90.jpg', width='140', height='90', alt='' )
+												img( src='images/image-02-140x90.jpg', width='140', height='90', alt='' )
+												img( src='images/image-05-140x90.jpg', width='140', height='90', alt='' )
+											ul.list-inline.small.mt-2
+												li.list-inline-item
+													.group-5
+														span.fa-thumbs-o-up.text-primary
+														span Like
+												li.list-inline-item
+													.group-5
+														span.fa-share.text-primary
+														span Share
+												li.list-inline-item
+													.group-5
+														span.fa-download.text-primary
+														span Save
+												li.list-inline-item
+													.group-5
+														span.fa-comments-o.text-primary
+														span Comment
+
+			#panelTab2.tab-pane.fade( role='tabpanel' )
+				.container
+					.row.row-30
+						.col-lg-12
+							.panel
+								.panel-header
+									h4.panel-title Gallery Group
+								.panel-body
+									.row.row-30( data-lightgallery )
+										.col-sm-6.col-lg-4
+											a.lightgallery-item( href='images/image-01-1200x800.jpg' )
+												img( src='images/image-01-400x300.jpg', width='400', height='300', alt='' )
+										.col-sm-6.col-lg-4
+											a.lightgallery-item( href='images/image-02-1200x800.jpg' )
+												img( src='images/image-02-400x300.jpg', width='400', height='300', alt='' )
+										.col-sm-6.col-lg-4
+											a.lightgallery-item( href='images/image-03-1200x800.jpg' )
+												img( src='images/image-03-400x300.jpg', width='400', height='300', alt='' )
+										.col-sm-6.col-lg-4
+											a.lightgallery-item( href='images/image-04-1200x800.jpg' )
+												img( src='images/image-04-400x300.jpg', width='400', height='300', alt='' )
+										.col-sm-6.col-lg-4
+											a.lightgallery-item( href='images/image-05-1200x800.jpg' )
+												img( src='images/image-05-400x300.jpg', width='400', height='300', alt='' )
+										.col-sm-6.col-lg-4
+											a.lightgallery-item( href='images/image-01-1200x800.jpg' )
+												img( src='images/image-01-400x300.jpg', width='400', height='300', alt='' )
+
+			#panelTab3.tab-pane.fade( role='tabpanel' )
+				.container-fluid
+					.row.row-30
+						// Pie Chart
+						.col-xxl-6
+							-
+								var pieChart = {
+									credits: false,
+									colors: [ '#58a193', '#dc3545', '#fd7e14', '#f7ad6a', '#5b5eab', '#34B1CC' ],
+									chart: {
+										type: 'pie'
+									},
+									title: {
+										text: null
+									},
+									legend: {
+										itemStyle: {
+											color: '#aaa',
+											fontWeight: 'normal'
+										},
+										itemHoverStyle: {
+											color: '#777'
+										}
+									},
+									tooltip: {
+										pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+									},
+									plotOptions: {
+										pie: {
+											allowPointSelect: true,
+											cursor: 'pointer',
+											borderColor: 'transparent',
+											dataLabels: {
+												enabled: false
+											},
+											showInLegend: true
+										}
+									},
+									series: [{
+										name: 'Brands',
+										colorByPoint: true,
+										data: [{
+											name: 'Chrome',
+											y: 61.41,
+											sliced: true,
+											selected: true
+										}, {
+											name: 'Internet Explorer',
+											y: 11.84
+										}, {
+											name: 'Firefox',
+											y: 10.85
+										}, {
+											name: 'Edge',
+											y: 4.67
+										}, {
+											name: 'Safari',
+											y: 4.18
+										}, {
+											name: 'Other',
+											y: 7.05
+										}]
+									}]
+								}
+							.panel
+								.panel-header
+									h4.panel-title Pie Chart
+								.panel-body
+									.highcharts-container( data-highcharts-options= pieChart, style='height:400px;' )
+
+						// Donut Chart
+						.col-xxl-6
+							-
+								var circleChart = {
+									credits: false,
+									colors: [ '#58a193', '#dc3545', '#fd7e14', '#f7ad6a', '#5b5eab', '#34B1CC' ],
+									title: {
+										text: 'Browser shares 2019',
+										align: 'center'
+									},
+									tooltip: {
+										pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+									},
+									plotOptions: {
+										pie: {
+											dataLabels: {
+												enabled: true,
+												style: {
+													fontWeight: 'bold'
+												}
+											},
+											center: ['50%', '50%']
+										}
+									},
+									series: [{
+										type: 'pie',
+										name: 'Browser share',
+										innerSize: '70%',
+										data: [
+											['Chrome', 58.9],
+											['Firefox', 13.29],
+											['Internet Explorer', 13],
+											['Edge', 3.78],
+											['Safari', 3.42],
+											{
+												name: 'Other',
+												y: 7.61,
+												dataLabels: {
+													enabled: false
+												}
+											}
+										],
+										dataLabels: {
+											style: {
+												fontWeight: 'normal',
+												color: '#777',
+												textOutline: 'transparent'
+											}
+										}
+									}]
+								}
+							.panel
+								.panel-header
+									h4.panel-title Donut Chart
+								.panel-body
+									.highcharts-container.highcharts-container-lg( data-highcharts-options= circleChart )
+
+			#panelTab4.tab-pane.fade( role='tabpanel' )
+				.container-fluid
+					.row.row-30
+						//- Chat widget
+						.col-md-6
+							.panel
+								.panel-header
+									h4.panel-title
+										span.panel-icon.fa-pencil
+										= ' '
+										span Chat widget
+								.panel-body
+									.scroller.scroller-vertical( style='max-height: 400px;' )
+										.media.media-cloud.group-15
+											.media-item
+												img.rounded-circle( src='images/users/user-02-50x50.jpg', width='50', height='50', alt='' )
+											.media-body
+												h4.media-heading.offline
+													| Sara Marshall
+													= ' '
+													small - 12:30am
+												.media-text Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin.
+
+										.media.media-cloud.flex-row-reverse.group-15
+											.media-item
+												img.rounded-circle( src='images/users/user-03-50x50.jpg', width='50', height='50', alt='' )
+											.media-body.media-body-right-caret
+												h4.media-heading.online
+													| Tom Jorgensen
+													= ' '
+													small - 12:30am
+												.media-text Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin.
+
+										.media.media-cloud.group-15
+											.media-item
+												img.rounded-circle( src='images/users/user-02-50x50.jpg', width='50', height='50', alt='' )
+											.media-body
+												h4.media-heading.offline
+													| Sara Marshall
+													= ' '
+													small - 12:30am
+												.media-text Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin.
+
+										.media.media-cloud.flex-row-reverse.group-15
+											.media-item
+												img.rounded-circle( src='images/users/user-03-50x50.jpg', width='50', height='50', alt='' )
+											.media-body.media-body-right-caret
+												h4.media-heading.online
+													| Tom Jorgensen
+													= ' '
+													small - 12:30am
+												.media-text Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin.
+								.panel-footer
+									.input-group.form-group
+										input.form-control( type='text', placeholder='Enter your message here' )
+										.input-group-append
+											button.btn.btn-primary Send
+						//- Timeline widget
+						.col-md-6
+							.panel
+								.panel-header
+									h4.panel-title
+										span.panel-icon.fa-pencil
+										= ' '
+										span Activity/Timeline Widget
+								.panel-body.p-0
+									.timeline.timeline-simple
+										.item
+											.timeline-item
+												.timeline-item-icon.timeline-item-icon-secondary.fa-tags
+												.d-flex.justify-content-between
+													div
+														span.text-info Michael
+														= ' Added to his store: '
+														a( href='#' ) iPod
+													span.ml-2 1:25am
+
+											.timeline-item
+												.timeline-item-icon.timeline-item-icon-secondary.fa-tags
+												.d-flex.justify-content-between
+													div
+														span.text-info Sarah
+														= ' Added to her store: '
+														a( href='#' ) Notebook
+													span.ml-2 2:05am
+
+											.timeline-item
+												.timeline-item-icon.timeline-item-icon-success.fa-usd
+												.d-flex.justify-content-between
+													div
+														span.text-info Admin
+														= ' created invoice for: '
+														a( href='#' ) Software
+													span.ml-2 3:15am
+
+											.timeline-item
+												.timeline-item-icon.timeline-item-icon-success.fa-usd
+												.d-flex.justify-content-between
+													div
+														span.text-info Admin
+														= ' created invoice for: '
+														a( href='#' ) Apple
+													span.ml-2 3:45am
+
+											.timeline-item
+												.timeline-item-icon.timeline-item-icon-success.fa-usd
+												.d-flex.justify-content-between
+													div
+														span.text-info Admin
+														= ' created invoice for: '
+														a( href='#' ) Software
+													span.ml-2 4:15am
+
+											.timeline-item
+												.timeline-item-icon.timeline-item-icon-success.fa-usd
+												.d-flex.justify-content-between
+													div
+														span.text-info Admin
+														= ' created invoice for: '
+														a( href='#' ) Apple
+													span.ml-2 5:45am
+
+											.timeline-item
+												.timeline-item-icon.timeline-item-icon-secondary.fa-tags
+												.d-flex.justify-content-between
+													div
+														span.text-info Michael
+														= ' Added to his store: '
+														a( href='#' ) iPod
+													span.ml-2 6:25am
+
+											.timeline-item
+												.timeline-item-icon.timeline-item-icon-info.fa-fire
+												.d-flex.justify-content-between
+													div
+														span.text-info Admin
+														= ' created invoice for: '
+														a( href='#' ) Software
+													span.ml-2 7:15am
+
+											.timeline-item
+												.timeline-item-icon.timeline-item-icon-secondary.fa-tags
+												.d-flex.justify-content-between
+													div
+														span.text-info Sarah
+														= ' Added to her store: '
+														a( href='#' ) Notebook
+													span.ml-2 8:05am

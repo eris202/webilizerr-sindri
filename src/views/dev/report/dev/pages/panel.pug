@@ -1,0 +1,444 @@
+extends ../components/base/_skeleton
+include ../components/dropdown/_dropdown
+include ../components/input/_input
+include ../components/progress/_progress
+include ../components/rd-navbar/_rd-navbar
+include ../components/breadcrumbs/_breadcrumbs
+
+block variables
+	- pageName = 'Panel'
+
+block page
+	header.section.page-header
+		+rd-navbar
+
+	section.topbar
+		+breadcrumbs( breadcrumbs )
+
+	section.section-md
+		.container-fluid
+			h2.text-center Color options
+			.row.row-30
+				.col-md-4
+					.panel
+						.panel-header
+							.group-5.d-flex.flex-wrap.align-items-center.justify-content-between
+								h4.panel-title Panel default
+								code.code-bg .panel-default
+						.panel-body
+							p.panel-text
+								| Some quick example text to build on the panel title and make up the bulk of the panel's content.
+
+				.col-md-4
+					.panel.panel-primary
+						.panel-header
+							.group-5.d-flex.flex-wrap.align-items-center.justify-content-between
+								h4.panel-title Panel primary
+								code.code-bg .panel-primary
+						.panel-body
+							p.panel-text
+								| Some quick example text to build on the panel title and make up the bulk of the panel's content.
+
+				.col-md-4
+					.panel.panel-secondary
+						.panel-header
+							.group-5.d-flex.flex-wrap.align-items-center.justify-content-between
+								h4.panel-title Panel secondary
+								code.code-bg .panel-secondary
+						.panel-body
+							p.panel-text
+								| Some quick example text to build on the panel title and make up the bulk of the panel's content.
+
+				.col-md-4
+					.panel.panel-success
+						.panel-header
+							.group-5.d-flex.flex-wrap.align-items-center.justify-content-between
+								h4.panel-title Panel success
+								code.code-bg .panel-success
+						.panel-body
+							p.panel-text
+								| Some quick example text to build on the panel title and make up the bulk of the panel's content.
+
+				.col-md-4
+					.panel.panel-info
+						.panel-header
+							.group-5.d-flex.flex-wrap.align-items-center.justify-content-between
+								h4.panel-title Panel info
+								code.code-bg .panel-info
+						.panel-body
+							p.panel-text
+								| Some quick example text to build on the panel title and make up the bulk of the panel's content.
+
+				.col-md-4
+					.panel.panel-warning
+						.panel-header
+							.group-5.d-flex.flex-wrap.align-items-center.justify-content-between
+								h4.panel-title Panel warning
+								code.code-bg .panel-warning
+						.panel-body
+							p.panel-text
+								| Some quick example text to build on the panel title and make up the bulk of the panel's content.
+
+				.col-md-4
+					.panel.panel-danger
+						.panel-header
+							.group-5.d-flex.flex-wrap.align-items-center.justify-content-between
+								h4.panel-title Panel danger
+								code.code-bg .panel-danger
+						.panel-body
+							p.panel-text
+								| Some quick example text to build on the panel title and make up the bulk of the panel's content.
+
+				.col-md-4
+					.panel.panel-light
+						.panel-header
+							.group-5.d-flex.flex-wrap.align-items-center.justify-content-between
+								h4.panel-title Panel light
+								code.code-bg .panel-light
+						.panel-body
+							p.panel-text
+								| Some quick example text to build on the panel title and make up the bulk of the panel's content.
+
+				.col-md-4
+					.panel.panel-dark
+						.panel-header
+							.group-5.d-flex.flex-wrap.align-items-center.justify-content-between
+								h4.panel-title Panel dark
+								code.code-bg .panel-dark
+						.panel-body
+							p.panel-text
+								| Some quick example text to build on the panel title and make up the bulk of the panel's content.
+
+			// Style options
+			h2.text-center Style options
+			.row.row-30
+				.col-md-4
+					.panel.panel-border-top.panel-border-primary
+						.panel-header
+							.group-5.d-flex.flex-wrap.align-items-center.justify-content-between
+								h4.panel-title Panel border top
+								code.code-bg .panel-border-top.panel-border-primary
+						.panel-body
+							p.panel-text
+								| Some quick example text to build on the panel title and make up the bulk of the panel's content.
+
+				.col-md-4
+					.panel.panel-border-left.panel-border-success
+						.panel-header
+							.group-5.d-flex.flex-wrap.align-items-center.justify-content-between
+								h4.panel-title Panel border left
+								code.code-bg .panel-border-left.panel-border-success
+						.panel-body
+							p.panel-text
+								| Some quick example text to build on the panel title and make up the bulk of the panel's content.
+
+				.col-md-4
+					.panel.panel-border-right.panel-border-warning
+						.panel-header
+							.group-5.d-flex.flex-wrap.align-items-center.justify-content-between
+								h4.panel-title Panel border right
+								code.code-bg .panel-border-right.panel-border-warning
+						.panel-body
+							p.panel-text
+								| Some quick example text to build on the panel title and make up the bulk of the panel's content.
+
+				.col-md-4
+					.panel.panel-border-primary.panel-border
+						.panel-header
+							.group-5.d-flex.flex-wrap.align-items-center.justify-content-between
+								h4.panel-title Panel border
+								code.code-bg .pane-border.panel-border-primary
+						.panel-body
+							p.panel-text
+								| Some quick example text to build on the panel title and make up the bulk of the panel's content.
+
+				.col-md-4
+					.panel.panel-border-success.panel-border
+						.panel-header
+							.group-5.d-flex.flex-wrap.align-items-center.justify-content-between
+								h4.panel-title Panel border
+								code.code-bg .panel-border.panel-border-success
+						.panel-body
+							p.panel-text
+								| Some quick example text to build on the panel title and make up the bulk of the panel's content.
+
+				.col-md-4
+					.panel.panel-border-warning.panel-border
+						.panel-header
+							.group-5.d-flex.flex-wrap.align-items-center.justify-content-between
+								h4.panel-title Panel border
+								code.code-bg .panel-border.panel-border-warning
+						.panel-body
+							p.panel-text
+								| Some quick example text to build on the panel title and make up the bulk of the panel's content.
+
+				.col-md-4
+					.panel.panel-gradient.panel-primary
+						.panel-header
+							.group-5.d-flex.flex-wrap.align-items-center.justify-content-between
+								h4.panel-title Panel gradient background
+								code.code-bg .panel-gradient.panel-primary
+						.panel-body
+							p.panel-text
+								| Some quick example text to build on the panel title and make up the bulk of the panel's content.
+
+				.col-md-4
+					.panel.panel-gradient.panel-success
+						.panel-header
+							.group-5.d-flex.flex-wrap.align-items-center.justify-content-between
+								h4.panel-title Panel gradient background
+								code.code-bg .panel-gradient.panel-success
+						.panel-body
+							p.panel-text
+								| Some quick example text to build on the panel title and make up the bulk of the panel's content.
+
+				.col-md-4
+					.panel.panel-gradient.panel-warning
+						.panel-header
+							.group-5.d-flex.flex-wrap.align-items-center.justify-content-between
+								h4.panel-title Panel gradient background
+								code.code-bg .panel-gradient.panel-warning
+						.panel-body
+							p.panel-text
+								| Some quick example text to build on the panel title and make up the bulk of the panel's content.
+
+				.col-md-4
+					.panel.panel-info.panel-gradient
+						.panel-header
+							.group-5.d-flex.flex-wrap.align-items-center.justify-content-between
+								h4.panel-title Panel gradient background
+								code.code-bg .panel-info.panel-gradient
+						.panel-body
+							p.panel-text
+								| Some quick example text to build on the panel title and make up the bulk of the panel's content.
+
+				.col-md-4
+					.panel.panel-danger.panel-gradient
+						.panel-header
+							.group-5.d-flex.flex-wrap.align-items-center.justify-content-between
+								h4.panel-title Panel gradient background
+								code.code-bg .panel-danger.panel-gradient
+						.panel-body
+							p.panel-text
+								| Some quick example text to build on the panel title and make up the bulk of the panel's content.
+
+				.col-md-4
+					.panel.panel-dark.panel-gradient
+						.panel-header
+							.group-5.d-flex.flex-wrap.align-items-center.justify-content-between
+								h4.panel-title Panel gradient background
+								code.code-bg .panel-dark.panel-gradient
+						.panel-body
+							p.panel-text
+								| Some quick example text to build on the panel title and make up the bulk of the panel's content.
+
+				.col-md-4
+					.panel.panel-image-bg
+						.panel-header
+							.group-5.d-flex.flex-wrap.align-items-center.justify-content-between
+								h4.panel-title Panel image background
+								code.code-bg .panel-image-bg
+						.panel-body
+							p.panel-text
+								| Some quick example text to build on the panel title and make up the bulk of the panel's content.
+
+				.col-md-4
+					.panel.panel-image-bg.panel-info
+						.panel-header
+							.group-5.d-flex.flex-wrap.align-items-center.justify-content-between
+								h4.panel-title Panel image background
+								code.code-bg .panel-image-bg.panel-info
+						.panel-body
+							p.panel-text
+								| Some quick example text to build on the panel title and make up the bulk of the panel's content.
+
+				.col-md-4
+					.panel.panel-image-bg.panel-dark.panel-gradient
+						.panel-header
+							.group-5.d-flex.flex-wrap.align-items-center.justify-content-between
+								h4.panel-title Panel image background
+								code.code-bg .panel-image-bg.panel-dark.panel-gradient
+						.panel-body
+							p.panel-text
+								| Some quick example text to build on the panel title and make up the bulk of the panel's content.
+
+			// Menu options
+			h2.text-center Menu options
+			.row.row-30
+				.col-md-4
+					.panel
+						.panel-header
+							h4.panel-title
+								span.panel-icon.fa-trophy
+								span With Icon
+						.panel-body
+							p.panel-text
+								| Some quick example text to build on the panel title and make up the bulk of the panel's content.
+
+				.col-md-4
+					.panel
+						.panel-header
+							.group-5.d-flex.flex-wrap.align-items-center.justify-content-between
+								h4.panel-title With Badge
+								div
+									.badge.badge-pill.badge-primary Label
+									.badge.badge-pill.badge-success 32
+						.panel-body
+							p.panel-text
+								| Some quick example text to build on the panel title and make up the bulk of the panel's content.
+
+				.col-md-4
+					.panel
+						.panel-header
+							.group-5.d-flex.flex-wrap.align-items-center.justify-content-between
+								h4.panel-title With Dropdown
+								div
+									+button-dropdown({
+										buttonText: 'View',
+										btnIcon: 'fa-trophy',
+										list: [
+											{ text: 'Option 1' },
+											{ text: 'Option 2' },
+											{ text: 'Option 3' },
+											{ divider: true },
+											{ text: 'Option 4' }
+										]
+									}).btn-sm.btn-primary
+
+									+button-dropdown({
+										buttonText: 'Add',
+										btnIcon:    'fa-user',
+										list: [
+											{ text: 'Option 1' },
+											{ text: 'Option 2' },
+											{ text: 'Option 3' },
+											{ divider: true },
+											{ text: 'Option 4' }
+										]
+									}).btn-sm.btn-success
+						.panel-body
+							p.panel-text
+								| Some quick example text to build on the panel title and make up the bulk of the panel's content.
+
+				.col-md-4
+					.panel
+						.panel-header
+							.group-5.d-flex.flex-wrap.align-items-center.justify-content-between
+								h4.panel-title With Switch
+								div
+									+switch( {
+										id: 'customPanelSwitch'
+									} ).custom-switch-primary
+						.panel-body
+							p.panel-text
+								| Some quick example text to build on the panel title and make up the bulk of the panel's content.
+
+				.col-md-4
+					.panel
+						.panel-header
+							.group-5.d-flex.flex-wrap.align-items-center.justify-content-between
+								h4.panel-title With Multi Input
+								.btn-group
+									button.btn.btn-sm.btn-info 1
+									button.btn.btn-sm.btn-primary 2
+									button.btn.btn-sm.btn-info 3
+						.panel-body
+							p.panel-text
+								| Some quick example text to build on the panel title and make up the bulk of the panel's content.
+
+				.col-md-4
+					.panel
+						.panel-header
+							.group-5.d-flex.flex-wrap.align-items-center.justify-content-between
+								h4.panel-title With Toolbar
+								.btn-group
+									button.btn.btn-sm.btn-info: span.fa-backward
+									button.btn.btn-sm.btn-info: span.fa-play
+									button.btn.btn-sm.btn-info: span.fa-pause
+									button.btn.btn-sm.btn-info: span.fa-forward
+						.panel-body
+							p.panel-text
+								| Some quick example text to build on the panel title and make up the bulk of the panel's content.
+
+				.col-md-4
+					.panel
+						.panel-header
+							.group-5.d-flex.flex-wrap.align-items-center.justify-content-between
+								h4.panel-title With Progress bar
+								div( style='width: 160px;' )
+									+progress( {
+										className: 'bg-primary',
+										value:     '50'
+									} ).progress-sm
+						.panel-body
+							p.panel-text
+								| Some quick example text to build on the panel title and make up the bulk of the panel's content.
+
+				.col-md-4
+					.panel
+						.panel-header
+							.group-5.d-flex.flex-wrap.align-items-center.justify-content-between
+								h4.panel-title With Form Input
+								div
+									input.form-control.form-control-sm( type='text', placeholder='.form-control-sm' )
+						.panel-body
+							p.panel-text
+								| Some quick example text to build on the panel title and make up the bulk of the panel's content.
+
+				.col-md-4
+					.panel.panel-nav
+						.panel-header.d-flex.flex-wrap.align-items-center.justify-content-between
+							h4.panel-title With Navigation
+							ul.nav.nav-tabs.scroller.scroller-horizontal( role='tablist' )
+								li.nav-item: a.nav-link.active( data-toggle='tab', href='#panelTab1', role='tab', aria-controls='panelTab1', aria-selected='true' ) Active
+								li.nav-item: a.nav-link( data-toggle='tab', href='#panelTab2', role='tab', aria-controls='panelTab2', aria-selected='false' ) Active
+						.panel-body
+							.tab-content
+								#panelTab1.tab-pane.fade.show.active( role='tabpanel' ) Some quick example text to build on the panel title and make up the bulk of the panel's content. bulk of the panel's content.
+								#panelTab2.tab-pane.fade( role='tabpanel' ) Some quick example text to build on the panel title and make up the bulk of the panel'sbulk of the panel's content. bulk of the panel's content.
+
+				.col-md-4
+					.panel
+						.panel-header
+							h4.panel-title With Submenu
+						.panel-menu
+							.group-5
+								button.btn.btn-primary
+									span.btn-icon.fa-car
+									= ' Cars'
+								button.btn.btn-success
+									span.btn-icon.fa-home
+									= ' Home'
+								button.btn.btn-info
+									span.btn-icon.fa-rocket
+									= ' Rocket'
+						.panel-body Some quick example text to build on the panel title and make up the bulk of the panel's content.bulk of the panel's content. bulk of the panel's content.
+
+				.col-md-4
+					#accordionExample.accordion
+						.panel
+							#heading1.panel-header
+								.group-5.d-flex.flex-wrap.align-items-center.justify-content-between
+									a.collapse-link.h3( href='#collapse1', data-toggle='collapse', data-target='#collapse1', aria-expanded='true', aria-controls='collapse1' ) Panel collapse 1
+							#collapse1.collapse.show( aria-labelledby='heading1', data-parent='#accordionExample' )
+								.panel-body Some quick example text to build on the panel title and make up the bulk of the panel's content.bulk of the panel's content. bulk of the panel's content.
+
+				.col-md-4
+					.panel.panel-primary
+						.panel-header
+							.d-flex.flex-wrap.align-items-center.justify-content-between
+								h4.panel-title With Footer
+						.panel-body.panel-body-bg
+							p.panel-text
+								| Some quick example text to build on the panel title and make up the bulk of the panel's content.
+						.panel-footer
+							.group-5
+								button.btn.btn-secondary
+									span.btn-icon.fa-car
+									= ' Cars'
+								button.btn.btn-success
+									span.btn-icon.fa-home
+									= ' Home'
+								button.btn.btn-info
+									span.btn-icon.fa-rocket
+									= ' Rocket'

@@ -1,0 +1,743 @@
+extends ../components/base/_skeleton
+include ../components/rd-navbar/_rd-navbar
+include ../components/breadcrumbs/_breadcrumbs
+
+block variables
+	- pageName = 'Highcharts';
+
+block page
+	header.section.page-header
+		+rd-navbar
+
+	section.topbar
+		+breadcrumbs( breadcrumbs )
+
+	section.bg-white.section-sm
+		.container
+			.row.row-30.justify-content-center
+				.col-sm-5.col-md-4.col-lg-4
+					h3 Highcharts
+					ul.list-unstyled.list-md.mt-2
+						li
+							span.fa-exclamation-circle.pr-2
+							b Author:
+							span  Highsoft AS
+						li
+							span.fa-exclamation-circle.pr-2
+							b License:
+							a( href='https://highcharts.com/license' )  www.highcharts.com/license
+						li
+							span.fa-exclamation-circle.pr-2
+							b Website:
+							a( href='https://highcharts.com' )  www.highcharts.com
+				.col-sm-7.col-lg-6
+					p Highcharts makes it easy for developers to set up interactive charts in their web pages. Create interactive charts easily for your web projects. Used by tens of thousands of developers and over 80% out of the world's 500 largest companies. Highcharts is the simplest yet most flexible charting API on the market. It makes it easy to add interactive, mobile-optimized charts to your web and mobile projects.
+
+	.row.no-gutters.mt-0
+		.col-12.pt-4.pb-5
+			.container-fluid
+				.row.row-30
+					// Basic column chart
+					.col-md-12
+						-
+							var basicColumn = {
+								chart: {
+									type: 'column',
+									marginTop: 30,
+									marginBottom: 30
+								},
+								credits: false,
+								colors: [ '#58a193', '#58a193', '#f7ad6a', '#f7ad6a', '#5b5eab', '#5b5eab' ],
+								title: {
+									text: null
+								},
+								legend: {
+									enabled: false
+								},
+								xAxis: {
+									lineWidth: 0,
+									tickColor: '#999',
+									tickLength: 5,
+									labels: {
+										style: {
+											color: '#999'
+										}
+									}
+								},
+								yAxis: {
+									max: 20,
+									gridLineWidth: 0,
+									title: {
+										text: null
+									},
+									labels: {
+										enabled: false
+									}
+								},
+								tooltip: {
+									headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+									pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+																	'<td style="padding:0"><b>{point.y:.1f} mm</b></td></tr>',
+									footerFormat: '</table>',
+									shared: true,
+									useHTML: true
+								},
+								plotOptions: {
+									column: {
+										colorByPoint: true,
+										borderColor: 'transparent'
+									}
+								},
+								series: [{
+									name: 'Tokyo',
+									data: [12, 14, 20, 19, 8, 12, 14, 20, 5, 16, 8, 12, 14, 20, 19, 5, 16, 8, 12, 14, 20, 19, 5, 16, 8 ]
+								}]
+							}
+						.panel
+							.panel-header
+								h4.panel-title Basic Column Chart
+							.panel-body
+								.highcharts-container.highcharts-container-lg( data-highcharts-options= basicColumn )
+
+					// Line detail chart
+					.col-md-12
+						.panel( data-highcharts-double='container', data-file='./components/highcharts/highcharts.json' )
+							.panel-header
+								h4.panel-title Line detail chart
+							.panel-body
+								.highcharts-container-double-detail( data-highcharts-double='detail' )
+							.panel-footer
+								div( data-highcharts-double='master', style='height:100px;' )
+
+					// Filterable column chart
+					.col-md-12
+						-
+							var filterableColumn = {
+								credits: false,
+								colors: [ '#58a193', '#f7ad6a', '#5b5eab', '#34B1CC' ],
+								chart: {
+									type: 'column',
+									zoomType: 'x',
+									panning: true, // zoom on mouse selection
+									panKey: 'shift' // move chart at zoom
+								},
+								title: {
+									text: null
+								},
+								legend: {
+									itemStyle: {
+										color: '#aaa',
+										fontWeight: 'normal'
+									},
+									itemHoverStyle: {
+										color: '#777'
+									}
+								},
+								xAxis: {
+									lineColor: '#dde3e8',
+									labels: {
+										style: {
+											color: '#bebebe'
+										}
+									},
+									categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec' ]
+								},
+								yAxis: {
+									tickInterval: 5,
+									gridLineColor: '#dde3e8',
+									labels: {
+										style: {
+											color: '#bebebe'
+										}
+									},
+									title: {
+										text: 'Traffic',
+										style: {
+											color: '#58a193',
+											fontWeight: '600'
+										}
+									}
+								},
+								series: [
+									{
+										name: 'Yahoo',
+										data: [7.0, 6, 9, 14, 18, 21.5, 25.2, 26.5, 23.3, 18.3, 13.9, 9.6]
+									},
+									{
+										name: 'CNN',
+										data: [3.9, 4.2, 5.7, 8.5, 11.9, 15.2, 17.0, 16.6, 14.2, 10.3, 6.6, 4.8]
+									},
+									{
+										name: 'Yahoo',
+										data: [1, 5, 5.7, 11.3, 17.0, 22.0, 24.8, 24.1, 20.1, 14.1, 8.6, 2.5]
+									},
+									{
+										name: 'Facebook',
+										data: [3, 1, 3.5, 8.4, 13.5, 17.0, 18.6, 17.9, 14.3, 9.0, 3.9, 1.0]
+									}
+								],
+								plotOptions: {
+									column: {
+										borderColor: 'transparent'
+									}
+								},
+								responsive: {
+									rules: [{
+										condition: {
+												maxWidth: 575
+										},
+										// Make the labels less space demanding on mobile
+										chartOptions: {
+											title: {
+												text: 'Traffic'
+											},
+											yAxis: {
+												title: {
+													text: ''
+												}
+											}
+										}
+									}]
+								}
+							}
+						.panel
+							.panel-header
+								h4.panel-title Filterable Column Chart
+							.panel-body
+								.highcharts-container( data-highcharts-options= filterableColumn, style='height:400px;' )
+
+					// Pie Chart
+					.col-xxl-6
+						-
+							var pieChart = {
+								credits: false,
+								colors: [ '#58a193', '#dc3545', '#fd7e14', '#f7ad6a', '#5b5eab', '#34B1CC' ],
+								chart: {
+									type: 'pie'
+								},
+								title: {
+									text: null
+								},
+								legend: {
+									itemStyle: {
+										color: '#aaa',
+										fontWeight: 'normal'
+									},
+									itemHoverStyle: {
+										color: '#777'
+									}
+								},
+								tooltip: {
+									pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+								},
+								plotOptions: {
+									pie: {
+										allowPointSelect: true,
+										cursor: 'pointer',
+										borderColor: 'transparent',
+										dataLabels: {
+											enabled: false
+										},
+										showInLegend: true
+									}
+								},
+								series: [{
+									name: 'Brands',
+									colorByPoint: true,
+									data: [{
+										name: 'Chrome',
+										y: 61.41,
+										sliced: true,
+										selected: true
+									}, {
+										name: 'Internet Explorer',
+										y: 11.84
+									}, {
+										name: 'Firefox',
+										y: 10.85
+									}, {
+										name: 'Edge',
+										y: 4.67
+									}, {
+										name: 'Safari',
+										y: 4.18
+									}, {
+										name: 'Other',
+										y: 7.05
+									}]
+								}]
+							}
+						.panel
+							.panel-header
+								h4.panel-title Pie Chart
+							.panel-body
+								.highcharts-container( data-highcharts-options= pieChart, style='height:400px;' )
+
+					// Donut Chart
+					.col-xxl-6
+						-
+							var circleChart = {
+								credits: false,
+								colors: [ '#58a193', '#dc3545', '#fd7e14', '#f7ad6a', '#5b5eab', '#34B1CC' ],
+								title: {
+									text: 'Browser shares 2019',
+									align: 'center'
+								},
+								tooltip: {
+									pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+								},
+								plotOptions: {
+									pie: {
+										dataLabels: {
+											enabled: true,
+											style: {
+												fontWeight: 'bold'
+											}
+										},
+										center: ['50%', '50%']
+									}
+								},
+								series: [{
+									type: 'pie',
+									name: 'Browser share',
+									innerSize: '70%',
+									data: [
+										['Chrome', 58.9],
+										['Firefox', 13.29],
+										['Internet Explorer', 13],
+										['Edge', 3.78],
+										['Safari', 3.42],
+										{
+											name: 'Other',
+											y: 7.61,
+											dataLabels: {
+												enabled: false
+											}
+										}
+									],
+									dataLabels: {
+										style: {
+											fontWeight: 'normal',
+											color: '#777',
+											textOutline: 'transparent'
+										}
+									}
+								}]
+							}
+						.panel
+							.panel-header
+								h4.panel-title Donut Chart
+							.panel-body
+								.highcharts-container.highcharts-container-lg( data-highcharts-options= circleChart )
+
+					// Filterable linear chart
+					.col-md-12
+						-
+							var linearFilterableChart = {
+								credits: false,
+								colors: [ '#58a193', '#f7ad6a' ],
+								chart: {
+									type: 'line'
+								},
+								title: {
+									text: null
+								},
+								legend: {
+									itemStyle: {
+										color: '#777',
+										fontWeight: 'normal'
+									},
+									itemHoverStyle: {
+										color: '#919495'
+									}
+								},
+								xAxis: {
+									lineColor: '#dde3e8',
+									labels: {
+										style: {
+											color: '#bebebe'
+										}
+									},
+									categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+								},
+								yAxis: {
+									min: 0,
+									tickInterval: 5,
+									gridLineColor: '#dde3e8',
+									labels: {
+										style: {
+											color: '#bebebe'
+										}
+									},
+									title: {
+											text: null
+									}
+								},
+								series: [{
+									name: 'Yahoo',
+									data: [7.0, 6, 9, 14, 18, 21.5, 25.2, 26.5, 23.3, 18.3, 13.9, 9.6]
+								}, {
+									name: 'CNN',
+									data: [3.9, 4.2, 5.7, 8.5, 11.9, 15.2, 17.0, 16.6, 14.2, 10.3, 6.6, 4.8]
+								}]
+							}
+						.panel
+							.panel-header
+								h4.panel-title Filterable linear chart
+							.panel-body.pb-0
+								.highcharts-container( data-highcharts-options= linearFilterableChart )
+
+					// Bar chart
+					.col-md-12
+						-
+							var barChart = {
+								colors: [ '#58a193', '#f7ad6a', '#5b5eab' ],
+								credits: false,
+								legend: {
+									itemStyle: {
+										color: '#777',
+										fontWeight: 'normal'
+									},
+									itemHoverStyle: {
+										color: '#919495'
+									}
+								},
+								chart: {
+									type: 'bar'
+								},
+								title: {
+									text: null
+								},
+								xAxis: {
+									showEmpty: false,
+									tickLength: 80,
+									offset: 1,
+									lineColor: '#dde3e8',
+									categories: ['TV', 'Radio'],
+									title: {
+										text: null
+									},
+									labels: {
+										align: 'right',
+										style: {
+											color: '#bebebe'
+										}
+									}
+								},
+								yAxis: {
+									min: 0,
+									gridLineWidth: 0,
+									showEmpty: false,
+									title: {
+										text: null
+									},
+									labels: {
+										enabled: false
+									}
+								},
+								tooltip: {
+									valueSuffix: ' millions'
+								},
+								plotOptions: {
+									bar: {
+										borderColor: 'transparent'
+									}
+								},
+								series: [
+									{
+										name: 'Viewers',
+										data: [100, 100]
+									},
+									{
+										name: 'Women',
+										data: [36, 55]
+									},
+									{
+										name: 'Men',
+										data: [65, 45]
+									}
+								]
+							}
+						.panel
+							.panel-header
+								h4.panel-title Bar chart
+							.panel-body
+								.highcharts-container( data-highcharts-options= barChart, style='height:200px;' )
+
+					// Spline area chart
+					.col-md-12
+						-
+							var splineAreaChart = {
+								colors: [ '#58a193', '#f7ad6a', '#5b5eab' ],
+								credits: false,
+								chart: {
+									type: 'areaspline',
+									spacing: 0,
+									margin: -10
+								},
+								title: {
+									text: null
+								},
+								legend: {
+									enabled: false
+								},
+								xAxis: {
+									allowDecimals: false,
+									tickColor: '#EEE'
+								},
+								yAxis: {
+									title: {
+										text: null
+									},
+									gridLineColor: 'transparent',
+									labels: {
+										enabled: false
+									}
+								},
+								plotOptions: {
+									areaspline: {
+										fillOpacity: 0.25,
+										marker: {
+											enabled: true,
+											symbol: 'circle',
+											radius: 2,
+											states: {
+												hover: {
+													enabled: true
+												}
+											}
+										}
+									}
+								},
+								series: [
+									{
+										name: 'USA',
+										data: [150, 260, 80, 100, 150,200, 240]
+									},
+									{
+										name: 'Russia',
+										data: [10, 20, 40, 120, 240, 180, 160]
+									},
+									{
+										name: 'China',
+										data: [60, 100, 180, 110, 100, 20, 40]
+									}
+								]
+							}
+						.panel
+							.panel-header
+								h4.panel-title Spline area chart
+							.panel-body
+								.highcharts-container( data-highcharts-options= splineAreaChart )
+
+					// Sparkline charts
+					.col-md-12
+						.panel
+							.panel-header
+								h4.panel-title Sparkline charts
+							.panel-body
+								.table-responsive.scroller.scroller-horizontal
+									table.table.table-vertical-align
+										thead
+											tr
+												th State
+												th Income
+												th Income per quarter
+												th Costs
+												th Costs per quarter
+												th Result
+												th Result per quarter
+										tbody
+											tr
+												th Alabama
+												td 254
+												td( data-sparkline!= {
+													colors: [ '#58a193' ],
+													series: [
+														{ data:[ 71, 78, 39, 66 ] }
+														]
+												} )
+												td 296
+												td( data-sparkline!= {
+													colors: [ '#58a193' ],
+													series: [
+														{ data:[ 68, 52, 80, 96 ] }
+														]
+												} )
+												td -42
+												td( data-sparkline!= {
+													colors: [ '#58a193' ],
+													chart: { type: 'column' },
+													series: [
+														{ data:[ 3, 26, -41, -30 ] }
+													]
+												} )
+											tr
+												th Alaska
+												td 246
+												td( data-sparkline!= {
+													colors: [ '#f7ad6a' ],
+													series: [
+														{ data:[ 87, 44, 74, 41 ] }
+														]
+												} )
+												td 181
+												td( data-sparkline!= {
+													colors: [ '#f7ad6a' ],
+													series: [
+														{ data:[ 29, 54, 73, 25 ] }
+														]
+												} )
+												td 65
+												td( data-sparkline!= {
+													colors: [ '#f7ad6a' ],
+													chart: { type: 'column' },
+													series: [
+														{ data:[ 58, -10, 1, 16 ] }
+														]
+												} )
+											tr
+												th Arizona
+												td 101
+												td( data-sparkline!= {
+													colors: [ '#5b5eab' ],
+													series: [
+														{ data: [ 56, 12, 8, 25 ] }
+														]
+												} )
+												td 191
+												td( data-sparkline!= {
+													colors: [ '#5b5eab' ],
+													series: [
+														{ data: [ 69, 14, 53, 55 ] }
+														]
+												} )
+												td -90
+												td( data-sparkline!= {
+													colors: [ '#5b5eab' ],
+													chart:  { type: 'column' },
+													series: [ { data: [ -13, -2, -45, -30 ] } ]
+												} )
+											tr
+												th Arkansas
+												td 303
+												td( data-sparkline!= {
+													colors: [ '#34b1cc' ],
+													series: [
+														{ data:[ 81, 50, 78, 94 ] }
+														]
+												} )
+												td 76
+												td( data-sparkline!= {
+													colors: [ '#34b1cc' ],
+													series: [
+														{ data:[ 36, 15, 14, 11 ] }
+														]
+												} )
+												td 227
+												td( data-sparkline!= {
+													colors: [ '#34b1cc' ],
+													chart:  { type: 'column' },
+													series: [
+														{ data: [ 45, 35, 64, 83 ] }
+													]
+												} )
+											tr
+												th California
+												td 200
+												td( data-sparkline!= {
+													colors: [ '#48c8af' ],
+													series: [
+														{ data:[ 61, 80, 10, 49 ] }
+														]
+												} )
+												td 217
+												td( data-sparkline!= {
+													colors: [ '#48c8af' ],
+													series: [
+														{ data:[ 100, 8, 52, 57 ] }
+														]
+												} )
+												td -17
+												td( data-sparkline!= {
+													colors: [ '#48c8af' ],
+													chart:  { type: 'column' },
+													series: [
+														{ data: [ -39, 72, -42, -8 ] }
+													]
+												} )
+
+					// Column graph chart
+					.col-md-12
+						-
+							var columnGraphChart = {
+								credits:  false,
+								colors: [ '#58a193', '#f7ad6a', '#5b5eab', '#34b1cc' ],
+								chart: {
+									type: 'column'
+								},
+								legend: {
+									enabled: false
+								},
+								title: {
+									text: null
+								},
+								xAxis: {
+									lineWidth: 0,
+									tickLength: 0,
+									minorTickLength: 0,
+									title: {
+										text: null
+									},
+									labels: {
+										enabled: false
+									}
+								},
+								yAxis: {
+									gridLineWidth: 0,
+									title: {
+										text: null
+									},
+									labels: {
+										enabled: false
+									}
+								},
+								tooltip: {
+									headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+									pointFormat:  '<tr><td style="color:{series.color}; padding: 0">{series.name}: </td>' +
+																	'<td style="padding:0"><b>{point.y:.1f} mm</b></td></tr>',
+									footerFormat: '</table>',
+									shared:       true,
+									useHTML:      true
+								},
+								plotOptions: {
+									column: {
+										groupPadding: 0.05,
+										pointPadding: 0.25,
+										borderWidth: 0
+									}
+								},
+								series: [
+									{
+										name: 'Behance',
+										data: [ 30 ]
+									},
+									{
+										name: 'Twitter',
+										data: [ 60 ]
+									},
+									{
+										name: 'Facebook',
+										data: [ 90 ]
+									},
+									{
+										name: 'Dribble',
+										data: [ 120 ]
+									}
+								]
+							}
+						.panel
+							.panel-header
+								h4.panel-title Column graph chart
+							.panel-body
+								.highcharts-container( data-highcharts-options= columnGraphChart )

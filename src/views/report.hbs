@@ -1,0 +1,2221 @@
+<!DOCTYPE html>
+<html class="rd-navbar-sidebar-active page-small-footer" lang="en">
+
+<head>
+  <title>Report Result</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
+  <meta https-equiv="X-UA-Compatible" content="IE=edge">
+  <meta property="og:title" content="Webilizerr SEO Audit Platform">
+  <meta property="og:description"
+    content="brevis, barbatus clabulares aliquando convertam de dexter, peritus capio. devatio clemens habitio est.">
+  <meta property="og:image" content="http://digipunk.netii.net/images/radar.gif">
+  <meta property="og:url" content="http://digipunk.netii.net">
+  <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="components/base/base.css">
+  <script src="components/base/script.js"></script>
+
+</head>
+
+<body>
+  <div class="page">
+    {{> header}}
+
+    <section class="section-sm section-transparent">
+      <div class="col-lg-9 col-xxl-10">
+        <div class="panel">
+          <div class="panel-body p-0" style="margin: 10px;">
+            <div class="alert alert-primary alert-lighter mt-1" role="alert">
+              <span>Audit Results for {{data.input.url}}</span>
+            </div>
+            <div class="row row-30 justify-content-center">
+              <div class="col-sm-6 col-lg-5">
+                <div class="panel-header">
+                  <h4 class="panel-title">Overall Score!</h4>
+                </div>
+                <div class="media-item">
+                  <div class="progress-circle-wrap">
+                    <div class="progress-counter-wrap">
+                      <div class="progress-counter-value-header"
+                        style="color: {{data.output.scores.overall.colorGrade}}">
+                        <span>{{data.output.scores.overall.newGrade}}</span><span class="progress-postfix">%</span>
+                      </div>
+                    </div>
+                    <svg class="progress-circle" x="0" y="0" width="300" height="300" viewbox="0 0 60 60">
+                      <circle class="bg" cx="30" cy="30" r="29"></circle>
+                      <circle class="fg clipped" cx="30" cy="30" r="29"
+                        style="stroke:  {{data.output.scores.overall.colorGrade}}"></circle>
+                    </svg>
+                  </div>
+                </div>
+
+
+                <div class="container">
+                  <h2>{{data.output.scores.overall.title}}</h2>
+                  <button class="btn btn-block btn-sm btn-danger" type="button">You have
+                    {{data.output.recommendation_count}} improvementes recommendation</button>
+                  <H6>Report Generated: {{data.completed_at}}</H6>
+                  <button class="btn btn-block btn-sm btn-info" type="button">Scan again!</button>
+
+                </div>
+              </div>
+              <div class="col-6 col-xxl-5 offset-xxl-1"><img src="images/imac.png" width="360" height="481" alt="">
+              </div>
+            </div>
+
+            <div class="container-fluid">
+              <div class="row row-30">
+                <div class="col-md-2 col-lg-2">
+                  <div class="alert alert-lighter mt-1" style="text-align: center; " role="alert">
+                    <div class="media-item">
+                      <div class="progress-circle-wrap">
+                        <div class="progress-counter-wrap">
+                          <div class="progress-counter-value" style="color: {{data.output.scores.seo.colorGrade}}"><span
+                              class="progress-counter">{{data.output.scores.seo.newGrade}}</span><span
+                              class="progress-postfix">%</span>
+                          </div>
+                        </div>
+                        <svg class="progress-circle" x="0" y="0" width="100" height="100" viewbox="0 0 60 60">
+                          <circle class="bg" cx="30" cy="30" r="29"></circle>
+                          <circle class="fg clipped" cx="30" cy="30" r="29"
+                            style="stroke: {{data.output.scores.seo.colorGrade}}"></circle>
+                        </svg>
+                      </div>
+                      <h2>SEO</h2>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-md-2 col-lg-2">
+                  <div class="alert alert-lighter mt-1" style="text-align: center; " role="alert">
+                    <div class="media-item">
+                      <div class="progress-circle-wrap">
+                        <div class="progress-counter-wrap">
+                          <div class="progress-counter-value" style="color: {{data.output.scores.ui.colorGrade}}"><span
+                              class="progress-counter">{{data.output.scores.ui.newGrade}}</span><span
+                              class="progress-postfix">%</span>
+                          </div>
+                        </div>
+                        <svg class="progress-circle" x="0" y="0" width="100" height="100" viewbox="0 0 60 60">
+                          <circle class="bg" cx="30" cy="30" r="29"></circle>
+                          <circle class="fg clipped" cx="30" cy="30" r="29"
+                            style="stroke: {{data.output.scores.ui.colorGrade}}"></circle>
+                        </svg>
+                      </div>
+                      <h2>Usability</h2>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-md-2 col-lg-2">
+                  <div class="alert alert-lighter mt-1" style="text-align: center; " role="alert">
+                    <div class="media-item">
+                      <div class="progress-circle-wrap">
+                        <div class="progress-counter-wrap">
+                          <div class="progress-counter-value"
+                            style="color: {{data.output.scores.performance.colorGrade}}"><span
+                              class="progress-counter">{{data.output.scores.performance.newGrade}}</span><span
+                              class="progress-postfix">%</span>
+                          </div>
+                        </div>
+                        <svg class="progress-circle" x="0" y="0" width="100" height="100" viewbox="0 0 60 60">
+                          <circle class="bg" cx="30" cy="30" r="29"></circle>
+                          <circle class="fg clipped" cx="30" cy="30" r="29"
+                            style="stroke: {{data.output.scores.performance.colorGrade}}"></circle>
+                        </svg>
+                      </div>
+                      <h2>Performance</h2>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-md-2 col-lg-2">
+                  <div class="alert alert-lighter mt-1" style="text-align: center; " role="alert">
+                    <div class="media-item">
+                      <div class="progress-circle-wrap">
+                        <div class="progress-counter-wrap">
+                          <div class="progress-counter-value" style="color: {{data.output.scores.social.colorGrade}}">
+                            <span class="progress-counter">{{data.output.scores.social.newGrade}}</span><span
+                              class="progress-postfix">%</span>
+                          </div>
+                        </div>
+                        <svg class="progress-circle" x="0" y="0" width="100" height="100" viewbox="0 0 60 60">
+                          <circle class="bg" cx="30" cy="30" r="29"></circle>
+                          <circle class="fg clipped" cx="30" cy="30" r="29"
+                            style="stroke: {{data.output.scores.social.colorGrade}}"></circle>
+                        </svg>
+                      </div>
+                      <h2>Social</h2>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-md-2 col-lg-2">
+                  <div class="alert alert-lighter mt-1" style="text-align: center; " role="alert">
+                    <div class="media-item">
+                      <div class="progress-circle-wrap">
+                        <div class="progress-counter-wrap">
+                          <div class="progress-counter-value" style="color: {{data.output.scores.security.colorGrade}}">
+                            <span class="progress-counter">{{data.output.scores.security.newGrade}}</span><span
+                              class="progress-postfix">%</span>
+                          </div>
+                        </div>
+                        <svg class="progress-circle" x="0" y="0" width="100" height="100" viewbox="0 0 60 60">
+                          <circle class="bg" cx="30" cy="30" r="29"></circle>
+                          <circle class="fg clipped" cx="30" cy="30" r="29"
+                            style="stroke: {{data.output.scores.security.colorGrade}}"></circle>
+                        </svg>
+                      </div>
+                      <h2>Security</h2>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-sm section-transparent" style="margin: 10px;">
+      <div class="col-lg-12 col-xxl-10">
+        <div class="panel">
+          <div class="panel-body p-0">
+            <div class="alert alert-primary alert-lighter mt-1" role="alert">
+              <span>SEO resaults</span>
+            </div>
+          </div>
+          <div class="container-fluid">
+            <div class="row row-30">
+              <div class="col-md-4 col-lg-4">
+                <div class="media-item">
+                  <div class="progress-circle-wrap">
+                    <div class="progress-counter-wrap">
+                      <div class="progress-counter-value-main" style="color:  {{data.output.scores.seo.colorGrade}}">
+                        <span class="progress-counter"> {{data.output.scores.seo.newGrade}}</span><span
+                          class="progress-postfix">%</span>
+                      </div>
+                    </div>
+                    <svg class="progress-circle" x="0" y="0" width="200" height="200" viewbox="0 0 60 60">
+                      <circle class="bg" cx="30" cy="30" r="29"></circle>
+                      <circle class="fg clipped" cx="30" cy="30" r="29"
+                        style="stroke:  {{data.output.scores.seo.colorGrade}}"></circle>
+                    </svg>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-8 col-lg-6">
+                <h2>{{data.output.scores.seo.title}}</h2>
+                <p>{{data.output.scores.seo.description}}</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="container-fluid">
+            <div class="alert alert-primary alert-lighter mt-1" role="alert"
+              style="margin-left: 20%;margin-right: 20%;">
+              <span style="text-transform: uppercase;">HTML Header</span>
+            </div>
+
+            <div class="container">
+              <div class="row row-30">
+
+                <div class="col-md-6 col-lg-6">
+                  <div class="col-md-12">
+                    <div class="panel {{data.output.title.color}}">
+                      <div class="panel-header">
+                        <div class="group-5 d-flex flex-wrap align-items-center justify-content-between">
+                          <h4 class="panel-title">Title Tag</h4><code
+                            class="code-bg">{{data.output.title.warning}}</code>
+                        </div>
+                      </div>
+                      <div class="panel-body">
+                        <p class="panel-text">{{data.output.title.shortAnswer}}</p>
+                        <p>{{data.output.title.data}}</p>
+                        <p>Length: {{data.output.title.value}}</p>
+                        <p>{{data.output.title.recommendation}}</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-6 col-lg-6">
+                  <div class="col-md-12">
+                    <div class="panel {{data.output.description.color}}">
+                      <div class="panel-header">
+                        <div class="group-5 d-flex flex-wrap align-items-center justify-content-between">
+                          <h4 class="panel-title">Meta Description Tag</h4><code
+                            class="code-bg">{{data.output.description.warning}}</code>
+                        </div>
+                      </div>
+                      <div class="panel-body">
+                        <p class="panel-text">{{data.output.description.shortAnswer}}</p>
+                        <p>{{data.output.description.data}}</p>
+                        <p>Length: {{data.output.description.value}}</p>
+                        <p>{{data.output.description.recommendation}}</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="container-fluid">
+            <div class="alert alert-primary alert-lighter mt-1" role="alert"
+              style="margin-left: 20%;margin-right: 20%;">
+              <span style="text-transform: uppercase;">Body Content</span>
+            </div>
+
+            <div class="container">
+              <div class="row row-30">
+
+
+                <div class="col-md-6 col-lg-12">
+                  <div class="col-md-12">
+                    <div class="panel {{data.output.headers.color}}">
+                      <div class="panel-header">
+                        <div class="group-5 d-flex flex-wrap align-items-center justify-content-between">
+                          <h4 class="panel-title">Header Tags</h4><code
+                            class="code-bg">{{data.output.headers.warning}}</code>
+                        </div>
+                      </div>
+                      <div class="panel-body">
+                        <p class="panel-text">{{data.output.headers.shortAnswer}}</p>
+                        <p>{{data.output.headers.recommendation}}</p>
+                        <p>HTML header tags are an important way of signaling to search engines the important content
+                          topics of your page, and subsequently the keywords it should rank for.</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-12">
+                  <div class="panel">
+                    <div class="panel-header">
+                      <h4 class="panel-title">Header Tags Bar</h4>
+                    </div>
+                    <div class="panel-body">
+                      <div class="table-responsive">
+                        <table class="table">
+                          <thead>
+                            <tr>
+                              <th style="width: 30%; min-width: 180px;">Class</th>
+                              <th style="min-width: 180px;">Description</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td><code class="code-bg">H1</code></td>
+                              <td>
+
+                                <div class="progress-wrap">
+                                  <div class="progress-header">
+                                    <div class="progress-title">Frequency</div>
+                                    <div class="progress-value"> {{ data.output.headers.h1count}}</div>
+                                  </div>
+                                  <div class="progress progress-lg">
+                                    <div class="progress-bar progress-primary" role="progressbar"
+                                      style="width: {{ data.output.headers.h1count}}%" aria-valuenow="50"
+                                      aria-valuemin="0" aria-valuemax="25"></div>
+                                  </div>
+                                </div>
+
+                              </td>
+                            </tr>
+                            {{#if data.output.headers.data.h2}}
+
+                            <tr>
+                              <td><code class="code-bg">H2</code></td>
+                              <td>
+
+                                <div class="progress-wrap">
+                                  <div class="progress-header">
+                                    <div class="progress-title">Frequency</div>
+                                    <div class="progress-value"> {{ data.output.headers.h2count}}</div>
+                                  </div>
+                                  <div class="progress progress-lg">
+                                    <div class="progress-bar progress-primary" role="progressbar"
+                                      style="width: {{ data.output.headers.h2count}}%" aria-valuenow="50"
+                                      aria-valuemin="0" aria-valuemax="25"></div>
+                                  </div>
+                                </div>
+                                {{/if}}
+                              </td>
+                            </tr>
+                            {{#if data.output.headers.data.h3}}
+
+                            <tr>
+                              <td><code class="code-bg">H3</code></td>
+                              <td>
+
+                                <div class="progress-wrap">
+                                  <div class="progress-header">
+                                    <div class="progress-title">Frequency</div>
+                                    <div class="progress-value"> {{ data.output.headers.h3count}}</div>
+                                  </div>
+                                  <div class="progress progress-lg">
+                                    <div class="progress-bar progress-primary" role="progressbar"
+                                      style="width: {{ data.output.headers.h3count}}%" aria-valuenow="50"
+                                      aria-valuemin="0" aria-valuemax="25"></div>
+                                  </div>
+                                </div>
+                                {{/if}}
+                              </td>
+                            </tr>
+                            {{#if data.output.headers.data.h4}}
+
+                            <tr>
+                              <td><code class="code-bg">H4</code></td>
+                              <td>
+
+                                <div class="progress-wrap">
+                                  <div class="progress-header">
+                                    <div class="progress-title">Frequency</div>
+                                    <div class="progress-value"> {{ data.output.headers.h4count}}</div>
+                                  </div>
+                                  <div class="progress progress-lg">
+                                    <div class="progress-bar progress-primary" role="progressbar"
+                                      style="width: {{ data.output.headers.h4count}}%" aria-valuenow="50"
+                                      aria-valuemin="0" aria-valuemax="25"></div>
+                                  </div>
+                                </div>
+                                {{/if}}
+                              </td>
+                            </tr>
+                            {{#if data.output.headers.data.h5}}
+
+                            <tr>
+                              <td><code class="code-bg">H5</code></td>
+                              <td>
+
+                                <div class="progress-wrap">
+                                  <div class="progress-header">
+                                    <div class="progress-title">Frequency</div>
+                                    <div class="progress-value"> {{ data.output.headers.h5count}}</div>
+                                  </div>
+                                  <div class="progress progress-lg">
+                                    <div class="progress-bar progress-primary" role="progressbar"
+                                      style="width: {{ data.output.headers.h5count}}%" aria-valuenow="50"
+                                      aria-valuemin="0" aria-valuemax="25"></div>
+                                  </div>
+                                </div>
+                                {{/if}}
+                              </td>
+                            </tr>
+                            {{#if data.output.headers.data.h6}}
+
+                            <tr>
+                              <td><code class="code-bg">H6</code></td>
+                              <td>
+
+                                <div class="progress-wrap">
+                                  <div class="progress-header">
+                                    <div class="progress-title">Frequency</div>
+                                    <div class="progress-value"> {{ data.output.headers.h6count}}</div>
+                                  </div>
+                                  <div class="progress progress-lg">
+                                    <div class="progress-bar progress-primary" role="progressbar"
+                                      style="width: {{ data.output.headers.h6count}}%" aria-valuenow="50"
+                                      aria-valuemin="0" aria-valuemax="25"></div>
+                                  </div>
+                                </div>
+                              </td>
+                            </tr>
+                            {{/if}}
+
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+
+
+
+
+
+            <div class="container">
+              <div class="row row-30">
+                <div class="col-12">
+                  <div class="panel">
+                    <div class="panel-header">
+                      <h4 class="panel-title">Individual Keywords</h4>
+                    </div>
+                    <div class="panel-body">
+                      <div class="table-responsive">
+                        <table class="table" style="text-align: center;">
+                          <thead>
+                            <tr>
+                              <th style="width: 30%; min-width: 150px; text-align: left;">Keyword</th>
+                              <th style="min-width: 100px;">Title</th>
+                              <th style="min-width: 100px;">Meta Description Tag</th>
+                              <th style="min-width: 100px;">Headings Tag </th>
+                              <th style="min-width: 400px;">Page Frequency</th>
+
+                            </tr>
+                          </thead>
+                          <tbody>
+
+                            {{#each data.output.keywords.data.keywords }}
+                            <tr>
+                              <td><code class="code-bg" style="font-size: larger;">{{word}}</code></td>
+                              <td><code><div class="h2 {{titleCheck}} {{titleColor}}"></div></code></td>
+                              <td><code><div class="h2 {{descriptionCheck}} {{descriptionColor}}"></div></code></td>
+                              <td><code><div class="h2 {{headersCheck}} {{headersColor}}"></div></code></td>
+                              <td>
+                                <div class="progress-wrap">
+                                  <div class="progress-header">
+                                    <div class="progress-title">Frequency</div>
+                                    <div class="progress-value">{{count}}</div>
+                                  </div>
+                                  <div class="progress progress-lg">
+                                    <div class="progress-bar progress-primary" role="progressbar"
+                                      style="width: {{count}}%" aria-valuenow="50" aria-valuemin="0"
+                                      aria-valuemax="100"></div>
+                                  </div>
+                                </div>
+                              </td>
+                            </tr>
+
+                            {{/each}}
+
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+            <div class="container">
+              <div class="row row-30">
+
+                <div class="col-md-6 col-lg-6">
+                  <div class="col-md-12">
+                    <div class="panel {{data.output.contentLength.color}}">
+                      <div class="panel-header">
+                        <div class="group-5 d-flex flex-wrap align-items-center justify-content-between">
+                          <h4 class="panel-title">Amount of Content</h4><code
+                            class="code-bg">{{data.output.contentLength.warning}}</code>
+                        </div>
+                      </div>
+                      <div class="panel-body">
+                        <p class="panel-text">{{data.output.contentLength.shortAnswer}}</p>
+                        <p>Word Count: {{data.output.contentLength.value}}</p>
+                        <p> {{data.output.contentLength.recommendation}}</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-10 col-lg-6">
+                  <div class="col-md-12">
+                    <div class="panel {{data.output.imageAlt.color}}">
+                      <div class="panel-header">
+                        <div class="group-5 d-flex flex-wrap align-items-center justify-content-between">
+                          <h4 class="panel-title">Image Alt Attributes</h4><code
+                            class="code-bg">{{data.output.imageAlt.warning}}</code>
+                        </div>
+                      </div>
+                      <div class="panel-body">
+                        <p class="panel-text">{{data.output.imageAlt.shortAnswer}}</p>
+                        <p class="panel-text">You have total {{data.output.imageAlt.data.total}} images and
+                          {{data.output.imageAlt.data.noAltCount}} of them are missing ALT attributes.</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="container-fluid">
+            <div class="alert alert-primary alert-lighter mt-1" role="alert"
+              style="margin-left: 20%;margin-right: 20%;">
+              <span style="text-transform: uppercase;">Links</span>
+            </div>
+
+            <div class="container">
+              <div class="row row-30">
+
+                <div class="col-md-12 col-lg-12">
+                  <div class="col-md-12">
+                    <div class="panel {{data.output.backlinks.color}}">
+                      <div class="panel-header">
+                        <div class="group-5 d-flex flex-wrap align-items-center justify-content-between">
+                          <h4 class="panel-title">Number of Backlinks</h4><code
+                            class="code-bg">{{data.output.backlinks.warning}}</code>
+                        </div>
+                      </div>
+                      <div class="panel-body">
+                        <p class="panel-text">{{data.output.backlinks.shortAnswer}} Backlink data provided by
+                          <a href="https://moz.com/"
+                            style="font-style: oblique; font-weight: bold;color: white;">MOZ</a>.</p>
+                        <p>{{data.output.backlinks.recommendation}}</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row row-30" style="font-size: x-large;">
+                <div class="col-sm-6 col-lg-4">
+                  <div
+                    class="widget-counter widget-counter-boxed widget-counter-boxed-success widget-counter-boxed-gradient">
+                    <div class="widget-counter-body">
+                      <h2 class="widget-counter-title">
+                        <div class="h1 mdi-arrow-collapse"></div>
+                      </h2>
+                      <div class="widget-counter-text">External Backlinks</div>
+                    </div>
+                    <div class="widget-counter-footer small"><span
+                        class="widget-counter-footer-icon mdi-arrow-up pr-1"></span> <strong
+                        style="font-weight: 200;">{{data.output.backlinks.data.backlinks}}</strong>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-6 col-lg-4">
+                  <div
+                    class="widget-counter widget-counter-boxed widget-counter-boxed-success widget-counter-boxed-gradient">
+                    <div class="widget-counter-body">
+                      <h2 class="widget-counter-title">
+                        <div class="h1 mdi-link-variant"></div>
+                      </h2>
+                      <div class="widget-counter-text">Referring Domains</div>
+                    </div>
+                    <div class="widget-counter-footer small"><span
+                        class="widget-counter-footer-icon mdi-arrow-up pr-1"></span> <strong
+                        style="font-weight: 200;">{{data.output.backlinks.data.allbacklinks}}</strong>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-6 col-lg-4">
+                  <div
+                    class="widget-counter widget-counter-boxed widget-counter-boxed-success widget-counter-boxed-gradient">
+                    <div class="widget-counter-body">
+                      <h2 class="widget-counter-title">
+                        <div class="h1 mdi-image-filter-drama"></div>
+                      </h2>
+                      <div class="widget-counter-text">Moz Domain Authority</div>
+                    </div>
+                    <div class="widget-counter-footer small"><span
+                        class="widget-counter-footer-icon mdi-arrow-up pr-1"></span><strong
+                        style="font-weight: 200;">{{data.output.backlinks.data.mozda}}</strong>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="container-fluid">
+            <div class="row row-30">
+              <div class="col-lg-12">
+                <div class="panel">
+                  <div class="panel-header">
+                    <h4 class="panel-title">These are the highest value external pages we have found linking to your
+                      site.</h4>
+                  </div>
+                  <div class="panel-body p-0">
+                    <div class="table-responsive scroller scroller-horizontal">
+                      <table class="table table-striped">
+                        <thead>
+                          <tr>
+                            <th scope="col">Domain Authority</th>
+                            <th scope="col">URL</th>
+                            <th scope="col">Source Page Title</th>
+                            <th scope="col">Anchor Text</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          {{#each data.output.backlinksList.data.list}}
+                          <tr>
+                            <th scope="row">{{domain_authority}}</th>
+                            <td>{{url}}</td>
+                            <td>{{title}} </td>
+                            <td>{{anchor_text}}</td>
+                          </tr>
+                          {{/each}}
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="container-fluid">
+            <div class="row row-30">
+              <div class="col-md-6 col-lg-12">
+                <div class="col-md-12">
+                  <div class="panel {{data.output.brokenLinks.color}}">
+                    <div class="panel-header">
+                      <div class="group-5 d-flex flex-wrap align-items-center justify-content-between">
+                        <h4 class="panel-title">Broken Links</h4><code
+                          class="code-bg">{{data.output.brokenLinks.warning}}</code>
+                      </div>
+                    </div>
+                    <div class="panel-body">
+                      <p class="panel-text">{{data.output.brokenLinks.shortAnswer}}</p>
+                      <p>{{data.output.brokenLinks.recommendation}}</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6 col-lg-6">
+                <div class="col-md-12">
+                  <div class="panel {{data.output.onPageLinks.color}}">
+                    <div class="panel-header">
+                      <div class="group-5 d-flex flex-wrap align-items-center justify-content-between">
+                        <h4 class="panel-title">On-Page Link Structure</h4><code
+                          class="code-bg">{{data.output.onPageLinks.warning}}</code>
+                      </div>
+                    </div>
+                    <div class="panel-body">
+                      <p class="panel-text">We found {{data.output.onPageLinks.data.total}} total links.
+                        {{data.output.onPageLinks.data.externalPercentage}}% of your links are external links, or total
+                        of {{data.output.onPageLinks.data.externalCount}} external links, and are sending
+                        authority to other sites. {{data.output.onPageLinks.data.nofollowPercentage}}% of your links are
+                        nofollow links.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-10 col-lg-6">
+                <div class="col-md-12">
+                  <div class="panel {{data.output.friendlyUrls.color}}">
+                    <div class="panel-header">
+                      <div class="group-5 d-flex flex-wrap align-items-center justify-content-between">
+                        <h4 class="panel-title">Friendly URLs</h4><code
+                          class="code-bg">{{data.output.friendlyUrls.warning}}</code>
+                      </div>
+                    </div>
+                    <div class="panel-body">
+                      <p class="panel-text">{{data.output.friendlyUrls.shortAnswer}}</p>
+                      <p>{{data.output.friendlyUrls.recommendation}}</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="container-fluid">
+            <div class="alert alert-primary alert-lighter mt-1" role="alert"
+              style="margin-left: 20%;margin-right: 20%;">
+              <span style="text-transform: uppercase;">Indexing</span>
+            </div>
+            <div class="container">
+              <div class="row row-30">
+                <div class="col-md-6 col-lg-6">
+                  <div class="col-md-12">
+                    <div class="panel {{data.output.noindexTags.color}}">
+                      <div class="panel-header">
+                        <div class="group-5 d-flex flex-wrap align-items-center justify-content-between">
+                          <h4 class="panel-title">Noindex Tag Test</h4><code
+                            class="code-bg">{{data.output.noindexTags.warning}}</code>
+                        </div>
+                      </div>
+                      <div class="panel-body">
+                        <p class="panel-text">{{data.output.noindexTags.shortAnswer}}</p>
+                        <p>{{data.output.noindexTags.recommendation}}</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6 col-lg-6">
+                  <div class="col-md-12">
+                    <div class="panel {{data.output.noindexHeaders.color}}">
+                      <div class="panel-header">
+                        <div class="group-5 d-flex flex-wrap align-items-center justify-content-between">
+                          <h4 class="panel-title">Noindex Header Test</h4><code
+                            class="code-bg">{{data.output.noindexHeaders.warning}}</code>
+                        </div>
+                      </div>
+                      <div class="panel-body">
+                        <p class="panel-text">{{data.output.noindexHeaders.shortAnswer}}</p>
+                        <p>{{data.output.noindexHeaders.recommendation}}</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="container-fluid">
+            <div class="alert alert-primary alert-lighter mt-1" role="alert"
+              style="margin-left: 20%;margin-right: 20%;">
+              <span style="text-transform: uppercase;">Other</span>
+            </div>
+
+            <div class="container">
+              <div class="row row-30">
+
+                <div class="col-md-6 col-lg-6">
+                  <div class="col-md-12">
+                    <div class="panel {{data.output.robotsTxt.color}}">
+                      <div class="panel-header">
+                        <div class="group-5 d-flex flex-wrap align-items-center justify-content-between">
+                          <h4 class="panel-title">Robots.txt</h4><code
+                            class="code-bg">{{data.output.robotsTxt.warning}}</code>
+                        </div>
+                      </div>
+                      <div class="panel-body">
+                        <p class="panel-text">{{data.output.robotsTxt.shortAnswer}}</p>
+                        <p>{{data.output.robotsTxt.recommendation}}</p>
+                        <p>-- {{data.output.robotsTxt.data}}</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6 col-lg-6">
+                  <div class="col-md-12">
+                    <div class="panel {{data.output.sitemap.color}}">
+                      <div class="panel-header">
+                        <div class="group-5 d-flex flex-wrap align-items-center justify-content-between">
+                          <h4 class="panel-title">XML Sitemaps</h4><code
+                            class="code-bg">{{data.output.sitemap.warning}}</code>
+                        </div>
+                      </div>
+                      <div class="panel-body">
+                        <p class="panel-text">{{data.output.sitemap.shortAnswer}}</p>
+                        <p>{{data.output.sitemap.recommendation}}</p>
+                        {{#each data.output.sitemap.data.urls as |item|}}
+                        <p>-- {{item}}</p>
+                        {{/each}}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="container">
+              <div class="row row-30">
+
+                <div class="col-md-6 col-lg-6">
+                  <div class="col-md-12">
+                    <div class="panel {{data.output.analytics.color}}">
+                      <div class="panel-header">
+                        <div class="group-5 d-flex flex-wrap align-items-center justify-content-between">
+                          <h4 class="panel-title">Analytics</h4><code
+                            class="code-bg">{{data.output.analytics.warning}}</code>
+                        </div>
+                      </div>
+                      <div class="panel-body">
+                        <p class="panel-text">{{data.output.analytics.shortAnswer}}</p>
+                        <p>{{data.output.analytics.recommendation}}</p>
+                        {{#each data.output.analytics.data}}
+                        <p>-- {{name}}</p>
+                        {{/each}}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6 col-lg-6">
+                  <div class="col-md-12">
+                    <div class="panel {{data.output.schemaOrg.color}}">
+                      <div class="panel-header">
+                        <div class="group-5 d-flex flex-wrap align-items-center justify-content-between">
+                          <h4 class="panel-title">Schema.org Structured Data</h4><code
+                            class="code-bg">{{data.output.schemaOrg.warning}}</code>
+                        </div>
+                      </div>
+                      <div class="panel-body">
+                        <p class="panel-text">{{data.output.schemaOrg.shortAnswer}}</p>
+                        <p>{{data.output.schemaOrg.recommendation}}</p>
+                        <p>-- {{data.output.schemaOrg.data}}</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <section class="section-sm section-transparent" style="margin: 10px;">
+      <div class="col-lg-6 col-xxl-10">
+        <div class="panel">
+          <div class="panel-body p-0">
+
+            <div class="alert alert-primary alert-lighter mt-1" role="alert">
+              <span>Usability</span>
+            </div>
+
+            <div class="container-fluid">
+              <div class="row row-30">
+                <div class="col-md-4 col-lg-4">
+                  <div class="media-item">
+                    <div class="progress-circle-wrap">
+                      <div class="progress-counter-wrap">
+                        <div class="progress-counter-value-main" style="color:{{data.output.scores.ui.colorGrade}}">
+                          <span class="progress-counter">{{data.output.scores.ui.newGrade}}</span><span
+                            class="progress-postfix">%</span>
+                        </div>
+                      </div>
+                      <svg class="progress-circle" x="0" y="0" width="200" height="200" viewbox="0 0 60 60">
+                        <circle class="bg" cx="30" cy="30" r="29"></circle>
+                        <circle class="fg clipped" cx="30" cy="30" r="29"
+                          style="stroke: {{data.output.scores.ui.colorGrade}}"></circle>
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-8 col-lg-6">
+                  <h2>{{data.output.scores.ui.title}}</h2>
+                  <p>{{data.output.scores.ui.description}}</p>
+                </div>
+              </div>
+            </div>
+            <div class="container-fluid">
+              <div class="alert alert-primary alert-lighter mt-1" role="alert"
+                style="margin-left: 20%;margin-right: 20%;">
+                <span style="text-transform: uppercase;">HTML Header</span>
+              </div>
+
+              <div class="container">
+                <div class="row row-30">
+
+                  <div class="col-md-6 col-lg-12">
+                    <div class="col-md-12">
+                      <div class="panel {{data.output.deviceRendering.color}}">
+                        <div class="panel-header">
+                          <div class="group-5 d-flex flex-wrap align-items-center justify-content-between">
+                            <h4 class="panel-title">Device Rendering</h4><code
+                              class="code-bg">{{data.output.deviceRendering.warning}}</code>
+                          </div>
+                        </div>
+                        <div class="panel-body">
+                          <p class="panel-text">{{data.output.deviceRendering.shortAnswer}}</p>
+                          <p>{{data.output.deviceRendering.recommendation}}</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+              <div class="container">
+                <div class="row row-30">
+                  <div class="col-md-6 col-lg-6">
+                    <div class="col-md-12">
+
+                      <div class="col-md-10 col-xxl-7">
+                        <div class="panel">
+                          <div class="panel-header">
+                            <h4 class="panel-title">Tour Item 2</h4>
+                          </div>
+                          <div class="panel-body"><img src="images/mobile.png" width="1000" height="500" alt=""
+                              style="width: 100%;"></div>
+                        </div>
+                      </div>
+
+                    </div>
+                  </div>
+                  <div class="col-md-6 col-lg-6">
+                    <div class="col-md-12">
+
+                      <div class="col-md-10 col-xxl-10">
+                        <div class="panel">
+                          <div class="panel-header">
+                            <h4 class="panel-title">Tour Item 2</h4>
+                          </div>
+                          <div class="panel-body"><img src="images/tablet.png" width="1000" height="500" alt=""
+                              style="width: 100%;"></div>
+                        </div>
+                      </div>
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="container">
+                <div class="row row-30">
+
+                  <div class="col-md-6 col-lg-6">
+                    <div class="col-md-12">
+                      <div class="panel {{data.output.tapTargetSizing.color}}">
+                        <div class="panel-header">
+                          <div class="group-5 d-flex flex-wrap align-items-center justify-content-between">
+                            <h4 class="panel-title">Tap Target Sizing</h4><code
+                              class="code-bg">{{data.output.tapTargetSizing.warning}}</code>
+                          </div>
+                        </div>
+                        <div class="panel-body">
+                          <p class="panel-text">{{data.output.tapTargetSizing.shortAnswer}}</p>
+                          <p>{{data.output.tapTargetSizing.recommendation}}</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-6 col-lg-6">
+                    <div class="col-md-12">
+                      <div class="panel {{data.output.mobileViewport.color}}">
+                        <div class="panel-header">
+                          <div class="group-5 d-flex flex-wrap align-items-center justify-content-between">
+                            <h4 class="panel-title">Use of Mobile Viewports</h4><code
+                              class="code-bg">{{data.output.mobileViewport.warning}}</code>
+                          </div>
+                        </div>
+                        <div class="panel-body">
+                          <p class="panel-text">{{data.output.mobileViewport.shortAnswer}}</p>
+                          <p>{{data.output.mobileViewport.recommendation}}</p>
+
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row row-30">
+
+                  <div class="col-md-6 col-lg-6">
+                    <div class="col-md-12">
+                      <div class="panel {{data.output.flash.color}}">
+                        <div class="panel-header">
+                          <div class="group-5 d-flex flex-wrap align-items-center justify-content-between">
+                            <h4 class="panel-title">Flash Used?</h4><code
+                              class="code-bg">{{data.output.flash.warning}}</code>
+                          </div>
+                        </div>
+                        <div class="panel-body">
+                          <p class="panel-text">{{data.output.flash.shortAnswer}}</p>
+                          <p>{{data.output.flash.recommendation}}</p>
+
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-6 col-lg-6">
+                    <div class="col-md-12">
+                      <div class="panel {{data.output.legibleFonts.color}}">
+                        <div class="panel-header">
+                          <div class="group-5 d-flex flex-wrap align-items-center justify-content-between">
+                            <h4 class="panel-title">Legible Font Sizes</h4><code
+                              class="code-bg">{{data.output.legibleFonts.warning}}</code>
+                          </div>
+                        </div>
+                        <div class="panel-body">
+                          <p class="panel-text">{{data.output.legibleFonts.shortAnswer}}</p>
+                          <p>{{data.output.legibleFonts.recommendation}}</p>
+
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row row-30">
+                  <div class="col-md-6 col-lg-6">
+                    <div class="col-md-12">
+                      <div class="panel {{data.output.iframe.color}}">
+                        <div class="panel-header">
+                          <div class="group-5 d-flex flex-wrap align-items-center justify-content-between">
+                            <h4 class="panel-title">iFrames Used?</h4><code
+                              class="code-bg">{{data.output.iframe.warning}}</code>
+                          </div>
+                        </div>
+                        <div class="panel-body">
+                          <p class="panel-text">{{data.output.iframe.shortAnswer}}</p>
+                          <p>{{data.output.iframe.recommendation}}</p>
+
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-6 col-lg-6">
+                    <div class="col-md-12">
+                      <div class="panel {{data.output.favicon.color}}">
+                        <div class="panel-header">
+                          <div class="group-5 d-flex flex-wrap align-items-center justify-content-between">
+                            <h4 class="panel-title">Favicon</h4><code
+                              class="code-bg">{{data.output.favicon.warning}}</code>
+                          </div>
+                        </div>
+                        <div class="panel-body">
+                          <p class="panel-text">{{data.output.favicon.shortAnswer}}</p>
+                          <p>{{data.output.favicon.recommendation}}</p>
+
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-sm section-transparent" style="margin: 10px;">
+      <div class="col-lg-6 col-xxl-10">
+        <div class="panel">
+          <div class="panel-body p-0">
+
+            <div class="alert alert-primary alert-lighter mt-1" role="alert">
+              <span>Performance Resaults</span>
+            </div>
+
+            <div class="container-fluid">
+
+              <div class="row row-30">
+                <div class="col-md-4 col-lg-4">
+                  <div class="media-item">
+                    <div class="progress-circle-wrap">
+                      <div class="progress-counter-wrap">
+                        <div class="progress-counter-value-main"
+                          style="color: {{data.output.scores.performance.colorGrade}}"><span
+                            class="progress-counter">{{data.output.scores.performance.newGrade}}</span><span
+                            class="progress-postfix">%</span>
+                        </div>
+                      </div>
+                      <svg class="progress-circle" x="0" y="0" width="200" height="200" viewbox="0 0 60 60">
+                        <circle class="bg" cx="30" cy="30" r="29"></circle>
+                        <circle class="fg clipped" cx="30" cy="30" r="29"
+                          style="stroke: {{data.output.scores.performance.colorGrade}}"></circle>
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-8 col-lg-6">
+                  <h2>{{data.output.scores.performance.title}}</h2>
+                  <p>{{data.output.scores.performance.description}}</p>
+                </div>
+              </div>
+            </div>
+            <div class="container-fluid">
+
+
+              <div class="container">
+                <div class="row row-30">
+                  <div class="col-md-4 col-xxl-4 d-xxl-flex">
+                    <div class="panel">
+                      <div class="panel-header">
+                        <div class="d-flex justify-content-between align-items-center flex-wrap group-10">
+                          <h4 class="panel-title">Server Response</h4>
+                        </div>
+                      </div>
+                      <div class="panel-body">
+                        <div class="highcharts-container"
+                          data-highcharts-options="{&quot;credits&quot;:false,&quot;colors&quot;:[&quot;{{data.output.serverResponseTime.data.responseTimeColor}}&quot;,&quot;#58a193&quot;],&quot;chart&quot;:{&quot;type&quot;:&quot;pie&quot;,&quot;plotBackgroundColor&quot;:null,&quot;plotBorderWidth&quot;:0,&quot;plotShadow&quot;:false},&quot;title&quot;:{&quot;useHTML&quot;:true,&quot;text&quot;:&quot;&lt;h1 style=\&quot;font-size:30px; text-align:center\&quot;&gt;{{data.output.serverResponseTime.data.responseTime}}s&lt;/h1&gt;&lt;p&gt;{{data.output.serverResponseTime.data.responsegood}}&lt;/p&gt;&quot;,&quot;align&quot;:&quot;center&quot;,&quot;verticalAlign&quot;:&quot;middle&quot;,&quot;y&quot;:27},&quot;tooltip&quot;:{&quot;pointFormat&quot;:&quot;&lt;b&gt;{point.y}seconds&lt;/b&gt;&quot;},&quot;plotOptions&quot;:{&quot;pie&quot;:{&quot;dataLabels&quot;:{&quot;enabled&quot;:false},&quot;startAngle&quot;:-90,&quot;endAngle&quot;:90,&quot;center&quot;:[&quot;50%&quot;,&quot;75%&quot;],&quot;size&quot;:&quot;110%&quot;}},&quot;series&quot;:[{&quot;name&quot;:&quot;Browser share&quot;,&quot;innerSize&quot;:&quot;88%&quot;,&quot;data&quot;:[[&quot;To Load&quot;,{{data.output.serverResponseTime.data.responseTime}}],[&quot;&quot;,{{data.output.serverResponseTime.data.responseTimeLeft}}]]}],&quot;responsive&quot;:{&quot;rules&quot;:[{&quot;condition&quot;:{&quot;minWidth&quot;:396},&quot;chartOptions&quot;:{&quot;title&quot;:{&quot;text&quot;:&quot;&lt;h1 style=\&quot;font-size:50px; text-align:center\&quot;&gt;30%&lt;/h1&gt;&lt;p&gt;Seconds to load&lt;/p&gt;&quot;},&quot;plotOptions&quot;:{&quot;pie&quot;:{&quot;center&quot;:[&quot;50%&quot;,&quot;100%&quot;],&quot;size&quot;:&quot;190%&quot;}}}}]}}"
+                          style="height:240px;"></div>
+                      </div>
+                    </div>
+
+
+                  </div>
+
+                  <div class="col-md-4 col-xxl-4 d-xxl-flex">
+                    <div class="panel">
+                      <div class="panel-header">
+                        <div class="d-flex justify-content-between align-items-center flex-wrap group-10">
+                          <h4 class="panel-title">All Page Content Loaded</h4>
+                        </div>
+                      </div>
+                      <div class="panel-body">
+                        <div class="highcharts-container"
+                          data-highcharts-options="{&quot;credits&quot;:false,&quot;colors&quot;:[&quot;{{data.output.serverResponseTime.data.loadTimeColor}}&quot;,&quot;#58a193&quot;],&quot;chart&quot;:{&quot;type&quot;:&quot;pie&quot;,&quot;plotBackgroundColor&quot;:null,&quot;plotBorderWidth&quot;:0,&quot;plotShadow&quot;:false},&quot;title&quot;:{&quot;useHTML&quot;:true,&quot;text&quot;:&quot;&lt;h1 style=\&quot;font-size:30px; text-align:center\&quot;&gt;{{data.output.serverResponseTime.data.loadTime}}s&lt;/h1&gt;&lt;p&gt;{{data.output.serverResponseTime.data.loadgood}}&lt;/p&gt;&quot;,&quot;align&quot;:&quot;center&quot;,&quot;verticalAlign&quot;:&quot;middle&quot;,&quot;y&quot;:27},&quot;tooltip&quot;:{&quot;pointFormat&quot;:&quot;&lt;b&gt;{point.y} Seconds&lt;/b&gt;&quot;},&quot;plotOptions&quot;:{&quot;pie&quot;:{&quot;dataLabels&quot;:{&quot;enabled&quot;:false},&quot;startAngle&quot;:-90,&quot;endAngle&quot;:90,&quot;center&quot;:[&quot;50%&quot;,&quot;75%&quot;],&quot;size&quot;:&quot;110%&quot;}},&quot;series&quot;:[{&quot;name&quot;:&quot;Browser share&quot;,&quot;innerSize&quot;:&quot;88%&quot;,&quot;data&quot;:[[&quot;To Load&quot;,{{data.output.serverResponseTime.data.loadTime}}],[&quot;&quot;,{{data.output.serverResponseTime.data.loadTimeLeft}}]]}],&quot;responsive&quot;:{&quot;rules&quot;:[{&quot;condition&quot;:{&quot;minWidth&quot;:396},&quot;chartOptions&quot;:{&quot;title&quot;:{&quot;text&quot;:&quot;&lt;h1 style=\&quot;font-size:50px; text-align:center\&quot;&gt;30%&lt;/h1&gt;&lt;p&gt;Paid orders&lt;/p&gt;&quot;},&quot;plotOptions&quot;:{&quot;pie&quot;:{&quot;center&quot;:[&quot;50%&quot;,&quot;%&quot;],&quot;size&quot;:&quot;190%&quot;}}}}]}}"
+                          style="height:240px;"></div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-md-4 col-xxl-4 d-xxl-flex">
+                    <div class="panel">
+                      <div class="panel-header">
+                        <div class="d-flex justify-content-between align-items-center flex-wrap group-10">
+                          <h4 class="panel-title">All Page Scripts Complete</h4>
+                        </div>
+                      </div>
+                      <div class="panel-body">
+                        <div class="highcharts-container"
+                          data-highcharts-options="{&quot;credits&quot;:false,&quot;colors&quot;:[&quot;{{data.output.serverResponseTime.data.completeTimeColor}}&quot;,&quot;#58a193&quot;],&quot;chart&quot;:{&quot;type&quot;:&quot;pie&quot;,&quot;plotBackgroundColor&quot;:null,&quot;plotBorderWidth&quot;:0,&quot;plotShadow&quot;:false},&quot;title&quot;:{&quot;useHTML&quot;:true,&quot;text&quot;:&quot;&lt;h1 style=\&quot;font-size:30px; text-align:center\&quot;&gt;{{data.output.serverResponseTime.data.completeTime}}s&lt;/h1&gt;&lt;p&gt;{{data.output.serverResponseTime.data.completegood}}&lt;/p&gt;&quot;,&quot;align&quot;:&quot;center&quot;,&quot;verticalAlign&quot;:&quot;middle&quot;,&quot;y&quot;:27},&quot;tooltip&quot;:{&quot;pointFormat&quot;:&quot;&lt;b&gt;{point.y} Seconds&lt;/b&gt;&quot;},&quot;plotOptions&quot;:{&quot;pie&quot;:{&quot;dataLabels&quot;:{&quot;enabled&quot;:false},&quot;startAngle&quot;:-90,&quot;endAngle&quot;:90,&quot;center&quot;:[&quot;50%&quot;,&quot;75%&quot;],&quot;size&quot;:&quot;110%&quot;}},&quot;series&quot;:[{&quot;name&quot;:&quot;Browser share&quot;,&quot;innerSize&quot;:&quot;88%&quot;,&quot;data&quot;:[[&quot;To Load&quot;,{{data.output.serverResponseTime.data.completeTime}}],[&quot;&quot;,{{data.output.serverResponseTime.data.completeTimeLeft}}]]}],&quot;responsive&quot;:{&quot;rules&quot;:[{&quot;condition&quot;:{&quot;minWidth&quot;:396},&quot;chartOptions&quot;:{&quot;title&quot;:{&quot;text&quot;:&quot;&lt;h1 style=\&quot;font-size:50px; text-align:center\&quot;&gt;30%&lt;/h1&gt;&lt;p&gt;Paid orders&lt;/p&gt;&quot;},&quot;plotOptions&quot;:{&quot;pie&quot;:{&quot;center&quot;:[&quot;50%&quot;,&quot;100%&quot;],&quot;size&quot;:&quot;190%&quot;}}}}]}}"
+                          style="height:240px;"></div>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+
+                <div class="row row-30">
+                  <div class="col-md-6 col-xxl-6 d-xxl-flex">
+                    <div class="panel">
+                      <div class="panel-header">
+                        <div class="d-flex justify-content-between align-items-center flex-wrap group-10">
+                          <h4 class="panel-title">Total Page Size</h4>
+                        </div>
+                      </div>
+                      <div class="panel-body">
+                        <div class="highcharts-container"
+                          data-highcharts-options="{&quot;credits&quot;:false,&quot;colors&quot;:[&quot;#f7ad6a&quot;,&quot;#58a193&quot;],&quot;chart&quot;:{&quot;type&quot;:&quot;pie&quot;,&quot;plotBackgroundColor&quot;:null,&quot;plotBorderWidth&quot;:0,&quot;plotShadow&quot;:false},&quot;title&quot;:{&quot;useHTML&quot;:true,&quot;text&quot;:&quot;&lt;h1 style=\&quot;font-size:30px; text-align:center\&quot;&gt;3.2mb&lt;/h1&gt;&lt;p&gt;To load&lt;/p&gt;&quot;,&quot;align&quot;:&quot;center&quot;,&quot;verticalAlign&quot;:&quot;middle&quot;,&quot;y&quot;:27},&quot;tooltip&quot;:{&quot;pointFormat&quot;:&quot;&lt;b&gt;{point.y} Seconds&lt;/b&gt;&quot;},&quot;plotOptions&quot;:{&quot;pie&quot;:{&quot;dataLabels&quot;:{&quot;enabled&quot;:false},&quot;startAngle&quot;:-90,&quot;endAngle&quot;:90,&quot;center&quot;:[&quot;50%&quot;,&quot;75%&quot;],&quot;size&quot;:&quot;110%&quot;}},&quot;series&quot;:[{&quot;name&quot;:&quot;Browser share&quot;,&quot;innerSize&quot;:&quot;88%&quot;,&quot;data&quot;:[[&quot;Paid orders&quot;,{{data.output.pageSize.data.mbSize}}],[&quot;Registrations&quot;,10]]}],&quot;responsive&quot;:{&quot;rules&quot;:[{&quot;condition&quot;:{&quot;minWidth&quot;:396},&quot;chartOptions&quot;:{&quot;title&quot;:{&quot;text&quot;:&quot;&lt;h1 style=\&quot;font-size:50px; text-align:center\&quot;&gt;{{data.output.pageSize.data.mbSize}}&lt;/h1&gt;&lt;p&gt;Mb&lt;/p&gt;&quot;},&quot;plotOptions&quot;:{&quot;pie&quot;:{&quot;center&quot;:[&quot;50%&quot;,&quot;100%&quot;],&quot;size&quot;:&quot;190%&quot;}}}}]}}"
+                          style="height:240px;"></div>
+                        <div class="row row-30">
+
+                          <div class="col-md-6 col-lg-12">
+                            <div class="col-md-12">
+                              <div class="panel {{data.output.pageSize.color}}">
+                                <div class="panel-header">
+                                  <div class="group-5 d-flex flex-wrap align-items-center justify-content-between">
+                                    <h4 class="panel-title">Page Size Info</h4><code
+                                      class="code-bg">{{data.output.pageSize.warning}}</code>
+                                  </div>
+                                </div>
+                                <div class="panel-body">
+                                  <p class="panel-text">{{data.output.pageSize.shortAnswer}}</p>
+                                  <p>{{data.output.pageSize.recommendation}}</p>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+
+                        </div>
+
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-md-6 col-xxl-6 d-xxl-flex">
+                    <!-- Pie Chart-->
+                    <div class="col-xxl-12">
+                      <div class="panel">
+                        <div class="panel-header">
+                          <h4 class="panel-title">Page Size Breakdown</h4>
+                        </div>
+                        <div class="panel-body">
+                          <div class="highcharts-container"
+                            data-highcharts-options="{&quot;credits&quot;:false,&quot;colors&quot;:[&quot;#58a193&quot;,&quot;#dc3545&quot;,&quot;#fd7e14&quot;,&quot;#f7ad6a&quot;,&quot;#5b5eab&quot;,&quot;#34B1CC&quot;],&quot;chart&quot;:{&quot;type&quot;:&quot;pie&quot;},&quot;title&quot;:{&quot;text&quot;:null},&quot;legend&quot;:{&quot;itemStyle&quot;:{&quot;color&quot;:&quot;#aaa&quot;,&quot;fontWeight&quot;:&quot;normal&quot;},&quot;itemHoverStyle&quot;:{&quot;color&quot;:&quot;#777&quot;}},&quot;tooltip&quot;:{&quot;pointFormat&quot;:&quot;{series.name}: &lt;b&gt;{point.percentage:.1f}%&lt;/b&gt;&quot;},&quot;plotOptions&quot;:{&quot;pie&quot;:{&quot;allowPointSelect&quot;:true,&quot;cursor&quot;:&quot;pointer&quot;,&quot;borderColor&quot;:&quot;transparent&quot;,&quot;dataLabels&quot;:{&quot;enabled&quot;:false},&quot;showInLegend&quot;:true}},&quot;series&quot;:[{&quot;name&quot;:&quot;Brands&quot;,&quot;colorByPoint&quot;:true,&quot;data&quot;:[
+                              {&quot;name&quot;:&quot;JS &quot;,&quot;y&quot;:{{data.output.pageSize.data.jsSize}} },
+                              {&quot;name&quot;:&quot;HTML&quot;,&quot;y&quot;:{{data.output.pageSize.data.htmlSize}} },
+                              {&quot;name&quot;:&quot;CSS&quot;,&quot;y&quot;:{{data.output.pageSize.data.cssSize}} },
+                              {&quot;name&quot;:&quot;Other&quot;,&quot;y&quot;:{{data.output.pageSize.data.otherSize}} },
+                              {&quot;name&quot;:&quot;Images&quot;,&quot;y&quot;:{{data.output.pageSize.data.imageSize}} }]}]}" style="height:480px;">
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+              <div class="container">
+                <div class="row row-30">
+                  <div class="col-md-6 col-lg-6">
+                    <div class="col-md-12">
+
+                      <div class="col-md-10 col-xxl-7">
+                        <div class="panel">
+                          <div class="panel-header">
+                            <h4 class="panel-title">Tour Item 2</h4>
+                          </div>
+                          <div class="panel-body"><img src="images/mobile.png" width="1000" height="500" alt=""
+                              style="width: 100%;"></div>
+                        </div>
+                      </div>
+
+                    </div>
+                  </div>
+                  <div class="col-md-6 col-lg-6">
+                    <div class="col-md-12">
+
+                      <div class="col-md-10 col-xxl-10">
+                        <div class="panel">
+                          <div class="panel-header">
+                            <h4 class="panel-title">Tour Item 2</h4>
+                          </div>
+                          <div class="panel-body"><img src="images/tablet.png" width="1000" height="500" alt=""
+                              style="width: 100%;">
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+
+                <div class="container">
+                  <div class="row row-30">
+                    <div class="col-md-6 col-lg-12">
+                      <div class="col-md-12">
+                        <div class="panel {{data.output.numberOfResources.color}}">
+                          <div class="panel-header">
+                            <div class="group-5 d-flex flex-wrap align-items-center justify-content-between">
+                              <h4 class="panel-title">Number of Resources</h4><code
+                                class="code-bg">{{data.output.numberOfResources.warning}}</code>
+                            </div>
+                          </div>
+                          <div class="panel-body">
+                            <p class="panel-text">{{data.output.numberOfResources.shortAnswer}}</p>
+                            <p>{{data.output.numberOfResources.recommendation}}</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row row-30" style="font-size: x-large;">
+                    <div class="col-sm-6 col-lg-4">
+                      <div
+                        class="widget-counter widget-counter-boxed widget-counter-boxed-success widget-counter-boxed-gradient">
+                        <div class="widget-counter-body">
+                          <h2 class="widget-counter-title">
+                            <div class="h1 mdi-pound"></div>
+                          </h2>
+                          <div class="widget-counter-text">Total Objects</div>
+                        </div>
+                        <div class="widget-counter-footer small"><span class="widget-counter-footer-icon  pr-1"></span>
+                          <strong style="font-weight: 200;">{{data.output.numberOfResources.data.total}}</strong>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-sm-6 col-lg-4">
+                      <div
+                        class="widget-counter widget-counter-boxed widget-counter-boxed-success widget-counter-boxed-gradient">
+                        <div class="widget-counter-body">
+                          <h2 class="widget-counter-title">
+                            <div class="h1 mdi-code-tags"></div>
+                          </h2>
+                          <div class="widget-counter-text">Number of HTML Pages</div>
+                        </div>
+                        <div class="widget-counter-footer small"><span class="widget-counter-footer-icon pr-1"></span>
+                          <strong style="font-weight: 200;">{{data.output.numberOfResources.data.html}}</strong>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-sm-6 col-lg-4">
+                      <div
+                        class="widget-counter widget-counter-boxed widget-counter-boxed-success widget-counter-boxed-gradient">
+                        <div class="widget-counter-body">
+                          <h2 class="widget-counter-title">
+                            <div class="h1 mdi-nodejs"></div>
+                          </h2>
+                          <div class="widget-counter-text">Number of JS Files</div>
+                        </div>
+                        <div class="widget-counter-footer small"><span
+                            class="widget-counter-footer-icon pr-1"></span><strong
+                            style="font-weight: 200;">{{data.output.numberOfResources.data.js}}</strong>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="row row-30" style="font-size: x-large;">
+                    <div class="col-sm-6 col-lg-4">
+                      <div
+                        class="widget-counter widget-counter-boxed widget-counter-boxed-success widget-counter-boxed-gradient">
+                        <div class="widget-counter-body">
+                          <h2 class="widget-counter-title">
+                            <div class="h1 mdi-code-braces"></div>
+                          </h2>
+                          <div class="widget-counter-text">Number of CSS Files</div>
+                        </div>
+                        <div class="widget-counter-footer small"><span class="widget-counter-footer-icon  pr-1"></span>
+                          <strong style="font-weight: 200;">{{data.output.numberOfResources.data.css}}</strong>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-sm-6 col-lg-4">
+                      <div
+                        class="widget-counter widget-counter-boxed widget-counter-boxed-success widget-counter-boxed-gradient">
+                        <div class="widget-counter-body">
+                          <h2 class="widget-counter-title">
+                            <div class="h1 mdi-image-filter"></div>
+                          </h2>
+                          <div class="widget-counter-text">Number of Images</div>
+                        </div>
+                        <div class="widget-counter-footer small"><span class="widget-counter-footer-icon  pr-1"></span>
+                          <strong style="font-weight: 200;">{{data.output.numberOfResources.data.images}}</strong>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-sm-6 col-lg-4">
+                      <div
+                        class="widget-counter widget-counter-boxed widget-counter-boxed-success widget-counter-boxed-gradient">
+                        <div class="widget-counter-body">
+                          <h2 class="widget-counter-title">
+                            <div class="h1 mdi-image-filter-none"></div>
+                          </h2>
+                          <div class="widget-counter-text">Other Resources</div>
+                        </div>
+                        <div class="widget-counter-footer small"><span
+                            class="widget-counter-footer-icon  pr-1"></span><strong
+                            style="font-weight: 200;">{{data.output.numberOfResources.data.other}}</strong>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="container">
+                <div class="row row-30">
+
+                  <div class="col-md-6 col-lg-6">
+                    <div class="col-md-12">
+                      <div class="panel {{data.output.javascriptErrors.color}}">
+                        <div class="panel-header">
+                          <div class="group-5 d-flex flex-wrap align-items-center justify-content-between">
+                            <h4 class="panel-title">JavaScript Errors</h4><code
+                              class="code-bg">{{data.output.javascriptErrors.warning}}</code>
+                          </div>
+                        </div>
+                        <div class="panel-body">
+                          <p class="panel-text">{{data.output.javascriptErrors.shortAnswer}}</p>
+                          <p>{{data.output.javascriptErrors.recommendation}}</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-6 col-lg-6">
+                    <div class="col-md-12">
+                      <div class="panel {{data.output.gzip.color}}">
+                        <div class="panel-header">
+                          <div class="group-5 d-flex flex-wrap align-items-center justify-content-between">
+                            <h4 class="panel-title">GZIP Compression</h4><code
+                              class="code-bg">{{data.output.gzip.warning}}</code>
+                          </div>
+                        </div>
+                        <div class="panel-body">
+                          <p class="panel-text">{{data.output.gzip.shortAnswer}}</p>
+                          <p>{{data.output.gzip.recommendation}}</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row row-30">
+                  <div class="col-md-6 col-lg-6">
+                    <div class="col-md-12">
+                      <div class="panel {{data.output.optimizedImages.color}}">
+                        <div class="panel-header">
+                          <div class="group-5 d-flex flex-wrap align-items-center justify-content-between">
+                            <h4 class="panel-title">Optimize Images</h4><code
+                              class="code-bg">{{data.output.optimizedImages.warning}}</code>
+                          </div>
+                        </div>
+                        <div class="panel-body">
+                          <p class="panel-text">{{data.output.optimizedImages.shortAnswer}}</p>
+                          <p>{{data.output.optimizedImages.recommendation}}</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-6 col-lg-6">
+                    <div class="col-md-12">
+                      <div class="panel {{data.output.minified.color}}">
+                        <div class="panel-header">
+                          <div class="group-5 d-flex flex-wrap align-items-center justify-content-between">
+                            <h4 class="panel-title">Minification</h4><code
+                              class="code-bg">{{data.output.minified.warning}}</code>
+                          </div>
+                        </div>
+                        <div class="panel-body">
+                          <p class="panel-text">{{data.output.minified.shortAnswer}}</p>
+                          <p>{{data.output.minified.recommendation}}</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row row-30">
+                  <div class="col-md-6 col-lg-6">
+                    <div class="col-md-12">
+                      <div class="panel {{data.output.deprecated.color}}">
+                        <div class="panel-header">
+                          <div class="group-5 d-flex flex-wrap align-items-center justify-content-between">
+                            <h4 class="panel-title">Deprecated HTML</h4><code
+                              class="code-bg">{{data.output.deprecated.warning}}</code>
+                          </div>
+                        </div>
+                        <div class="panel-body">
+                          <p class="panel-text">{{data.output.deprecated.shortAnswer}}</p>
+                          <p>{{data.output.deprecated.recommendation}}</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-6 col-lg-6">
+                    <div class="col-md-12">
+                      <div class="panel {{data.output.inlineCss.color}}">
+                        <div class="panel-header">
+                          <div class="group-5 d-flex flex-wrap align-items-center justify-content-between">
+                            <h4 class="panel-title">Inline Styles</h4><code
+                              class="code-bg">{{data.output.inlineCss.warning}}</code>
+                          </div>
+                        </div>
+                        <div class="panel-body">
+                          <p class="panel-text">{{data.output.inlineCss.shortAnswer}}</p>
+                          <p>{{data.output.inlineCss.recommendation}}</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    </section>
+
+
+    <section class="section-sm section-transparent" style="margin: 10px;">
+      <div class="col-lg-6 col-xxl-10">
+        <div class="panel">
+          <div class="panel-body p-0">
+
+            <div class="alert alert-primary alert-lighter mt-1" role="alert">
+              <span>Social Resaults</span>
+            </div>
+
+            <div class="container-fluid">
+              <div class="row row-30">
+                <div class="col-md-4 col-lg-4">
+                  <div class="media-item">
+                    <div class="progress-circle-wrap">
+                      <div class="progress-counter-wrap">
+                        <div class="progress-counter-value-main" style="color:{{data.output.scores.social.colorGrade}}">
+                          <span class="progress-counter">{{data.output.scores.social.newGrade}}</span><span
+                            class="progress-postfix">%</span>
+                        </div>
+                      </div>
+                      <svg class="progress-circle" x="0" y="0" width="200" height="200" viewbox="0 0 60 60">
+                        <circle class="bg" cx="30" cy="30" r="29"></circle>
+                        <circle class="fg clipped" cx="30" cy="30" r="29"
+                          style="stroke: {{data.output.scores.social.colorGrade}}"></circle>
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-8 col-lg-6">
+                  <h2>{{data.output.scores.social.title}}</h2>
+                  <p>{{data.output.scores.social.description}}</p>
+                </div>
+              </div>
+            </div>
+            <div class="container-fluid">
+              <div class="alert alert-primary alert-lighter mt-1" role="alert"
+                style="margin-left: 20%;margin-right: 20%;">
+                <span style="text-transform: uppercase;">Social Information</span>
+              </div>
+              <div class="container">
+                <div class="row row-30">
+                  <div class="col-md-6 col-lg-6">
+                    <div class="col-md-12">
+                      <div class="panel {{data.output.facebookLink.color}}">
+                        <div class="panel-header">
+                          <div class="group-5 d-flex flex-wrap align-items-center justify-content-between">
+                            <h4 class="panel-title">Facebook Connected</h4><code
+                              class="code-bg">{{data.output.facebookLink.warning}}</code>
+                          </div>
+                        </div>
+                        <div class="panel-body">
+                          <p class="panel-text">{{data.output.facebookLink.shortAnswer}}</p>
+                          <p>{{data.output.facebookLink.recommendation}}</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-6 col-lg-6">
+                    <div class="col-md-12">
+                      <div class="panel {{data.output.twitterLink.color}}">
+                        <div class="panel-header">
+                          <div class="group-5 d-flex flex-wrap align-items-center justify-content-between">
+                            <h4 class="panel-title">Twitter Connected</h4><code
+                              class="code-bg">{{data.output.twitterLink.warning}}</code>
+                          </div>
+                        </div>
+                        <div class="panel-body">
+                          <p class="panel-text">{{data.output.twitterLink.warning}}</p>
+                          <p>{{data.output.twitterLink.recommendation}}</p>
+
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row row-30">
+                  <div class="col-md-6 col-lg-6">
+                    <div class="col-md-12">
+                      <div class="panel {{data.output.facebookPixel.color}}">
+                        <div class="panel-header">
+                          <div class="group-5 d-flex flex-wrap align-items-center justify-content-between">
+                            <h4 class="panel-title">Facebook Pixel</h4><code
+                              class="code-bg">{{data.output.facebookPixel.warning}}</code>
+                          </div>
+                        </div>
+                        <div class="panel-body">
+                          <p class="panel-text">{{data.output.facebookPixel.shortAnswer}}</p>
+                          <p>{{data.output.facebookPixel.recommendation}}</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-6 col-lg-6">
+                    <div class="col-md-12">
+                      <div class="panel {{data.output.twitterActivity.color}}">
+                        <div class="panel-header">
+                          <div class="group-5 d-flex flex-wrap align-items-center justify-content-between">
+                            <h4 class="panel-title">Twitter Activity</h4><code
+                              class="code-bg">{{data.output.twitterActivity.warning}}</code>
+                          </div>
+                        </div>
+                        <div class="panel-body">
+                          <p class="panel-text">{{data.output.twitterActivity.shortAnswer}}</p>
+                          <p>Followers: {{data.output.twitterActivity.data.followers}}</p>
+                          <p>{{data.output.twitterActivity.recommendation}}</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row row-30">
+                  <div class="col-md-6 col-lg-6">
+                    <div class="col-md-12">
+                      <div class="panel {{data.output.openGraphTags.color}}">
+                        <div class="panel-header">
+                          <div class="group-5 d-flex flex-wrap align-items-center justify-content-between">
+                            <h4 class="panel-title">Facebook Open Graph Tags</h4><code
+                              class="code-bg">{{data.output.openGraphTags.warning}}</code>
+                          </div>
+                        </div>
+                        <div class="panel-body">
+                          <p class="panel-text">{{data.output.openGraphTags.warning}}</p>
+                          <p>{{data.output.openGraphTags.recommendation}}</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-6 col-lg-6">
+                    <div class="col-md-12">
+                      <div class="panel {{data.output.twitterTags.color}}">
+                        <div class="panel-header">
+                          <div class="group-5 d-flex flex-wrap align-items-center justify-content-between">
+                            <h4 class="panel-title">Twitter Cards</h4><code
+                              class="code-bg">{{data.output.twitterTags.warning}}</code>
+                          </div>
+                        </div>
+                        <div class="panel-body">
+                          <p class="panel-text">{{data.output.twitterTags.warning}}</p>
+                          <p>{{data.output.twitterTags.recommendation}}</p>
+
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row row-30">
+                  <div class="col-md-6 col-lg-6">
+                    <div class="col-md-12">
+                      <div class="panel {{data.output.instagramLink.color}}">
+                        <div class="panel-header">
+                          <div class="group-5 d-flex flex-wrap align-items-center justify-content-between">
+                            <h4 class="panel-title">Instagram Connected</h4><code
+                              class="code-bg">{{data.output.instagramLink.warning}}</code>
+                          </div>
+                        </div>
+                        <div class="panel-body">
+                          <p class="panel-text">{{data.output.instagramLink.shortAnswer}}</p>
+                          <p>{{data.output.instagramLink.recommendation}}</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-6 col-lg-6">
+                    <div class="col-md-12">
+                      <div class="panel {{data.output.youtubeLink.color}}">
+                        <div class="panel-header">
+                          <div class="group-5 d-flex flex-wrap align-items-center justify-content-between">
+                            <h4 class="panel-title">YouTube Connected</h4><code
+                              class="code-bg">{{data.output.youtubeLink.warning}}</code>
+                          </div>
+                        </div>
+                        <div class="panel-body">
+                          <p class="panel-text">{{data.output.youtubeLink.warning}}</p>
+                          <p>{{data.output.youtubeLink.recommendation}}</p>
+
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row row-30">
+                  <div class="col-md-6 col-lg-6">
+                    <div class="col-md-12">
+                      <div class="panel {{data.output.linkedInLink.color}}">
+                        <div class="panel-header">
+                          <div class="group-5 d-flex flex-wrap align-items-center justify-content-between">
+                            <h4 class="panel-title">LinkedIn Connected</h4><code
+                              class="code-bg">{{data.output.linkedInLink.warning}}</code>
+                          </div>
+                        </div>
+                        <div class="panel-body">
+                          <p class="panel-text">{{data.output.linkedInLink.shortAnswer}}</p>
+                          <p>{{data.output.linkedInLink.recommendation}}</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <section class="section-sm section-transparent" style="margin: 10px;">
+      <div class="col-lg-6 col-xxl-10">
+        <div class="panel">
+          <div class="panel-body p-0">
+
+            <div class="alert alert-primary alert-lighter mt-1" role="alert">
+              <span>Security Resaults</span>
+            </div>
+
+            <div class="container-fluid">
+              <div class="row row-30">
+                <div class="col-md-4 col-lg-4">
+                  <div class="media-item">
+                    <div class="progress-circle-wrap">
+                      <div class="progress-counter-wrap">
+                        <div class="progress-counter-value-main"
+                          style="color:{{data.output.scores.security.colorGrade}}">
+                          <span class="progress-counter">{{data.output.scores.security.newGrade}}</span><span
+                            class="progress-postfix">%</span>
+                        </div>
+                      </div>
+                      <svg class="progress-circle" x="0" y="0" width="200" height="200" viewbox="0 0 60 60">
+                        <circle class="bg" cx="30" cy="30" r="29"></circle>
+                        <circle class="fg clipped" cx="30" cy="30" r="29"
+                          style="stroke: {{data.output.scores.security.colorGrade}}"></circle>
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-8 col-lg-6">
+                  <h2>{{data.output.scores.security.title}}</h2>
+                  <p>{{data.output.scores.security.description}}</p>
+                </div>
+              </div>
+            </div>
+            <div class="container-fluid">
+              <div class="container">
+
+                <div class="row row-30">
+                  <div class="col-md-6 col-lg-6">
+                    <div class="col-md-12">
+                      <div class="panel {{data.output.sslEnabled.color}}">
+                        <div class="panel-header">
+                          <div class="group-5 d-flex flex-wrap align-items-center justify-content-between">
+                            <h4 class="panel-title">SSL Enabled</h4><code
+                              class="code-bg">{{data.output.sslEnabled.warning}}</code>
+                          </div>
+                        </div>
+                        <div class="panel-body">
+                          <p class="panel-text">{{data.output.sslEnabled.shortAnswer}}</p>
+                          <p>{{data.output.sslEnabled.recommendation}}</p>
+
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-6 col-lg-6">
+                    <div class="col-md-12">
+                      <div class="panel {{data.output.httpsRedirect.color}}">
+                        <div class="panel-header">
+                          <div class="group-5 d-flex flex-wrap align-items-center justify-content-between">
+                            <h4 class="panel-title">HTTPS Redirect</h4><code
+                              class="code-bg">{{data.output.httpsRedirect.warning}}</code>
+                          </div>
+                        </div>
+                        <div class="panel-body">
+                          <p class="panel-text">{{data.output.httpsRedirect.shortAnswer}}</p>
+                          <p>{{data.output.httpsRedirect.recommendation}}</p>
+
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row row-30">
+                  <div class="col-md-6 col-lg-12">
+                    <div class="col-md-12">
+                      <div class="panel {{data.output.malware.color}}">
+                        <div class="panel-header">
+                          <div class="group-5 d-flex flex-wrap align-items-center justify-content-between">
+                            <h4 class="panel-title">Malware Check</h4><code
+                              class="code-bg">{{data.output.malware.warning}}</code>
+                          </div>
+                        </div>
+                        <div class="panel-body">
+                          <p class="panel-text">{{data.output.malware.shortAnswer}}</p>
+                          <p>{{data.output.malware.recommendation}}</p>
+                          <p>More information here below</p>
+
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="container">
+                <div class="row row-30" style="font-size: x-large;">
+                  <div class="col-sm-6 col-lg-3">
+                    <div
+                      class="widget-counter widget-counter-boxed widget-counter-boxed-{{data.output.malware.googleColor}} widget-counter-boxed-gradient">
+                      <div class="widget-counter-body">
+                        <h2 class="widget-counter-title">
+                          <div class="h1 mdi-security"></div>
+                        </h2>
+                        <div class="widget-counter-text">
+                          <p> Google Browsing</p>
+                        </div>
+                      </div>
+                      <div class="widget-counter-footer small"><span
+                          class="widget-counter-footer-icon {{data.output.malware.googleVerified}} pr-1"></span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-6 col-lg-3">
+                    <div
+                      class="widget-counter widget-counter-boxed widget-counter-boxed-{{data.output.malware.mcafeeColor}} widget-counter-boxed-gradient">
+                      <div class="widget-counter-body">
+                        <h2 class="widget-counter-title">
+                          <div class="h1 mdi-security"></div>
+                        </h2>
+                        <div class="widget-counter-text">McAfee</div>
+                      </div>
+                      <div class="widget-counter-footer small"><span
+                          class="widget-counter-footer-icon {{data.output.malware.mcafeeVerified}} pr-1"></span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-6 col-lg-3">
+                    <div
+                      class="widget-counter widget-counter-boxed widget-counter-boxed-{{data.output.malware.nortonColor}} widget-counter-boxed-gradient">
+                      <div class="widget-counter-body">
+                        <h2 class="widget-counter-title">
+                          <div class="h1 mdi-security"></div>
+                        </h2>
+                        <div class="widget-counter-text">Norton</div>
+                      </div>
+                      <div class="widget-counter-footer small"><span
+                          class="widget-counter-footer-icon {{data.output.malware.nortonVerified}} pr-1"></span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-6 col-lg-3">
+                    <div
+                      class="widget-counter widget-counter-boxed widget-counter-boxed-{{data.output.malware.avgColor}} widget-counter-boxed-gradient">
+                      <div class="widget-counter-body">
+                        <h2 class="widget-counter-title">
+                          <div class="h1 mdi-security"></div>
+                        </h2>
+                        <div class="widget-counter-text">AVG</div>
+                      </div>
+                      <div class="widget-counter-footer small"><span
+                          class="widget-counter-footer-icon {{data.output.malware.avgVerified}} pr-1"></span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row row-30">
+                  <div class="col-md-6 col-lg-12">
+                    <div class="col-md-12">
+                      <div class="panel {{data.output.email.color}}">
+                        <div class="panel-header">
+                          <div class="group-5 d-flex flex-wrap align-items-center justify-content-between">
+                            <h4 class="panel-title">Email Privacy</h4><code
+                              class="code-bg">{{data.output.email.warning}}</code>
+                          </div>
+                        </div>
+                        <div class="panel-body">
+                          <p class="panel-text">{{data.output.email.shortAnswer}}</p>
+                          <p>{{data.output.email.recommendation}}</p>
+
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-sm section-transparent" style="margin: 10px;">
+      <div class="col-lg-6 col-xxl-10">
+        <div class="panel">
+          <div class="panel-body p-0">
+
+            <div class="alert alert-primary alert-lighter mt-1" role="alert">
+              <span>Technology Resaults</span>
+            </div>
+
+            <div class="container-fluid">
+              <div class="row row-30">
+                <div class="col-md-4 col-lg-4">
+                  <div class="media-item">
+                    <div class="progress-circle-wrap">
+                      <div class="progress-counter-wrap">
+
+                      </div>
+
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-8 col-lg-6">
+                  <h2>Technology List</h2>
+                  <p>{{data.output.technologies.shortAnswer}}</p>
+                  <p>{{data.output.technologies.recommendation}}</p>
+                </div>
+              </div>
+            </div>
+            <div class="container-fluid">
+              <div class="container">
+
+                <div class="col-lg-12">
+                  <div class="panel">
+                    <div class="panel-body p-0">
+                      <div class="table-responsive scroller scroller-horizontal">
+                        <table class="table table-striped">
+                          <thead>
+                            <tr>
+                              <th scope="col"></th>
+
+                              <th scope="col">Technology</th>
+                              <th scope="col">Version</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            {{#each data.output.technologies.data as |item|}}
+                            <tr>
+                              <th scope="row">{{@index}}</th>
+                              <td>{{item}}</td>
+                              <td></td>
+                            </tr>
+                            {{/each}}
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="container">
+                <div class="row row-30" style="font-size: x-large;">
+                  <div class="col-sm-6 col-lg-3">
+                    <div
+                      class="widget-counter widget-counter-boxed widget-counter-boxed-success widget-counter-boxed-gradient">
+                      <div class="widget-counter-body">
+                        <h2 class="widget-counter-title">
+                          <div class="h1 mdi-security"></div>
+                        </h2>
+                        <div class="widget-counter-text">Server IP Address</div>
+                      </div>
+                      <div class="widget-counter-footer small" style="font-size: 15px;">{{data.output.ip.data}}
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-6 col-lg-3">
+                    <div
+                      class="widget-counter widget-counter-boxed widget-counter-boxed-success widget-counter-boxed-gradient">
+                      <div class="widget-counter-body">
+                        <h2 class="widget-counter-title">
+                          <div class="h1 mdi-security"></div>
+                        </h2>
+                        <div class="widget-counter-text">DNS Servers</div>
+                      </div>
+                      <div class="widget-counter-footer small" style="font-size: 15px;">
+                        <p>{{data.output.dns.data}}</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-6 col-lg-3">
+                    <div
+                      class="widget-counter widget-counter-boxed widget-counter-boxed-success widget-counter-boxed-gradient">
+                      <div class="widget-counter-body">
+                        <h2 class="widget-counter-title">
+                          <div class="h1 mdi-security"></div>
+                        </h2>
+                        <div class="widget-counter-text">Web Server</div>
+                      </div>
+                      <div class="widget-counter-footer small" style="font-size: 15px;">{{data.output.webServer.data}}
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-6 col-lg-3">
+                    <div
+                      class="widget-counter widget-counter-boxed widget-counter-boxed-success widget-counter-boxed-gradient">
+                      <div class="widget-counter-body">
+                        <h2 class="widget-counter-title">
+                          <div class="h1 mdi-security"></div>
+                        </h2>
+                        <div class="widget-counter-text">Charset</div>
+                      </div>
+                      <div class="widget-counter-footer small" style="font-size: 15px;">{{data.output.charset.data}}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
+
+
+
+
+
+
+
+
+            </div>
+          </div>
+        </div>
+    </section>
+
+    <section class="section-sm section-transparent" style="margin: 10px;">
+      <div class="col-lg-6 col-xxl-10">
+        <div class="panel">
+          <div class="panel-body p-0">
+            <div class="alert alert-primary alert-lighter mt-1" role="alert">
+              <span>Recommendations</span>
+
+
+            </div>
+            <div class="row row-30">
+              <div class="col-12">
+                <h3 class="text-center">This is what we recommend you start working on first. </h3>
+              </div>
+              <div class="col-md-12">
+                <div class="tabs tabs-vertical-top">
+                  <ul class="nav nav-tabs scroller scroller-horizontal" role="tablist">
+                    <li class="nav-item">
+                      <a class="nav-link active" data-toggle="tab" href="#panelTab3-1" role="tab"
+                        aria-selected="true">All</a>
+                    </li>
+                    <!-- <li class="nav-item">
+                      <a class="nav-link" data-toggle="tab" href="#panelTab3-2" role="tab" aria-selected="false"><span
+                          class="fa-bolt"></span> SEO</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" data-toggle="tab" href="#panelTab3-3" role="tab"
+                        aria-selected="false">Performance</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" data-toggle="tab" href="#panelTab3-4" role="tab"
+                        aria-selected="false">Security</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" data-toggle="tab" href="#panelTab3-5" role="tab"
+                        aria-selected="false">Social</a>
+                    </li>
+                    -->
+                  </ul>
+                  <div class="tab-content">
+                    <div class="tab-pane fade show active" id="panelTab3-1" role="tabpanel">
+                      {{#each data.output.recommendations}}
+                      <div class="col-md-3 col-lg-12">
+                        <div class="alert alert-success mt-1" style="font-size: 1rem;" role="alert">
+                          <code class="code-bg" style="margin-right: 51px;float: left;width: 130px;">{{section}}</code>
+                          <span>{{recommendation}}</span>
+                          <code class="code-bg" style="float: right; width: 130px;">{{priority}}</code>
+                        </div>
+                      </div>
+
+                      {{/each}}
+                    </div>
+                    <div class="tab-pane fade" id="panelTab3-2" role="tabpanel">
+
+
+                      <div id="chart-container"></div>
+
+
+
+                    </div>
+                    <div class="tab-pane fade" id="panelTab3-3" role="tabpanel">
+                      <div class="col-md-3 col-lg-12">
+                        <div class="alert alert-success mt-1" style="font-size: 1rem;" role="alert">
+                          <code class="code-bg" style="margin-right: 50px;float: left;">Performance</code>
+                          <span>Remove inline styles</span>
+                          <code class="code-bg" style="float: right; width: 130px;">Low Priority</code>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="tab-pane fade" id="panelTab3-4" role="tabpanel">
+
+                      <div class="col-md-3 col-lg-12">
+                        <div class="alert alert-success mt-1" style="font-size: 1rem;" role="alert">
+                          <code class="code-bg" style="margin-right: 50px;float: left;">Security</code>
+                          <span>Remove clear text Email Addresses</span>
+                          <code class="code-bg" style="float: right; width: 130px;">Low Priority</code>
+                        </div>
+                      </div>
+
+                    </div>
+                    <div class="tab-pane fade" id="panelTab3-5" role="tabpanel">
+
+                      <div class="col-md-3 col-lg-12">
+                        <div class="alert alert-success mt-1" style="font-size: 1rem;" role="alert">
+                          <code class="code-bg" style="margin-right: 50px;float: left;">Social</code>
+                          <span>Create and link your Facebook Page</span>
+                          <code class="code-bg" style="float: right; width: 130px;">Low Priority</code>
+                        </div>
+                      </div>
+
+
+                      <div class="col-md-3 col-lg-12">
+                        <div class="alert alert-success mt-1" style="font-size: 1rem;" role="alert">
+                          <code class="code-bg" style="margin-right: 50px;float: left;">Social</code>
+                          <span>Create and link your Twitter profile</span>
+                          <code class="code-bg" style="float: right; width: 130px;">Low Priority</code>
+                        </div>
+                      </div>
+
+                      <div class="col-md-3 col-lg-12">
+                        <div class="alert alert-success mt-1" style="font-size: 1rem;" role="alert">
+                          <code class="code-bg" style="margin-right: 50px;float: left;">Social</code>
+                          <span>Add Twitter Cards</span>
+                          <code class="code-bg" style="float: right; width: 130px;">Low Priority</code>
+                        </div>
+                      </div>
+
+
+                      <div class="col-md-3 col-lg-12">
+                        <div class="alert alert-success mt-1" style="font-size: 1rem;" role="alert">
+                          <code class="code-bg" style="margin-right: 50px;float: left;">Social</code>
+                          <span>Create and link associated Instagram profile</span>
+                          <code class="code-bg" style="float: right; width: 130px;">Low Priority</code>
+                        </div>
+                      </div>
+
+
+                      <div class="col-md-3 col-lg-12">
+                        <div class="alert alert-success mt-1" style="font-size: 1rem;" role="alert">
+                          <code class="code-bg" style="margin-right: 50px;float: left;">Social</code>
+                          <span>Create and link an associated YouTube channel</span>
+                          <code class="code-bg" style="float: right; width: 130px;">Low Priority</code>
+                        </div>
+                      </div>
+
+
+                      <div class="col-md-3 col-lg-12">
+                        <div class="alert alert-success mt-1" style="font-size: 1rem;" role="alert">
+                          <code class="code-bg" style="margin-right: 50px;float: left;">Social</code>
+                          <span>Create and link an associated LinkedIn profile</span>
+                          <code class="code-bg" style="float: right; width: 130px;">Low Priority</code>
+                        </div>
+                      </div>
+
+
+
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+
+
+
+
+
+
+  </div>
+</body>
+
+
+<footer class="footer footer-small">
+  <div class="d-flex justify-content-between align-items-center group-10">
+    <div> <span>Greendesk</span>© 2019. Design by Zemez</div>
+    <div>
+      <button class="to-top btn btn-sm btn-primary"><span class="fa-chevron-up"></span></button>
+    </div>
+  </div>
+</footer>
+<div class="sidebar scroller">
+  <div class="panel">
+    <div class="panel-header">
+      <h4 class="panel-title"><span class="panel-icon fa-trophy"></span><span>Right Sidebar Content</span></h4>
+    </div>
+    <div class="panel-body">
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce volutpat ac tortor eu viverra. Etiam ipsum
+        neque, fermentum quis sagittis nec, hendrerit id diam. Mauris a tincidunt odio. Sed porttitor ex pulvinar,
+        tristique sapien sed, malesuada nunc.</p>
+    </div>
+  </div>
+</div>
+<div class="template-panel">
+  <div class="template-panel-heading">Navbar Themes
+    <button class="template-panel-switch fa-cog"
+      data-multi-switch='{"targets":".template-panel","scope":".template-panel","isolate":"[data-multi-switch]"}'></button>
+  </div>
+  <div class="template-panel-body">
+    <div class="template-panel-group">
+      <button class="theme-switch fa-check active" title="Navbar Theme"
+        style="border-color: #58a193 #58a193 #fff #fff; color: black;" data-theme-switch="greendesk-navbar-primary"
+        data-theme='{"navbar-sidebar-color":"#fff","navbar-sidebar-bg":"#58a193","navbar-toggle-color":"#58a193","navbar-logo-invert":"0%"}'></button>
+      <button class="theme-switch fa-check" title="Navbar Theme"
+        style="border-color: #5b5eab #5b5eab #fff #fff; color: black;" data-theme-switch="greendesk-navbar-secondary"
+        data-theme='{"navbar-sidebar-color":"#fff","navbar-sidebar-bg":"#5b5eab","navbar-toggle-color":"#5b5eab","navbar-logo-invert":"0%"}'></button>
+      <button class="theme-switch fa-check" title="Navbar Theme"
+        style="border-color: #34b1cc #34b1cc #fff #fff; color: black;" data-theme-switch="greendesk-navbar-info"
+        data-theme='{"navbar-sidebar-color":"#fff","navbar-sidebar-bg":"#34b1cc","navbar-toggle-color":"#34b1cc","navbar-logo-invert":"0%"}'></button>
+      <button class="theme-switch fa-check" title="Navbar Theme"
+        style="border-color: #f7ad6a #f7ad6a #fff #fff; color: black;" data-theme-switch="greendesk-navbar-warning"
+        data-theme='{"navbar-sidebar-color":"#fff","navbar-sidebar-bg":"#f7ad6a","navbar-toggle-color":"#f7ad6a","navbar-logo-invert":"0%"}'></button>
+      <button class="theme-switch fa-check" title="Navbar Theme"
+        style="border-color: #ff5f68 #ff5f68 #fff #fff; color: black;" data-theme-switch="greendesk-navbar-danger"
+        data-theme='{"navbar-sidebar-color":"#fff","navbar-sidebar-bg":"#ff5f68","navbar-toggle-color":"#ff5f68","navbar-logo-invert":"0%"}'></button>
+    </div>
+  </div>
+</div>
+</div>
+
+</body>
+
+</html>

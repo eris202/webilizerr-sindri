@@ -1,0 +1,25 @@
+#card.panel
+	.panel-header
+		h3.panel-title Card
+	.panel-body
+		p Card is a flexible and expandable container of content. It includes heading and footer options, a wide range of content, contextual background colors and powerful display options. Style sheets linking occurs when the #[code .card] primary class is present on the page.
+		p Component example:
+		.card( style="max-width: 300px;" )
+			img.card-img-top( src='https://via.placeholder.com/300x150/', alt='Card image cap' )
+			.card-body
+				h5.card-title Card title
+				p.card-text Some quick example text to build on the card title and make up the bulk of the card's content.
+				a.btn.btn-primary.mt-2( href='#' ) Go somewhere
+
+		p Code example:
+		pre.highlight.html.scroller.scroller-horizontal
+			= '<div class="card">\n'
+			= '  <img class="card-img-top" src="https://via.placeholder.com/300x150/" alt="Card image cap">\n'
+			= '  <div class="card-body">\n'
+			= '    <h5 class="card-title">Card title</h5>\n'
+			= '    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card\'s content.</p>\n'
+			= '    <a href="#" class="btn btn-primary">Go somewhere</a>\n'
+			= '  </div>\n'
+			= '</div>'
+
+		p This component is a part of #[a( href='https://getbootstrap.com' ) Bootstrap 4] framework. Read more about it on the following page: #[a( href="https://getbootstrap.com/docs/4.1/components/card" ) Bootstrap Card].

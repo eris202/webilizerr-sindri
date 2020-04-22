@@ -1,0 +1,45 @@
+extends ../components/base/_skeleton
+include ../components/rd-navbar/_rd-navbar
+include ../components/breadcrumbs/_breadcrumbs
+
+block variables
+	- pageName = 'Navbar';
+
+block page
+	header.page-header
+		+rd-navbar
+
+	section.topbar
+		+breadcrumbs( breadcrumbs )
+
+	section
+		.container-fluid
+			.jumbotron
+				h1 RD Navbar
+				hr.my-3
+				p Full-function, powerful and flexible navigation is easier now.
+
+	section.section-md
+		.container
+			h2 Introduction
+			p This admin template is using RD Navbar as the main navigation plugin.
+
+			h2 Where to start?
+			p Click the following link to view the demonstration of this script work: #[a( href='http://cms.devoffice.com/coding-dev/rd-navbar/documentation/index.php' ) Demo].
+			p The script itself is available in our public repository: #[a( href='https://github.com/ZemezPlugins/rd-navbar' ) GitHub].
+
+			h2 Supported browsers
+			p The script was tested on Windows, Linux and MacOS systems and supports the following browsers:
+			ul
+				li Internet Explorer 9+
+				li Chrome 40+
+				li Firefox 35+
+				li Safari 8+
+
+			p The test was not executed in other browsers. Write us about all found bugs.
+
+			h2 Requirements
+			p The following requirements need to be satisfied for the script to work:
+			ul
+				li jQuery 1.11+
+				li jQuery Easing 1.1+ (For One Page navigation)

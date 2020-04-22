@@ -1,0 +1,16 @@
+#driver.panel
+	.panel-header
+		h3.panel-title Driver.js
+	.panel-body
+		p( data-driver!={ title: 'Step 1' } ) Driver.js is a plugin for focusing an object on the page. This plugin allows to implement the site tour feature on any page.
+		p( data-driver!={ title: 'Step 2' } ) Plugin and style sheets linking occurs when the element that matches the #[code [data-driver&#93;] selector is present on the page.
+		p( data-driver!={ title: 'Step 3' } ) Plugin operation example:
+		.mt-1
+			button.btn.btn-success( data-driver-start ) Start tour
+		p( data-driver!={ title: 'Step 4' } ) An additional example of plugin operation is available on the following page: #[a( href='site-tour.html' ) Site Tour].
+		div( data-driver!={ title: 'Step 5' } )
+			p This template provides a #[code data-driver] attribute for Driver.js that can accept a JSON object with the plugin parameters, e.g.:
+			pre.highlight.html.scroller.scroller-horizontal
+				= '<div ... data-driver=\'{ "title": "Click Next", "description": "...", "position": "top" }\'>...</div>'
+		p( data-driver!={ title: 'Step 6' } ) An attribute can be added to any visible element on the page. The site tour starts automatically 3 seconds after the page loads or on pressing the element with the #[code data-driver-start] attribute if it’s present on the page. The site tour elements are highlighted as they are shown in the document.
+		p( data-driver!={ title: 'End' } ) All available parameters of the plugin can be viewed on #[a( href="https://kamranahmed.info/driver.js" ) Driver.js] website.

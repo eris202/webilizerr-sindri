@@ -1,0 +1,37 @@
+extends ../components/base/_skeleton
+include ../components/session-timeout/_session-modal
+include ../components/alert/_alert
+include ../components/rd-navbar/_rd-navbar
+include ../components/breadcrumbs/_breadcrumbs
+
+block variables
+	- pageName = 'Session timeout'
+
+block page
+	header.section.page-header
+		+rd-navbar
+
+	section.topbar
+		+breadcrumbs( breadcrumbs )
+
+	section.section-lg( data-session-timeout )
+		.container
+			.row.row-30.justify-content-center
+				.col-12
+					h2.text-center Don't move your mouse for a #[b demonstration]. Just pretend to be idle!
+				.col-lg-8
+					.panel
+						.panel-header
+							h4.panel-title
+								span.panel-icon.fa-pencil
+								= ' '
+								span Session Timeout
+						.panel-menu
+							+alert.alert-primary
+								span.alert-icon.fa-trophy
+								span After 5 seconds of inactivity (don't move the mouse), you will see a expiring warning dialog. The user can choose to stay connected or log out.
+						.panel-body
+							p.panel-text
+								| After the set amount of time, a dialog is shown to the user with the option to either log out now, or stay connected. If log out now is selected, the page is redirected to a logout URL. If stay connected is selected, a keep-alive URL is requested through AJAX. If no options is selected after another set amount of time, the page is automatically redirected to a timeout URL.
+
+	+session-modal

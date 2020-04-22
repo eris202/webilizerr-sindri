@@ -1,0 +1,89 @@
+extends ../components/base/_skeleton
+include ../components/google-map/_google-map
+include ../components/rd-navbar/_rd-navbar
+include ../components/breadcrumbs/_breadcrumbs
+
+block variables
+	- pageName = 'Site tour'
+
+block page
+	header.section.page-header
+		+rd-navbar
+
+	section.topbar
+		+breadcrumbs( breadcrumbs )
+
+	section.section-sm.bg-white
+		.container
+			.row.row-30
+				.col-md-4
+					h3 Driver
+					ul.list-unstyled.mt-2.list-md
+						li
+							span.fa-info-circle.pr-2
+							b Author:
+							span  Kamran Ahmed
+						li
+							span.fa-info-circle.pr-2
+							b License:
+							span  The MIT License (MIT).
+						li
+							span.fa-info-circle.pr-2
+							b Website:
+							a( href='https://kamranahmed.info/driver.js/', target='_blank' )  https://kamranahmed.info/driver.js/
+				.col-md-8
+					p Driver is compatible with all the major browsers and can be used for any of your overlay needs. Feature introductions, focus shifters, call-to-action are just a few examples.
+
+	section.section-lg
+		.container-fluid
+			.row.row-30.justify-content-center
+				.col-md-10.col-xxl-7
+					button.btn.btn-primary.btn-block( data-driver-start ) Start tour
+				.col-md-10.col-xxl-7
+					.panel( data-driver!={ title: 'Click \'Next\' to continue', description: 'You can tour any element which has a valid selector', position: 'top' } )
+						.panel-header
+							h4.panel-title Tour Item 1
+						.panel-body
+							.row.row-15.flex-row-reverse
+								.col-sm-4
+									img( src='images/image-02-400x300.jpg', width='400', height='300', alt='' )
+								.col-sm-8
+									p.text-info Wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod
+									hr.divider.divider-dashed
+									p Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch.
+
+				.col-md-10.col-xxl-7
+					.panel( data-driver!={ title: 'Navigate forward or backwards!', description: 'This is step 2.', position: 'top' } )
+						.panel-header
+							h4.panel-title Tour Item 2
+						.panel-body
+							img( src='images/image-01-1000x500.jpg', width='1000', height='500', alt='', style='width: 100%;' )
+
+				.col-md-10.col-xxl-7
+					.panel( data-driver!={ title: 'Bottom Aligned Popup', description: 'Simply configure the step with placement: \'bottom\'', position: 'bottom' } )
+						.panel-header
+							h4.panel-title Tour Item 3
+						.panel-body
+							+google-map({
+								center: {lat: 40.715847, lng: -73.999925},
+								zoom: 18,
+								markers: {
+									'park': {
+										position: 'Columbus Park, Baxter Street, New York, United State',
+										html: 'Columbus park'
+									}
+								}
+							})#mapTour
+
+				.col-md-10.col-xxl-7
+					.panel( data-driver!={ title: 'End of tour', description: 'You can stop the tour or go back to the previous steps.', position: 'top' } )
+						.panel-header
+							h4.panel-title Tour Item 4
+						.panel-body
+							.row.row-15
+								.col-sm-4
+									img( src='images/image-02-400x300.jpg', width='400', height='300', alt='' )
+								.col-sm-8
+									p.text-info Wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod
+									hr.divider.divider-dashed
+									p Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch.

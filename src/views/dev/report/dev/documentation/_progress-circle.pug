@@ -1,0 +1,30 @@
+include ../components/progress-circle/_progress-circle
+
+#progress-circle.panel
+	.panel-header
+		h3.panel-title αCounter & αProgressCircle
+	.panel-body
+		p αCounter is a simple plugin of an animated counter.
+		p αProgressCircle is a plugin for radial progress bar.
+		p Plugins and style sheets linking occurs when the element that matches the #[code .progress-circle-wrap] selector is present on the page.
+		p Both plugins are used together to create a counter with an animated progress bar.
+
+		p Plugin operation example:
+		.mt-2: +progress-circle({ count: 67, color: '#0A1089' })
+
+		p Markup example:
+		pre.highlight.html.scroller.scroller-horizontal
+			='<div class="progress-circle-wrap">'
+			='  <div class="progress-counter-wrap">'
+			='    <div class="progress-counter-value">'
+			='      <span class="progress-counter">80</span>'
+			='    </div>'
+			='  </div>'
+			='  <svg class="progress-circle" x="0" y="0" width="160" height="160" viewbox="0 0 160 160">'
+			='    <circle class="bg" cx="80" cy="80" r="66"></circle>'
+			='    <circle class="fg clipped" cx="80" cy="80" r="66" style="stroke: #28a745"></circle>'
+			='  </svg>'
+			='</div>'
+
+		p Text from the #[code .progress-counter] element is used as a value for calculation.
+		p All available plugin parameters can be viewed in their #[a( href="https://oxayaza.page.link/gitHub_aCounters" ) GitHub repository].

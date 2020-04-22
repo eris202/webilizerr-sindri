@@ -1,0 +1,573 @@
+extends ../components/base/_skeleton
+include ../components/rd-navbar/_rd-navbar
+include ../components/breadcrumbs/_breadcrumbs
+include ../components/input/_input
+include ../components/progress-circle/_progress-circle
+include ../components/progress/_progress
+include ../components/counter/_counter
+
+block variables
+	- htmlClass.push( 'page-small-footer' );
+
+block page
+	header.section.page-header
+		+rd-navbar
+
+	section.section-xs
+		.container-fluid
+			.row.row-30
+				.col-md-6.col-xxl-4.d-xxl-flex
+					.panel
+						.panel-header
+							.d-flex.justify-content-between.align-items-center.flex-wrap.group-10
+								h4.panel-title Sales Analytics
+								div
+									.input-group.input-group-sm
+										.input-group-prepend
+											span.input-group-text
+												span.fa.fa-calendar
+										input.form-control( type='text', name='daterange', data-params!={ opens: 'center' } )
+						.panel-body
+							-
+								var dashboardSector = {
+									credits: false,
+									colors: [ '#f7ad6a', '#58a193' ],
+									chart: {
+										type: 'pie',
+										plotBackgroundColor: null,
+										plotBorderWidth: 0,
+										plotShadow: false
+									},
+									title: {
+										useHTML: true,
+										text: '<h1 style="font-size:30px; text-align:center">30%</h1><p>Paid orders</p>',
+										align: 'center',
+										verticalAlign: 'middle',
+										y: 27
+									},
+									tooltip: {
+										pointFormat: '<b>{point.y} items</b>'
+									},
+									plotOptions: {
+										pie: {
+											dataLabels: {
+												enabled: false
+											},
+											startAngle: -90,
+											endAngle: 90,
+											center: ['50%', '75%'],
+											size: '110%'
+										}
+									},
+									series: [{
+										name: 'Browser share',
+										innerSize: '88%',
+										data: [
+											[ 'Paid orders' , 610 ],
+											[ 'Registrations', 3400 ]
+										]
+									}],
+									responsive: {
+										rules: [{
+											condition: {
+												minWidth: 396
+											},
+											// Make the labels less space demanding on mobile
+											chartOptions: {
+												title: {
+													text: '<h1 style="font-size:50px; text-align:center">30%</h1><p>Paid orders</p>',
+												},
+												plotOptions: {
+													pie: {
+														center: ['50%', '100%'],
+														size: '190%'
+													}
+												},
+											}
+										}]
+									}
+								}
+							.highcharts-container( data-highcharts-options= dashboardSector, style='height:240px;' )
+							ul.list-unstyled.list-lg.text-dark.mt-3
+								li.d-flex.justify-content-between
+									div
+										small.fa-circle.mr-2.text-primary
+										span.align-middle.lead Registrations
+									.lead 3,400
+								li.d-flex.justify-content-between
+									div
+										small.fa-circle.mr-2.text-warning
+										span.align-middle.lead Paid orders
+									.lead 610
+
+				.col-md-6.col-xxl-4.d-xxl-flex
+					.panel
+						.panel-header
+							.d-flex.justify-content-between.align-items-center.flex-wrap.group-10
+								h4.panel-title Traffic sources
+								div
+									.input-group.input-group-sm
+										.input-group-prepend
+											span.input-group-text
+												span.fa.fa-calendar
+										input.form-control( type='text', name='daterange' )
+						.panel-body
+							+progress( {
+								progressTitle: 'www.google.com',
+								className:     'progress-warning',
+								value:         '34',
+								label: true,
+								labelPreffix:  '4,545 visits, '
+							} )
+
+							+progress( {
+								progressTitle: 'www.facebook.com',
+								className:     'progress-warning',
+								value:         '55',
+								label: true,
+								labelPreffix:  '2,545 visits, '
+							} )
+
+							+progress( {
+								progressTitle: 'www.instagram.com',
+								className:     'progress-warning',
+								value:         '25',
+								label: true,
+								labelPreffix:  '1,545 visits, '
+							} )
+
+							+progress( {
+								progressTitle: 'www.twitter.com',
+								className:     'progress-warning',
+								value:         '39',
+								label: true,
+								labelPreffix:  '545 visits, '
+							} )
+
+							+progress( {
+								progressTitle: 'www.amazon.com',
+								className:     'progress-warning',
+								value:         '15',
+								label: true,
+								labelPreffix:  '145 visits, '
+							} )
+
+				.col-md-6.col-xxl-4.d-xxl-flex
+					.panel
+						.panel-header
+							.d-flex.justify-content-between.align-items-center.flex-wrap.group-10
+								h4.panel-title Sales by Regions
+								div
+									.input-group.input-group-sm
+										.input-group-prepend
+											span.input-group-text
+												span.fa.fa-calendar
+										input.form-control( type='text', name='daterange', data-params!={ opens: 'right' } )
+						.panel-body
+							.row.row-30.lead
+								.col-6.col-sm-12.d-flex.justify-content-between.align-items-center.flex-column.flex-sm-row
+									.media.group-15x5.align-items-center.flex-column.flex-sm-row
+										.media-item
+											+progress-circle({ count: 85, postfix: '%', color: '#58a193' })
+										.media-body
+											.text-primary Los Angeles
+									div 3,456 orders
+
+								.col-6.col-sm-12.d-flex.justify-content-between.align-items-center.flex-column.flex-sm-row
+									.media.group-15x5.align-items-center.flex-column.flex-sm-row
+										.media-item
+											+progress-circle({ count: 83, postfix: '%', color: '#f7ad6a' })
+										.media-body
+											.text-warning New York
+									div 3,136 orders
+
+								.col-6.col-sm-12.d-flex.justify-content-between.align-items-center.flex-column.flex-sm-row
+									.media.group-15x5.align-items-center.flex-column.flex-sm-row
+										.media-item
+											+progress-circle({ count: 79, postfix: '%', color: '#5b5eab' })
+										.media-body
+											.text-secondary Washington
+									div 2,975 orders
+
+								.col-6.col-sm-12.d-flex.justify-content-between.align-items-center.flex-column.flex-sm-row
+									.media.group-15x5.align-items-center.flex-column.flex-sm-row
+										.media-item
+											+progress-circle({ count: 75, postfix: '%', color: '#34b1cc' })
+										.media-body
+											.text-info Texas
+									div 2,793 orders
+
+				.col-md-6.col-xxl-6.d-xxl-flex
+					.panel
+						.panel-header
+							.d-flex.justify-content-between.align-items-center.flex-wrap.group-10
+								h4.panel-title Sales by Regions
+								div
+									.input-group.input-group-sm
+										.input-group-prepend
+											span.input-group-text
+												span.fa.fa-calendar
+										input.form-control( type='text', name='daterange' )
+						.panel-body
+							-
+								var dashboardGraphColums = {
+									chart: {
+										type: 'column',
+										marginTop: 30,
+										marginBottom: 30
+									},
+									credits: false,
+									colors: [ '#58a193' ],
+									title: {
+										text: null
+									},
+									legend: {
+										enabled: false
+									},
+									xAxis: {
+										lineColor: '#eef0f2',
+										gridLineDashStyle: 'dash',
+										tickLength: 0,
+										categories: ['Mon', 'To', 'We', 'Th', 'Fr', 'Sa', 'Su' ]
+									},
+									yAxis: {
+										max: 100,
+										gridLineDashStyle: 'dash',
+										title: {
+											text: null
+										},
+										labels: {
+											format: '{value}k'
+										},
+										plotLines: [{
+											color: 'rgba( 247, 173, 106, 0.5 )',
+											width: 1,
+											value: 70,
+											label: {
+												text: 'Goal',
+												align: 'right',
+												x: -10,
+												style: {
+													color: '#f7ad6a',
+													fontWeight: 'bold'
+												}
+											}
+										}]
+									},
+									tooltip: {
+										enabled: false
+									},
+									plotOptions: {
+										column: {
+											borderRadius: 7,
+											maxPointWidth: 13,
+											borderColor: 'transparent'
+										}
+									},
+									series: [{
+										name: 'Goal',
+										data: [ 65, 40, 90, 65, 25, 50, 55 ]
+									}]
+								}
+							.highcharts-container.highcharts-container-md( data-highcharts-options= dashboardGraphColums )
+
+				.col-md-12.col-xxl-6.d-xxl-flex
+					.panel
+						.panel-header
+							.d-flex.justify-content-between.align-items-center.flex-wrap.group-10
+								h4.panel-title Latest Orders
+								div
+									select.form-control.form-control-sm
+										option Today
+										option Yesterday
+										option Last 7 days
+										option Last month
+										option All time
+						.panel-body.p-0
+							.table-responsive.scroller.scroller-horizontal.p-3
+								table.table.table-borderless.table-vertical-align.table-hover
+									tbody 
+										tr
+											td( style='min-width: 200px;' )
+												.media.group-10.align-items-center
+													.media-item.flex-shrink-0: img.rounded( src='images/users/user-09-52x52.jpg', width='52', height='52' alt='' )
+													.media-body: h5 Evelyn Smith
+											td
+												span.fa-envelope-o.mr-2
+												| info@demolink.org
+											td
+												span.fa-calendar.mr-2
+												| 07/10/19
+											td.text-right: h3 $35
+
+										tr
+											td( style='min-width: 200px;' )
+												.media.group-10.align-items-center
+													.media-item.flex-shrink-0: img.rounded( src='images/users/user-15-52x52.jpg', width='52', height='52' alt='' )
+													.media-body: h5 Timothy Howard
+											td
+												span.fa-envelope-o.mr-2
+												| info@demolink.org
+											td
+												span.fa-calendar.mr-2
+												| 07/10/19
+											td.text-right: h3 $10
+
+										tr 
+											td( style='min-width: 200px;' )
+												.media.group-10.align-items-center
+													.media-item.flex-shrink-0: img.rounded( src='images/users/user-17-52x52.jpg', width='52', height='52' alt='' )
+													.media-body: h5 John Williams
+											td
+												span.fa-envelope-o.mr-2
+												| info@demolink.org
+											td
+												span.fa-calendar.mr-2
+												| 07/10/19
+											td.text-right: h3 $15
+
+										tr
+											td( style='min-width: 200px;' )
+												.media.group-10.align-items-center
+													.media-item.flex-shrink-0: img.rounded( src='images/users/user-16-52x52.jpg', width='52', height='52' alt='' )
+													.media-body: h5 Ann Adams
+											td
+												span.fa-envelope-o.mr-2
+												| info@demolink.org
+											td
+												span.fa-calendar.mr-2
+												| 07/10/19
+											td.text-right: h3 $35
+
+							.px-4.pb-4
+								button.btn.btn-sm.btn-block.btn-outline-light View all
+
+				.col-md-6.col-xxl-6.d-xxl-flex.flex-wrap
+					.panel
+						.panel-header
+							.d-flex.justify-content-between.align-items-center.flex-wrap.group-10
+								h4.panel-title Analytics
+								div
+									select.form-control.form-control-sm
+										option Today
+										option Yesterday
+										option Last 7 days
+										option Last month
+										option All time
+						.panel-body.pt-xxl-3.pb-xxl-5
+							.row.row-30
+								.col.col-xxl-4
+									+box-counter-1({
+										iconClass: 'mdi-account-outline',
+										value: 9455,
+										title: 'Unique visitors'
+									}).box-counter-1-lg
+
+								.col.col-xxl-4
+									+box-counter-1({
+										iconClass: 'mdi-file-outline',
+										value: 6492,
+										title: 'New Registrations'
+									}).box-counter-1-lg
+
+								.col.col-xxl-4
+									+box-counter-1({
+										iconClass: 'mdi-cart-outline',
+										value: 3400,
+										title: 'Total orders'
+									}).box-counter-1-lg
+
+					.panel
+						.panel-header
+							.d-flex.justify-content-between.align-items-center.flex-wrap.group-10
+								h4.panel-title Statistic by Platforms
+								div
+									select.form-control.form-control-sm
+										option Today
+										option Yesterday
+										option Last 7 days
+										option Last month
+										option All time
+						.panel-body
+							.row.row-30.align-items-center
+								.col-sm-6.col-xxl-5
+									-
+										var dashboardDonut = {
+											credits: false,
+											colors: [ '#f7ad6a', '#58a193', '#5b5eab' ],
+											title: {
+												text: null
+											},
+										chart: {
+											spacing: [ 0, 0, 0, 0 ]
+										},
+											tooltip: {
+												pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+											},
+											plotOptions: {
+												pie: {
+													borderWidth: 3,
+													dataLabels: {
+														enabled: false
+													},
+													center: ['50%', '50%']
+												}
+											},
+											series: [{
+												type: 'pie',
+												name: 'Browser share',
+												innerSize: '70%',
+												data: [
+													['Windows', 35],
+													['Mac', 49],
+													['Other', 15]
+												]
+											}]
+										}
+									.highcharts-container( data-highcharts-options= dashboardDonut, style='height:200px;' )
+
+								.col-sm-6.col-xxl-7
+									+progress( {
+										progressTitle: 'Windows',
+										className:     'progress-warning',
+										titleClass:    'text-dark',
+										value:         '35',
+										label:         true
+									} )
+
+									+progress( {
+										progressTitle: 'Mac',
+										className:     'progress-primary',
+										titleClass:    'text-dark',
+										value:         '49',
+										label:         true
+									} )
+
+									+progress( {
+										progressTitle: 'Other',
+										className:     'progress-secondary',
+										titleClass:    'text-dark',
+										value:         '15',
+										label:         true
+									} )
+
+				.col-md-6.col-xxl-6.d-xxl-flex
+					.panel
+						.panel-header
+							.d-flex.justify-content-between.align-items-center.flex-wrap.group-10
+								h4.panel-title Top product
+								div
+									select.form-control.form-control-sm
+										option Today
+										option Yesterday
+										option Last 7 days
+										option Last month
+										option All time
+						.panel-body
+							.row.row-30.align-items-center
+								.col-sm-6.col-md-12.col-lg-6.col-xxl-4
+									h3 Green Plant
+									p.mt-3 This product is a great add to any office and home space. It is also very easy to take care of.
+									+box-counter-1({
+										iconClass: 'mdi-eye box-counter-1-icon-secondary',
+										value:     3400,
+										title:     'Total views'
+									})
+									+box-counter-1({
+										iconClass: 'mdi-cart-plus box-counter-1-icon-warning',
+										value:     3400,
+										title:     'Total orders'
+									})
+									button.btn.btn-primary Explore
+
+								.col-6.col-xxl-5.offset-xxl-1
+									img( src='images/image-28-360x481.png', width='360', height='481' alt='' )
+
+				.col-md-12.d-xxl-flex
+					.panel
+						.panel-header
+							.d-flex.justify-content-between.align-items-center.flex-wrap.group-10
+								h4.panel-title Sessions Overview
+								div
+									.input-group.input-group-sm
+										.input-group-prepend
+											span.input-group-text
+												span.fa.fa-calendar
+										input.form-control( type='text', name='daterange' )
+						.panel-body
+							-
+								var dashboardGraphLinear = {
+									chart: {
+										type: 'area'
+									},
+									credits: false,
+									colors: [ '#58a193' ],
+									title: {
+										text: null
+									},
+									legend: {
+										enabled: false
+									},
+									xAxis: {
+										gridLineDashStyle: 'dash',
+										tickLength: 0,
+										lineColor: '#eef0f2',
+										categories: ['Mon', 'To', 'We', 'Th', 'Fr', 'Sa', 'Su' ]
+									},
+									yAxis: {
+										max: 100,
+										gridLineDashStyle: 'dash',
+										title: {
+											text: null
+										},
+										labels: {
+											format: '{value}k'
+										}
+									},
+									tooltip: {
+										headerFormat: '',
+										pointFormat: '{series.name}: <b>{point.y}k</b>',
+										borderWidth: 0,
+										backgroundColor: '#fff',
+										shadow: {
+											offsetY: 3,
+											width: 15,
+											color: '#818181',
+											opacity: 0.02
+										},
+										style: {
+											fontSize: '15px',
+											color: '#58a193'
+										}
+									},
+									plotOptions: {
+										series: {
+											marker: {
+												radius: 6,
+												fillColor: '#ffffff',
+												lineWidth: 2,
+												lineColor: null
+											},
+											fillColor: {
+												linearGradient: [ '50%', '0%', '50%', '100%' ],
+												stops: [
+													[0, 'rgba( 88, 161, 147, 0.25)' ],
+													[1, 'rgba( 88, 161, 147, 0)' ]
+												]
+											}
+										}
+									},
+									series: [{
+										name: 'Goal',
+										data: [ 25, 45, 25, 40, 78, 36, 55 ]
+									}]
+								}
+							.highcharts-container.highcharts-container-xxl( data-highcharts-options= dashboardGraphLinear )
+
+	footer.footer.footer-small
+		.d-flex.justify-content-between.align-items-center.group-10
+			div 
+				span=logo.name 
+				| © 2019. Design by Zemez
+			div
+				button.to-top.btn.btn-sm.btn-primary: span.fa-chevron-up

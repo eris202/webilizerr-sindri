@@ -1,0 +1,56 @@
+#table.panel
+	.panel-header
+		h3.panel-title Table
+	.panel-body
+		p Table stylization component. Style sheets linking occurs when the #[code .table] primary class is present on the page.
+		p Component example:
+		table.table.mt-2
+			thead
+				tr
+					th( scope='col' ) #
+					th( scope='col' ) First
+					th( scope='col' ) Last
+			tbody
+				tr
+					th( scope='row' ) 1
+					td Mark
+					td Otto
+				tr
+					th( scope='row' ) 2
+					td Jacob
+					td Thornton
+				tr
+					th( scope='row' ) 3
+					td Larry
+					td Bird
+
+		p Code example:
+		pre.highlight.html
+			= '<table class="table">\n'
+			= '  <thead>\n'
+			= '    <tr>\n'
+			= '      <th scope="col">#</th>\n'
+			= '      <th scope="col">First</th>\n'
+			= '      <th scope="col">Last</th>\n'
+			= '    </tr>\n'
+			= '  </thead>\n'
+			= '  <tbody>\n'
+			= '    <tr>\n'
+			= '      <th scope="row">1</th>\n'
+			= '      <td>Mark</td>\n'
+			= '      <td>Otto</td>\n'
+			= '    </tr>\n'
+			= '    <tr>\n'
+			= '      <th scope="row">2</th>\n'
+			= '      <td>Jacob</td>\n'
+			= '      <td>Thornton</td>\n'
+			= '    </tr>\n'
+			= '    <tr>\n'
+			= '      <th scope="row">3</th>\n'
+			= '      <td>Larry</td>\n'
+			= '      <td>Bird</td>\n'
+			= '    </tr>\n'
+			= '  </tbody>\n'
+			= '</table>'
+
+		p This component is a part of #[a( href='https://getbootstrap.com' ) Bootstrap 4] framework. Read more about it on the following page: #[a( href="https://getbootstrap.com/docs/4.1/components/tables" ) Bootstrap Tables].

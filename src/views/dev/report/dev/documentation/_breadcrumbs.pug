@@ -1,0 +1,25 @@
+include ../components/breadcrumbs/_breadcrumbs
+
+#breadcrumbs.panel
+	.panel-header
+		h3.panel-title Breadcrumbs
+	.panel-body
+		p
+			| Компонент используется для указания местоположения текущей страницы в навигационной иерархии.
+			| Подключение стилей происходит при наличии основного класса #[code .breadcrumbs] на странице.
+
+		p Component example:
+		+breadcrumbs( breadcrumbs ).mt-1.p-0
+
+		p Markup example:
+		pre.highlight.html.scroller.scroller-horizontal
+			= '<ul class="breadcrumbs mt-1 p-0">\n'
+			= '  <li class="breadcrumbs-item">\n'
+			= '    <a class="breadcrumbs-link" href="index.html">\n'
+			= '      <span class="breadcrumbs-icon fa-home"></span>\n'
+			= '      <span>Dashboard</span>\n'
+			= '    </a>\n'
+			= '  </li>\n'
+			= '  <li class="breadcrumbs-item">Documentation</li>\n'
+			= '  <li class="breadcrumbs-item">Components List</li>\n'
+			= '</ul>'

@@ -1,0 +1,311 @@
+extends ../components/base/_skeleton
+include  ../components/card/_card
+include ../components/rd-navbar/_rd-navbar
+include ../components/breadcrumbs/_breadcrumbs
+
+block variables
+	- pageName = 'Image Tools';
+
+block page
+	header.section.page-header
+		+rd-navbar
+
+	section.topbar
+		+breadcrumbs( breadcrumbs )
+
+	section.section-sm
+		.container-fluid( data-cropper-container )
+			.row.row-30.flex-row-reverse
+				.col-lg-4
+					.panel
+						.panel-header
+							h4.panel-title Cropper
+						.panel-body
+							ul.list-unstyled.list-md.mt-2
+								li
+									span.fa-exclamation-circle.pr-2
+									b Author:
+									span  Chen Fengyuan
+								li
+									span.fa-exclamation-circle.pr-2
+									b License:
+									span  MIT license
+								li
+									span.fa-exclamation-circle.pr-2
+									b Website:
+									a( href='https://fengyuanchen.github.io/cropperjs' )  www.fengyuanchen.github.io/cropperjs
+		
+							h4 Cropper.js is a JavaScript library for cropping image.
+							p With the Cropper.js, you can select an specific area of an image, and then upload the coordinates data to server-side to crop the image, or crop the image on browser-side directly.
+
+				.col-lg-8
+					.panel
+						.panel-header
+							h4.panel-title
+								span.panel-icon.fa-crop
+								= ' '
+								span Image Cropping Utility
+						.panel-body
+							.row.row-10
+								.col-md-9
+									.group-5
+										.img-container
+											img( src='images/logo-300x300.png', alt='Picture' )
+
+										.btn-group
+											button.btn.btn-primary.fa-arrows( data-cropper!={ setDragMode: 'move' } )
+											button.btn.btn-primary.fa-crop( data-cropper!={ setDragMode: 'crop' } )
+											button.btn.btn-primary.fa-search-plus( data-cropper!={ zoom: 0.1 } )
+											button.btn.btn-primary.fa-search-minus( data-cropper!={ zoom: -0.1 } )
+
+										.btn-group
+											button.btn.btn-primary.fa-rotate-left( data-cropper!={ rotate: -45 } )
+											button.btn.btn-primary.fa-rotate-right( data-cropper!={ rotate: 45 } )
+											button.btn.btn-primary.fa-arrows-h( data-cropper!={ scaleX: -1 } )
+											button.btn.btn-primary.fa-arrows-v( data-cropper!={ scaleY: -1 } )
+
+										.btn-group
+											button.btn.btn-primary.fa-lock( data-cropper!={ disable: null } )
+											button.btn.btn-primary.fa-unlock( data-cropper!={ enable: null } )
+											button.btn.btn-primary.fa-times( data-cropper!={ clear: null } )
+											button.btn.btn-primary.fa-refresh( data-cropper!={ reset: null } )
+											label.btn.btn-primary.btn-upload.fa-upload( for='inputImage' )
+											input#inputImage.sr-only( type='file', name='file', accept='image/*' )
+											button.btn.btn-primary.fa-power-off( data-cropper!={ destroy: null } )
+
+										.btn-group
+											button.btn.btn-primary( data-cropper!={setAspectRatio: 1.7777777777777777} ) 16:9
+											button.btn.btn-primary( data-cropper!={setAspectRatio: 1.3333333333333333} ) 4:3
+											button.btn.btn-primary( data-cropper!={setAspectRatio: 1} ) 1:1
+											button.btn.btn-primary( data-cropper!={setAspectRatio: 0.6666666666666666} ) 2:3
+											button.btn.btn-primary( data-cropper!={setAspectRatio: null} ) Free
+
+										.btn-group
+											button.btn.btn-primary( data-cropper!={viewMode: 0} ) VM0
+											button.btn.btn-primary( data-cropper!={viewMode: 1} ) VM1
+											button.btn.btn-primary( data-cropper!={viewMode: 2} ) VM2
+											button.btn.btn-primary( data-cropper!={viewMode: 3} ) VM3
+
+										.dropdown.dropup.docs-options.align-top
+											button.btn.btn-primary.dropdown-toggle( data-toggle='dropdown' )
+												| Toggle Options
+												span.caret
+											ul.dropdown-menu
+												li.dropdown-item
+													.form-check
+														input#responsive.form-check-input( type='checkbox', name='responsive', checked= true, data-cropper!={responsive: 'checkbox'} )
+														label.form-check-label( for='responsive' ) responsive
+												li.dropdown-item
+													.form-check
+														input#restore.form-check-input( type='checkbox', name='restore', checked= true, data-cropper!={restore: 'checkbox'} )
+														label.form-check-label( for='restore' ) restore
+												li.dropdown-item
+													.form-check
+														input#checkCrossOrigin.form-check-input( type='checkbox', name='checkCrossOrigin', checked= true, data-cropper!={checkCrossOrigin: 'checkbox'} )
+														label.form-check-label( for='checkCrossOrigin' ) checkCrossOrigin
+												li.dropdown-item
+													.form-check
+														input#checkOrientation.form-check-input( type='checkbox', name='checkOrientation', checked= true, data-cropper!={checkOrientation: 'checkbox'} )
+														label.form-check-label( for='checkOrientation' ) checkOrientation
+												li.dropdown-item
+													.form-check
+														input#option-modal.form-check-input( type='checkbox', name='modal', checked= true, data-cropper!={modal: 'checkbox'} )
+														label.form-check-label( for='option-modal' ) modal
+												li.dropdown-item
+													.form-check
+														input#guides.form-check-input( type='checkbox', name='guides', checked= true, data-cropper!={guides: 'checkbox'} )
+														label.form-check-label( for='guides' ) guides
+												li.dropdown-item
+													.form-check
+														input#center.form-check-input( type='checkbox', name='center', checked= true, data-cropper!={center: 'checkbox'} )
+														label.form-check-label( for='center' ) center
+												li.dropdown-item
+													.form-check
+														input#highlight.form-check-input( type='checkbox', name='highlight', checked= true, data-cropper!={highlight: 'checkbox'} )
+														label.form-check-label( for='highlight' ) highlight
+												li.dropdown-item
+													.form-check
+														input#background.form-check-input( type='checkbox', name='background', checked= true, data-cropper!={background: 'checkbox'} )
+														label.form-check-label( for='background' ) background
+												li.dropdown-item
+													.form-check
+														input#autoCrop.form-check-input( type='checkbox', name='autoCrop', checked= true, data-cropper!={autoCrop: 'checkbox'} )
+														label.form-check-label( for='autoCrop' ) autoCrop
+												li.dropdown-item
+													.form-check
+														input#movable.form-check-input( type='checkbox', name='movable', checked= true, data-cropper!={movable: 'checkbox'} )
+														label.form-check-label( for='movable' ) movable
+												li.dropdown-item
+													.form-check
+														input#rotatable.form-check-input( type='checkbox', name='rotatable', checked= true, data-cropper!={rotatable: 'checkbox'} )
+														label.form-check-label( for='rotatable' ) rotatable
+												li.dropdown-item
+													.form-check
+														input#scalable.form-check-input( type='checkbox', name='scalable', checked= true, data-cropper!={scalable: 'checkbox'} )
+														label.form-check-label( for='scalable' ) scalable
+												li.dropdown-item
+													.form-check
+														input#zoomable.form-check-input( type='checkbox', name='zoomable', checked= true, data-cropper!={zoomable: 'checkbox'} )
+														label.form-check-label( for='zoomable' ) zoomable
+												li.dropdown-item
+													.form-check
+														input#zoomOnTouch.form-check-input( type='checkbox', name='zoomOnTouch', checked= true, data-cropper!={zoomOnTouch: 'checkbox'} )
+														label.form-check-label( for='zoomOnTouch' ) zoomOnTouch
+												li.dropdown-item
+													.form-check
+														input#zoomOnWheel.form-check-input( type='checkbox', name='zoomOnWheel', checked= true, data-cropper!={zoomOnWheel: 'checkbox'} )
+														label.form-check-label( for='zoomOnWheel' ) zoomOnWheel
+												li.dropdown-item
+													.form-check
+														input#cropBoxMovable.form-check-input( type='checkbox', name='cropBoxMovable', checked= true, data-cropper!={cropBoxMovable: 'checkbox'} )
+														label.form-check-label( for='cropBoxMovable' ) cropBoxMovable
+												li.dropdown-item
+													.form-check
+														input#cropBoxResizable.form-check-input( type='checkbox', name='cropBoxResizable', checked= true, data-cropper!={cropBoxResizable: 'checkbox'} )
+														label.form-check-label( for='cropBoxResizable' ) cropBoxResizable
+												li.dropdown-item
+													.form-check
+														input#toggleDragModeOnDblclick.form-check-input( type='checkbox', name='toggleDragModeOnDblclick', checked= true, data-cropper!={toggleDragModeOnDblclick: 'checkbox'} )
+														label.form-check-label( for='toggleDragModeOnDblclick' ) toggleDragModeOnDblclick
+
+										.btn-group
+											button.btn.btn-success( data-cropper!={ getCroppedCanvas: { maxWidth: 4096, maxHeight: 4096 }, target: '#modal' } ) Get Cropped Canvas
+											button.btn.btn-success( data-cropper!={ getCroppedCanvas: { width: 160, height: 90 }, target: '#modal' } ) 160×90
+											button.btn.btn-success( data-cropper!={ getCroppedCanvas: { width: 320, height: 180 }, target: '#modal' } ) 320×180
+
+										button.btn.btn-secondary( data-cropper!={ getData: null, target: '#cropper-input' } ) Get Data
+										button.btn.btn-secondary( data-cropper!={ setData: null, target: '#cropper-input' } ) Set Data
+
+										button.btn.btn-secondary( data-cropper!={ getContainerData: null, target: '#cropper-input' } ) Get Container Data
+										button.btn.btn-secondary( data-cropper!={ getImageData: null, target: '#cropper-input' } ) Get Image Data
+
+										button.btn.btn-secondary( data-cropper!={ getCanvasData: null, target: '#cropper-input' } ) Get Canvas Data
+										button.btn.btn-secondary( data-cropper!={ setCanvasData: null, target: '#cropper-input' } ) Set Canvas Data
+
+										button.btn.btn-secondary( data-cropper!={ getCropBoxData: null, target: '#cropper-input' } ) Get Crop Box Data
+										button.btn.btn-secondary( data-cropper!={ setCropBoxData: null, target: '#cropper-input' } ) Set Crop Box Data
+
+										textarea#cropper-input.form-control( placeholder='Get data to here or set data with this value' )
+
+								.col-md-3
+									.group-5
+										div: .d-flex.flex-wrap.group-5
+											.img-preview.preview-lg
+											.img-preview.preview-md
+											.img-preview.preview-sm
+											.img-preview.preview-xs
+
+	section.section-sm
+		.container-fluid
+			.row.row-30.flex-row-reverse
+				.col-lg-4
+					.panel
+						.panel-header
+							h4.panel-title Tower file input
+						.panel-body
+							ul.list-unstyled.list-md.mt-2
+								li
+									span.fa-exclamation-circle.pr-2
+									b Author:
+									span  StrutTower
+								li
+									span.fa-exclamation-circle.pr-2
+									b License:
+									span  MIT license
+								li
+									span.fa-exclamation-circle.pr-2
+									b Website:
+									a( href='https://github.com/StrutTower/tower-file-input' )  www.github.com/StrutTower/tower-file-input
+
+				.col-lg-8
+					.panel
+						.panel-header
+							h4.panel-title
+								span.panel-icon.fa-upload
+								= ' '
+								span Image Upload & Preview
+						.panel-body
+							.tower-file
+								input#demo1.tower-file-input( type='file', multiple )
+								.group-10
+									label.btn.btn-primary( for='demo1' )
+										span.mdi-upload
+										span Select Files
+									button.tower-file-clear.btn.btn-secondary.align-top( type='button' ) Clear
+						.panel-footer This is a simple plugin that works as a UI upgrade to the default HTML file input. To download the image, use the Select Files button. To clear the field, use the clear button.
+
+	section.section-sm
+		.container-fluid
+			.row.row-30.flex-row-reverse
+				.col-lg-4
+					.panel
+						.panel-header
+							h4.panel-title xZoom
+						.panel-body
+							ul.list-unstyled.list-md.mt-2
+								li
+									span.fa-exclamation-circle.pr-2
+									b Author:
+									span  Azat Ahmedov & Elman Guseynov
+								li
+									span.fa-exclamation-circle.pr-2
+									b License:
+									span  Apache License 2.0
+								li
+									span.fa-exclamation-circle.pr-2
+									b Website:
+									a( href='https://github.com/payalord' )  www.github.com/payalord
+
+							h4 Easyzoom
+							ul.list-unstyled.list-md.mt-2
+								li
+									span.fa-exclamation-circle.pr-2
+									b Author:
+									span  Matt Hinchliffe
+								li
+									span.fa-exclamation-circle.pr-2
+									b License:
+									span  MIT License
+								li
+									span.fa-exclamation-circle.pr-2
+									b Website:
+									a( href='https://github.com/i-like-robots/EasyZoom' )  www.github.com/i-like-robots/EasyZoom
+
+				.col-lg-8
+					.panel
+						.panel-header
+							h4.panel-title
+								span.panel-icon.fa-upload
+								= ' '
+								span Image Zoom Utility
+						.panel-menu
+							ul.nav.group-5( role='tablist' )
+								li.nav-item.flex-grow-1
+									a#image-zoom-1.btn.btn-block.btn-primary.active( data-toggle='tab', href='#image-zoom-body-1', role='tab', aria-controls='image-zoom-body-1', aria-selected='true' ) Inner zoom
+								li.nav-item.flex-grow-1
+									a#image-zoom-2.btn.btn-block.btn-primary( data-toggle='tab', href='#image-zoom-body-2', role='tab', aria-controls='image-zoom-body-2', aria-selected='false' ) Attached
+								li.nav-item.flex-grow-1
+									a#image-zoom-3.btn.btn-block.btn-primary( data-toggle='tab', href='#image-zoom-body-3', role='tab', aria-controls='image-zoom-body-3', aria-selected='false' ) Porthole
+						.panel-body
+							.tab-content
+								#image-zoom-body-1.tab-pane.show.active( role='tabpanel', aria-labelledby='image-zoom-1' )
+									.easyzoom.easyzoom--overlay.text-center
+										a( href='images/img-01-1440x660.jpg' )
+											img( src='images/img-01-720x330.jpg', alt='' )
+								#image-zoom-body-2.tab-pane( role='tabpanel', aria-labelledby='image-zoom-2' )
+									img.xzoom( src='images/img-01-720x330.jpg', data-xoriginal='images/img-01-1440x660.jpg', alt='', data-xzoom-opts!={ zoomWidth: 300, zoomHeight: 300 } )
+								#image-zoom-body-3.tab-pane( role='tabpanel', aria-labelledby='image-zoom-3' )
+									img.xzoom( src='images/img-01-720x330.jpg', data-xoriginal='images/img-01-1440x660.jpg', data-xzoom-opts!={ position: 'lens', lensShape: 'box', sourceClass: 'xzoom-hidden' }, alt='' )
+
+block modal
+	#modal.modal.fade
+		.modal-dialog
+			.modal-content
+				.modal-header
+					h5.modal-title Cropped
+					button.close( data-dismiss='modal' ): span ×
+				.modal-body.text-center
+					img( data-cropper-result, src='data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=', alt='Preview' )
+				.modal-footer
+					button.btn.btn-secondary( data-dismiss='modal' ) Close
+					a.btn.btn-primary( href='javascript:void(0);', download='cropped.jpg', data-cropper-download ) Download

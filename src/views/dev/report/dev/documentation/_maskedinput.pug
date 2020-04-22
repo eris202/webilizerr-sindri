@@ -1,0 +1,20 @@
+#maskedinput.panel
+	.panel-header
+		h3.panel-title jQuery Masked Input
+	.panel-body
+		p jQuery Masked Input is a plugin that allows to set a template of the input field value.
+		p Plugin and style sheets linking occurs when the element that matches the #[code [data-masked&#93;] selector is present on the page.
+
+		p Plugin operation example:
+		input.form-control.mt-1( type='text', data-masked='99/99/9999', placeholder='11/11/1111' )
+		p See more plugin operation examples on the following page: #[a( href='plugin-inputs.html' ) Plugin Inputs].
+
+		p Markup example:
+		pre.highlight.html.scroller.scroller-horizontal
+			= '<input class="form-control" type="text" data-masked="99/99/9999" placeholder="11/11/1111">'
+
+		p This template provides a #[code data-masked] attribute for jQuery Masked Input that accepts a string with an entered value template, e.g.:
+		pre.highlight.html.scroller.scroller-horizontal
+			= '<input ... data-masked="99/99/9999">'
+
+		p All available parameters of the plugin can be viewed in its #[a( href="https://github.com/digitalBush/jquery.maskedinput#overview" ) GitHub repository].

@@ -1,0 +1,158 @@
+extends ../components/base/_skeleton
+include ../components/blockquote/_blockquote
+include ../components/google-map/_google-map
+include ../components/rd-navbar/_rd-navbar
+include ../components/breadcrumbs/_breadcrumbs
+
+block variables
+	- pageName = 'Timeline'
+
+block page
+	header.section.page-header
+		+rd-navbar
+
+	section.topbar
+		+breadcrumbs( breadcrumbs )
+
+	section.section-md
+		.container-fluid
+			.timeline( data-auto-timeline )
+				.timeline-item
+					.timeline-item-icon.fa-user.text-primary
+					.panel.panel-timeline
+						.panel-header
+							.group-5.d-flex.flex-wrap.align-items-center.justify-content-between
+								h4.panel-title
+									span.panel-icon.fa-comment
+									span User Posting
+								time( datetime='2019-06-30' ) July 30, 2019
+						.panel-body
+							.media.group-15.flex-column.flex-sm-row
+								.media-item
+									img( src='images/users/user-02-40x40.jpg', width='40', height='40', alt='' )
+								.media-body
+									h5 Simon Rivers Posted - #[small.text-muted 3 hours ago]
+									.group-10
+										img( src='images/image-01-140x90.jpg', width='140', height='90', alt='' )
+										img( src='images/image-02-140x90.jpg', width='140', height='90', alt='' )
+										img( src='images/image-03-140x90.jpg', width='140', height='90', alt='' )
+									ul.list-inline.small.mt-2
+										li.list-inline-item
+											.group-5
+												span.fa-thumbs-o-up.text-primary
+												span Like
+										li.list-inline-item
+											.group-5
+												span.fa-share.text-primary
+												span Share
+										li.list-inline-item
+											.group-5
+												span.fa-download.text-primary
+												span Save
+										li.list-inline-item
+											.group-5
+												span.fa-comments-o.text-primary
+												span Comment
+							.media.group-10
+								.media-item
+									img( src='images/users/user-03-40x40.jpg', width='40', height='40', alt='' )
+								.media-body
+									h5 Simon Rivers Posted - #[small.text-muted 3 hours ago]
+									p.text-muted Omg so freaking sweet dude.
+							.media.group-10
+								.media-item
+									img( src='images/users/user-02-40x40.jpg', width='40', height='40', alt='' )
+								.media-body
+									h5 Jessica Wong - #[small.text-muted 3 hours ago]
+									p.text-muted Omgosh I'm in love
+						.panel-footer
+							.input-group
+								.input-group-prepend
+									span.input-group-text
+										span.fa.fa-pencil
+								input.form-control( type='text', name='comment', placeholder='Respond with a comment.' )
+
+				.timeline-item
+					.timeline-item-icon.fa-picture-o.text-warning
+					.panel.panel-timeline
+						.panel-header
+							.group-5.d-flex.flex-wrap.align-items-center.justify-content-between
+								h4.panel-title
+									span.panel-icon.fa-picture-o
+									span Gallery
+								time( datetime='2019-06-30' ) July 30, 2019
+						.panel-body
+							.d-sm-flex.group-10( data-lightgallery )
+								a.lightgallery-item( href='images/image-03-1200x800.jpg' )
+									img( src='images/image-03-240x160.jpg', width='240', height='160', alt='' )
+								a.lightgallery-item( href='images/image-04-1200x800.jpg' )
+									img( src='images/image-04-240x160.jpg', width='240', height='160', alt='' )
+								a.lightgallery-item( href='images/image-05-1200x800.jpg' )
+									img( src='images/image-05-240x160.jpg', width='240', height='160', alt='' )
+
+				.timeline-item
+					.timeline-item-icon.fa-map-marker.text-secondary
+					.panel.panel-timeline
+						.panel-header
+							.group-5.d-flex.flex-wrap.align-items-center.justify-content-between
+								h4.panel-title
+									span.panel-icon.fa-comment
+									span Map Posting
+								time( datetime='2019-06-30' ) July 30, 2019
+						.panel-body.p-0
+							+google-map({
+								center:  { lat: 46.972246, lng: 31.966755 },
+								zoom:    19,
+								markers: {
+									'park': {
+										position: 'Columbus Park, Baxter Street, New York, United State',
+										html:     'Columbus park'
+									}
+								}
+							})
+
+				.timeline-item
+					.timeline-item-icon.fa-envelope-open-o.text-info
+					.panel.panel-timeline
+						.panel-header
+							.group-5.d-flex.flex-wrap.align-items-center.justify-content-between
+								h4.panel-title
+									span.panel-icon.fa-envelope-open-o
+									span Blockquote
+								time( datetime='2019-06-30' ) July 30, 2019
+						.panel-body
+							+blockquote({
+								quote: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+								cite: 'Someone famous'
+							}).blockquote-primary
+
+				.timeline-item
+					.timeline-item-icon.fa-video-camera.text-danger
+					.panel.panel-timeline
+						.panel-header
+							.group-5.d-flex.flex-wrap.align-items-center.justify-content-between
+								h4.panel-title
+									span.panel-icon.fa-video-camera
+									span Timeline Video
+								time( datetime='2019-06-30' ) July 30, 2019
+						.panel-body
+							.embed-responsive.embed-responsive-16by9
+								iframe.embed-responsive-item( src='about:blank', data-pended-iframe='https://www.youtube.com/embed/-AhmuMqZB0s', allowfullscreen='' )
+
+				.timeline-item
+					.timeline-item-icon.fa-picture-o.text-success
+					.panel.panel-timeline
+						.panel-header
+							.group-5.d-flex.flex-wrap.align-items-center.justify-content-between
+								h4.panel-title
+									span.panel-icon.fa-picture-o
+									span Gallery
+								time( datetime='2019-06-30' ) July 30, 2019
+						.panel-body
+							.d-sm-flex.group-10( data-lightgallery )
+								a.lightgallery-item( href='images/image-03-1200x800.jpg' )
+									img( src='images/image-03-240x160.jpg', width='240', height='160', alt='' )
+								a.lightgallery-item( href='images/image-04-1200x800.jpg' )
+									img( src='images/image-04-240x160.jpg', width='240', height='160', alt='' )
+								a.lightgallery-item( href='images/image-05-1200x800.jpg' )
+									img( src='images/image-05-240x160.jpg', width='240', height='160', alt='' )

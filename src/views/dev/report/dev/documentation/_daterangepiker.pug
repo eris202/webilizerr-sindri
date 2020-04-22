@@ -1,0 +1,27 @@
+#daterangepiker.panel
+	.panel-header
+		h3.panel-title Date Range Picker
+	.panel-body
+		p Date Range Picker is a plugin for choosing a time range with stylization feature.
+		p Plugin and style sheets linking occurs when the element that matches the #[code [name="daterange"&#93;] selector is present on the page.
+
+		p Plugin operation example:
+		.mt-1
+			input.form-control( type='text', name='daterange' )
+		p See more plugin operation examples on the following page: #[a( href='plugin-inputs.html' ) Plugin Inputs].
+
+		p Markup example:
+		pre.highlight.html.scroller.scroller-horizontal
+			= '<input class="form-control" type="text" name="daterange">'
+
+		p This template provides a #[code data-predefined] attribute for Date Range Picker that allows to enable preset time ranges, such as:
+		ul
+			li Today
+			li Yesterday
+			li Last 7 Days
+			li Last 30 Days
+			li This Month
+			li Last Month
+
+		p Modifying time ranges can be done via the #[code ranges] parameter of a #[code daterangepicker] component initialization in #[code components/base/script.js] file.
+		p All available parameters of the plugin can be viewed on #[a( href="http://www.daterangepicker.com" ) Date Range Picker] website.

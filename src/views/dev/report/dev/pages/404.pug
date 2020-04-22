@@ -1,0 +1,28 @@
+extends ../components/base/_skeleton
+
+block variables
+	-
+		htmlClass[ htmlClass.indexOf( 'rd-navbar-sidebar-active' ) ] = '';
+		pageClass = 'page-image-bg';
+		pageName = '404';
+
+block page
+	section.section-one-screen.section-lg
+		.container
+			.row.justify-content-center
+				.col-lg-8.col-xl-7
+					.text-center
+						a( href='index.html' ): img( src=logo.default, alt='' )
+					.panel
+						.panel-body
+							h2.text-center 404!
+							h3.text-center Page Not Found.
+							.form-group
+								input.form-control( type='text', name='search', placeholder='Enter your search request' )
+							ul.list-inline.text-center
+								li.list-inline-item: a.fa-facebook-square.text-primary.h2( href='#' )
+								li.list-inline-item: a.fa-twitter-square.text-info.h2( href='#' )
+								li.list-inline-item: a.fa-google-plus-square.text-danger.h2( href='#' )
+								li.list-inline-item: a.fa-envelope-square.text-warning.h2( href='#' )
+
+block sidebar

@@ -1,0 +1,96 @@
+extends ../components/base/_skeleton
+include ../components/rd-navbar/_rd-navbar
+include ../components/breadcrumbs/_breadcrumbs
+
+block variables
+	- pageName = 'Pricing tables'
+
+block page
+	header.section.page-header
+		+rd-navbar
+
+	section.topbar
+		+breadcrumbs( breadcrumbs )
+
+	section.section-lg
+		.container
+			.row.row-30.text-center
+				.col-sm-6.col-lg-3
+					.panel.shadow-sm.panel-success.panel-image-bg.panel-gradient
+						.panel-header
+							h4.panel-title Free
+						.panel-body
+							h1
+								| $0
+								small / mo
+							ul.list-unstyled.list-md.mt-3.mb-4
+								li 10 users included
+								li 10 users included
+								li 2 GB of storage
+								li 2 GB of storage
+								li Email support
+								li Email support
+								li Help center access
+								li Help center access
+						.panel-footer
+							button.btn.btn-block.btn-success( type='button' ) Sign up for free
+
+				.col-sm-6.col-lg-3
+					.panel.shadow-sm.panel-info.panel-image-bg.panel-gradient
+						.panel-header
+							h4.panel-title Pro
+						.panel-body
+							h1
+								| $15
+								small / mo
+							ul.list-unstyled.list-md.mt-3.mb-4
+								li 20 users included
+								li 20 users included
+								li 10 GB of storage
+								li 10 GB of storage
+								li Priority email support
+								li Priority email support
+								li Help center access
+								li Help center access
+						.panel-footer
+							button.btn.btn-block.btn-info( type='button' ) Get started
+
+				.col-sm-6.col-lg-3
+					.panel.shadow-sm.panel-warning.panel-image-bg.panel-gradient
+						.panel-header
+							h4.panel-title Enterprise
+						.panel-body
+							h1
+								| $29
+								small / mo
+							ul.list-unstyled.list-md.mt-3.mb-4
+								li 30 users included
+								li 30 users included
+								li 15 GB of storage
+								li 15 GB of storage
+								li Phone and email support
+								li Phone and email support
+								li Help center access
+								li Help center access
+						.panel-footer
+							button.btn.btn-block.btn-warning( type='button' ) Get in Touch
+
+				.col-sm-6.col-lg-3
+					.panel.shadow-sm.panel-danger.panel-image-bg.panel-gradient
+						.panel-header
+							h4.panel-title Super Enterprise
+						.panel-body
+							h1
+								| $49
+								small / mo
+							ul.list-unstyled.list-md.mt-3.mb-4
+								li 40 users included
+								li 40 users included
+								li 20 GB of storage
+								li 20 GB of storage
+								li Phone and email support
+								li Phone and email support
+								li Help center access
+								li Help center access
+						.panel-footer
+							button.btn.btn-block.btn-danger( type='button' ) Get in Touch

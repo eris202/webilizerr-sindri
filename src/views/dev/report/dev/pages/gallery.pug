@@ -1,0 +1,76 @@
+extends ../components/base/_skeleton
+include ../components/rd-navbar/_rd-navbar
+include ../components/breadcrumbs/_breadcrumbs
+
+block variables
+	- pageName = 'Gallery';
+
+block page
+	header.section.page-header
+		+rd-navbar
+
+	section.topbar
+		+breadcrumbs( breadcrumbs )
+
+	section.section-lg
+		.container
+			.row.row-30
+				.col-12
+					.panel
+						.panel-header
+							h4.panel-title Gallery Group
+						.panel-body
+							.row.row-30( data-lightgallery )
+								.col-sm-6.col-lg-4
+									a.lightgallery-item( href='images/image-01-1200x800.jpg' )
+										img( src='images/image-01-400x300.jpg', width='400', height='300', alt='' )
+								.col-sm-6.col-lg-4
+									a.lightgallery-item( href='images/image-02-1200x800.jpg' )
+										img( src='images/image-02-400x300.jpg', width='400', height='300', alt='' )
+								.col-sm-6.col-lg-4
+									a.lightgallery-item( href='images/image-03-1200x800.jpg' )
+										img( src='images/image-03-400x300.jpg', width='400', height='300', alt='' )
+								.col-sm-6.col-lg-4
+									a.lightgallery-item( href='images/image-04-1200x800.jpg' )
+										img( src='images/image-04-400x300.jpg', width='400', height='300', alt='' )
+								.col-sm-6.col-lg-4
+									a.lightgallery-item( href='images/image-05-1200x800.jpg' )
+										img( src='images/image-05-400x300.jpg', width='400', height='300', alt='' )
+								.col-sm-6.col-lg-4
+									a.lightgallery-item( href='images/image-01-1200x800.jpg' )
+										img( src='images/image-01-400x300.jpg', width='400', height='300', alt='' )
+
+				.col-12
+					.panel
+						.panel-header
+							h4.panel-title Gallery Single
+						.panel-body
+							.row.row-30
+								.col-sm-6.col-lg-4
+									a.lightgallery-item( href='images/image-01-1200x800.jpg', data-lightgallery!={selector: 'this'} )
+										img( src='images/image-01-400x300.jpg', width='400', height='300', alt='' )
+								.col-sm-6.col-lg-4
+									a.lightgallery-item( href='images/image-02-1200x800.jpg', data-lightgallery!={selector: 'this'} )
+										img( src='images/image-02-400x300.jpg', width='400', height='300', alt='' )
+								.col-sm-6.col-lg-4
+									a.lightgallery-item( href='images/image-03-1200x800.jpg', data-lightgallery!={selector: 'this'} )
+										img( src='images/image-03-400x300.jpg', width='400', height='300', alt='' )
+
+				.col-12
+					.panel
+						.panel-header
+							h4.panel-title Video Group
+						.panel-body
+							.row.row-30( data-lightgallery )
+								.col-sm-6.col-lg-4
+									a.lightgallery-item( href='https://www.youtube.com/embed/-AhmuMqZB0s' )
+										img( src='images/image-01-400x300.jpg', width='400', height='300', alt='' )
+								.col-sm-6.col-lg-4
+									a.lightgallery-item( href='https://www.youtube.com/embed/-AhmuMqZB0s' )
+										img( src='images/image-02-400x300.jpg', width='400', height='300', alt='' )
+								.col-sm-6.col-lg-4
+									a.lightgallery-item( href='https://www.youtube.com/embed/-AhmuMqZB0s' )
+										img( src='images/image-03-400x300.jpg', width='400', height='300', alt='' )
+
+block sidebar
+	include ../components/sidebar/_sidebar-gallery

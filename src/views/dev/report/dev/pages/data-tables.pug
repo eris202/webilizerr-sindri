@@ -1,0 +1,739 @@
+extends ../components/base/_skeleton
+include ../components/rd-navbar/_rd-navbar
+include ../components/breadcrumbs/_breadcrumbs
+
+block variables
+	- pageName = 'Data Tables';
+
+block page
+	header.section.page-header
+		+rd-navbar
+
+	section.topbar
+		+breadcrumbs( breadcrumbs )
+
+	section
+		.container-fluid
+			.panel
+				.panel-body
+					.container
+						.row.row-30
+							.col-md-4
+								h3 DataTables
+								ul.list-unstyled.list-md.mt-2
+									li
+										span.fa-info-circle.pr-2
+										b Author:
+										span  SpryMedia
+									li
+										span.fa-info-circle.pr-2
+										b License:
+										span  Mit - Free to use
+									li
+										span.fa-info-circle.pr-2
+										b Website:
+										a( href='https://www.datatables.net/', target='_blank' )  www.datatables.net
+							.col-md-6.col-lg-4 
+								p #[b DataTables] is a table enhancing plug-in for the jQuery Javascript library, adding sorting, paging and filtering abilities to plain HTML tables with minimal effort.
+
+	section.section-sm
+		.container-fluid
+			.row.row-30
+				.col-12
+					.panel
+						.panel-header
+							h4.panel-title
+								span.panel-icon.fa-tasks
+								= ' '
+								span Basic Datatable
+						.panel-body.p-0
+							.table-responsive.scroller.scroller-horizontal.py-3
+								table.table.table-striped.table-hover.data-table( style='min-width: 800px' )
+									thead
+										tr
+											th Name
+											th Position
+											th Office
+											th Age
+											th Start date
+											th Salary
+									tbody
+										tr
+											td Tiger Nixon
+											td System Architect
+											td Edinburgh
+											td 61
+											td 2011/04/25
+											td $320,800
+										tr
+											td Cedric Kelly
+											td Senior Javascript Developer
+											td Edinburgh
+											td 22
+											td 2012/03/29
+											td $433,060
+										tr
+											td Brielle Williamson
+											td Integration Specialist
+											td New York
+											td 61
+											td 2012/12/02
+											td $372,000
+										tr
+											td Sonya Frost
+											td Software Engineer
+											td Edinburgh
+											td 23
+											td 2008/12/13
+											td $103,600
+										tr
+											td Quinn Flynn
+											td Support Lead
+											td Edinburgh
+											td 22
+											td 2013/03/03
+											td $342,000
+										tr
+											td Haley Kennedy
+											td Senior Marketing Designer
+											td London
+											td 43
+											td 2012/12/18
+											td $313,500
+										tr
+											td Tatyana Fitzpatrick
+											td Regional Director
+											td London
+											td 19
+											td 2010/03/17
+											td $385,750
+										tr
+											td Michael Silva
+											td Marketing Designer
+											td London
+											td 66
+											td 2012/11/27
+											td $198,500
+										tr
+											td Paul Byrd
+											td Chief Financial Officer (CFO)
+											td New York
+											td 64
+											td 2010/06/09
+											td $725,000
+										tr
+											td Gloria Little
+											td Systems Administrator
+											td New York
+											td 59
+											td 2009/04/10
+											td $237,500
+										tr
+											td Bradley Greer
+											td Software Engineer
+											td London
+											td 41
+											td 2012/10/13
+											td $132,000
+										tr
+											td Dai Rios
+											td Personnel Lead
+											td Edinburgh
+											td 35
+											td 2012/09/26
+											td $217,500
+										tr
+											td Jenette Caldwell
+											td Development Lead
+											td New York
+											td 30
+											td 2011/09/03
+											td $345,000
+
+				.col-12
+					.panel
+						.panel-header
+							h4.panel-title
+								span.panel-icon.fa-tasks
+								= ' '
+								span Search Bar Filtering
+						.panel-body.p-0
+							.table-responsive.scroller.scroller-horizontal.py-3
+								table.table.table-striped.table-hover.data-table( data-table-searching='true', data-table-lengthChange='true', data-page-length='5' )
+									thead
+										tr
+											th Name
+											th Position
+											th Office
+											th Age
+											th Start date
+											th Salary
+									tbody
+										tr
+											td Tiger Nixon
+											td System Architect
+											td Edinburgh
+											td 61
+											td 2011/04/25
+											td $320,800
+										tr
+											td Cedric Kelly
+											td Senior Javascript Developer
+											td Edinburgh
+											td 22
+											td 2012/03/29
+											td $433,060
+										tr
+											td Brielle Williamson
+											td Integration Specialist
+											td New York
+											td 61
+											td 2012/12/02
+											td $372,000
+										tr
+											td Sonya Frost
+											td Software Engineer
+											td Edinburgh
+											td 23
+											td 2008/12/13
+											td $103,600
+										tr
+											td Quinn Flynn
+											td Support Lead
+											td Edinburgh
+											td 22
+											td 2013/03/03
+											td $342,000
+										tr
+											td Haley Kennedy
+											td Senior Marketing Designer
+											td London
+											td 43
+											td 2012/12/18
+											td $313,500
+										tr
+											td Tatyana Fitzpatrick
+											td Regional Director
+											td London
+											td 19
+											td 2010/03/17
+											td $385,750
+										tr
+											td Michael Silva
+											td Marketing Designer
+											td London
+											td 66
+											td 2012/11/27
+											td $198,500
+										tr
+											td Paul Byrd
+											td Chief Financial Officer (CFO)
+											td New York
+											td 64
+											td 2010/06/09
+											td $725,000
+										tr
+											td Gloria Little
+											td Systems Administrator
+											td New York
+											td 59
+											td 2009/04/10
+											td $237,500
+										tr
+											td Bradley Greer
+											td Software Engineer
+											td London
+											td 41
+											td 2012/10/13
+											td $132,000
+										tr
+											td Dai Rios
+											td Personnel Lead
+											td Edinburgh
+											td 35
+											td 2012/09/26
+											td $217,500
+										tr
+											td Jenette Caldwell
+											td Development Lead
+											td New York
+											td 30
+											td 2011/09/03
+											td $345,000
+
+				.col-12
+					.panel.page-invoice
+						.panel-header
+							h4.panel-title
+								span.panel-icon.fa-tasks
+								= ' '
+								span Exportable Datatable
+						.panel-body.p-0
+							.table-responsive.scroller.scroller-horizontal.py-3
+								table.table.table-striped.table-hover.data-table( data-table-searching='true', data-table-lengthChange='true', data-page-length='5', data-table-mode='print' )
+									thead
+										tr
+											th Name
+											th Position
+											th Office
+											th Age
+											th Start date
+											th Salary
+									tbody
+										tr
+											td Tiger Nixon
+											td System Architect
+											td Edinburgh
+											td 61
+											td 2011/04/25
+											td $320,800
+										tr
+											td Cedric Kelly
+											td Senior Javascript Developer
+											td Edinburgh
+											td 22
+											td 2012/03/29
+											td $433,060
+										tr
+											td Brielle Williamson
+											td Integration Specialist
+											td New York
+											td 61
+											td 2012/12/02
+											td $372,000
+										tr
+											td Sonya Frost
+											td Software Engineer
+											td Edinburgh
+											td 23
+											td 2008/12/13
+											td $103,600
+										tr
+											td Quinn Flynn
+											td Support Lead
+											td Edinburgh
+											td 22
+											td 2013/03/03
+											td $342,000
+										tr
+											td Haley Kennedy
+											td Senior Marketing Designer
+											td London
+											td 43
+											td 2012/12/18
+											td $313,500
+										tr
+											td Tatyana Fitzpatrick
+											td Regional Director
+											td London
+											td 19
+											td 2010/03/17
+											td $385,750
+										tr
+											td Michael Silva
+											td Marketing Designer
+											td London
+											td 66
+											td 2012/11/27
+											td $198,500
+										tr
+											td Paul Byrd
+											td Chief Financial Officer (CFO)
+											td New York
+											td 64
+											td 2010/06/09
+											td $725,000
+										tr
+											td Gloria Little
+											td Systems Administrator
+											td New York
+											td 59
+											td 2009/04/10
+											td $237,500
+										tr
+											td Bradley Greer
+											td Software Engineer
+											td London
+											td 41
+											td 2012/10/13
+											td $132,000
+										tr
+											td Dai Rios
+											td Personnel Lead
+											td Edinburgh
+											td 35
+											td 2012/09/26
+											td $217,500
+										tr
+											td Jenette Caldwell
+											td Development Lead
+											td New York
+											td 30
+											td 2011/09/03
+											td $345,000
+
+				.col-12
+					.panel
+						.panel-header
+							h4.panel-title
+								span.panel-icon.fa-tasks
+								= ' '
+								span Multi-Column Filtering
+						.panel-body.p-0
+							.table-responsive.scroller.scroller-horizontal.py-3
+								table.table.table-striped.table-hover.data-table( data-page-length='5', data-table-mode='multi-filter' )
+									thead
+										tr
+											th Name
+											th Position
+											th Office
+											th Age
+											th Start date
+											th Salary
+									tbody
+										tr
+											td Tiger Nixon
+											td System Architect
+											td Edinburgh
+											td 61
+											td 2011/04/25
+											td $320,800
+										tr
+											td Cedric Kelly
+											td Senior Javascript Developer
+											td Edinburgh
+											td 22
+											td 2012/03/29
+											td $433,060
+										tr
+											td Brielle Williamson
+											td Integration Specialist
+											td New York
+											td 61
+											td 2012/12/02
+											td $372,000
+										tr
+											td Sonya Frost
+											td Software Engineer
+											td Edinburgh
+											td 23
+											td 2008/12/13
+											td $103,600
+										tr
+											td Quinn Flynn
+											td Support Lead
+											td Edinburgh
+											td 22
+											td 2013/03/03
+											td $342,000
+										tr
+											td Haley Kennedy
+											td Senior Marketing Designer
+											td London
+											td 43
+											td 2012/12/18
+											td $313,500
+										tr
+											td Tatyana Fitzpatrick
+											td Regional Director
+											td London
+											td 19
+											td 2010/03/17
+											td $385,750
+										tr
+											td Michael Silva
+											td Marketing Designer
+											td London
+											td 66
+											td 2012/11/27
+											td $198,500
+										tr
+											td Paul Byrd
+											td Chief Financial Officer (CFO)
+											td New York
+											td 64
+											td 2010/06/09
+											td $725,000
+										tr
+											td Gloria Little
+											td Systems Administrator
+											td New York
+											td 59
+											td 2009/04/10
+											td $237,500
+										tr
+											td Bradley Greer
+											td Software Engineer
+											td London
+											td 41
+											td 2012/10/13
+											td $132,000
+										tr
+											td Dai Rios
+											td Personnel Lead
+											td Edinburgh
+											td 35
+											td 2012/09/26
+											td $217,500
+										tr
+											td Jenette Caldwell
+											td Development Lead
+											td New York
+											td 30
+											td 2011/09/03
+											td $345,000
+									tfoot
+										tr
+											th Name
+											th Position
+											th Office
+											th Age
+											th Start date
+											th Salary
+
+				.col-12
+					.panel
+						.panel-header
+							h4.panel-title
+								span.panel-icon.fa-tasks
+								= ' '
+								span Sortable Row Labels
+						.panel-body.p-0
+							.table-responsive.scroller.scroller-horizontal.py-3
+								table.table.table-striped.table-hover.data-table( data-table-searching='true', data-table-lengthChange='true', data-table-mode='row-grouping' )
+									thead
+										tr
+											th Name
+											th Position
+											th Office
+											th Age
+											th Start date
+											th Salary
+									tbody
+										tr
+											td Tiger Nixon
+											td System Architect
+											td Edinburgh
+											td 61
+											td 2011/04/25
+											td $320,800
+										tr
+											td Cedric Kelly
+											td Senior Javascript Developer
+											td Edinburgh
+											td 22
+											td 2012/03/29
+											td $433,060
+										tr
+											td Brielle Williamson
+											td Integration Specialist
+											td New York
+											td 61
+											td 2012/12/02
+											td $372,000
+										tr
+											td Sonya Frost
+											td Software Engineer
+											td Edinburgh
+											td 23
+											td 2008/12/13
+											td $103,600
+										tr
+											td Quinn Flynn
+											td Support Lead
+											td Edinburgh
+											td 22
+											td 2013/03/03
+											td $342,000
+										tr
+											td Haley Kennedy
+											td Senior Marketing Designer
+											td London
+											td 43
+											td 2012/12/18
+											td $313,500
+										tr
+											td Tatyana Fitzpatrick
+											td Regional Director
+											td London
+											td 19
+											td 2010/03/17
+											td $385,750
+										tr
+											td Michael Silva
+											td Marketing Designer
+											td London
+											td 66
+											td 2012/11/27
+											td $198,500
+										tr
+											td Paul Byrd
+											td Chief Financial Officer (CFO)
+											td New York
+											td 64
+											td 2010/06/09
+											td $725,000
+										tr
+											td Gloria Little
+											td Systems Administrator
+											td New York
+											td 59
+											td 2009/04/10
+											td $237,500
+										tr
+											td Bradley Greer
+											td Software Engineer
+											td London
+											td 41
+											td 2012/10/13
+											td $132,000
+										tr
+											td Dai Rios
+											td Personnel Lead
+											td Edinburgh
+											td 35
+											td 2012/09/26
+											td $217,500
+										tr
+											td Jenette Caldwell
+											td Development Lead
+											td New York
+											td 30
+											td 2011/09/03
+											td $345,000
+
+				.col-12
+					.panel
+						.panel-header
+							h4.panel-title
+								span.panel-icon.fa-tasks
+								= ' '
+								span Reorder Table Columns
+						.panel-body.p-0
+							.table-responsive.scroller.scroller-horizontal.py-3
+								table.table.table-striped.table-hover.data-table( data-table-searching='true', data-table-lengthChange='true', data-table-mode='col-reorder' )
+									thead
+										tr
+											th Name
+											th Position
+											th Office
+											th Age
+											th Start date
+											th Salary
+									tbody
+										tr
+											td Tiger Nixon
+											td System Architect
+											td Edinburgh
+											td 61
+											td 2011/04/25
+											td $320,800
+										tr
+											td Cedric Kelly
+											td Senior Javascript Developer
+											td Edinburgh
+											td 22
+											td 2012/03/29
+											td $433,060
+										tr
+											td Brielle Williamson
+											td Integration Specialist
+											td New York
+											td 61
+											td 2012/12/02
+											td $372,000
+										tr
+											td Sonya Frost
+											td Software Engineer
+											td Edinburgh
+											td 23
+											td 2008/12/13
+											td $103,600
+										tr
+											td Quinn Flynn
+											td Support Lead
+											td Edinburgh
+											td 22
+											td 2013/03/03
+											td $342,000
+										tr
+											td Haley Kennedy
+											td Senior Marketing Designer
+											td London
+											td 43
+											td 2012/12/18
+											td $313,500
+										tr
+											td Tatyana Fitzpatrick
+											td Regional Director
+											td London
+											td 19
+											td 2010/03/17
+											td $385,750
+										tr
+											td Michael Silva
+											td Marketing Designer
+											td London
+											td 66
+											td 2012/11/27
+											td $198,500
+										tr
+											td Paul Byrd
+											td Chief Financial Officer (CFO)
+											td New York
+											td 64
+											td 2010/06/09
+											td $725,000
+										tr
+											td Gloria Little
+											td Systems Administrator
+											td New York
+											td 59
+											td 2009/04/10
+											td $237,500
+										tr
+											td Bradley Greer
+											td Software Engineer
+											td London
+											td 41
+											td 2012/10/13
+											td $132,000
+										tr
+											td Dai Rios
+											td Personnel Lead
+											td Edinburgh
+											td 35
+											td 2012/09/26
+											td $217,500
+										tr
+											td Jenette Caldwell
+											td Development Lead
+											td New York
+											td 30
+											td 2011/09/03
+											td $345,000
+
+				.col-12
+					.panel
+						.panel-header
+							h4.panel-title
+								span.panel-icon.fa-tasks
+								= ' '
+								span Collapsible Table Rows
+						.panel-body.p-0
+							.table-responsive.scroller.scroller-horizontal.py-3
+								table.table.table-striped.table-hover.data-table( data-table-searching='true', data-table-lengthChange='true', data-table-mode='collapse' )
+									thead
+										tr
+											th
+											th Name
+											th Position
+											th Office
+											th Salary
+									tfoot
+										tr
+											th
+											th Name
+											th Position
+											th Office
+											th Salary

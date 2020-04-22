@@ -1,0 +1,304 @@
+extends ../components/base/_skeleton
+include ../components/rd-navbar/_rd-navbar
+include ../components/breadcrumbs/_breadcrumbs
+
+block variables
+	- pageName = 'Flotcharts';
+
+block page
+	header.section.page-header
+		+rd-navbar
+
+	section.topbar
+		+breadcrumbs( breadcrumbs )
+
+	.row.no-gutters.mt-0
+		.col-12.bg-white.px-3.py-4
+			h4 Flotcharts
+			ul.list-unstyled.list-md.mt-2
+				li
+					span.fa-exclamation-circle.pr-2
+					b Author:
+					span  IOLA and Ole Laursen
+				li
+					span.fa-exclamation-circle.pr-2
+					b License:
+					span  MIT license
+				li
+					span.fa-exclamation-circle.pr-2
+					b Website:
+					a( href='https://flotcharts.org/' )  www.flotcharts.org/
+
+		.col-12.pt-4.pb-5
+			.container-fluid
+				.row.row-30
+					// Spline chart
+					.col-lg-6
+						-
+							var dSplineValues = [];
+							for ( let i = 0; i < 14; i += 0.5 ) {
+								dSplineValues.push( [ i, Math.sin( i ) ] );
+							};
+
+							var dataSpline = [
+								{
+									label: "Spline",
+									data: dSplineValues,
+									lines: {
+										show: true,
+										fill: true
+									}
+								}
+							];
+
+						.panel
+							.panel-header
+								h4.panel-title
+									span.panel-icon.fa-pencil
+									= ' '
+									span Bar chart
+							.panel-body
+								.flotchart-container( data-flotchart-data= dataSpline )
+
+					// Bar chart
+					.col-lg-6
+						-
+							var dataBar = [
+								{
+									label: "Bar 1",
+									data: [ [ 0, 10 ], [ 4, 8 ], [ 8, 4 ], [ 12, 22 ], [ 16, 25 ], [ 20, 14 ], [ 24, 10 ], [ 28, 16 ], [ 32, 10 ], [ 36, 8 ], [ 40, 10 ] ],
+									bars: {
+										show: true,
+										barWidth: [ 1, true ]
+									}
+								},
+								{
+									label: "Bar 2",
+									data: [ [ 1, 7 ], [ 5, 12 ], [ 9, 19 ], [ 13, 9 ], [ 17, 11 ], [ 21, 33 ], [ 25, 4 ], [ 29, 25 ], [ 33, 7 ], [ 37, 12 ], [ 41, 14 ] ],
+									bars: {
+										show: true,
+										barWidth: [ 1, true ]
+									}
+								},
+								{
+									label: "Bar 3",
+									data: [ [ 2, 12 ], [ 6, 19 ], [ 10, 10 ], [ 14, 4 ], [ 18, 18 ], [ 22, 25 ], [ 26, 18 ], [ 30, 11 ], [ 34, 12 ], [ 38, 19 ], [ 42, 18 ] ],
+									bars: {
+										show: true,
+										barWidth: [ 1, true ]
+									}
+								}
+							];
+
+						.panel
+							.panel-header
+								h4.panel-title
+									span.panel-icon.fa-pencil
+									= ' '
+									span Spline chart
+							.panel-body
+								.flotchart-container( data-flotchart-data= dataBar )
+
+					// Matrix chart
+					.col-lg-6
+						-
+							var dataM1 = [];
+							for ( let i = 0; i < 14; i += 0.6 ) {
+								dataM1.push( [ i, Math.cos( i ) ] );
+							};
+
+							var dataM2 = [];
+							for ( let i = 0; i < 14; i += 0.6 ) {
+								dataM2.push( [ i, Math.sin( i ) ] );
+							};
+
+							var dataMatrix = [
+								{
+									label: "Matrix1",
+									data: dataM1,
+									lines: {
+										show: true
+									},
+									points: {
+										show: true,
+										radius: 4
+									}
+								},
+								{
+									label: "Matrix2",
+									data: dataM2,
+									lines: {
+										show: true
+									},
+									points: {
+										show: true,
+										radius: 4
+									}
+								}
+							]
+
+						.panel
+							.panel-header
+								h4.panel-title
+									span.panel-icon.fa-pencil
+									= ' '
+									span Matrix chart
+							.panel-body
+								.flotchart-container( data-flotchart-data= dataMatrix )
+
+					// Area chart
+					.col-lg-6
+						-
+							var dataAreaValues = [];
+							for ( let i = 0; i < 14; i += 0.1 ) {
+								dataAreaValues.push( [ i, Math.sqrt( i * 10 ) ] );
+							};
+
+							var dataArea = [
+								{
+									label: "Area",
+									data: dataAreaValues,
+									lines: {
+										show: true,
+										fill: true
+									}
+								}
+							];
+
+						.panel
+							.panel-header
+								h4.panel-title
+									span.panel-icon.fa-pencil
+									= ' '
+									span Area chart
+							.panel-body
+								.flotchart-container( data-flotchart-data= dataArea )
+
+					// Line chart
+					.col-lg-6
+						-
+							var dataLineValues = [];
+							for ( let i = 0; i < 14; i += 0.5 ) {
+								dataLineValues.push( [ i, Math.sqrt( i ) ] );
+							};
+
+							var dataLine = [
+								{
+									label: "Area",
+									data: dataLineValues,
+									lines: {
+										show: true
+									},
+									points: {
+										show: true
+									}
+								}
+							];
+
+						.panel
+							.panel-header
+								h4.panel-title
+									span.panel-icon.fa-pencil
+									= ' '
+									span Line chart
+							.panel-body
+								.flotchart-container( data-flotchart-data= dataLine )
+
+					// Step chart
+					.col-lg-6
+						-
+							var dataStepValues = [];
+							for (let i = 0; i < 14; i += 0.5 + Math.random()) {
+								dataStepValues.push( [ i, Math.sqrt( 2 * i + Math.sin( i ) + 5 ) ] );
+							};
+
+							var dataStep = [
+								{
+									label: "Area",
+									data: dataStepValues,
+									lines: {
+										show: true,
+										steps: true
+									}
+								}
+							];
+
+						.panel
+							.panel-header
+								h4.panel-title
+									span.panel-icon.fa-pencil
+									= ' '
+									span Step chart
+							.panel-body
+								.flotchart-container( data-flotchart-data= dataStep )
+
+					// Pie fill charts
+					.col-md-6
+						-
+							var
+								dataPie = [
+									{ label: "Series1",  data: 10 },
+									{ label: "Series2",  data: 30 },
+									{ label: "Series3",  data: 90 },
+									{ label: "Series4",  data: 70 },
+									{ label: "Series5",  data: 80 },
+									{ label: "Series6",  data: 110 }
+								],
+								optionsPie = {
+									colors: ['#58a193', '#f7ad6a', '#5b5eab', '#34b1cc', '#48c8af', '#ff5f68'], // same in script.js
+									grid: {
+										show: false,
+										hoverable: true,
+										clickable: true
+									},
+									series: {
+										pie: {
+											show: true
+										}
+									}
+								}
+
+						.panel
+							.panel-header
+								h4.panel-title
+									span.panel-icon.fa-pencil
+									= ' '
+									span Pie fill chart
+							.panel-body
+								.flotchart-container.flotchart-container-pie( data-flotchart-data= dataPie, data-flotchart-options= optionsPie )
+
+					// Pie donut charts
+					.col-md-6
+						-
+							var
+								dataPie = [
+									{ label: "Series1",  data: 10 },
+									{ label: "Series2",  data: 30 },
+									{ label: "Series3",  data: 90 },
+									{ label: "Series4",  data: 70 },
+									{ label: "Series5",  data: 80 },
+									{ label: "Series6",  data: 110 }
+								],
+								optionsPieDonut = {
+									colors: ['#58a193', '#f7ad6a', '#5b5eab', '#34b1cc', '#48c8af', '#ff5f68'], // same in script.js
+									grid: {
+										show: false,
+										hoverable: true,
+										clickable: true
+									},
+									series: {
+										pie: {
+											show: true,
+											innerRadius: 0.5
+										}
+									}
+								};
+
+						.panel
+							.panel-header
+								h4.panel-title
+									span.panel-icon.fa-pencil
+									= ' '
+									span Pie donut chart
+							.panel-body
+								.flotchart-container.flotchart-container-pie( data-flotchart-data= dataPie, data-flotchart-options= optionsPieDonut )

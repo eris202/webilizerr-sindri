@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html class="rd-navbar-sidebar-active" lang="en">
+  <head>
+    <title>Messages Compose</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta property="og:title" content="Template Monster Admin Template">
+    <meta property="og:description" content="brevis, barbatus clabulares aliquando convertam de dexter, peritus capio. devatio clemens habitio est.">
+    <meta property="og:image" content="http://digipunk.netii.net/images/radar.gif">
+    <meta property="og:url" content="http://digipunk.netii.net">
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="components/base/base.css">
+    <script src="components/base/script.js"></script>
+  </head>
+  <body>
+    <div class="page">
+      <header class="section page-header">
+        <!--RD Navbar-->
+        <div class="rd-navbar-wrap">
+          <nav class="rd-navbar">
+            <div class="rd-navbar-panel">
+              <div class="rd-navbar-panel-inner">
+                <div class="rd-navbar-panel-cell rd-navbar-panel-spacer">
+                  <div class="navbar-search" id="navbar-search">
+                    <input class="navbar-search-input" type="text" placeholder="Search..."/>
+                  </div>
+                </div>
+                <div class="rd-navbar-panel-cell navbar-toggle-search-cell">
+                  <button class="navbar-toggle navbar-toggle-search mdi-magnify" data-multi-switch='{"targets":".rd-navbar-panel","scope":"#navbar-search","isolate":"[data-multi-switch]"}' title="Search"></button>
+                </div>
+                <div class="rd-navbar-panel-cell">
+                  <button class="navbar-toggle mdi-content-paste" data-sidebar-switch="data-sidebar-switch" data-multi-switch='{"targets":".sidebar","scope":".sidebar, [data-sidebar-switch]","isolate":"[data-multi-switch]:not([data-sidebar-switch])"}' title="Sidebar"></button>
+                </div>
+                <div class="rd-navbar-panel-cell">
+                  <button class="navbar-toggle mdi-email-outline" data-multi-switch='{"targets":"#subpanel-chat","scope":"#subpanel-chat","isolate":"[data-multi-switch]"}' title="Chat"></button>
+                  <div class="rd-navbar-subpanel" id="subpanel-chat">
+                    <div class="panel">
+                      <div class="panel-header">
+                        <h4 class="panel-title"><span class="panel-icon fa-pencil"></span><span>Chat</span></h4>
+                      </div>
+                      <div class="panel-body">
+                        <div class="scroller scroller-vertical" style="max-height: 400px;">
+                          <div class="media media-cloud group-15">
+                            <div class="media-item"><img class="rounded-circle" src="images/users/user-02-50x50.jpg" width="50" height="50" alt=""/></div>
+                            <div class="media-body">
+                              <h4 class="media-heading offline">Sara Marshall <small>- 12:30am</small>
+                              </h4>
+                              <div class="media-text">Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin.</div>
+                            </div>
+                          </div>
+                          <div class="media media-cloud flex-row-reverse group-15">
+                            <div class="media-item"><img class="rounded-circle" src="images/users/user-03-50x50.jpg" width="50" height="50" alt=""/></div>
+                            <div class="media-body media-body-right-caret">
+                              <h4 class="media-heading online">Tom Jorgensen <small>- 12:30am</small>
+                              </h4>
+                              <div class="media-text">Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin.</div>
+                            </div>
+                          </div>
+                          <div class="media media-cloud group-15">
+                            <div class="media-item"><img class="rounded-circle" src="images/users/user-02-50x50.jpg" width="50" height="50" alt=""/></div>
+                            <div class="media-body">
+                              <h4 class="media-heading offline">Sara Marshall <small>- 12:30am</small>
+                              </h4>
+                              <div class="media-text">Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin.</div>
+                            </div>
+                          </div>
+                          <div class="media media-cloud flex-row-reverse group-15">
+                            <div class="media-item"><img class="rounded-circle" src="images/users/user-03-50x50.jpg" width="50" height="50" alt=""/></div>
+                            <div class="media-body media-body-right-caret">
+                              <h4 class="media-heading online">Tom Jorgensen <small>- 12:30am</small>
+                              </h4>
+                              <div class="media-text">Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin.</div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="panel-footer">
+                        <div class="input-group form-group">
+                          <input class="form-control" type="text" placeholder="Enter your message here"/>
+                          <div class="input-group-append">
+                            <button class="btn btn-primary">Send</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="rd-navbar-panel-cell">
+                  <button class="navbar-toggle mdi-bell-outline" data-multi-switch='{"targets":"#subpanel-notifications","scope":"#subpanel-notifications","isolate":"[data-multi-switch]"}' title="Notifications"></button>
+                  <div class="navbar-badge badge badge-warning badge-pill">3</div>
+                  <div class="rd-navbar-subpanel" id="subpanel-notifications">
+                    <div class="panel">
+                      <div class="panel-header">
+                        <h4 class="panel-title"><span class="panel-icon fa-bell"></span><span>Notifications</span></h4>
+                      </div>
+                      <div class="panel-body p-2 scroller scroller-vertical">
+                        <div class="group-5">
+                                      <div class="alert alert-dismissible alert-primary alert-darker alert-sm" role="alert"><span class="alert-icon fa-telegram"></span><span>Message</span>
+                                        <button class="close" type="button" data-dismiss="alert" aria-label="Close"><span class="fa-close" aria-hidden="true"></span></button>
+                                      </div>
+                                      <div class="alert alert-dismissible alert-secondary alert-sm" role="alert"><span class="alert-icon fa-warning"></span><span>Warning</span>
+                                        <button class="close" type="button" data-dismiss="alert" aria-label="Close"><span class="fa-close" aria-hidden="true"></span></button>
+                                      </div>
+                                      <div class="alert alert-dismissible alert-danger alert-sm" role="alert"><span class="alert-icon fa-remove"></span><span>Error</span>
+                                        <button class="close" type="button" data-dismiss="alert" aria-label="Close"><span class="fa-close" aria-hidden="true"></span></button>
+                                      </div>
+                                      <div class="alert alert-dismissible alert-success alert-sm" role="alert"><span class="alert-icon fa-thumbs-up"></span><span>Success</span>
+                                        <button class="close" type="button" data-dismiss="alert" aria-label="Close"><span class="fa-close" aria-hidden="true"></span></button>
+                                      </div>
+                        </div>
+                      </div>
+                      <div class="panel-footer p-2"><a class="btn btn-primary btn-sm" href="alerts.html">See more</a></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="rd-navbar-panel-cell">
+                  <div class="navbar-toggle navbar-user" data-multi-switch='{"targets":"#subpanel-user-menu","scope":"#subpanel-user-menu","isolate":"[data-multi-switch]"}' title="User Menu"><img src="images/users/user-17-60x60.jpg" alt=""/></div>
+                  <div class="rd-navbar-subpanel" id="subpanel-user-menu">
+                    <div class="panel">
+                      <div class="panel-header">
+                        <h4 class="panel-title">John Doe</h4>
+                      </div>
+                      <div class="panel-body p-0 scroller scroller-vertical">
+                        <div class="list-group list-group-flush"><a class="list-group-item rounded-0" href="#">
+                            <div class="media align-items-center">
+                              <div class="pr-2"><span class="fa-user"></span></div>
+                              <div class="media-body">
+                                <h5>My Profile</h5>
+                              </div>
+                            </div></a><a class="list-group-item rounded-0" href="#">
+                            <div class="media align-items-center">
+                              <div class="pr-2"><span class="fa-envelope-o"></span></div>
+                              <div class="media-body">
+                                <h5>My Messages</h5>
+                              </div>
+                              <div class="badge badge-warning">12</div>
+                            </div></a><a class="list-group-item rounded-0" href="#">
+                            <div class="media align-items-center">
+                              <div class="pr-2"><span class="fa-rocket"></span></div>
+                              <div class="media-body">
+                                <h5>My Activities</h5>
+                              </div>
+                            </div></a><a class="list-group-item rounded-0" href="#">
+                            <div class="media align-items-center">
+                              <div class="pr-2"><span class="fa-desktop"></span></div>
+                              <div class="media-body">
+                                <h5>My Tasks</h5>
+                              </div>
+                              <div class="badge badge-success">05</div>
+                            </div></a><a class="list-group-item rounded-0" href="#">
+                            <div class="media align-items-center">
+                              <div class="pr-2"><span class="fa-line-chart"></span></div>
+                              <div class="media-body">
+                                <h5>Billing</h5>
+                              </div>
+                            </div></a></div>
+                      </div>
+                      <div class="panel-footer p-2">
+                        <div class="d-flex align-items-center justify-content-between"><a class="btn btn-sm btn-danger" href="#">Sign Out</a><a class="btn btn-sm btn-success" href="#">Upgrade Plan</a></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="rd-navbar-sidebar-wrap">
+              <div class="rd-navbar-sidebar-panel">
+                <div class="rd-navbar-logo"><a class="logo-link" href="index.html"><img class="logo-default" src="images/logo-white-178x66.png" alt="Greendesk"/><img class="logo-compact" src="images/logo-white-compact-177x20.png" alt="Greendesk"/></a></div>
+                <button class="navbar-toggle-sidebar mdi-menu" data-navigation-switch="data-navigation-switch"></button>
+              </div>
+              <div class="rd-navbar-sidebar scroller scroller-vertical">
+                <ul class="rd-navbar-nav">
+                  <li class="rd-navbar-nav-item"><a class="rd-navbar-link" href="index.html"><span class="rd-navbar-icon mdi-view-dashboard"></span><span class="rd-navbar-text">Dashboard</span></a>
+                  </li>
+                  <li class="rd-navbar-nav-item"><a class="rd-navbar-link" href="calendar.html"><span class="rd-navbar-icon mdi-calendar-text"></span><span class="rd-navbar-text">Calendar</span></a>
+                  </li>
+                  <li class="rd-navbar-nav-item"><a class="rd-navbar-link" href="documentation.html"><span class="rd-navbar-icon mdi-file-outline"></span><span class="rd-navbar-text">Documentation</span></a>
+                    <ul class="rd-navbar-dropdown">
+                      <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="documentation.html#bootstrap-components"><span class="rd-navbar-text">Bootstrap Components</span></a>
+                        <ul class="rd-navbar-dropdown">
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="documentation.html#button"><span class="rd-navbar-text">Button</span></a>
+                          </li>
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="documentation.html#badge"><span class="rd-navbar-text">Badge</span></a>
+                          </li>
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="documentation.html#code"><span class="rd-navbar-text">Code</span></a>
+                          </li>
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="documentation.html#media"><span class="rd-navbar-text">Media Object</span></a>
+                          </li>
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="documentation.html#card"><span class="rd-navbar-text">Card</span></a>
+                          </li>
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="documentation.html#table"><span class="rd-navbar-text">Table</span></a>
+                          </li>
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="documentation.html#progress"><span class="rd-navbar-text">Progress</span></a>
+                          </li>
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="documentation.html#close"><span class="rd-navbar-text">Close</span></a>
+                          </li>
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="documentation.html#pagination"><span class="rd-navbar-text">Pagination</span></a>
+                          </li>
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="documentation.html#alert"><span class="rd-navbar-text">Alert</span></a>
+                          </li>
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="documentation.html#dropdown"><span class="rd-navbar-text">Dropdown</span></a>
+                          </li>
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="documentation.html#nav"><span class="rd-navbar-text">Nav</span></a>
+                          </li>
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="documentation.html#tooltip"><span class="rd-navbar-text">Tooltip</span></a>
+                          </li>
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="documentation.html#modal"><span class="rd-navbar-text">Modal</span></a>
+                          </li>
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="documentation.html#jumbotron"><span class="rd-navbar-text">Jumbotron</span></a>
+                          </li>
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="documentation.html#input"><span class="rd-navbar-text">Input</span></a>
+                          </li>
+                        </ul>
+                      </li>
+                      <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="documentation.html#plugins"><span class="rd-navbar-text">Plugins</span></a>
+                        <ul class="rd-navbar-dropdown">
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="documentation.html#Nprogress"><span class="rd-navbar-text">Nprogress</span></a>
+                          </li>
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="documentation.html#highlight"><span class="rd-navbar-text">Highlight.js</span></a>
+                          </li>
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="documentation.html#dual-listbox"><span class="rd-navbar-text">Dual Listbox</span></a>
+                          </li>
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="documentation.html#maxlength"><span class="rd-navbar-text">Bootstrap Maxlength</span></a>
+                          </li>
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="documentation.html#typeahead"><span class="rd-navbar-text">Typeahead.js</span></a>
+                          </li>
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="documentation.html#select2"><span class="rd-navbar-text">Select2</span></a>
+                          </li>
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="documentation.html#spinner"><span class="rd-navbar-text">jQuery UI Spinner</span></a>
+                          </li>
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="documentation.html#time-spinner"><span class="rd-navbar-text">Time Spinner</span></a>
+                          </li>
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="documentation.html#daterangepiker"><span class="rd-navbar-text">Date Range Picker</span></a>
+                          </li>
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="documentation.html#datetimepicker"><span class="rd-navbar-text">Bootstrap Date/Timepicker</span></a>
+                          </li>
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="documentation.html#tag-manager"><span class="rd-navbar-text">Tags Manager</span></a>
+                          </li>
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="documentation.html#colorpicker"><span class="rd-navbar-text">Bootstrap Colorpicker</span></a>
+                          </li>
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="documentation.html#maskedinput"><span class="rd-navbar-text">jQuery Masked Input</span></a>
+                          </li>
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="documentation.html#ckeditor"><span class="rd-navbar-text">CKeditor</span></a>
+                          </li>
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="documentation.html#summernote"><span class="rd-navbar-text">Summernote</span></a>
+                          </li>
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="documentation.html#markdown"><span class="rd-navbar-text">Markdown.js</span></a>
+                          </li>
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="documentation.html#nestable"><span class="rd-navbar-text">Nestable jQuery Plugin</span></a>
+                          </li>
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="documentation.html#jstree"><span class="rd-navbar-text">jsTree</span></a>
+                          </li>
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="documentation.html#cropper"><span class="rd-navbar-text">Cropper.js</span></a>
+                          </li>
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="documentation.html#fileupload"><span class="rd-navbar-text">Tower File Input</span></a>
+                          </li>
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="documentation.html#easyzoom"><span class="rd-navbar-text">EasyZoom</span></a>
+                          </li>
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="documentation.html#xzoom"><span class="rd-navbar-text">xZoom</span></a>
+                          </li>
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="documentation.html#slick"><span class="rd-navbar-text">Slick Slider</span></a>
+                          </li>
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="documentation.html#dropzone"><span class="rd-navbar-text">DropzoneJS</span></a>
+                          </li>
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="documentation.html#pnotify"><span class="rd-navbar-text">PNotify</span></a>
+                          </li>
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="documentation.html#driver"><span class="rd-navbar-text">Driver.js</span></a>
+                          </li>
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="documentation.html#countdown"><span class="rd-navbar-text">αCountdown</span></a>
+                          </li>
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="documentation.html#progress-circle"><span class="rd-navbar-text">αCounter &amp; αProgressCircle</span></a>
+                          </li>
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="documentation.html#particles"><span class="rd-navbar-text">Particles.js</span></a>
+                          </li>
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="documentation.html#lightgallery"><span class="rd-navbar-text">Lightgallery</span></a>
+                          </li>
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="documentation.html#jvectormap"><span class="rd-navbar-text">jVectorMap</span></a>
+                          </li>
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="documentation.html#flotchart"><span class="rd-navbar-text">Flot</span></a>
+                          </li>
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="documentation.html#rd-navbar"><span class="rd-navbar-text">RD Navbar</span></a>
+                          </li>
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="documentation.html#highcharts"><span class="rd-navbar-text">Highcharts</span></a>
+                          </li>
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="documentation.html#multiswitch"><span class="rd-navbar-text">MultiSwitch</span></a>
+                          </li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="rd-navbar-nav-item"><a class="rd-navbar-link" href="#"><span class="rd-navbar-icon mdi-plus-circle-multiple-outline"></span><span class="rd-navbar-text">Admin plugins</span></a>
+                    <ul class="rd-navbar-dropdown">
+                      <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="admin-panels.html"><span class="rd-navbar-text">Admin panels</span></a>
+                      </li>
+                      <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="admin-modals.html"><span class="rd-navbar-text">Admin modals</span></a>
+                      </li>
+                      <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="admin-dock.html"><span class="rd-navbar-text">Admin Dock</span></a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="rd-navbar-nav-item"><a class="rd-navbar-link" href="#"><span class="rd-navbar-icon mdi-border-all"></span><span class="rd-navbar-text">Admin layouts</span></a>
+                    <ul class="rd-navbar-dropdown">
+                      <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="navbar.html"><span class="rd-navbar-text">Navbar</span></a>
+                      </li>
+                      <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="#"><span class="rd-navbar-text">Topbar</span></a>
+                        <ul class="rd-navbar-dropdown">
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="breadcrumbs.html"><span class="rd-navbar-text">Breadcrumbs</span></a>
+                          </li>
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="topbar-menu.html"><span class="rd-navbar-text">Topbar Menu</span></a>
+                          </li>
+                        </ul>
+                      </li>
+                      <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="#"><span class="rd-navbar-text">Content Body</span></a>
+                        <ul class="rd-navbar-dropdown">
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="blank-starter.html"><span class="rd-navbar-text">Blank Starter</span></a>
+                          </li>
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="jumbotron.html"><span class="rd-navbar-text">Jumbotron</span></a>
+                          </li>
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="content-tabs.html"><span class="rd-navbar-text">Content Tabs</span></a>
+                          </li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="rd-navbar-nav-item"><a class="rd-navbar-link" href="#"><span class="rd-navbar-icon mdi-information-outline"></span><span class="rd-navbar-text">Information Panels</span></a>
+                    <ul class="rd-navbar-dropdown">
+                      <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="tile-widgets.html"><span class="rd-navbar-text">Tile Widgets</span></a>
+                      </li>
+                      <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="panel-widgets.html"><span class="rd-navbar-text">Panel Widgets</span></a>
+                      </li>
+                      <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="admin-widgets.html"><span class="rd-navbar-text">Admin Widgets</span></a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="rd-navbar-nav-item"><a class="rd-navbar-link" href="#"><span class="rd-navbar-icon mdi-cart-outline"></span><span class="rd-navbar-text">Ecommerce</span></a>
+                    <ul class="rd-navbar-dropdown">
+                      <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="ecommerce-dashboard.html"><span class="rd-navbar-text">Ecommerce dashboard</span></a>
+                      </li>
+                      <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="products.html"><span class="rd-navbar-text">Products</span></a>
+                      </li>
+                      <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="orders.html"><span class="rd-navbar-text">Orders</span></a>
+                      </li>
+                      <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="customers.html"><span class="rd-navbar-text">Customers</span></a>
+                      </li>
+                      <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="store-settings.html"><span class="rd-navbar-text">Store Settings</span></a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="rd-navbar-nav-item"><a class="rd-navbar-link" href="#"><span class="rd-navbar-icon mdi-cube-outline"></span><span class="rd-navbar-text">UI Elements</span></a>
+                    <ul class="rd-navbar-dropdown">
+                      <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="alerts.html"><span class="rd-navbar-text">Alerts</span></a>
+                      </li>
+                      <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="animations.html"><span class="rd-navbar-text">Animations</span></a>
+                      </li>
+                      <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="buttons.html"><span class="rd-navbar-text">Buttons</span></a>
+                      </li>
+                      <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="typography.html"><span class="rd-navbar-text">Typography</span></a>
+                      </li>
+                      <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="panel.html"><span class="rd-navbar-text">Panel</span></a>
+                      </li>
+                      <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="progress-bars.html"><span class="rd-navbar-text">Progress Bars</span></a>
+                      </li>
+                      <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="tabs.html"><span class="rd-navbar-text">Tabs</span></a>
+                      </li>
+                      <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="icons.html"><span class="rd-navbar-text">Icons</span></a>
+                      </li>
+                      <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="grid.html"><span class="rd-navbar-text">Grid</span></a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="rd-navbar-nav-item"><a class="rd-navbar-link" href="#"><span class="rd-navbar-icon mdi-checkbox-marked-outline"></span><span class="rd-navbar-text">Form Elements</span></a>
+                    <ul class="rd-navbar-dropdown">
+                      <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="basic-inputs.html"><span class="rd-navbar-text">Basic Inputs</span></a>
+                      </li>
+                      <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="plugin-inputs.html"><span class="rd-navbar-text">Plugin Inputs</span></a>
+                      </li>
+                      <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="editors.html"><span class="rd-navbar-text">Editors</span></a>
+                      </li>
+                      <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="treeview.html"><span class="rd-navbar-text">Treeview</span></a>
+                      </li>
+                      <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="nestable.html"><span class="rd-navbar-text">Nestable</span></a>
+                      </li>
+                      <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="image-tools.html"><span class="rd-navbar-text">Image tools</span></a>
+                      </li>
+                      <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="uploaders.html"><span class="rd-navbar-text">Uploaders</span></a>
+                      </li>
+                      <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="notifications.html"><span class="rd-navbar-text">Notifications</span></a>
+                      </li>
+                      <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="content-sliders.html"><span class="rd-navbar-text">Content Sliders</span></a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="rd-navbar-nav-item"><a class="rd-navbar-link" href="#"><span class="rd-navbar-icon mdi-console"></span><span class="rd-navbar-text">Plugins</span></a>
+                    <ul class="rd-navbar-dropdown">
+                      <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="#"><span class="rd-navbar-text">Maps</span></a>
+                        <ul class="rd-navbar-dropdown">
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="google-maps.html"><span class="rd-navbar-text">Google Maps</span></a>
+                          </li>
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="jvector-map.html"><span class="rd-navbar-text">jVector Map</span></a>
+                          </li>
+                        </ul>
+                      </li>
+                      <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="#"><span class="rd-navbar-text">Charts</span></a>
+                        <ul class="rd-navbar-dropdown">
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="highcharts.html"><span class="rd-navbar-text">Highcharts</span></a>
+                          </li>
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="flotcharts.html"><span class="rd-navbar-text">Flotcharts</span></a>
+                          </li>
+                        </ul>
+                      </li>
+                      <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="#"><span class="rd-navbar-text">Tables</span></a>
+                        <ul class="rd-navbar-dropdown">
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="basic-tables.html"><span class="rd-navbar-text">Basic Tables</span></a>
+                          </li>
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="data-tables.html"><span class="rd-navbar-text">Data Tables</span></a>
+                          </li>
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="pricing-tables.html"><span class="rd-navbar-text">Pricing Tables</span></a>
+                          </li>
+                        </ul>
+                      </li>
+                      <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="#"><span class="rd-navbar-text">Misc</span></a>
+                        <ul class="rd-navbar-dropdown">
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="site-tour.html"><span class="rd-navbar-text">Site Tour</span></a>
+                          </li>
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="session-timeout.html"><span class="rd-navbar-text">Session Timeout</span></a>
+                          </li>
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="page-progress-loader.html"><span class="rd-navbar-text">Page Progress Loader</span></a>
+                          </li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="rd-navbar-nav-item active"><a class="rd-navbar-link" href="#"><span class="rd-navbar-icon mdi-content-copy"></span><span class="rd-navbar-text">Pages</span></a>
+                    <ul class="rd-navbar-dropdown">
+                      <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="#"><span class="rd-navbar-text">Utility</span></a>
+                        <ul class="rd-navbar-dropdown">
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="confirmation.html"><span class="rd-navbar-text">Confirmation</span></a>
+                          </li>
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="login.html"><span class="rd-navbar-text">Login</span></a>
+                          </li>
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="register.html"><span class="rd-navbar-text">Register</span></a>
+                          </li>
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="screenlock.html"><span class="rd-navbar-text">Screenlock</span></a>
+                          </li>
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="password-reset.html"><span class="rd-navbar-text">Password Reset</span></a>
+                          </li>
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="coming-soon.html"><span class="rd-navbar-text">Coming Soon</span></a>
+                          </li>
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="404.html"><span class="rd-navbar-text">404</span></a>
+                          </li>
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="500.html"><span class="rd-navbar-text">500</span></a>
+                          </li>
+                        </ul>
+                      </li>
+                      <li class="rd-navbar-dropdown-item active"><a class="rd-navbar-link" href="#"><span class="rd-navbar-text">Basic</span></a>
+                        <ul class="rd-navbar-dropdown">
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="search-results.html"><span class="rd-navbar-text">Search Results</span></a>
+                          </li>
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="profile.html"><span class="rd-navbar-text">Profile</span></a>
+                          </li>
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="timeline.html"><span class="rd-navbar-text">Timeline</span></a>
+                          </li>
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="faq.html"><span class="rd-navbar-text">FAQ</span></a>
+                          </li>
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="calendar.html"><span class="rd-navbar-text">Calendar</span></a>
+                          </li>
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="messages.html"><span class="rd-navbar-text">Messages</span></a>
+                          </li>
+                          <li class="rd-navbar-dropdown-item active"><a class="rd-navbar-link" href="messages-compose.html"><span class="rd-navbar-text">Messages Compose</span></a>
+                          </li>
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="gallery.html"><span class="rd-navbar-text">Gallery</span></a>
+                          </li>
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="printable-invoice.html"><span class="rd-navbar-text">Printable Invoice</span></a>
+                          </li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </nav>
+        </div>
+      </header>
+      <section class="topbar">
+        <!-- Breadcrumbs-->
+        <nav aria-label="breadcrumb"></nav>
+        <ul class="breadcrumb">
+          <li class="breadcrumb-item"><a href="index.html"><span class="breadcrumbs-icon mdi-view-dashboard"></span><span>Dashboard</span></a></li>
+          <li class="breadcrumb-item">Pages
+          </li>
+          <li class="breadcrumb-item">Basic
+          </li>
+          <li class="breadcrumb-item">Messages Compose
+          </li>
+        </ul>
+      </section>
+      <section class="section-sm">
+        <div class="container-fluid">
+          <div class="row row-30">
+            <div class="col-lg-3 col-xxl-2">
+              <div class="panel">
+                <div class="panel-body">
+                  <div class="row row-30">
+                    <div class="col-12">
+                      <button class="btn btn-sm btn-warning">New message</button>
+                    </div>
+                    <div class="col-sm-4 col-lg-12">
+                      <div class="list-block-container list-block-lg">
+                        <h5 class="list-block-title">Your privacy settings</h5>
+                        <div class="list-block">
+                          <div class="list-block-item d-flex justify-content-between"><a class="text-light" href="#"><span class="pr-1 fa-gear"></span><span>Email settings</span></a></div>
+                          <div class="list-block-item d-flex justify-content-between align-items-center"><a class="text-light" href="#"><span class="pr-1 fa-envelope"></span><span>Messages</span></a><span class="badge badge-info">2</span></div>
+                          <div class="list-block-item d-flex justify-content-between align-items-center"><a class="text-light" href="#"><span class="pr-1 fa-user"></span><span>Friends</span></a><span class="badge badge-info">6</span></div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-sm-4 col-lg-12">
+                      <div class="list-block-container list-block-lg">
+                        <h5 class="list-block-title">Tags</h5>
+                        <div class="list-block">
+                          <div class="list-block-item d-flex justify-content-between"><a class="text-light" href="#"><span>Clients</span></a><span class="fa-tag text-warning"></span></div>
+                          <div class="list-block-item d-flex justify-content-between"><a class="text-light" href="#"><span>Contractors</span></a><span class="fa-tag text-success"></span></div>
+                          <div class="list-block-item d-flex justify-content-between"><a class="text-light" href="#"><span>Employees</span></a><span class="fa-tag text-primary"></span></div>
+                          <div class="list-block-item d-flex justify-content-between"><a class="text-light" href="#"><span>Suppliers</span></a><span class="fa-tag text-info"></span></div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-sm-4 col-lg-12">
+                      <div class="list-block-container list-block-lg">
+                        <h5 class="list-block-title">Labels</h5>
+                        <div class="list-block">
+                          <div class="list-block-item d-flex justify-content-between align-items-center"><a class="text-light" href="#"><span>Clients</span></a><small class="text-primary">6</small></div>
+                          <div class="list-block-item d-flex justify-content-between align-items-center"><a class="text-light" href="#"><span>Contractors</span></a><small class="text-success">8</small></div>
+                          <div class="list-block-item d-flex justify-content-between align-items-center"><a class="text-light" href="#"><span>Employees</span></a><small class="text-info">11</small></div>
+                          <div class="list-block-item d-flex justify-content-between align-items-center"><a class="text-light" href="#"><span>Suppliers</span></a><small class="text-warning">13</small></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-9 col-xxl-10">
+              <div class="panel">
+                <div class="panel-body p-0">
+                  <div class="group-15 p-3 d-flex flex-wrap align-items-center justify-content-lg-between">
+                    <div class="flex-grow-1">
+                      <div class="btn-group">
+                        <button class="btn btn-sm btn-light"><span class="fa-refresh"></span></button>
+                        <button class="btn btn-sm btn-light"><span class="fa-pencil"></span></button>
+                      </div>
+                    </div>
+                    <div>Showing <strong>15</strong> of <strong>253</strong>
+                    </div>
+                    <div class="btn-group">
+                      <button class="btn btn-sm btn-light"><span class="fa-star"></span></button>
+                      <button class="btn btn-sm btn-light"><span class="fa-calendar"></span></button>
+                      <button class="btn btn-sm btn-light"><span class="fa-trash"></span></button>
+                    </div>
+                    <div class="btn-group">
+                      <div class="dropdown btn-group">
+                        <button class="btn dropdown-toggle btn-sm btn-light" data-toggle="dropdown"><span class="btn-icon fa-tags"></span><span></span>
+                        </button>
+                        <div class="dropdown-menu"><a class="dropdown-item" href="#">Work</a><a class="dropdown-item" href="#">Important</a><a class="dropdown-item" href="#">Favorites</a>
+                          <div class="dropdown-divider"></div><a class="dropdown-item" href="#"><span class="fa-plus pr-1"></span>Create new</a>
+                        </div>
+                      </div>
+                      <div class="dropdown btn-group">
+                        <button class="btn dropdown-toggle btn-sm btn-light" data-toggle="dropdown"><span class="btn-icon fa-folder"></span><span></span>
+                        </button>
+                        <div class="dropdown-menu"><a class="dropdown-item" href="#">Work</a><a class="dropdown-item" href="#">Important</a><a class="dropdown-item" href="#">Favorites</a>
+                          <div class="dropdown-divider"></div><a class="dropdown-item" href="#"><span class="fa-plus pr-1"></span>Create new</a>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="btn-group">
+                      <button class="btn btn-sm btn-light"><span class="fa-chevron-left"></span></button>
+                      <button class="btn btn-sm btn-light"><span class="fa-chevron-right"></span></button>
+                    </div>
+                  </div>
+                  <div class="p-3 border-top">
+                    <div class="group-10 d-flex flex-wrap justify-content-between">
+                      <h4>Subject - You have a new message at zemez.io</h4><span>05/17/13 17:00</span>
+                    </div>
+                    <hr>
+                    <div class="group-10 d-flex flex-wrap justify-content-between">
+                      <div>
+                        <div class="media group-10">
+                          <div class="media-item"><img src="images/users/user-04-50x50.jpg" width="50" height="50" alt=""></div>
+                          <div class="media-body">
+                            <h4>From: Cynthia Roche</h4>
+                            <div class="mt-1"><span>From:</span> <a href="#">hisemail@hisemail.com</a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div>
+                        <button class="btn btn-sm btn-warning">New</button>
+                        <button class="btn btn-sm btn-success">Co-working</button>
+                      </div>
+                    </div>
+                    <hr>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est, ipsam, in, consectetur, ecusandae qui ducimus fugit nam sint officia expedita illo voluptatem consequuntur Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium, fugit, laboriosam, ipsam, doloribus iste officiiseveniet nisi maxime minima deserunt cumque amet eos quos! Provident, natus, officia, fuga eum harum ut quisquam in consequatur tempore tempora unde a consequuntur nisi sequi enim repellat delectus obcaecati laborum dignissimos quam quibusdam perferendis? distinctio tempora officiis adipisci impedit similique. Obcaecati.</p>
+                    <p>Lboriosam, ipsam, doloribus iste officiis eveniet nisi maxime minima deserunt cumque amet eos quos! Provident, natus, officia, fuga eum harum ut quisquam in consequatur tempore tempora unde a consequuntur nisi sequi enim repellat delectus obcaecati laborum dignissimos quam quibusdam perferendis? adipisicing elit. Laudantium, fugit, laboriosam, ipsam, doloribus iste officiis eveniet nisi maxime minima deserunt cumque amet eos quos! Provident, natus, officia, fuga eum harum ut quisquam in consequatur tempore tempora unde a consequuntur nisi sequi enim repellat delectus obcaecati laborum dignissimos quam quibusdam.</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium, fugit, laboriosam, ipsam, doloribus iste officiis eveniet nisi maxime minima deser Laudantium, fugit, laboriosam, ipsam, doloribus iste officiis eveniet nisi maxime minima deserunt cumque amet eos quos! Provident, natus, officia, fuga eum harum ut quisquam in consequatur tempore tempora unde a consequuntur nisi sequi enim repellat delectus obcaecati laborum dignissimos quam quibusdam perferendis?</p>
+                    <hr>
+                    <div class="mt-2"><span class="fa-paperclip pr-2"></span>3 Attachments - <small><a href="#">View images</a> | <a href="#">Download all</a></small>
+                    </div>
+                    <div class="group-10 mt-3"><img src="images/image-01-140x90.jpg" width="140" height="90" alt=""><img src="images/image-02-140x90.jpg" width="140" height="90" alt=""><img src="images/image-03-140x90.jpg" width="140" height="90" alt=""></div>
+                  </div>
+                </div>
+                <div class="summernote-container summernote-no-border border-top">
+                  <div class="summernote" data-summernote-opts='{"height":200,"placeholder":"Enter your message here..."}'></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <div class="sidebar scroller">
+        <div class="panel">
+          <div class="panel-header">
+            <h4 class="panel-title"><span class="panel-icon fa-trophy"></span><span>Right Sidebar Content</span></h4>
+          </div>
+          <div class="panel-body">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce volutpat ac tortor eu viverra. Etiam ipsum neque, fermentum quis sagittis nec, hendrerit id diam. Mauris a tincidunt odio. Sed porttitor ex pulvinar, tristique sapien sed, malesuada nunc.</p>
+          </div>
+        </div>
+      </div>
+      <div class="template-panel">
+        <div class="template-panel-heading">Navbar Themes
+          <button class="template-panel-switch fa-cog" data-multi-switch='{"targets":".template-panel","scope":".template-panel","isolate":"[data-multi-switch]"}'></button>
+        </div>
+        <div class="template-panel-body">
+          <div class="template-panel-group">
+            <button class="theme-switch fa-check active" title="Navbar Theme" style="border-color: #58a193 #58a193 #fff #fff; color: black;" data-theme-switch="greendesk-navbar-primary" data-theme='{"navbar-sidebar-color":"#fff","navbar-sidebar-bg":"#58a193","navbar-toggle-color":"#58a193","navbar-logo-invert":"0%"}'></button>
+            <button class="theme-switch fa-check" title="Navbar Theme" style="border-color: #5b5eab #5b5eab #fff #fff; color: black;" data-theme-switch="greendesk-navbar-secondary" data-theme='{"navbar-sidebar-color":"#fff","navbar-sidebar-bg":"#5b5eab","navbar-toggle-color":"#5b5eab","navbar-logo-invert":"0%"}'></button>
+            <button class="theme-switch fa-check" title="Navbar Theme" style="border-color: #34b1cc #34b1cc #fff #fff; color: black;" data-theme-switch="greendesk-navbar-info" data-theme='{"navbar-sidebar-color":"#fff","navbar-sidebar-bg":"#34b1cc","navbar-toggle-color":"#34b1cc","navbar-logo-invert":"0%"}'></button>
+            <button class="theme-switch fa-check" title="Navbar Theme" style="border-color: #f7ad6a #f7ad6a #fff #fff; color: black;" data-theme-switch="greendesk-navbar-warning" data-theme='{"navbar-sidebar-color":"#fff","navbar-sidebar-bg":"#f7ad6a","navbar-toggle-color":"#f7ad6a","navbar-logo-invert":"0%"}'></button>
+            <button class="theme-switch fa-check" title="Navbar Theme" style="border-color: #ff5f68 #ff5f68 #fff #fff; color: black;" data-theme-switch="greendesk-navbar-danger" data-theme='{"navbar-sidebar-color":"#fff","navbar-sidebar-bg":"#ff5f68","navbar-toggle-color":"#ff5f68","navbar-logo-invert":"0%"}'></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

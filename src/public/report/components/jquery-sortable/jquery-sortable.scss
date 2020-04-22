@@ -1,0 +1,49 @@
+@import "../bootstrap/scss/functions";
+@import "../base/functions";
+@import "../base/variables";
+@import "../bootstrap/scss/variables";
+@import "../bootstrap/scss/mixins";
+
+// List sortable
+.list-sortable {
+	list-style: none;
+	padding-left: 0;
+
+	> li {
+		position: relative;
+		padding: px-to-rem( 10px );
+		padding-right: 50px;
+	}
+
+	.sortable-drag {
+		position: absolute;
+		top: px-to-rem( 10px );
+		right: px-to-rem( 15px );
+		font-size: px-to-rem( 21px );
+		line-height: 1;
+		color: $gray-500;
+		cursor: pointer;
+
+		&:before {
+			content: '\f0c9';
+			font-family: 'FontAwesome';
+		}
+	}
+}
+
+.sortable-completed {
+	.sortable-drag {
+		&:before {
+			content: '\f00d';
+		}
+	}
+}
+
+// List sortable title
+.list-sortable-title {
+	padding: px-to-rem( 10px );
+}
+
+.list-sortable + .list-sortable-title {
+	margin-top: 0;
+}

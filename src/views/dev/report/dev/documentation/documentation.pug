@@ -1,0 +1,85 @@
+extends ../components/base/_skeleton
+include ../components/rd-navbar/_rd-navbar
+include ../components/breadcrumbs/_breadcrumbs
+
+block variables
+	- pageName = 'Documentation';
+
+block page
+	header.section.page-header
+		+rd-navbar
+
+	section.topbar
+		+breadcrumbs( breadcrumbs )
+
+	section
+		.container-fluid
+			.jumbotron
+				h1 List of Components
+
+	section#bootstrap-components.section-sm
+		.container-fluid
+			h2.text-center Bootstrap Components
+			.row.row-30
+				.col-lg-6
+					include _button
+					include _badge
+					include _code
+					include _media
+					include _card
+					include _table
+					include _progress
+					include _close
+				.col-lg-6
+					include _pagination
+					include _alert
+					include _dropdown
+					include _nav
+					include _tooltip
+					include _modal
+					include _jumbotron
+					include _input
+
+
+	section#plugins.section-sm
+		.container-fluid
+			h2.text-center Plugins
+			.row.row-30
+				.col-lg-6
+					include _nprogress
+					include _dual-listbox
+					include _typeahead
+					include _spinner
+					include _daterangepiker
+					include _tag-manager
+					include _maskedinput
+					include _summernote
+					include _nestable
+					include _cropper
+					include _easyzoom
+					include _slick
+					include _pnotify
+					include _particles
+					include _jvectormap
+					include _rd-navbar
+
+				.col-lg-6
+					include _highlight
+					include _maxlength
+					include _select2
+					include _time-spinner
+					include _datetimepicker
+					include _colorpicker
+					include _ckeditor
+					include _markdown
+					include _jstree
+					include _fileupload
+					include _xzoom
+					include _dropzone
+					include _driver
+					include _progress-circle
+					include _lightgallery
+					include _flotchart
+					include _highcharts
+					include _countdown
+					include _multiswitch

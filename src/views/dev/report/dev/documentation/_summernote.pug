@@ -1,0 +1,21 @@
+#summernote.panel
+	.panel-header
+		h3.panel-title Summernote
+	.panel-body
+		p Summernote is a simple #[a( href='https://en.wikipedia.org/wiki/WYSIWYG' ) WYSIWYG] editor based on Bootstrap.
+		p Plugin and style sheets linking occurs when the element that matches the #[code .summernote] selector is present on the page.
+
+		p Plugin operation example:
+		.mt-1
+			.summernote( data-summernote-opts ) Hello summernote.
+		p See more plugin operation examples on the following page: #[a( href='editors.html' ) Editors].
+
+		p Markup example:
+		pre.highlight.html.scroller.scroller-horizontal
+			= '<div class="summernote">Hello summernote.</div>'
+
+		p This template provides a #[code data-summernote-opts] attribute for Summernote that can accept a JSON object with the plugin parameters, e.g.:
+		pre.highlight.html.scroller.scroller-horizontal
+			= '<div class="summernote" data-summernote-opts=\'{ "airMode": true }\'>...</div>'
+
+		p All available parameters of the plugin can be viewed on #[a( href="https://summernote.org/getting-started/" ) Summernote] website.

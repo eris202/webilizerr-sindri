@@ -1,0 +1,937 @@
+<!DOCTYPE html>
+<html class="rd-navbar-sidebar-active" lang="en">
+  <head>
+    <title>Admin Widgets</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta property="og:title" content="Template Monster Admin Template">
+    <meta property="og:description" content="brevis, barbatus clabulares aliquando convertam de dexter, peritus capio. devatio clemens habitio est.">
+    <meta property="og:image" content="http://digipunk.netii.net/images/radar.gif">
+    <meta property="og:url" content="http://digipunk.netii.net">
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="components/base/base.css">
+    <script src="components/base/script.js"></script>
+  </head>
+  <body>
+    <div class="page">
+      <header class="section page-header">
+        <!--RD Navbar-->
+        <div class="rd-navbar-wrap">
+          <nav class="rd-navbar">
+            <div class="rd-navbar-panel">
+              <div class="rd-navbar-panel-inner">
+                <div class="rd-navbar-panel-cell rd-navbar-panel-spacer">
+                  <div class="navbar-search" id="navbar-search">
+                    <input class="navbar-search-input" type="text" placeholder="Search..."/>
+                  </div>
+                </div>
+                <div class="rd-navbar-panel-cell navbar-toggle-search-cell">
+                  <button class="navbar-toggle navbar-toggle-search mdi-magnify" data-multi-switch='{"targets":".rd-navbar-panel","scope":"#navbar-search","isolate":"[data-multi-switch]"}' title="Search"></button>
+                </div>
+                <div class="rd-navbar-panel-cell">
+                  <button class="navbar-toggle mdi-content-paste" data-sidebar-switch="data-sidebar-switch" data-multi-switch='{"targets":".sidebar","scope":".sidebar, [data-sidebar-switch]","isolate":"[data-multi-switch]:not([data-sidebar-switch])"}' title="Sidebar"></button>
+                </div>
+                <div class="rd-navbar-panel-cell">
+                  <button class="navbar-toggle mdi-email-outline" data-multi-switch='{"targets":"#subpanel-chat","scope":"#subpanel-chat","isolate":"[data-multi-switch]"}' title="Chat"></button>
+                  <div class="rd-navbar-subpanel" id="subpanel-chat">
+                    <div class="panel">
+                      <div class="panel-header">
+                        <h4 class="panel-title"><span class="panel-icon fa-pencil"></span><span>Chat</span></h4>
+                      </div>
+                      <div class="panel-body">
+                        <div class="scroller scroller-vertical" style="max-height: 400px;">
+                          <div class="media media-cloud group-15">
+                            <div class="media-item"><img class="rounded-circle" src="images/users/user-02-50x50.jpg" width="50" height="50" alt=""/></div>
+                            <div class="media-body">
+                              <h4 class="media-heading offline">Sara Marshall <small>- 12:30am</small>
+                              </h4>
+                              <div class="media-text">Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin.</div>
+                            </div>
+                          </div>
+                          <div class="media media-cloud flex-row-reverse group-15">
+                            <div class="media-item"><img class="rounded-circle" src="images/users/user-03-50x50.jpg" width="50" height="50" alt=""/></div>
+                            <div class="media-body media-body-right-caret">
+                              <h4 class="media-heading online">Tom Jorgensen <small>- 12:30am</small>
+                              </h4>
+                              <div class="media-text">Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin.</div>
+                            </div>
+                          </div>
+                          <div class="media media-cloud group-15">
+                            <div class="media-item"><img class="rounded-circle" src="images/users/user-02-50x50.jpg" width="50" height="50" alt=""/></div>
+                            <div class="media-body">
+                              <h4 class="media-heading offline">Sara Marshall <small>- 12:30am</small>
+                              </h4>
+                              <div class="media-text">Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin.</div>
+                            </div>
+                          </div>
+                          <div class="media media-cloud flex-row-reverse group-15">
+                            <div class="media-item"><img class="rounded-circle" src="images/users/user-03-50x50.jpg" width="50" height="50" alt=""/></div>
+                            <div class="media-body media-body-right-caret">
+                              <h4 class="media-heading online">Tom Jorgensen <small>- 12:30am</small>
+                              </h4>
+                              <div class="media-text">Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin.</div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="panel-footer">
+                        <div class="input-group form-group">
+                          <input class="form-control" type="text" placeholder="Enter your message here"/>
+                          <div class="input-group-append">
+                            <button class="btn btn-primary">Send</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="rd-navbar-panel-cell">
+                  <button class="navbar-toggle mdi-bell-outline" data-multi-switch='{"targets":"#subpanel-notifications","scope":"#subpanel-notifications","isolate":"[data-multi-switch]"}' title="Notifications"></button>
+                  <div class="navbar-badge badge badge-warning badge-pill">3</div>
+                  <div class="rd-navbar-subpanel" id="subpanel-notifications">
+                    <div class="panel">
+                      <div class="panel-header">
+                        <h4 class="panel-title"><span class="panel-icon fa-bell"></span><span>Notifications</span></h4>
+                      </div>
+                      <div class="panel-body p-2 scroller scroller-vertical">
+                        <div class="group-5">
+                                      <div class="alert alert-dismissible alert-primary alert-darker alert-sm" role="alert"><span class="alert-icon fa-telegram"></span><span>Message</span>
+                                        <button class="close" type="button" data-dismiss="alert" aria-label="Close"><span class="fa-close" aria-hidden="true"></span></button>
+                                      </div>
+                                      <div class="alert alert-dismissible alert-secondary alert-sm" role="alert"><span class="alert-icon fa-warning"></span><span>Warning</span>
+                                        <button class="close" type="button" data-dismiss="alert" aria-label="Close"><span class="fa-close" aria-hidden="true"></span></button>
+                                      </div>
+                                      <div class="alert alert-dismissible alert-danger alert-sm" role="alert"><span class="alert-icon fa-remove"></span><span>Error</span>
+                                        <button class="close" type="button" data-dismiss="alert" aria-label="Close"><span class="fa-close" aria-hidden="true"></span></button>
+                                      </div>
+                                      <div class="alert alert-dismissible alert-success alert-sm" role="alert"><span class="alert-icon fa-thumbs-up"></span><span>Success</span>
+                                        <button class="close" type="button" data-dismiss="alert" aria-label="Close"><span class="fa-close" aria-hidden="true"></span></button>
+                                      </div>
+                        </div>
+                      </div>
+                      <div class="panel-footer p-2"><a class="btn btn-primary btn-sm" href="alerts.html">See more</a></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="rd-navbar-panel-cell">
+                  <div class="navbar-toggle navbar-user" data-multi-switch='{"targets":"#subpanel-user-menu","scope":"#subpanel-user-menu","isolate":"[data-multi-switch]"}' title="User Menu"><img src="images/users/user-17-60x60.jpg" alt=""/></div>
+                  <div class="rd-navbar-subpanel" id="subpanel-user-menu">
+                    <div class="panel">
+                      <div class="panel-header">
+                        <h4 class="panel-title">John Doe</h4>
+                      </div>
+                      <div class="panel-body p-0 scroller scroller-vertical">
+                        <div class="list-group list-group-flush"><a class="list-group-item rounded-0" href="#">
+                            <div class="media align-items-center">
+                              <div class="pr-2"><span class="fa-user"></span></div>
+                              <div class="media-body">
+                                <h5>My Profile</h5>
+                              </div>
+                            </div></a><a class="list-group-item rounded-0" href="#">
+                            <div class="media align-items-center">
+                              <div class="pr-2"><span class="fa-envelope-o"></span></div>
+                              <div class="media-body">
+                                <h5>My Messages</h5>
+                              </div>
+                              <div class="badge badge-warning">12</div>
+                            </div></a><a class="list-group-item rounded-0" href="#">
+                            <div class="media align-items-center">
+                              <div class="pr-2"><span class="fa-rocket"></span></div>
+                              <div class="media-body">
+                                <h5>My Activities</h5>
+                              </div>
+                            </div></a><a class="list-group-item rounded-0" href="#">
+                            <div class="media align-items-center">
+                              <div class="pr-2"><span class="fa-desktop"></span></div>
+                              <div class="media-body">
+                                <h5>My Tasks</h5>
+                              </div>
+                              <div class="badge badge-success">05</div>
+                            </div></a><a class="list-group-item rounded-0" href="#">
+                            <div class="media align-items-center">
+                              <div class="pr-2"><span class="fa-line-chart"></span></div>
+                              <div class="media-body">
+                                <h5>Billing</h5>
+                              </div>
+                            </div></a></div>
+                      </div>
+                      <div class="panel-footer p-2">
+                        <div class="d-flex align-items-center justify-content-between"><a class="btn btn-sm btn-danger" href="#">Sign Out</a><a class="btn btn-sm btn-success" href="#">Upgrade Plan</a></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="rd-navbar-sidebar-wrap">
+              <div class="rd-navbar-sidebar-panel">
+                <div class="rd-navbar-logo"><a class="logo-link" href="index.html"><img class="logo-default" src="images/logo-white-178x66.png" alt="Greendesk"/><img class="logo-compact" src="images/logo-white-compact-177x20.png" alt="Greendesk"/></a></div>
+                <button class="navbar-toggle-sidebar mdi-menu" data-navigation-switch="data-navigation-switch"></button>
+              </div>
+              <div class="rd-navbar-sidebar scroller scroller-vertical">
+                <ul class="rd-navbar-nav">
+                  <li class="rd-navbar-nav-item"><a class="rd-navbar-link" href="index.html"><span class="rd-navbar-icon mdi-view-dashboard"></span><span class="rd-navbar-text">Dashboard</span></a>
+                  </li>
+                  <li class="rd-navbar-nav-item"><a class="rd-navbar-link" href="calendar.html"><span class="rd-navbar-icon mdi-calendar-text"></span><span class="rd-navbar-text">Calendar</span></a>
+                  </li>
+                  <li class="rd-navbar-nav-item"><a class="rd-navbar-link" href="documentation.html"><span class="rd-navbar-icon mdi-file-outline"></span><span class="rd-navbar-text">Documentation</span></a>
+                    <ul class="rd-navbar-dropdown">
+                      <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="documentation.html#bootstrap-components"><span class="rd-navbar-text">Bootstrap Components</span></a>
+                        <ul class="rd-navbar-dropdown">
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="documentation.html#button"><span class="rd-navbar-text">Button</span></a>
+                          </li>
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="documentation.html#badge"><span class="rd-navbar-text">Badge</span></a>
+                          </li>
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="documentation.html#code"><span class="rd-navbar-text">Code</span></a>
+                          </li>
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="documentation.html#media"><span class="rd-navbar-text">Media Object</span></a>
+                          </li>
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="documentation.html#card"><span class="rd-navbar-text">Card</span></a>
+                          </li>
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="documentation.html#table"><span class="rd-navbar-text">Table</span></a>
+                          </li>
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="documentation.html#progress"><span class="rd-navbar-text">Progress</span></a>
+                          </li>
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="documentation.html#close"><span class="rd-navbar-text">Close</span></a>
+                          </li>
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="documentation.html#pagination"><span class="rd-navbar-text">Pagination</span></a>
+                          </li>
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="documentation.html#alert"><span class="rd-navbar-text">Alert</span></a>
+                          </li>
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="documentation.html#dropdown"><span class="rd-navbar-text">Dropdown</span></a>
+                          </li>
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="documentation.html#nav"><span class="rd-navbar-text">Nav</span></a>
+                          </li>
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="documentation.html#tooltip"><span class="rd-navbar-text">Tooltip</span></a>
+                          </li>
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="documentation.html#modal"><span class="rd-navbar-text">Modal</span></a>
+                          </li>
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="documentation.html#jumbotron"><span class="rd-navbar-text">Jumbotron</span></a>
+                          </li>
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="documentation.html#input"><span class="rd-navbar-text">Input</span></a>
+                          </li>
+                        </ul>
+                      </li>
+                      <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="documentation.html#plugins"><span class="rd-navbar-text">Plugins</span></a>
+                        <ul class="rd-navbar-dropdown">
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="documentation.html#Nprogress"><span class="rd-navbar-text">Nprogress</span></a>
+                          </li>
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="documentation.html#highlight"><span class="rd-navbar-text">Highlight.js</span></a>
+                          </li>
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="documentation.html#dual-listbox"><span class="rd-navbar-text">Dual Listbox</span></a>
+                          </li>
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="documentation.html#maxlength"><span class="rd-navbar-text">Bootstrap Maxlength</span></a>
+                          </li>
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="documentation.html#typeahead"><span class="rd-navbar-text">Typeahead.js</span></a>
+                          </li>
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="documentation.html#select2"><span class="rd-navbar-text">Select2</span></a>
+                          </li>
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="documentation.html#spinner"><span class="rd-navbar-text">jQuery UI Spinner</span></a>
+                          </li>
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="documentation.html#time-spinner"><span class="rd-navbar-text">Time Spinner</span></a>
+                          </li>
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="documentation.html#daterangepiker"><span class="rd-navbar-text">Date Range Picker</span></a>
+                          </li>
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="documentation.html#datetimepicker"><span class="rd-navbar-text">Bootstrap Date/Timepicker</span></a>
+                          </li>
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="documentation.html#tag-manager"><span class="rd-navbar-text">Tags Manager</span></a>
+                          </li>
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="documentation.html#colorpicker"><span class="rd-navbar-text">Bootstrap Colorpicker</span></a>
+                          </li>
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="documentation.html#maskedinput"><span class="rd-navbar-text">jQuery Masked Input</span></a>
+                          </li>
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="documentation.html#ckeditor"><span class="rd-navbar-text">CKeditor</span></a>
+                          </li>
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="documentation.html#summernote"><span class="rd-navbar-text">Summernote</span></a>
+                          </li>
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="documentation.html#markdown"><span class="rd-navbar-text">Markdown.js</span></a>
+                          </li>
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="documentation.html#nestable"><span class="rd-navbar-text">Nestable jQuery Plugin</span></a>
+                          </li>
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="documentation.html#jstree"><span class="rd-navbar-text">jsTree</span></a>
+                          </li>
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="documentation.html#cropper"><span class="rd-navbar-text">Cropper.js</span></a>
+                          </li>
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="documentation.html#fileupload"><span class="rd-navbar-text">Tower File Input</span></a>
+                          </li>
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="documentation.html#easyzoom"><span class="rd-navbar-text">EasyZoom</span></a>
+                          </li>
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="documentation.html#xzoom"><span class="rd-navbar-text">xZoom</span></a>
+                          </li>
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="documentation.html#slick"><span class="rd-navbar-text">Slick Slider</span></a>
+                          </li>
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="documentation.html#dropzone"><span class="rd-navbar-text">DropzoneJS</span></a>
+                          </li>
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="documentation.html#pnotify"><span class="rd-navbar-text">PNotify</span></a>
+                          </li>
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="documentation.html#driver"><span class="rd-navbar-text">Driver.js</span></a>
+                          </li>
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="documentation.html#countdown"><span class="rd-navbar-text">αCountdown</span></a>
+                          </li>
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="documentation.html#progress-circle"><span class="rd-navbar-text">αCounter &amp; αProgressCircle</span></a>
+                          </li>
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="documentation.html#particles"><span class="rd-navbar-text">Particles.js</span></a>
+                          </li>
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="documentation.html#lightgallery"><span class="rd-navbar-text">Lightgallery</span></a>
+                          </li>
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="documentation.html#jvectormap"><span class="rd-navbar-text">jVectorMap</span></a>
+                          </li>
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="documentation.html#flotchart"><span class="rd-navbar-text">Flot</span></a>
+                          </li>
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="documentation.html#rd-navbar"><span class="rd-navbar-text">RD Navbar</span></a>
+                          </li>
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="documentation.html#highcharts"><span class="rd-navbar-text">Highcharts</span></a>
+                          </li>
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="documentation.html#multiswitch"><span class="rd-navbar-text">MultiSwitch</span></a>
+                          </li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="rd-navbar-nav-item"><a class="rd-navbar-link" href="#"><span class="rd-navbar-icon mdi-plus-circle-multiple-outline"></span><span class="rd-navbar-text">Admin plugins</span></a>
+                    <ul class="rd-navbar-dropdown">
+                      <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="admin-panels.html"><span class="rd-navbar-text">Admin panels</span></a>
+                      </li>
+                      <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="admin-modals.html"><span class="rd-navbar-text">Admin modals</span></a>
+                      </li>
+                      <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="admin-dock.html"><span class="rd-navbar-text">Admin Dock</span></a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="rd-navbar-nav-item"><a class="rd-navbar-link" href="#"><span class="rd-navbar-icon mdi-border-all"></span><span class="rd-navbar-text">Admin layouts</span></a>
+                    <ul class="rd-navbar-dropdown">
+                      <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="navbar.html"><span class="rd-navbar-text">Navbar</span></a>
+                      </li>
+                      <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="#"><span class="rd-navbar-text">Topbar</span></a>
+                        <ul class="rd-navbar-dropdown">
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="breadcrumbs.html"><span class="rd-navbar-text">Breadcrumbs</span></a>
+                          </li>
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="topbar-menu.html"><span class="rd-navbar-text">Topbar Menu</span></a>
+                          </li>
+                        </ul>
+                      </li>
+                      <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="#"><span class="rd-navbar-text">Content Body</span></a>
+                        <ul class="rd-navbar-dropdown">
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="blank-starter.html"><span class="rd-navbar-text">Blank Starter</span></a>
+                          </li>
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="jumbotron.html"><span class="rd-navbar-text">Jumbotron</span></a>
+                          </li>
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="content-tabs.html"><span class="rd-navbar-text">Content Tabs</span></a>
+                          </li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="rd-navbar-nav-item active"><a class="rd-navbar-link" href="#"><span class="rd-navbar-icon mdi-information-outline"></span><span class="rd-navbar-text">Information Panels</span></a>
+                    <ul class="rd-navbar-dropdown">
+                      <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="tile-widgets.html"><span class="rd-navbar-text">Tile Widgets</span></a>
+                      </li>
+                      <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="panel-widgets.html"><span class="rd-navbar-text">Panel Widgets</span></a>
+                      </li>
+                      <li class="rd-navbar-dropdown-item active"><a class="rd-navbar-link" href="admin-widgets.html"><span class="rd-navbar-text">Admin Widgets</span></a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="rd-navbar-nav-item"><a class="rd-navbar-link" href="#"><span class="rd-navbar-icon mdi-cart-outline"></span><span class="rd-navbar-text">Ecommerce</span></a>
+                    <ul class="rd-navbar-dropdown">
+                      <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="ecommerce-dashboard.html"><span class="rd-navbar-text">Ecommerce dashboard</span></a>
+                      </li>
+                      <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="products.html"><span class="rd-navbar-text">Products</span></a>
+                      </li>
+                      <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="orders.html"><span class="rd-navbar-text">Orders</span></a>
+                      </li>
+                      <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="customers.html"><span class="rd-navbar-text">Customers</span></a>
+                      </li>
+                      <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="store-settings.html"><span class="rd-navbar-text">Store Settings</span></a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="rd-navbar-nav-item"><a class="rd-navbar-link" href="#"><span class="rd-navbar-icon mdi-cube-outline"></span><span class="rd-navbar-text">UI Elements</span></a>
+                    <ul class="rd-navbar-dropdown">
+                      <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="alerts.html"><span class="rd-navbar-text">Alerts</span></a>
+                      </li>
+                      <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="animations.html"><span class="rd-navbar-text">Animations</span></a>
+                      </li>
+                      <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="buttons.html"><span class="rd-navbar-text">Buttons</span></a>
+                      </li>
+                      <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="typography.html"><span class="rd-navbar-text">Typography</span></a>
+                      </li>
+                      <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="panel.html"><span class="rd-navbar-text">Panel</span></a>
+                      </li>
+                      <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="progress-bars.html"><span class="rd-navbar-text">Progress Bars</span></a>
+                      </li>
+                      <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="tabs.html"><span class="rd-navbar-text">Tabs</span></a>
+                      </li>
+                      <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="icons.html"><span class="rd-navbar-text">Icons</span></a>
+                      </li>
+                      <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="grid.html"><span class="rd-navbar-text">Grid</span></a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="rd-navbar-nav-item"><a class="rd-navbar-link" href="#"><span class="rd-navbar-icon mdi-checkbox-marked-outline"></span><span class="rd-navbar-text">Form Elements</span></a>
+                    <ul class="rd-navbar-dropdown">
+                      <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="basic-inputs.html"><span class="rd-navbar-text">Basic Inputs</span></a>
+                      </li>
+                      <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="plugin-inputs.html"><span class="rd-navbar-text">Plugin Inputs</span></a>
+                      </li>
+                      <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="editors.html"><span class="rd-navbar-text">Editors</span></a>
+                      </li>
+                      <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="treeview.html"><span class="rd-navbar-text">Treeview</span></a>
+                      </li>
+                      <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="nestable.html"><span class="rd-navbar-text">Nestable</span></a>
+                      </li>
+                      <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="image-tools.html"><span class="rd-navbar-text">Image tools</span></a>
+                      </li>
+                      <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="uploaders.html"><span class="rd-navbar-text">Uploaders</span></a>
+                      </li>
+                      <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="notifications.html"><span class="rd-navbar-text">Notifications</span></a>
+                      </li>
+                      <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="content-sliders.html"><span class="rd-navbar-text">Content Sliders</span></a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="rd-navbar-nav-item"><a class="rd-navbar-link" href="#"><span class="rd-navbar-icon mdi-console"></span><span class="rd-navbar-text">Plugins</span></a>
+                    <ul class="rd-navbar-dropdown">
+                      <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="#"><span class="rd-navbar-text">Maps</span></a>
+                        <ul class="rd-navbar-dropdown">
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="google-maps.html"><span class="rd-navbar-text">Google Maps</span></a>
+                          </li>
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="jvector-map.html"><span class="rd-navbar-text">jVector Map</span></a>
+                          </li>
+                        </ul>
+                      </li>
+                      <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="#"><span class="rd-navbar-text">Charts</span></a>
+                        <ul class="rd-navbar-dropdown">
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="highcharts.html"><span class="rd-navbar-text">Highcharts</span></a>
+                          </li>
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="flotcharts.html"><span class="rd-navbar-text">Flotcharts</span></a>
+                          </li>
+                        </ul>
+                      </li>
+                      <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="#"><span class="rd-navbar-text">Tables</span></a>
+                        <ul class="rd-navbar-dropdown">
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="basic-tables.html"><span class="rd-navbar-text">Basic Tables</span></a>
+                          </li>
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="data-tables.html"><span class="rd-navbar-text">Data Tables</span></a>
+                          </li>
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="pricing-tables.html"><span class="rd-navbar-text">Pricing Tables</span></a>
+                          </li>
+                        </ul>
+                      </li>
+                      <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="#"><span class="rd-navbar-text">Misc</span></a>
+                        <ul class="rd-navbar-dropdown">
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="site-tour.html"><span class="rd-navbar-text">Site Tour</span></a>
+                          </li>
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="session-timeout.html"><span class="rd-navbar-text">Session Timeout</span></a>
+                          </li>
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="page-progress-loader.html"><span class="rd-navbar-text">Page Progress Loader</span></a>
+                          </li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="rd-navbar-nav-item"><a class="rd-navbar-link" href="#"><span class="rd-navbar-icon mdi-content-copy"></span><span class="rd-navbar-text">Pages</span></a>
+                    <ul class="rd-navbar-dropdown">
+                      <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="#"><span class="rd-navbar-text">Utility</span></a>
+                        <ul class="rd-navbar-dropdown">
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="confirmation.html"><span class="rd-navbar-text">Confirmation</span></a>
+                          </li>
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="login.html"><span class="rd-navbar-text">Login</span></a>
+                          </li>
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="register.html"><span class="rd-navbar-text">Register</span></a>
+                          </li>
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="screenlock.html"><span class="rd-navbar-text">Screenlock</span></a>
+                          </li>
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="password-reset.html"><span class="rd-navbar-text">Password Reset</span></a>
+                          </li>
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="coming-soon.html"><span class="rd-navbar-text">Coming Soon</span></a>
+                          </li>
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="404.html"><span class="rd-navbar-text">404</span></a>
+                          </li>
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="500.html"><span class="rd-navbar-text">500</span></a>
+                          </li>
+                        </ul>
+                      </li>
+                      <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="#"><span class="rd-navbar-text">Basic</span></a>
+                        <ul class="rd-navbar-dropdown">
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="search-results.html"><span class="rd-navbar-text">Search Results</span></a>
+                          </li>
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="profile.html"><span class="rd-navbar-text">Profile</span></a>
+                          </li>
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="timeline.html"><span class="rd-navbar-text">Timeline</span></a>
+                          </li>
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="faq.html"><span class="rd-navbar-text">FAQ</span></a>
+                          </li>
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="calendar.html"><span class="rd-navbar-text">Calendar</span></a>
+                          </li>
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="messages.html"><span class="rd-navbar-text">Messages</span></a>
+                          </li>
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="messages-compose.html"><span class="rd-navbar-text">Messages Compose</span></a>
+                          </li>
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="gallery.html"><span class="rd-navbar-text">Gallery</span></a>
+                          </li>
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="printable-invoice.html"><span class="rd-navbar-text">Printable Invoice</span></a>
+                          </li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </nav>
+        </div>
+      </header>
+      <section class="topbar">
+        <!-- Breadcrumbs-->
+        <nav aria-label="breadcrumb"></nav>
+        <ul class="breadcrumb">
+          <li class="breadcrumb-item"><a href="index.html"><span class="breadcrumbs-icon mdi-view-dashboard"></span><span>Dashboard</span></a></li>
+          <li class="breadcrumb-item">Information Panels
+          </li>
+          <li class="breadcrumb-item">Admin Widgets
+          </li>
+        </ul>
+      </section>
+      <section class="section-md section-transparent">
+        <div class="container-fluid">
+          <div class="row row-30">
+            <div class="col-12">
+              <h2 class="text-center">Small Data Widgets</h2>
+            </div>
+            <div class="col-md-6">
+              <div class="panel">
+                <div class="panel-header">
+                  <h4 class="panel-title">Column Graph</h4>
+                </div>
+                <div class="panel-body p-0">
+                  <div class="row no-gutters">
+                    <div class="col-sm-5">
+                      <div class="highcharts-container" data-highcharts-options="{&quot;credits&quot;:false,&quot;colors&quot;:[&quot;#58a193&quot;,&quot;#f7ad6a&quot;,&quot;#48c8af&quot;,&quot;#34b1cc&quot;],&quot;chart&quot;:{&quot;type&quot;:&quot;column&quot;},&quot;legend&quot;:{&quot;enabled&quot;:false},&quot;title&quot;:{&quot;text&quot;:null},&quot;xAxis&quot;:{&quot;lineWidth&quot;:0,&quot;tickLength&quot;:0,&quot;minorTickLength&quot;:0,&quot;title&quot;:{&quot;text&quot;:null},&quot;labels&quot;:{&quot;enabled&quot;:false}},&quot;yAxis&quot;:{&quot;gridLineWidth&quot;:0,&quot;title&quot;:{&quot;text&quot;:null},&quot;labels&quot;:{&quot;enabled&quot;:false}},&quot;tooltip&quot;:{&quot;headerFormat&quot;:&quot;&lt;span style=\&quot;font-size:10px\&quot;&gt;{point.key}&lt;/span&gt;&lt;table&gt;&quot;,&quot;pointFormat&quot;:&quot;&lt;tr&gt;&lt;td style=\&quot;color:{series.color}; padding: 0\&quot;&gt;{series.name}: &lt;/td&gt;&lt;td style=\&quot;padding:0\&quot;&gt;&lt;b&gt;{point.y:.1f} mm&lt;/b&gt;&lt;/td&gt;&lt;/tr&gt;&quot;,&quot;footerFormat&quot;:&quot;&lt;/table&gt;&quot;,&quot;shared&quot;:true,&quot;useHTML&quot;:true},&quot;plotOptions&quot;:{&quot;column&quot;:{&quot;groupPadding&quot;:0.05,&quot;pointPadding&quot;:0.25,&quot;borderWidth&quot;:0}},&quot;series&quot;:[{&quot;name&quot;:&quot;Behance&quot;,&quot;data&quot;:[30]},{&quot;name&quot;:&quot;Twitter&quot;,&quot;data&quot;:[60]},{&quot;name&quot;:&quot;Facebook&quot;,&quot;data&quot;:[90]},{&quot;name&quot;:&quot;Dribble&quot;,&quot;data&quot;:[120]}]}"></div>
+                    </div>
+                    <div class="col-sm-7 border-sm-left d-flex flex-column justify-content-center pb-3 pb-sm-0">
+                      <ul class="list-unstyled list-divided">
+                        <li class="d-flex justify-content-between px-3">
+                          <div><span class="fa-circle pr-2 text-primary"></span><span>Behance</span></div><strong>22%</strong>
+                        </li>
+                        <li class="d-flex justify-content-between px-3">
+                          <div><span class="fa-circle pr-2 text-warning"></span><span>Twitter</span></div><strong>43%</strong>
+                        </li>
+                        <li class="d-flex justify-content-between px-3">
+                          <div><span class="fa-circle pr-2 text-success"></span><span>Facebook</span></div><strong>59%</strong>
+                        </li>
+                        <li class="d-flex justify-content-between px-3">
+                          <div><span class="fa-circle pr-2 text-info"></span><span>Dribble</span></div><strong>78%</strong>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="panel">
+                <div class="panel-header">
+                  <h4 class="panel-title">Area Graph</h4>
+                </div>
+                <div class="panel-menu p-0">
+                  <ul class="list-unstyled list-divided">
+                    <li class="d-flex justify-content-between px-3 py-2">
+                      <div><span class="fa-male pr-2 text-primary"></span><span>Male</span></div><strong>24%</strong>
+                    </li>
+                    <li class="d-flex justify-content-between px-3 py-2">
+                      <div><span class="fa-female pr-2 text-warning"></span><span>Female</span></div><strong>7%</strong>
+                    </li>
+                  </ul>
+                </div>
+                <div class="panel-body p-0">
+                  <div class="highcharts-container" data-highcharts-options="{&quot;credits&quot;:false,&quot;colors&quot;:[&quot;#58a193&quot;,&quot;#f7ad6a&quot;],&quot;chart&quot;:{&quot;type&quot;:&quot;area&quot;,&quot;spacingTop&quot;:30,&quot;spacingRight&quot;:0},&quot;title&quot;:{&quot;text&quot;:null},&quot;legend&quot;:{&quot;enabled&quot;:false},&quot;xAxis&quot;:{&quot;lineColor&quot;:&quot;#dde3e8&quot;,&quot;labels&quot;:{&quot;style&quot;:{&quot;color&quot;:&quot;#bebebe&quot;}},&quot;categories&quot;:[&quot;Jan&quot;,&quot;Feb&quot;,&quot;Mar&quot;,&quot;Apr&quot;,&quot;May&quot;,&quot;Jun&quot;,&quot;Jul&quot;,&quot;Aug&quot;,&quot;Sep&quot;,&quot;Oct&quot;,&quot;Nov&quot;,&quot;Dec&quot;]},&quot;yAxis&quot;:{&quot;min&quot;:0,&quot;tickInterval&quot;:5,&quot;labels&quot;:{&quot;style&quot;:{&quot;color&quot;:&quot;#bebebe&quot;}},&quot;title&quot;:{&quot;text&quot;:null}},&quot;series&quot;:[{&quot;name&quot;:&quot;Male&quot;,&quot;data&quot;:[7,6,9,14,18,21.5,25.2,26.5,23.3,18.3,13.9,9.6]},{&quot;name&quot;:&quot;Female&quot;,&quot;data&quot;:[3.9,4.2,5.7,8.5,11.9,15.2,17,16.6,14.2,10.3,6.6,4.8]}]}"></div>
+                </div>
+              </div>
+              <div class="panel">
+                <div class="panel-header">
+                  <h4 class="panel-title">Bar Graph</h4>
+                </div>
+                <div class="panel-menu p-0 pt-1">
+                  <div class="highcharts-container" data-highcharts-options="{&quot;colors&quot;:[&quot;#58a193&quot;,&quot;#f7ad6a&quot;,&quot;#5b5eab&quot;],&quot;credits&quot;:false,&quot;legend&quot;:{&quot;itemStyle&quot;:{&quot;color&quot;:&quot;#777&quot;,&quot;fontWeight&quot;:&quot;normal&quot;},&quot;itemHoverStyle&quot;:{&quot;color&quot;:&quot;#919495&quot;}},&quot;chart&quot;:{&quot;type&quot;:&quot;bar&quot;},&quot;title&quot;:{&quot;text&quot;:null},&quot;xAxis&quot;:{&quot;showEmpty&quot;:false,&quot;tickLength&quot;:80,&quot;offset&quot;:1,&quot;lineColor&quot;:&quot;#dde3e8&quot;,&quot;categories&quot;:[&quot;TV&quot;,&quot;Radio&quot;],&quot;title&quot;:{&quot;text&quot;:null},&quot;labels&quot;:{&quot;align&quot;:&quot;right&quot;,&quot;style&quot;:{&quot;color&quot;:&quot;#bebebe&quot;}}},&quot;yAxis&quot;:{&quot;min&quot;:0,&quot;gridLineWidth&quot;:0,&quot;showEmpty&quot;:false,&quot;title&quot;:{&quot;text&quot;:null},&quot;labels&quot;:{&quot;enabled&quot;:false}},&quot;tooltip&quot;:{&quot;valueSuffix&quot;:&quot; millions&quot;},&quot;plotOptions&quot;:{&quot;bar&quot;:{&quot;borderColor&quot;:&quot;transparent&quot;}},&quot;series&quot;:[{&quot;name&quot;:&quot;Viewers&quot;,&quot;data&quot;:[100,100]},{&quot;name&quot;:&quot;Women&quot;,&quot;data&quot;:[36,55]},{&quot;name&quot;:&quot;Men&quot;,&quot;data&quot;:[65,45]}]}" style="height:200px;"></div>
+                </div>
+              </div>
+              <div class="panel">
+                <div class="panel-header">
+                  <h4 class="panel-title">State Icon</h4>
+                </div>
+                <div class="panel-body p-0">
+                  <div class="row no-gutters">
+                    <div class="col-sm-5 d-flex justify-content-center align-items-center">
+                      <div class="stateface stateface-mo text-info display-2 pt-3 py-sm-2" data-toggle="tooltip" title="Missouri"></div>
+                    </div>
+                    <div class="col-sm-7 border-sm-left d-flex flex-column justify-content-center">
+                      <ul class="list-unstyled list-divided">
+                        <li class="d-flex justify-content-between px-3 py-2">
+                          <div><span class="fa-male pr-2 text-primary"></span><span>Male</span></div><strong>54%</strong>
+                        </li>
+                        <li class="d-flex justify-content-between px-3 py-2">
+                          <div><span class="fa-female pr-2 text-info"></span><span>Female</span></div><strong>46%</strong>
+                        </li>
+                        <li class="d-flex justify-content-between px-3 py-2">
+                          <div><span class="fa-child pr-2 text-warning"></span><span>Unemployed</span></div><strong>14%</strong>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="panel">
+                <div class="panel-header">
+                  <h4 class="panel-title">Visitor Geography</h4>
+                </div>
+                <div class="panel-body p-0">
+                  <div class="jvector-map-wrap" data-jvector-map="{&quot;map&quot;:&quot;us_aea&quot;,&quot;backgroundColor&quot;:&quot;transparent&quot;,&quot;zoomAnimate&quot;:true,&quot;regionStyle&quot;:{&quot;initial&quot;:{&quot;fill&quot;:&quot;#dde3e8&quot;},&quot;hover&quot;:{&quot;fill&quot;:&quot;#aeaeae&quot;}},&quot;series&quot;:{&quot;regions&quot;:[{&quot;scale&quot;:{&quot;primary&quot;:&quot;#58a193&quot;,&quot;info&quot;:&quot;#34b1cc&quot;,&quot;warning&quot;:&quot;#f7ad6a&quot;,&quot;danger&quot;:&quot;#ff5f68&quot;},&quot;attribute&quot;:&quot;fill&quot;,&quot;values&quot;:{&quot;US-CA&quot;:&quot;primary&quot;,&quot;US-TX&quot;:&quot;info&quot;,&quot;US-MO&quot;:&quot;warning&quot;,&quot;US-NY&quot;:&quot;danger&quot;}}]}}">
+                    <div class="jvector-map-body"></div>
+                  </div>
+                  <ul class="list-unstyled list-divided">
+                    <li class="d-flex justify-content-between px-3 py-2">
+                      <div><span class="fa-circle pr-2 text-primary"></span><span>California</span></div><strong>24%</strong>
+                    </li>
+                    <li class="d-flex justify-content-between px-3 py-2">
+                      <div><span class="fa-circle pr-2 text-info"></span><span>Texas</span></div><strong>7%</strong>
+                    </li>
+                    <li class="d-flex justify-content-between px-3 py-2">
+                      <div><span class="fa-circle pr-2 text-warning"></span><span>Missouri</span></div><strong>14%</strong>
+                    </li>
+                    <li class="d-flex justify-content-between px-3 py-2">
+                      <div><span class="fa-circle pr-2 text-danger"></span><span>New York</span></div><strong>7%</strong>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="panel">
+                <div class="panel-header">
+                  <h4 class="panel-title">Donut Chart</h4>
+                </div>
+                <div class="panel-body">
+                  <div class="highcharts-container highcharts-container-lg" data-highcharts-options="{&quot;credits&quot;:false,&quot;colors&quot;:[&quot;#34b1cc&quot;,&quot;#3a4049&quot;,&quot;#58a193&quot;],&quot;title&quot;:{&quot;text&quot;:null},&quot;tooltip&quot;:{&quot;pointFormat&quot;:&quot;{series.name}: &lt;b&gt;{point.percentage:.1f}%&lt;/b&gt;&quot;},&quot;plotOptions&quot;:{&quot;pie&quot;:{&quot;dataLabels&quot;:{&quot;enabled&quot;:true,&quot;distance&quot;:5,&quot;style&quot;:{&quot;fontWeight&quot;:&quot;bold&quot;}},&quot;center&quot;:[&quot;50%&quot;,&quot;50%&quot;]}},&quot;series&quot;:[{&quot;type&quot;:&quot;pie&quot;,&quot;name&quot;:&quot;Browser share&quot;,&quot;innerSize&quot;:&quot;70%&quot;,&quot;data&quot;:[[&quot;Twitter&quot;,30],[&quot;Behance&quot;,30],[&quot;Facebook&quot;,40]]}]}" style="height:200px;"></div>
+                </div>
+              </div>
+              <div class="panel">
+                <div class="panel-header">
+                  <h4 class="panel-title">Pie Chart</h4>
+                </div>
+                <div class="panel-body">
+                  <div class="highcharts-container" data-highcharts-options="{&quot;credits&quot;:false,&quot;colors&quot;:[&quot;#34b1cc&quot;,&quot;#dc3545&quot;,&quot;#fd7e14&quot;,&quot;#f7ad6a&quot;],&quot;chart&quot;:{&quot;type&quot;:&quot;pie&quot;},&quot;title&quot;:{&quot;text&quot;:null},&quot;legend&quot;:{&quot;verticalAlign&quot;:&quot;middle&quot;,&quot;align&quot;:&quot;right&quot;},&quot;spacing&quot;:[0,0,0,0],&quot;tooltip&quot;:{&quot;pointFormat&quot;:&quot;{series.name}: &lt;b&gt;{point.percentage:.1f}%&lt;/b&gt;&quot;},&quot;plotOptions&quot;:{&quot;pie&quot;:{&quot;allowPointSelect&quot;:true,&quot;cursor&quot;:&quot;pointer&quot;,&quot;dataLabels&quot;:{&quot;enabled&quot;:false},&quot;showInLegend&quot;:true}},&quot;series&quot;:[{&quot;name&quot;:&quot;Brands&quot;,&quot;colorByPoint&quot;:true,&quot;data&quot;:[{&quot;name&quot;:&quot;Chrome&quot;,&quot;y&quot;:41.41,&quot;sliced&quot;:true,&quot;selected&quot;:true},{&quot;name&quot;:&quot;Firefox&quot;,&quot;y&quot;:30.85},{&quot;name&quot;:&quot;Edge&quot;,&quot;y&quot;:10.67},{&quot;name&quot;:&quot;Safari&quot;,&quot;y&quot;:22.18}]}]}" style="height:200px;"></div>
+                </div>
+              </div>
+              <div class="panel">
+                <div class="panel-header">
+                  <h4 class="panel-title">Response Time</h4>
+                </div>
+                <div class="panel-body">
+                  <div class="highcharts-container highcharts-container-lg" data-highcharts-options="{&quot;credits&quot;:false,&quot;chart&quot;:{&quot;type&quot;:&quot;column&quot;,&quot;padding&quot;:0,&quot;spacingTop&quot;:10,&quot;marginTop&quot;:100,&quot;marginLeft&quot;:30,&quot;marginRight&quot;:30},&quot;legend&quot;:{&quot;enabled&quot;:false},&quot;title&quot;:{&quot;text&quot;:&quot;30.8 hrs&quot;,&quot;style&quot;:{&quot;fontSize&quot;:20,&quot;fontWeight&quot;:600}},&quot;subtitle&quot;:{&quot;text&quot;:&quot;Average First response time &lt;br&gt; in past 30 days&quot;,&quot;style&quot;:{&quot;color&quot;:&quot;#AAA&quot;}},&quot;xAxis&quot;:{&quot;lineWidth&quot;:0,&quot;tickLength&quot;:0,&quot;title&quot;:{&quot;text&quot;:null},&quot;labels&quot;:{&quot;enabled&quot;:true,&quot;style&quot;:{&quot;color&quot;:&quot;#bebebe&quot;}}},&quot;yAxis&quot;:{&quot;gridLineWidth&quot;:0,&quot;title&quot;:{&quot;text&quot;:null},&quot;labels&quot;:{&quot;enabled&quot;:false}},&quot;tooltip&quot;:{&quot;headerFormat&quot;:&quot;&lt;span style=\&quot;font-size:10px\&quot;&gt;{point.key}&lt;/span&gt;&lt;table&gt;&quot;,&quot;pointFormat&quot;:&quot;&lt;tr&gt;&lt;td style=\&quot;color:{series.color};padding:0\&quot;&gt;{series.name}: &lt;/td&gt;&lt;td style=\&quot;padding:0\&quot;&gt;&lt;b&gt;{point.y:.1f} mm&lt;/b&gt;&lt;/td&gt;&lt;/tr&gt;&quot;,&quot;footerFormat&quot;:&quot;&lt;/table&gt;&quot;,&quot;shared&quot;:true,&quot;useHTML&quot;:true},&quot;plotOptions&quot;:{&quot;column&quot;:{&quot;colorByPoint&quot;:true,&quot;colors&quot;:[&quot;#58a193&quot;,&quot;#34b1cc&quot;],&quot;groupPadding&quot;:0,&quot;pointPadding&quot;:0.24,&quot;borderWidth&quot;:0}},&quot;series&quot;:[{&quot;name&quot;:&quot;Yahoo&quot;,&quot;data&quot;:[7,6,9,14,18,21,25]}],&quot;dataLabels&quot;:{&quot;enabled&quot;:true,&quot;rotation&quot;:0,&quot;color&quot;:&quot;#AAA&quot;,&quot;align&quot;:&quot;center&quot;,&quot;x&quot;:0,&quot;y&quot;:-8}}"></div>
+                </div>
+                <div class="panel-footer text-center">A percent measure of tickets with <strong class="text-primary">first</strong> reply time</div>
+              </div>
+              <div class="panel">
+                <div class="panel-header">
+                  <h4 class="panel-title">Sparklines</h4>
+                </div>
+                <div class="panel-body p-0">
+                  <div class="table-responsive">
+                    <table class="table table-vertical-align">
+                      <tbody>
+                        <tr>
+                          <th>
+                            <div class="lead fa-desktop text-warning"></div>
+                          </th>
+                          <td>Desktop Viewers</td>
+                          <td data-sparkline='{"colors":["#f7ad6a"],"series":[{"data":[71,78,39,66]}]}'></td>
+                        </tr>
+                        <tr>
+                          <th>
+                            <div class="lead fa-tablet text-primary"></div>
+                          </th>
+                          <td>Tablet Viewers</td>
+                          <td data-sparkline='{"colors":["#58a193"],"series":[{"data":[87,44,74,41]}]}'></td>
+                        </tr>
+                        <tr>
+                          <th>
+                            <div class="lead fa-phone text-info"></div>
+                          </th>
+                          <td>Customer Support</td>
+                          <td data-sparkline='{"colors":["#34b1cc"],"series":[{"data":[56,12,8,25]}]}'></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+              <div class="panel">
+                <div class="panel-header">
+                  <h4 class="panel-title">Area Graph</h4>
+                </div>
+                <div class="panel-body p-0">
+                  <div class="highcharts-container" data-highcharts-options="{&quot;colors&quot;:[&quot;#58a193&quot;,&quot;#f7ad6a&quot;,&quot;#5b5eab&quot;],&quot;credits&quot;:false,&quot;chart&quot;:{&quot;type&quot;:&quot;areaspline&quot;,&quot;spacing&quot;:0,&quot;spacingTop&quot;:20,&quot;margin&quot;:-10,&quot;marginTop&quot;:15},&quot;title&quot;:{&quot;text&quot;:null},&quot;legend&quot;:{&quot;verticalAlign&quot;:&quot;top&quot;},&quot;xAxis&quot;:{&quot;allowDecimals&quot;:false,&quot;tickColor&quot;:&quot;#EEE&quot;},&quot;yAxis&quot;:{&quot;title&quot;:{&quot;text&quot;:null},&quot;gridLineColor&quot;:&quot;transparent&quot;,&quot;labels&quot;:{&quot;enabled&quot;:false}},&quot;plotOptions&quot;:{&quot;areaspline&quot;:{&quot;fillOpacity&quot;:0.25,&quot;marker&quot;:{&quot;enabled&quot;:true,&quot;symbol&quot;:&quot;circle&quot;,&quot;radius&quot;:2,&quot;states&quot;:{&quot;hover&quot;:{&quot;enabled&quot;:true}}}}},&quot;series&quot;:[{&quot;name&quot;:&quot;USA&quot;,&quot;data&quot;:[150,260,80,100,150,200,240]},{&quot;name&quot;:&quot;Russia&quot;,&quot;data&quot;:[10,20,40,120,240,180,160]},{&quot;name&quot;:&quot;China&quot;,&quot;data&quot;:[60,100,180,110,100,20,40]}]}"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="section-md section-transparent">
+        <div class="container-fluid">
+          <div class="row row-30">
+            <div class="col-12">
+              <h2 class="text-center">Fullwidth Data Widgets</h2>
+            </div>
+            <div class="col-md-12">
+              <div class="panel">
+                <div class="panel-header">
+                  <h4 class="panel-title">Filter Toggle Bar Chart</h4>
+                </div>
+                <div class="panel-body p-0">
+                  <div class="highcharts-container" data-highcharts-options="{&quot;credits&quot;:false,&quot;colors&quot;:[&quot;#58a193&quot;,&quot;#f7ad6a&quot;,&quot;#5b5eab&quot;,&quot;#34B1CC&quot;],&quot;chart&quot;:{&quot;type&quot;:&quot;column&quot;,&quot;zoomType&quot;:&quot;x&quot;,&quot;panning&quot;:true,&quot;panKey&quot;:&quot;shift&quot;},&quot;title&quot;:{&quot;text&quot;:null},&quot;legend&quot;:{&quot;itemStyle&quot;:{&quot;color&quot;:&quot;#aaa&quot;,&quot;fontWeight&quot;:&quot;normal&quot;},&quot;itemHoverStyle&quot;:{&quot;color&quot;:&quot;#777&quot;}},&quot;xAxis&quot;:{&quot;lineColor&quot;:&quot;#dde3e8&quot;,&quot;labels&quot;:{&quot;style&quot;:{&quot;color&quot;:&quot;#bebebe&quot;}},&quot;categories&quot;:[&quot;Jan&quot;,&quot;Feb&quot;,&quot;Mar&quot;,&quot;Apr&quot;,&quot;May&quot;,&quot;Jun&quot;,&quot;Jul&quot;,&quot;Aug&quot;,&quot;Sep&quot;,&quot;Oct&quot;,&quot;Nov&quot;,&quot;Dec&quot;]},&quot;yAxis&quot;:{&quot;tickInterval&quot;:5,&quot;gridLineColor&quot;:&quot;#dde3e8&quot;,&quot;labels&quot;:{&quot;style&quot;:{&quot;color&quot;:&quot;#bebebe&quot;}},&quot;title&quot;:{&quot;text&quot;:&quot;Traffic&quot;,&quot;style&quot;:{&quot;color&quot;:&quot;#58a193&quot;,&quot;fontWeight&quot;:&quot;600&quot;}}},&quot;series&quot;:[{&quot;name&quot;:&quot;Yahoo&quot;,&quot;data&quot;:[7,6,9,14,18,21.5,25.2,26.5,23.3,18.3,13.9,9.6]},{&quot;name&quot;:&quot;CNN&quot;,&quot;data&quot;:[3.9,4.2,5.7,8.5,11.9,15.2,17,16.6,14.2,10.3,6.6,4.8]},{&quot;name&quot;:&quot;Yahoo&quot;,&quot;data&quot;:[1,5,5.7,11.3,17,22,24.8,24.1,20.1,14.1,8.6,2.5]},{&quot;name&quot;:&quot;Facebook&quot;,&quot;data&quot;:[3,1,3.5,8.4,13.5,17,18.6,17.9,14.3,9,3.9,1]}],&quot;plotOptions&quot;:{&quot;column&quot;:{&quot;borderColor&quot;:&quot;transparent&quot;}},&quot;responsive&quot;:{&quot;rules&quot;:[{&quot;condition&quot;:{&quot;maxWidth&quot;:575},&quot;chartOptions&quot;:{&quot;title&quot;:{&quot;text&quot;:&quot;Traffic&quot;},&quot;yAxis&quot;:{&quot;title&quot;:{&quot;text&quot;:&quot;&quot;}}}}]}}" style="height:400px;"></div>
+                </div>
+              </div>
+              <div class="panel">
+                <div class="panel-header">
+                  <h4 class="panel-title">Multi-Stat Panel</h4>
+                </div>
+                <div class="panel-body p-0">
+                  <div class="container-fluid">
+                    <div class="row">
+                      <div class="col-md-4 pt-4 py-md-4">
+                        <div class="list-block-container">
+                          <h3 class="list-block-title d-flex justify-content-between align-items-baseline"><span>Visitors</span><small>13,253 <span class="text-primary">(8,251 unique)</span></small></h3>
+                          <div class="list-block">
+                            <div class="highcharts-container highcharts-container-lg" data-highcharts-options="{&quot;chart&quot;:{&quot;type&quot;:&quot;column&quot;,&quot;marginTop&quot;:30,&quot;marginBottom&quot;:30},&quot;credits&quot;:false,&quot;colors&quot;:[&quot;#58a193&quot;,&quot;#58a193&quot;,&quot;#f7ad6a&quot;,&quot;#f7ad6a&quot;,&quot;#34b1cc&quot;,&quot;#34b1cc&quot;],&quot;title&quot;:{&quot;text&quot;:null},&quot;legend&quot;:{&quot;enabled&quot;:false},&quot;yAxis&quot;:{&quot;max&quot;:20,&quot;gridLineWidth&quot;:0,&quot;title&quot;:{&quot;text&quot;:null},&quot;labels&quot;:{&quot;enabled&quot;:false}},&quot;tooltip&quot;:{&quot;headerFormat&quot;:&quot;&lt;span style=\&quot;font-size:10px\&quot;&gt;{point.key}&lt;/span&gt;&lt;table&gt;&quot;,&quot;pointFormat&quot;:&quot;&lt;tr&gt;&lt;td style=\&quot;color:{series.color};padding:0\&quot;&gt;{series.name}: &lt;/td&gt;&lt;td style=\&quot;padding:0\&quot;&gt;&lt;b&gt;{point.y:.1f} mm&lt;/b&gt;&lt;/td&gt;&lt;/tr&gt;&quot;,&quot;footerFormat&quot;:&quot;&lt;/table&gt;&quot;,&quot;shared&quot;:true,&quot;useHTML&quot;:true},&quot;plotOptions&quot;:{&quot;column&quot;:{&quot;colorByPoint&quot;:true}},&quot;series&quot;:[{&quot;name&quot;:&quot;Tokyo&quot;,&quot;data&quot;:[12,14,20,19,8,12,14,20,5,16,8,12,14,20,19,5,16,8,12,14,20,19,5,16,8]}]}" style="height: 230px;"></div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-4 pt-4 py-md-4 border-md-left">
+                        <div class="list-block-container list-block-lg">
+                          <h3 class="list-block-title d-flex justify-content-between align-items-baseline"><span>Top Referrals</span><small class="text-primary">View Report</small></h3>
+                          <div class="list-block">
+                            <div class="list-block-item d-flex justify-content-between">
+                              <div><small class="pr-2 fa-circle text-warning"></small><span>www.google.com</span></div>
+                              <div>1,926</div>
+                            </div>
+                            <div class="list-block-item d-flex justify-content-between">
+                              <div><small class="pr-2 fa-circle text-warning"></small><span>www.yahoo.com</span></div>
+                              <div>1,254</div>
+                            </div>
+                            <div class="list-block-item d-flex justify-content-between">
+                              <div><small class="pr-2 fa-circle text-warning"></small><span>www.zemez.io</span></div>
+                              <div>783</div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="list-block-container list-block-lg">
+                          <h3 class="list-block-title d-flex justify-content-between align-items-baseline"><span>Top Search Terms</span><small class="text-primary">View Report</small></h3>
+                          <div class="list-block">
+                            <div class="list-block-item d-flex justify-content-between">
+                              <div><small class="pr-2 fa-circle text-warning"></small><span>admin theme</span></div>
+                              <div>998</div>
+                            </div>
+                            <div class="list-block-item d-flex justify-content-between">
+                              <div><small class="pr-2 fa-circle text-warning"></small><span>admin dashboard</span></div>
+                              <div>612</div>
+                            </div>
+                            <div class="list-block-item d-flex justify-content-between">
+                              <div><small class="pr-2 fa-circle text-warning"></small><span>admin template</span></div>
+                              <div>256</div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-4 py-4 border-md-left">
+                        <div class="list-block-container list-block-lg">
+                          <h3 class="list-block-title d-flex justify-content-between align-items-baseline"><span>Traffic Sources</span><small class="text-primary">View Report</small></h3>
+                          <div class="list-block">
+                            <div class="list-block-item d-flex justify-content-between">
+                              <div><img class="mr-2" src="images/image-11-14x11.jpg" width="14" height="11" alt=""><span class="align-middle">United States</span></div>
+                              <div class="font-weight-bold">24%</div>
+                            </div>
+                            <div class="list-block-item d-flex justify-content-between">
+                              <div><img class="mr-2" src="images/image-08-14x11.jpg" width="14" height="11" alt=""><span class="align-middle">Germany</span></div>
+                              <div class="font-weight-bold">7%</div>
+                            </div>
+                            <div class="list-block-item d-flex justify-content-between">
+                              <div><img class="mr-2" src="images/image-07-14x11.jpg" width="14" height="11" alt=""><span class="align-middle">France</span></div>
+                              <div class="font-weight-bold">14%</div>
+                            </div>
+                            <div class="list-block-item d-flex justify-content-between">
+                              <div><img class="mr-2" src="images/image-09-14x11.jpg" width="14" height="11" alt=""><span class="align-middle">Spain</span></div>
+                              <div class="font-weight-bold">31%</div>
+                            </div>
+                            <div class="list-block-item d-flex justify-content-between">
+                              <div><img class="mr-2" src="images/image-10-14x11.jpg" width="14" height="11" alt=""><span class="align-middle">Turkey</span></div>
+                              <div class="font-weight-bold">22%</div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="panel" data-highcharts-double="container" data-file="./components/highcharts/highcharts.json">
+                <div class="panel-header">
+                  <h4 class="panel-title"><span class="panel-icon fa-pencil"></span> <span>Bar Top - Table Bot</span>
+                  </h4>
+                </div>
+                <div class="panel-body p-0">
+                  <div class="highcharts-container-double-detail" data-highcharts-double="detail" style="height:250px;"></div>
+                </div>
+                <div class="panel-footer p-0">
+                  <div data-highcharts-double="master" style="height:100px;"></div>
+                </div>
+              </div>
+              <div class="panel">
+                <div class="panel-header">
+                  <h4 class="panel-title">Sparklines Table</h4>
+                </div>
+                <div class="panel-body p-0">
+                  <div class="table-responsive">
+                    <table class="table">
+                      <thead>
+                        <tr>
+                          <th style="min-width: 200px;">Name</th>
+                          <th>Count</th>
+                          <th>Memory</th>
+                          <th>CPU</th>
+                          <th>Disk I/O</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>
+                            <h4>Apache</h4>
+                            <div class="mt-2">
+                              <div class="progress-wrap">
+                                <div class="progress-header">
+                                  <div class="progress-title">1,200 GB left</div>
+                                  <div class="progress-value">50%</div>
+                                </div>
+                                <div class="progress">
+                                  <div class="progress-bar bg-primary" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                              </div>
+                            </div>
+                          </td>
+                          <td>
+                            <h4>12</h4>
+                            <div data-sparkline='{"colors":["#58a193"],"series":[{"data":[71,78,39,66]}]}'></div>
+                          </td>
+                          <td>
+                            <h4>200 MB</h4>
+                            <div data-sparkline='{"colors":["#58a193"],"series":[{"data":[68,52,80,96]}]}'></div>
+                          </td>
+                          <td>
+                            <h4>30%</h4>
+                            <div data-sparkline='{"colors":["#58a193"],"series":[{"data":[3,26,41,30]}]}'></div>
+                          </td>
+                          <td>
+                            <h4>89 KB/s</h4>
+                            <div data-sparkline='{"colors":["#58a193"],"series":[{"data":[24,16,11,13]}]}'></div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <h4>Postfix</h4>
+                            <div class="mt-2">
+                              <div class="progress-wrap">
+                                <div class="progress-header">
+                                  <div class="progress-title">2,500 GB left</div>
+                                  <div class="progress-value">45%</div>
+                                </div>
+                                <div class="progress">
+                                  <div class="progress-bar bg-warning" role="progressbar" style="width: 45%" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                              </div>
+                            </div>
+                          </td>
+                          <td>
+                            <h4>42</h4>
+                            <div data-sparkline='{"colors":["#f7ad6a"],"series":[{"data":[87,44,74,41]}]}'></div>
+                          </td>
+                          <td>
+                            <h4>300 MB</h4>
+                            <div data-sparkline='{"colors":["#f7ad6a"],"series":[{"data":[29,54,73,25]}]}'></div>
+                          </td>
+                          <td>
+                            <h4>30%</h4>
+                            <div data-sparkline='{"colors":["#f7ad6a"],"series":[{"data":[58,10,1,16]}]}'></div>
+                          </td>
+                          <td>
+                            <h4>127 KB/s</h4>
+                            <div data-sparkline='{"colors":["#f7ad6a"],"series":[{"data":[38,40,11,26]}]}'></div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <h4>MySQL</h4>
+                            <div class="mt-2">
+                              <div class="progress-wrap">
+                                <div class="progress-header">
+                                  <div class="progress-title">900 GB left</div>
+                                  <div class="progress-value">80%</div>
+                                </div>
+                                <div class="progress">
+                                  <div class="progress-bar bg-success" role="progressbar" style="width: 80%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                              </div>
+                            </div>
+                          </td>
+                          <td>
+                            <h4>26</h4>
+                            <div data-sparkline='{"colors":["#48c8af"],"series":[{"data":[56,12,8,25]}]}'></div>
+                          </td>
+                          <td>
+                            <h4>150 MB</h4>
+                            <div data-sparkline='{"colors":["#48c8af"],"series":[{"data":[69,14,53,55]}]}'></div>
+                          </td>
+                          <td>
+                            <h4>30%</h4>
+                            <div data-sparkline='{"colors":["#48c8af"],"series":[{"data":[13,2,45,30]}]}'></div>
+                          </td>
+                          <td>
+                            <h4>39 KB/s</h4>
+                            <div data-sparkline='{"colors":["#48c8af"],"series":[{"data":[23,12,35,20]}]}'></div>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <div class="sidebar scroller">
+        <div class="panel">
+          <div class="panel-header">
+            <h4 class="panel-title"><span class="panel-icon fa-trophy"></span><span>Right Sidebar Content</span></h4>
+          </div>
+          <div class="panel-body">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce volutpat ac tortor eu viverra. Etiam ipsum neque, fermentum quis sagittis nec, hendrerit id diam. Mauris a tincidunt odio. Sed porttitor ex pulvinar, tristique sapien sed, malesuada nunc.</p>
+          </div>
+        </div>
+      </div>
+      <div class="template-panel">
+        <div class="template-panel-heading">Navbar Themes
+          <button class="template-panel-switch fa-cog" data-multi-switch='{"targets":".template-panel","scope":".template-panel","isolate":"[data-multi-switch]"}'></button>
+        </div>
+        <div class="template-panel-body">
+          <div class="template-panel-group">
+            <button class="theme-switch fa-check active" title="Navbar Theme" style="border-color: #58a193 #58a193 #fff #fff; color: black;" data-theme-switch="greendesk-navbar-primary" data-theme='{"navbar-sidebar-color":"#fff","navbar-sidebar-bg":"#58a193","navbar-toggle-color":"#58a193","navbar-logo-invert":"0%"}'></button>
+            <button class="theme-switch fa-check" title="Navbar Theme" style="border-color: #5b5eab #5b5eab #fff #fff; color: black;" data-theme-switch="greendesk-navbar-secondary" data-theme='{"navbar-sidebar-color":"#fff","navbar-sidebar-bg":"#5b5eab","navbar-toggle-color":"#5b5eab","navbar-logo-invert":"0%"}'></button>
+            <button class="theme-switch fa-check" title="Navbar Theme" style="border-color: #34b1cc #34b1cc #fff #fff; color: black;" data-theme-switch="greendesk-navbar-info" data-theme='{"navbar-sidebar-color":"#fff","navbar-sidebar-bg":"#34b1cc","navbar-toggle-color":"#34b1cc","navbar-logo-invert":"0%"}'></button>
+            <button class="theme-switch fa-check" title="Navbar Theme" style="border-color: #f7ad6a #f7ad6a #fff #fff; color: black;" data-theme-switch="greendesk-navbar-warning" data-theme='{"navbar-sidebar-color":"#fff","navbar-sidebar-bg":"#f7ad6a","navbar-toggle-color":"#f7ad6a","navbar-logo-invert":"0%"}'></button>
+            <button class="theme-switch fa-check" title="Navbar Theme" style="border-color: #ff5f68 #ff5f68 #fff #fff; color: black;" data-theme-switch="greendesk-navbar-danger" data-theme='{"navbar-sidebar-color":"#fff","navbar-sidebar-bg":"#ff5f68","navbar-toggle-color":"#ff5f68","navbar-logo-invert":"0%"}'></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

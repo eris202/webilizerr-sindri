@@ -1,0 +1,23 @@
+#ckeditor.panel
+	.panel-header
+		h3.panel-title CKeditor
+	.panel-body
+		p CKeditor is a set of wise #[a( href='https://en.wikipedia.org/wiki/WYSIWYG' ) WYSIWYG] editor components.
+		p Plugin and style sheets linking occurs when the element that matches the #[code [data-ckeditor&#93;] selector is present on the page.
+
+		p Plugin operation example:
+		.mt-1
+			textarea( data-ckeditor, name='ckeditor' ) This is the CKEditor Plugin...
+		p See more plugin operation examples on the following page: #[a( href='editors.html' ) Editors].
+
+		p Markup example:
+		pre.highlight.html.scroller.scroller-horizontal
+			= '<textarea data-ckeditor name="ckeditor">This is the CKEditor Plugin...</textarea>'
+
+		p To specify the editor type, a #[code data-ckeditor] attribute with acceptable values is used.
+		ul
+			li: code inline
+			li: code balloon
+			li: code document
+
+		p All available parameters of the plugin can be viewed on #[a( href="https://ckeditor.com/" ) CKeditor] website.

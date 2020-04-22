@@ -1,0 +1,174 @@
+extends ../components/base/_skeleton
+include ../components/rd-navbar/_rd-navbar
+include ../components/breadcrumbs/_breadcrumbs
+
+block variables
+	- pageName = 'Treeview';
+
+block page
+	header.section.page-header
+		+rd-navbar
+
+	section.topbar
+		+breadcrumbs( breadcrumbs )
+
+	//- Info panel
+	section.section-sm.bg-white
+		.container-fluid
+			.row.row-30.justify-content-center
+				.col-sm-5.col-md-4.col-lg-4
+					h3 jQuery jstree - #[small Dynamic DataTree]
+					ul.list-unstyled.list-md.mt-2
+						li
+							span.fa-exclamation-circle.pr-2
+							b Author:
+							span  Vakata
+						li
+							span.fa-exclamation-circle.pr-2
+							b License:
+							span  MIT license
+						li
+							span.fa-exclamation-circle.pr-2
+							b Website:
+							a( href='https://github.com/vakata/jstree' )  www.github.com/vakata/jstree
+				.col-sm-7.col-lg-6
+					p jsTree is jquery plugin, that provides interactive trees. It is absolutely free, open source and distributed under the MIT license. It is easily extendable, themable and configurable, it supports HTML & JSON data sources, AJAX & async callback loading.
+					p jsTree functions properly in either box-model (content-box or border-box), can be loaded as an AMD module, and has a built in mobile theme for responsive design, that can easily be customized. It uses jQuery's event system, so binding callbacks on various events in the tree is familiar and easy.
+
+	section.section-sm
+		.container-fluid
+			.row.row-30
+				//- Default jsTree
+				.col-md-6
+					.panel
+						.panel-header
+							h4.panel-title Default jsTree
+						.panel-body
+							.jstree
+								ul
+									li Node 1
+									li
+										| Folder 1
+										ul
+											li Node 2.1
+											li Node 2.2
+
+				//- Checkbox jsTree
+				.col-md-6
+					.panel
+						.panel-header
+							h4.panel-title Checkbox jsTree
+						.panel-body
+							.jstree( data-jstree-params!={ plugins: [ 'checkbox' ] } )
+								ul
+									li Node 1
+									li
+										| Folder 1
+										ul
+											li Node 2.1
+											li Node 2.2
+
+				//- jsTree with context menu
+				.col-md-6
+					.panel
+						.panel-header
+							h4.panel-title jsTree with context menu
+						.panel-body
+							.jstree( data-jstree-params!={ plugins: [ 'contextmenu' ] } )
+								ul
+									li Node 1
+									li
+										| Folder 1
+										ul
+											li Node 2.1
+											li Node 2.2
+									li Node 3
+									li Node 4
+									li
+										| Folder 2
+										ul
+											li Node 5.1
+											li Node 5.2
+
+				//- jsTree Drag & drop
+				.col-md-6
+					.panel
+						.panel-header
+							h4.panel-title jsTree Drag & drop
+						.panel-body
+							.jstree( data-jstree-params!={ plugins: [ 'dnd' ] } )
+								ul
+									li Node 1
+									li
+										| Folder 1
+										ul
+											li Node 2.1
+											li Node 2.2
+									li Node 3
+									li
+										| Folder 2
+										ul
+											li Node 2.1
+											li Node 2.2
+									li
+										| Folder 3
+										ul
+											li Node 2.1
+											li Node 2.2
+
+				//- jsTree Wholerow
+				.col-md-6
+					.panel
+						.panel-header
+							h4.panel-title jsTree Wholerow
+						.panel-body
+							.jstree( data-jstree-params!={ plugins: [ 'wholerow' ] } )
+								ul
+									li Node 1
+									li
+										| Folder 1
+										ul
+											li Node 2.1
+											li Node 2.2
+
+				//- jsTree Types
+				.col-md-6
+					.panel
+						.panel-header
+							h4.panel-title jsTree Types
+						.panel-body
+							.jstree( data-jstree-params!={ plugins: [ 'types' ] } )
+								ul
+									li( data-jstree='{"type":"root"}' ) Node 1
+									li( data-jstree='{"type":"root"}' )
+										| Folder 1
+										ul
+											li Node 2.1
+											li Node 2.2
+
+				//- jsTree Search
+				.col-md-6
+					.panel
+						.panel-header
+							h4.panel-title jsTree Search
+						.panel-body
+							input.form-control.jstree-search( type='text' )
+							.jstree( data-jstree-params!={ plugins: [ 'search' ] } )
+								ul
+									li Node 1
+									li
+										| Folder 1
+										ul
+											li Node 2.1
+											li Node 2.2
+									li Node 3
+									li
+										| Folder 2
+										ul
+											li Node 2.1
+											li Node 2.2
+									li
+										| Folder 3
+										ul
+											li Node 2.1
+											li Node 2.2

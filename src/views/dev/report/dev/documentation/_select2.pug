@@ -1,0 +1,45 @@
+#select2.panel
+	.panel-header
+		h3.panel-title Select2
+	.panel-body
+		p Select2 is an improved select field that can be stylized.
+		p Plugin and style sheets linking occurs when the element that matches the #[code .select2] selector is present on the page.
+
+		p Plugin operation example:
+		.mt-1
+			select.select2( name='country', data-placeholder='Country' )
+				option( label='placeholder' )
+				option USA
+				option UK
+				option Ukraine
+				option Australia
+				option Korea
+				option Japan
+				option Germany
+				option Belarus
+				option Poland
+		p See more plugin operation examples on the following page: #[a( href='plugin-inputs.html' ) Plugin Inputs].
+
+		p Markup example:
+		pre.highlight.html.scroller.scroller-horizontal
+			= '<select class="select2" name="country" data-placeholder="Country">\n'
+			= '  <option label="placeholder"></option>\n'
+			= '  <option>USA</option>\n'
+			= '  <option>UK</option>\n'
+			= '  <option>Ukraine</option>\n'
+			= '  <option>Australia</option>\n'
+			= '  <option>Korea</option>\n'
+			= '  <option>Japan</option>\n'
+			= '  <option>Germany</option>\n'
+			= '  <option>Belarus</option>\n'
+			= '  <option>Poland</option>\n'
+			= '</select>'
+
+		p This template provides the following attributes for Select2:
+		ul
+			li #[code data-placeholder] - generated field placeholder;
+			li #[code data-minimum-results-search] - minimal amount of displayed options;
+			li #[code data-container-class] - additional class for content of a generated component;
+			li #[code data-dropdown-class] - additional class for a dropdown of the generated component.
+
+		p All available parameters of the plugin can be viewed in its #[a( href="https://github.com/select2/select2#select2" ) GitHub repository].

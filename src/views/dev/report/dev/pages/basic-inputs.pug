@@ -1,0 +1,474 @@
+extends ../components/base/_skeleton
+include ../components/input/_input
+include ../components/rd-navbar/_rd-navbar
+include ../components/breadcrumbs/_breadcrumbs
+
+block variables
+	- pageName = 'Basic Inputs';
+
+block page
+	header.section.page-header
+		+rd-navbar
+
+	section.topbar
+		+breadcrumbs( breadcrumbs )
+
+	section.section-sm
+		.container-fluid
+			.row.row-30.justify-content-center
+				.col-md-10.col-lg-6
+					//- Standard Fields
+					.panel
+						.panel-header
+							h4.panel-title Standard Fields
+						.panel-body
+							.row.form-group
+								.col-sm-3.text-sm-right
+									label.col-form-label( for='staticInput' ) Static Field
+								.col-sm-9
+									input#staticInput.form-control-plaintext( type='text', placeholder='Type Here...' )
+
+							.row.form-group
+								.col-sm-3.text-sm-right
+									label.col-form-label( for='standardInput' ) Standard
+								.col-sm-9
+									input#standardInput.form-control( type='text', placeholder='Type Here...' )
+
+							.row.form-group
+								.col-sm-3.text-sm-right
+									label.col-form-label( for='standardSelect' ) Select List
+								.col-sm-9
+									select#standardSelect.form-control
+										option 1
+										option 2
+										option 3
+										option 4
+										option 5
+
+							.row.form-group
+								.col-sm-3.text-sm-right
+									label.col-form-label( for='multipleSelect' ) Multiple Select
+								.col-sm-9
+									select#multipleSelect.form-control( multiple )
+										option 1
+										option 2
+										option 3
+										option 4
+										option 5
+
+							.row.form-group
+								.col-sm-3.text-sm-right
+									label.col-form-label( for='readonlyInput' ) Readonly Input
+								.col-sm-9
+									input#readonlyInput.form-control( type='text', readonly, placeholder='Readonly input here...' )
+
+							.row.form-group
+								.col-sm-3.text-sm-right
+									label.col-form-label( for='disabledInput' ) Disabled Input
+								.col-sm-9
+									input#disabledInput.form-control( type='text', disabled, placeholder='Disabled input' )
+
+							.row.form-group
+								.col-sm-3.text-sm-right
+									label.col-form-label( for='standardTextarea' ) Standard text area
+								.col-sm-9
+									textarea#standardTextarea.form-control( rows='3' )
+
+							.row.form-group.align-items-center
+								.col-sm-3.text-sm-right
+									.col-form-label Example file input
+								.col-sm-9
+									.custom-file
+										input#customFile.custom-file-input( type='file' )
+										label.custom-file-label( for='customFile' ) Choose file
+
+					//- Input sizing
+					.panel
+						.panel-header
+							h4.panel-title Input sizing
+						.panel-body
+							.row.row-30
+								.col-xl-6
+									.form-group
+										input.form-control.form-control-lg( type='text', placeholder='.form-control-lg' )
+									.form-group
+										input.form-control( type='text', placeholder='Default input' )
+									.form-group
+										input.form-control.form-control-sm( type='text', placeholder='.form-control-sm' )
+
+								.col-xl-6
+									.form-group
+										select.form-control.form-control-lg
+											option Large select
+									.form-group
+										select.form-control
+											option Default select
+									.form-group
+										select.form-control.form-control-sm
+											option Small select
+
+								.col-12.text-sm-center
+									.row.form-group
+										.col-sm-2
+											label.col-form-label.col-form-label-sm( for='colFormLabelSm' ) Email
+										.col-sm-10
+											input#colFormLabelSm.form-control.form-control-sm( type='email', placeholder='col-form-label-sm' )
+									.row.form-group
+										.col-sm-2
+											label.col-form-label( for='colFormLabel' ) Email
+										.col-sm-10
+											input#colFormLabel.form-control( type='email', placeholder='col-form-label' )
+									.row.form-group
+										.col-sm-2
+											label.col-form-label.col-form-label-lg( for='colFormLabelLg' ) Email
+										.col-sm-10
+											input#colFormLabelLg.form-control.form-control-lg( type='email', placeholder='col-form-label-lg' )
+
+					//- Themes Input
+					.panel
+						.panel-header
+							h4.panel-title Themes Input
+						.panel-body
+							.row.form-group
+								.col-sm-3.text-sm-right
+									label.col-form-label.text-primary( for='primaryInput' ) Primary Field
+								.col-sm-9
+									input#primaryInput.form-control.form-control-primary( type='text', placeholder='Type Here...' )
+							.row.form-group
+								.col-sm-3.text-sm-right
+									label.col-form-label.text-secondary( for='secondaryInput' ) Secondary Field
+								.col-sm-9
+									input#secondaryInput.form-control.form-control-secondary( type='text', placeholder='Type Here...' )
+							.row.form-group
+								.col-sm-3.text-sm-right
+									label.col-form-label.text-success( for='successInput' ) Success Field
+								.col-sm-9
+									input#successInput.form-control.form-control-success( type='text', placeholder='Type Here...' )
+							.row.form-group
+								.col-sm-3.text-sm-right
+									label.col-form-label.text-info( for='infoInput' ) Info Field
+								.col-sm-9
+									input#infoInput.form-control.form-control-info( type='text', placeholder='Type Here...' )
+							.row.form-group
+								.col-sm-3.text-sm-right
+									label.col-form-label.text-warning( for='warningInput' ) Warning Field
+								.col-sm-9
+									input#warningInput.form-control.form-control-warning( type='text', placeholder='Type Here...' )
+							.row.form-group
+								.col-sm-3.text-sm-right
+									label.col-form-label.text-danger( for='dangerInput' ) Danger Field
+								.col-sm-9
+									input#dangerInput.form-control.form-control-danger( type='text', placeholder='Type Here...' )
+							.row.form-group
+								.col-sm-3.text-sm-right
+									label.col-form-label.text-light( for='lightInput' ) Light Field
+								.col-sm-9
+									input#lightInput.form-control.form-control-light( type='text', placeholder='Type Here...' )
+							.row.form-group
+								.col-sm-3.text-sm-right
+									label.col-form-label.text-dark( for='darkInput' ) Dark Field
+								.col-sm-9
+									input#darkInput.form-control.form-control-dark( type='text', placeholder='Type Here...' )
+
+				//- Input groups
+				.col-md-10.col-lg-6
+					.panel
+						.panel-header
+							h4.panel-title Input groups
+						.panel-body
+							.input-group.form-group
+								.input-group-prepend
+									span#basic-addon1.input-group-text @
+								input.form-control( type='text', placeholder='Username', aria-label='Username', aria-describedby='basic-addon1' )
+
+							.input-group.form-group
+								.input-group-prepend
+									span#icon-addon1.input-group-text
+										span.fa.fa-user
+								input.form-control( type='text', placeholder='Username', aria-label='Username', aria-describedby='icon-addon1' )
+
+							.input-group.form-group
+								input.form-control( type='text', placeholder='Recipient`s username', aria-label='Recipient`s username', aria-describedby='basic-addon2' )
+								.input-group-append
+									span#basic-addon2.input-group-text @example.com
+
+							.input-group.form-group
+								.input-group-prepend
+									span#basic-addon3.input-group-text https://example.com/users/
+								input#basic-url.form-control( type='text', aria-describedby='basic-addon3' )
+
+							.input-group.form-group
+								.input-group-prepend
+									span.input-group-text $
+								input.form-control( type='text', aria-label='Amount (to the nearest dollar)' )
+								.input-group-append
+									span.input-group-text .00
+
+							.input-group.form-group
+								.input-group-prepend
+									span.input-group-text With text area
+								textarea.form-control( aria-label='With text area' )
+
+							.input-group.form-group
+								.input-group-prepend
+									button#button-addon11.btn.btn-outline-secondary( type='button' ) Button
+								input.form-control( type='text', placeholder=' ', aria-label='Example text with button addon', aria-describedby='button-addon11' )
+
+							.input-group.form-group
+								.input-group-prepend
+									.input-group-text
+										input( type='checkbox', aria-label='Checkbox for following text input' )
+								input.form-control( type='text', aria-label='Text input with checkbox' )
+
+							.input-group.form-group
+								.input-group-prepend
+									.input-group-text
+										input( type='radio', aria-label='Radio button for following text input' )
+								input.form-control( type='text', aria-label='Text input with radio button' )
+
+					//- Input groups sizing
+					.panel
+						.panel-header
+							h4.panel-title Input groups sizing
+						.panel-body
+							.input-group.input-group-sm.form-group
+								.input-group-prepend
+									span#inputGroup-sizing-sm.input-group-text Small
+								input.form-control( type='text', aria-label='Sizing example input', aria-describedby='inputGroup-sizing-sm' )
+
+							.input-group.form-group
+								.input-group-prepend
+									span#inputGroup-sizing-default.input-group-text Default
+								input.form-control( type='text', aria-label='Sizing example input', aria-describedby='inputGroup-sizing-default' )
+
+							.input-group.input-group-lg.form-group
+								.input-group-prepend
+									span#inputGroup-sizing-lg.input-group-text Large
+								input.form-control( type='text', aria-label='Sizing example input', aria-describedby='inputGroup-sizing-lg' )
+
+					//- Default Checkboxes/Radios
+					.panel
+						.panel-header
+							h4.panel-title Default Checkboxes/Radios
+						.panel-body
+							.row.row-10
+								.col-sm-6
+									.form-group.group-5
+										.form-check
+											input#exampleRadios1.form-check-input( type='radio', name='exampleRadios', value='option1', checked='' )
+											label.form-check-label( for='exampleRadios1' ) Default radio
+										.form-check
+											input#exampleRadios2.form-check-input( type='radio', name='exampleRadios', value='option2' )
+											label.form-check-label( for='exampleRadios2' ) Second default radio
+										.form-check
+											input#exampleRadios3.form-check-input( type='radio', name='exampleRadios', value='option3', disabled='' )
+											label.form-check-label( for='exampleRadios3' ) Disabled radio
+
+								.col-sm-6
+									.form-group.group-5
+										.form-check
+											input#defaultCheck1.form-check-input( type='checkbox', value='' )
+											label.form-check-label( for='defaultCheck1' ) Default checkbox 1
+										.form-check
+											input#defaultCheck2.form-check-input( type='checkbox', value='' )
+											label.form-check-label( for='defaultCheck2' ) Default checkbox 2
+										.form-check
+											input#defaultCheck3.form-check-input( type='checkbox', value='', disabled='' )
+											label.form-check-label( for='defaultCheck3' ) Disabled checkbox
+
+					//- Default Checkboxes/Radios
+					.panel
+						.panel-header
+							h4.panel-title Default Checkboxes/Radios
+						.panel-body
+							.row.row-10
+								.col-sm-6
+									.form-group
+										.form-check.form-check-inline
+											input#inlineRadio1.form-check-input( type='radio', name='inlineRadioOptions', value='option1' )
+											label.form-check-label( for='inlineRadio1' ) 1
+										.form-check.form-check-inline
+											input#inlineRadio2.form-check-input( type='radio', name='inlineRadioOptions', value='option2' )
+											label.form-check-label( for='inlineRadio2' ) 2
+										.form-check.form-check-inline
+											input#inlineRadio3.form-check-input( type='radio', name='inlineRadioOptions', value='option3', disabled='' )
+											label.form-check-label( for='inlineRadio3' ) 3 (disabled)
+
+								.col-sm-6
+									.form-group
+										.form-check.form-check-inline
+											input#inlineCheckbox1.form-check-input( type='checkbox', value='option1' )
+											label.form-check-label( for='inlineCheckbox1' ) 1
+										.form-check.form-check-inline
+											input#inlineCheckbox2.form-check-input( type='checkbox', value='option2' )
+											label.form-check-label( for='inlineCheckbox2' ) 2
+										.form-check.form-check-inline
+											input#inlineCheckbox3.form-check-input( type='checkbox', value='option3', disabled='' )
+											label.form-check-label( for='inlineCheckbox3' ) 3 (disabled)
+
+					//- Custom checkboxes and radios inline
+					.panel
+						.panel-header
+							h4.panel-title Custom checkboxes and radios inline
+						.panel-body
+							.row.row-10
+								.col-6.col-sm-4
+									.group-10
+										+checkbox( {
+											id: 'primaryCheck'
+										} ).custom-checkbox-primary Primary
+										+checkbox( {
+											id: 'secondaryCheck'
+										} ).custom-checkbox-secondary Secondary
+										+checkbox( {
+											id: 'successCheck'
+										} ).custom-checkbox-success Success
+										+checkbox( {
+											id: 'infoCheck'
+										} ).custom-checkbox-info Info
+										+checkbox( {
+											id: 'warningCheck'
+										} ).custom-checkbox-warning Warning
+										+checkbox( {
+											id: 'dangerCheck'
+										} ).custom-checkbox-danger Danger
+										+checkbox( {
+											id: 'lightCheck'
+										} ).custom-checkbox-light Light
+										+checkbox( {
+											id: 'darkCheck'
+										} ).custom-checkbox-dark Dark
+
+								.col-6.col-sm-4
+									.group-10
+										+checkbox( {
+											id: 'primaryCheck2'
+										} ).custom-checkbox-primary-fill Primary
+										+checkbox( {
+											id: 'secondaryCheck2'
+										} ).custom-checkbox-secondary-fill Secondary
+										+checkbox( {
+											id: 'successCheck2'
+										} ).custom-checkbox-success-fill Success
+										+checkbox( {
+											id: 'infoCheck2'
+										} ).custom-checkbox-info-fill Info
+										+checkbox( {
+											id: 'warningCheck2'
+										} ).custom-checkbox-warning-fill Warning
+										+checkbox( {
+											id: 'dangerCheck2'
+										} ).custom-checkbox-danger-fill Danger
+										+checkbox( {
+											id: 'lightCheck2'
+										} ).custom-checkbox-light-fill Light
+										+checkbox( {
+											id: 'darkCheck2'
+										} ).custom-checkbox-dark-fill Dark
+
+								.col-6.col-sm-4
+									.group-10
+										+radio( {
+											id: 'primaryRadio',
+											name: 'customRadio'
+										} ).custom-radio-primary Primary
+										+radio( {
+											id: 'secondaryRadio',
+											name: 'customRadio'
+										} ).custom-radio-secondary Secondary
+										+radio( {
+											id: 'successRadio',
+											name: 'customRadio'
+										} ).custom-radio-success Success
+										+radio( {
+											id: 'infoRadio',
+											name: 'customRadio'
+										} ).custom-radio-info Info
+										+radio( {
+											id: 'warningRadio',
+											name: 'customRadio'
+										} ).custom-radio-warning Warning
+										+radio( {
+											id: 'dangerRadio',
+											name: 'customRadio'
+										} ).custom-radio-danger Danger
+										+radio( {
+											id: 'lightRadio',
+											name: 'customRadio'
+										} ).custom-radio-light Light
+										+radio( {
+											id: 'darkRadio',
+											name: 'customRadio'
+										} ).custom-radio-dark Dark
+
+					//- Switches
+					.panel
+						.panel-header
+							h4.panel-title Switches
+						.panel-body
+							.row.row-10
+								.col-6.col-sm-4
+									.group-10
+										+switch( {
+											id: 'customSwitch1'
+										} ).custom-switch-primary Primary
+										+switch( {
+											id: 'customSwitch2'
+										} ).custom-switch-secondary Secondary
+										+switch( {
+											id: 'customSwitch3'
+										} ).custom-switch-success Success
+										+switch( {
+											id: 'customSwitch4'
+										} ).custom-switch-info Info
+										+switch( {
+											id: 'customSwitch5'
+										} ).custom-switch-warning Warning
+										+switch( {
+											id: 'customSwitch6'
+										} ).custom-switch-danger Danger
+										+switch( {
+											id: 'customSwitch7'
+										} ).custom-switch-light Light
+										+switch( {
+											id: 'customSwitch8'
+										} ).custom-switch-dark Dark
+
+								.col-6.col-sm-4
+									.group-10
+										+switch( {
+											id: 'customSwitch11'
+										} ).custom-switch-primary.custom-switch-square Primary
+										+switch( {
+											id: 'customSwitch12'
+										} ).custom-switch-secondary.custom-switch-square Secondary
+										+switch( {
+											id: 'customSwitch13'
+										} ).custom-switch-success.custom-switch-square Success
+										+switch( {
+											id: 'customSwitch14'
+										} ).custom-switch-info.custom-switch-square Info
+										+switch( {
+											id: 'customSwitch15'
+										} ).custom-switch-warning.custom-switch-square Warning
+										+switch( {
+											id: 'customSwitch16'
+										} ).custom-switch-danger.custom-switch-square Danger
+										+switch( {
+											id: 'customSwitch17'
+										} ).custom-switch-light.custom-switch-square Light
+										+switch( {
+											id: 'customSwitch18'
+										} ).custom-switch-dark.custom-switch-square Dark
+
+								.col-12.col-sm-4
+									.group-10
+										+switch( {
+											id: 'customSwitch21'
+										} ).custom-switch-sm Toggle small
+										+switch( {
+											id: 'customSwitch22'
+										} ) Toggle Default
+										+switch( {
+											id: 'customSwitch23'
+										} ).custom-switch-lg Toggle large

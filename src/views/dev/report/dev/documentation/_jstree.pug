@@ -1,0 +1,38 @@
+#jstree.panel
+	.panel-header
+		h3.panel-title jsTree
+	.panel-body
+		p jsTree is a jQuery plugin that provides an interactive tree structure of anything.
+		p Plugin and style sheets linking occurs when the element that matches the #[code .jstree] selector is present on the page.
+
+		p Plugin operation example:
+		.mt-1
+			.jstree
+				ul
+					li Node 1
+					li
+						| Folder 1
+						ul
+							li Node 2.1
+							li Node 2.2
+		p See more plugin operation examples on the following page: #[a( href='treeview.html' ) Treeview].
+
+		p Markup example:
+		pre.highlight.html.scroller.scroller-horizontal
+			= '<div class="jstree">\n'
+			= '  <ul>\n'
+			= '    <li>Node 1</li>\n'
+			= '    <li>Folder 1\n'
+			= '      <ul>\n'
+			= '        <li>Node 2.1</li>\n'
+			= '        <li>Node 2.2</li>\n'
+			= '      </ul>\n'
+			= '    </li>\n'
+			= '  </ul>\n'
+			= '</div>'
+
+		p This template provides a #[code data-jstree-params] attribute for jsTree that can accept a JSON object with the plugin parameters, e.g.:
+		pre.highlight.html.scroller.scroller-horizontal
+			= '<div class="jstree" data-jstree-params=\'{ "plugins": [ "checkbox" ] }\'>...</div>'
+
+		p All available parameters of the plugin can be viewed on #[a( href="https://www.jstree.com/" ) jsTree] website.

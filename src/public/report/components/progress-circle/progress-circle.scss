@@ -1,0 +1,62 @@
+@import "../bootstrap/scss/functions";
+@import "../base/functions";
+@import "../base/variables";
+@import "../bootstrap/scss/variables";
+@import "../bootstrap/scss/mixins";
+
+//variables
+$progress-circle-bg: $gray-200;
+$progress-circle-fg: $gray-600;
+
+
+.progress-circle-wrap {
+	position: relative;
+	display: inline-block;
+}
+
+.progress-counter-wrap {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+.progress-circle {
+	.bg,
+	.fg {
+		stroke-width: 1px;
+		fill: transparent;
+	}
+
+	.bg {
+		stroke: $progress-circle-bg;
+	}
+
+	.fg {
+		stroke: $progress-circle-fg;
+	}
+}
+
+.progress-counter-value {
+	font-size: px-to-rem( 24px );
+	line-height: 1;
+
+	.progress-postfix {
+		font-size: 71%;
+		line-height: 1.1;
+		vertical-align: top;
+	}
+}
+
+.progress-title {
+
+}
+
+* + .progress-title {
+	margin-top: px-to-rem( 4px );
+}

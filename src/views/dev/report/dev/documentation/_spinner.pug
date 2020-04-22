@@ -1,0 +1,21 @@
+#spinner.panel
+	.panel-header
+		h3.panel-title jQuery UI Spinner
+	.panel-body
+		p jQuery UI Spinner is a plugin for an improved input of numerical values in fields with up/down buttons that can be stylized.
+		p Plugin and style sheets linking occurs when the element that matches the #[code [data-spinner&#93;] selector is present on the page.
+
+		p Plugin operation example:
+		.mt-1
+			input.form-control.ui-spinner-input( data-spinner, type='number', name='spinner', value='5' )
+		p See more plugin operation examples on the following page: #[a( href='plugin-inputs.html' ) Plugin Inputs].
+
+		p Markup example:
+		pre.highlight.html.scroller.scroller-horizontal
+			= '<input class="form-control ui-spinner-input" data-spinner type="number" name="spinner" value="5">'
+
+		p This template provides a #[code data-spinner] attribute for Spinner that can accept a JSON object with the plugin parameters, e.g.:
+		pre.highlight.html.scroller.scroller-horizontal
+			= '<input ... data-spinner=\'{ "min": 0, "step": 5 }\'>'
+
+		p All available parameters of the plugin can be viewed on #[a( href="https://api.jqueryui.com/spinner/" ) jQuery UI] website.

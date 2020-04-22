@@ -1,0 +1,23 @@
+#typeahead.panel
+	.panel-header
+		h3.panel-title Typeahead.js
+	.panel-body
+		p Typeahead.js is a plugin for autofilling text fields.
+		p Plugin and style sheets linking occurs when the element that matches the #[code [data-typehead&#93;] selector is present on the page.
+
+		p Plugin operation example:
+		.mt-1
+			input.form-control( type='text', placeholder='States', data-typehead!=[ 'Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California' ] )
+
+		p Markup example:
+		pre.highlight.html.scroller.scroller-horizontal
+			= '<input class="form-control" type="text" placeholder="States" data-typehead=\'[\n'
+			= '  "Alabama",\n'
+			= '  "Alaska",\n'
+			= '  "Arizona",\n'
+			= '  "Arkansas",\n'
+			= '  "California"\n'
+			= ']\'>'
+
+		p The #[code data-typehead] attribute is used to indicate autofilling options as a line array.
+		p All available parameters of the plugin can be viewed in its #[a( href="https://github.com/twitter/typeahead.js#typeaheadjs" ) GitHub repository].

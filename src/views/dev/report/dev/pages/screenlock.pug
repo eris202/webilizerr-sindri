@@ -1,0 +1,34 @@
+extends ../components/base/_skeleton
+
+block variables
+	-
+		htmlClass[ htmlClass.indexOf( 'rd-navbar-sidebar-active' ) ] = '';
+		pageClass = 'page-image-bg';
+		pageName = 'Screenlock'
+
+block page
+	section.section-lg.section-one-screen
+		.container
+			.row.justify-content-center
+				.col-lg-8.col-xl-6
+					.row.row-5.align-items-end.text-center.text-sm-left
+						.col-sm-7
+							a( href='index.html' ): img( src=logo.default, alt='' )
+						.col-sm-5.text-sm-right
+							a( href='#' ) Not John Doe?
+					form.panel( method='post' )
+						.panel-body
+							.row.row-30.align-items-center
+								.col-sm-4.col-md-3.text-center
+									img( src='images/users/user-03-100x100.jpg', width='100', height='100', alt='' )
+								.col-sm-8.col-md-9
+									p.mb-3 #[span.h4 John Doe] - logged out for #[b 5 hours]
+										span.d-block johndoe@demolink.org
+									.input-group
+										.input-group-prepend
+											span.input-group-text.fa-lock
+										input#pass.form-control( type='password', name='password', placeholder='Enter password' )
+					.text-right.mt-3
+						button.btn.btn-primary( type='submit' ) Unlock
+
+block sidebar

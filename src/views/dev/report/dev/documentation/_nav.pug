@@ -1,0 +1,36 @@
+#nav.panel
+	.panel-header
+		h3.panel-title Nav
+	.panel-body
+		p Navigation is a page component that allows to transfer between website pages or through the selected content.
+		p Plugin and style sheets linking occurs when the #[code .nav] primary class is present on the page.
+
+		p Component example:
+		ul.nav.bg-white.mt-1
+			li.nav-item
+				a.nav-link.active(href='#') Active
+			li.nav-item
+				a.nav-link(href='#') Link
+			li.nav-item
+				a.nav-link(href='#') Link
+			li.nav-item
+				a.nav-link.disabled(href='#') Disabled
+
+		p Markup example:
+		pre.highlight.html
+			= '<ul class="nav">\n'
+			= '  <li class="nav-item">\n'
+			= '    <a class="nav-link active" href="#">Active</a>\n'
+			= '  </li>\n'
+			= '  <li class="nav-item">\n'
+			= '    <a class="nav-link" href="#">Link</a>\n'
+			= '  </li>\n'
+			= '  <li class="nav-item">\n'
+			= '    <a class="nav-link" href="#">Link</a>\n'
+			= '  </li>\n'
+			= '  <li class="nav-item">\n'
+			= '    <a class="nav-link disabled" href="#">Disabled</a>\n'
+			= '  </li>\n'
+			= '</ul>'
+
+		p This component is a part of #[a( href='https://getbootstrap.com' ) Bootstrap 4] framework. Read more about it on the following page: #[a( href="https://getbootstrap.com/docs/4.1/components/navs" ) Bootstrap Navs].

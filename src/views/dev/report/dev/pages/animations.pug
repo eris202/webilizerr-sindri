@@ -1,0 +1,146 @@
+extends ../components/base/_skeleton
+include ../components/rd-navbar/_rd-navbar
+include ../components/breadcrumbs/_breadcrumbs
+
+block variables
+	- pageName = 'Animations';
+
+block page
+	header.section.page-header
+		+rd-navbar
+
+	section.topbar
+		+breadcrumbs( breadcrumbs )
+
+	section.section-md
+		.container
+			.row
+				.col-md-6
+					.panel
+						.panel-body
+							h3 Animations.CSS
+							ul.list-unstyled.list-md.mt-2
+								li
+									span.fa-info-circle.pr-2
+									b Author:
+									span  Daniel Eden.
+								li
+									span.fa-info-circle.pr-2
+									b License:
+									span  The MIT License (MIT).
+								li
+									span.fa-info-circle.pr-2
+									b Website:
+									a( href='https://daneden.github.io/animate.css/', target='_blank' )  www.github.com/animate
+	
+							.mt-3.p-3.text-center: img#animation-sample.animated( src='images/logo-300x300.png', alt='Sample' )
+							.mt-3: button.btn.btn-sidebar.btn-success( data-multi-switch!={ targets: '.mobile-sidebar', isolate: '.mobile-sidebar [data-animation-sample]', scope:   '.mobile-sidebar, .btn-sidebar' } ) Animations
+
+				.col-md-6.d-flex
+					.panel.panel-nav.mobile-sidebar
+						.panel-header
+							ul.nav.nav-tabs.scroller.scroller-horizontal( role='tablist' )
+								li.nav-item
+									a.nav-link.active( data-toggle='tab', href='#content-1' ) Entrances
+								li.nav-item
+									a.nav-link( data-toggle='tab', href='#content-2' ) Exits
+								li.nav-item
+									a.nav-link( data-toggle='tab', href='#content-3' ) Other
+
+						.panel-body.scroller.scroller-vertical
+							.tab-content
+								#content-1.tab-pane.fade.show.active
+									h5 Rotating Entrances
+									.group-5
+										button.btn.btn-primary( data-animation-sample='rotateIn' ) rotateIn
+										button.btn.btn-primary( data-animation-sample='rotateInDownLeft' ) rotateInDownLeft
+										button.btn.btn-primary( data-animation-sample='rotateInDownRight' ) rotateInDownRight
+										button.btn.btn-primary( data-animation-sample='rotateInUpLeft' ) rotateInUpLeft
+										button.btn.btn-primary( data-animation-sample='rotateInUpRight' ) rotateInUpRight
+
+									h5 Fading Entrances
+									.group-5
+										button.btn.btn-info( data-animation-sample='fadeIn' ) fadeIn
+										button.btn.btn-info( data-animation-sample='fadeInUp' ) fadeInUp
+										button.btn.btn-info( data-animation-sample='fadeInDown' ) fadeInDown
+										button.btn.btn-info( data-animation-sample='fadeInLeft' ) fadeInLeft
+										button.btn.btn-info( data-animation-sample='fadeInRight' ) fadeInRight
+										button.btn.btn-info( data-animation-sample='fadeInUpBig' ) fadeInUpBig
+										button.btn.btn-info( data-animation-sample='fadeInDownBig' ) fadeInDownBig
+										button.btn.btn-info( data-animation-sample='fadeInLeftBig' ) fadeInLeftBig
+										button.btn.btn-info( data-animation-sample='fadeInRightBig' ) fadeInRightBig
+
+									h5 Bouncing Entrances
+									.group-5
+										button.btn.btn-warning( data-animation-sample='bounceIn' ) bounceIn
+										button.btn.btn-warning( data-animation-sample='bounceInDown' ) bounceInDown
+										button.btn.btn-warning( data-animation-sample='bounceInUp' ) bounceInUp
+										button.btn.btn-warning( data-animation-sample='bounceInRight' ) bounceInRight
+										button.btn.btn-warning( data-animation-sample='bounceInLeft' ) bounceInLeft
+
+								#content-2.tab-pane.fade
+									h5 Bouncing Exits
+									.group-5
+										button.btn.btn-primary( data-animation-sample='bounceOutRight' ) bounceOutRight
+										button.btn.btn-primary( data-animation-sample='bounceOutLeft' ) bounceOutLeft
+										button.btn.btn-primary( data-animation-sample='bounceOut' ) bounceOut
+										button.btn.btn-primary( data-animation-sample='bounceOutDown' ) bounceOutDown
+										button.btn.btn-primary( data-animation-sample='bounceOutUp' ) bounceOutUp
+
+									h5 Fading Exits
+									.group-5
+										button.btn.btn-info( data-animation-sample='fadeOut' ) fadeOut
+										button.btn.btn-info( data-animation-sample='fadeOutUp' ) fadeOutUp
+										button.btn.btn-info( data-animation-sample='fadeOutDown' ) fadeOutDown
+										button.btn.btn-info( data-animation-sample='fadeOutLeft' ) fadeOutLeft
+										button.btn.btn-info( data-animation-sample='fadeOutRight' ) fadeOutRight
+										button.btn.btn-info( data-animation-sample='fadeOutUpBig' ) fadeOutUpBig
+										button.btn.btn-info( data-animation-sample='fadeOutDownBig' ) fadeOutDownBig
+										button.btn.btn-info( data-animation-sample='fadeOutLeftBig' ) fadeOutLeftBig
+										button.btn.btn-info( data-animation-sample='fadeOutRightBig' ) fadeOutRightBig
+
+									h5 Rotating Exits
+									.group-5
+										button.btn.btn-warning( data-animation-sample='rotateOut' ) rotateOut
+										button.btn.btn-warning( data-animation-sample='rotateOutDownLeft' ) rotateOutDownLeft
+										button.btn.btn-warning( data-animation-sample='rotateOutDownRight' ) rotateOutDownRight
+										button.btn.btn-warning( data-animation-sample='rotateOutUpLeft' ) rotateOutUpLeft
+										button.btn.btn-warning( data-animation-sample='rotateOutUpRight' ) rotateOutUpRight
+
+								#content-3.tab-pane.fade
+									h5 Attention Seekers
+									.group-5
+										button.btn.btn-primary( data-animation-sample='bounce' ) bounce
+										button.btn.btn-primary( data-animation-sample='flash' ) flash
+										button.btn.btn-primary( data-animation-sample='jello' ) jello
+										button.btn.btn-primary( data-animation-sample='pulse' ) pulse
+										button.btn.btn-primary( data-animation-sample='rubberBand' ) rubberBand
+										button.btn.btn-primary( data-animation-sample='shake' ) shake
+										button.btn.btn-primary( data-animation-sample='swing' ) swing
+										button.btn.btn-primary( data-animation-sample='tada' ) tada
+										button.btn.btn-primary( data-animation-sample='wobble' ) wobble
+
+									h5 Flippers
+									.group-5
+										button.btn.btn-info( data-animation-sample='flip' ) flip
+										button.btn.btn-info( data-animation-sample='flipInX' ) flipInX
+										button.btn.btn-info( data-animation-sample='flipOutX' ) flipOutX
+										button.btn.btn-info( data-animation-sample='flipInY' ) flipInY
+										button.btn.btn-info( data-animation-sample='flipOutY' ) flipOutY
+
+									h5 Sliders
+									.group-5
+										button.btn.btn-warning( data-animation-sample='slideInDown' ) slideInDown
+										button.btn.btn-warning( data-animation-sample='slideInLeft' ) slideInLeft
+										button.btn.btn-warning( data-animation-sample='slideInRight' ) slideInRight
+										button.btn.btn-warning( data-animation-sample='slideOutUp' ) slideOutUp
+										button.btn.btn-warning( data-animation-sample='slideOutLeft' ) slideOutLeft
+										button.btn.btn-warning( data-animation-sample='slideOutRight' ) slideOutRight
+
+									h5 Specials
+									.group-5
+										button.btn.btn-warning( data-animation-sample='lightSpeedIn' ) lightSpeedIn
+										button.btn.btn-warning( data-animation-sample='lightSpeedOut' ) lightSpeedOut
+										button.btn.btn-warning( data-animation-sample='hinge' ) hinge
+										button.btn.btn-warning( data-animation-sample='rollIn' ) rollIn
+										button.btn.btn-warning( data-animation-sample='rollOut' ) rollOut

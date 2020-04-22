@@ -1,0 +1,23 @@
+#easyzoom.panel
+	.panel-header
+		h3.panel-title EasyZoom
+	.panel-body
+		p EasyZoom is a jQuery plugin for zooming and panning images.
+		p Plugin and style sheets linking occurs when the element that matches the #[code .easyzoom] selector is present on the page.
+
+		p Plugin operation example:
+		.mt-1
+			.easyzoom.easyzoom--overlay.text-center
+				a( href='images/img-01-1440x660.jpg' )
+					img( src='images/img-01-720x330.jpg', alt='' )
+		p An additional example of plugin operation is available on the following page: #[a( href='image-tools.html' ) Image Tools].
+
+		p Markup example:
+		pre.highlight.html.scroller.scroller-horizontal
+			= '<div class="easyzoom easyzoom--overlay">\n'
+			= '  <a href="images/img-01-1440x660.jpg">\n'
+			= '    <img src="images/img-01-720x330.jpg" alt="">\n'
+			= '  </a>\n'
+			= '</div>'
+
+		p All available parameters of the plugin can be viewed in its #[a( href="https://github.com/i-like-robots/EasyZoom" ) GitHub repository].

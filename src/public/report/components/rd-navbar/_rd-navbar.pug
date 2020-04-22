@@ -1,0 +1,51 @@
+include _navigation
+include ../alert/_alert
+
+mixin rd-navbar
+	//RD Navbar
+	.rd-navbar-wrap
+		nav.rd-navbar
+			.rd-navbar-panel
+				.rd-navbar-panel-inner
+					.rd-navbar-panel-cell.rd-navbar-panel-spacer
+						#navbar-search.navbar-search
+							input.navbar-search-input( type='text', placeholder='Search...' )
+	
+					.rd-navbar-panel-cell.navbar-toggle-search-cell
+						button.navbar-toggle.navbar-toggle-search.mdi-magnify( data-multi-switch!={ targets: '.rd-navbar-panel', scope: '#navbar-search', isolate: '[data-multi-switch]' }, title='Search' )
+	
+					.rd-navbar-panel-cell
+						button.navbar-toggle.mdi-content-paste( data-sidebar-switch, data-multi-switch!={
+							targets: '.sidebar',
+							scope:   '.sidebar, [data-sidebar-switch]',
+							isolate: '[data-multi-switch]:not([data-sidebar-switch])'
+						},  title='Sidebar' )
+	
+					.rd-navbar-panel-cell
+						button.navbar-toggle.mdi-email-outline( data-multi-switch!={ targets: '#subpanel-chat', scope: '#subpanel-chat', isolate: '[data-multi-switch]' }, title='Chat' )
+						#subpanel-chat.rd-navbar-subpanel
+							include _navbar-chat-widget
+	
+					.rd-navbar-panel-cell
+						button.navbar-toggle.mdi-bell-outline( data-multi-switch!={ targets: '#subpanel-notifications', scope: '#subpanel-notifications', isolate: '[data-multi-switch]' }, title='Notifications' )
+						.navbar-badge.badge.badge-warning.badge-pill 3
+						#subpanel-notifications.rd-navbar-subpanel
+							include _navbar-notifications-widget
+	
+					.rd-navbar-panel-cell
+						.navbar-toggle.navbar-user( data-multi-switch!={ targets: '#subpanel-user-menu', scope: '#subpanel-user-menu', isolate: '[data-multi-switch]' }, title='User Menu' )
+							img( src='images/users/user-17-60x60.jpg', alt='' )
+						#subpanel-user-menu.rd-navbar-subpanel
+							include _navbar-user-widget
+
+			.rd-navbar-sidebar-wrap
+				.rd-navbar-sidebar-panel
+					.rd-navbar-logo
+						a.logo-link( href= homePage.link )
+							img.logo-default( src= logo.white, alt= logo.name )
+							img.logo-compact( src= logo.compact, alt= logo.name )
+
+					button.navbar-toggle-sidebar.mdi-menu( data-navigation-switch )
+
+				.rd-navbar-sidebar.scroller.scroller-vertical
+					+navigation( menu )

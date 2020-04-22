@@ -1,0 +1,595 @@
+extends ../components/base/_skeleton
+include ../components/alert/_alert
+include ../components/rd-navbar/_rd-navbar
+include ../components/breadcrumbs/_breadcrumbs
+
+block variables
+	- pageName = 'Alerts';
+
+block page
+	header.section.page-header
+		+rd-navbar
+
+	section.topbar
+		+breadcrumbs( breadcrumbs )
+
+	section.section-sm.section-transparent
+		.container-fluid
+			.row.row-30
+				.col-12
+					h2 Alert color variations with icons
+				.col-md-6.col-lg-3
+					div
+						code.code-bg .alert-primary.alert-lighter
+					+alert.alert-primary.alert-lighter.mt-1
+						span.alert-icon.fa-trophy
+						span #[b Attention!] This is a multi-purpose alert that's #[b useful anywhere!]
+					.mt-3
+						code.code-bg .alert-primary
+					+alert.alert-primary.mt-1
+						span.alert-icon.fa-trophy
+						span #[b Attention!] This is a multi-purpose alert that's #[b useful anywhere!]
+					.mt-3
+						code.code-bg .alert-primary.alert-darker
+					+alert.alert-primary.alert-darker.mt-1
+						span.alert-icon.fa-trophy
+						span #[b Attention!] This is a multi-purpose alert that's #[b useful anywhere!]
+				.col-md-6.col-lg-3
+					div
+						code.code-bg .alert-secondary.alert-lighter
+					+alert.alert-secondary.alert-lighter.mt-1
+						span.alert-icon.fa-check
+						span #[b Well done!] You successfully read #[b this important alert message.]
+					.mt-3
+						code.code-bg .alert-secondary
+					+alert.alert-secondary.mt-1
+						span.alert-icon.fa-check
+						span #[b Well done!] You successfully read #[b this important alert message.]
+					.mt-3
+						code.code-bg .alert-secondary.alert-darker
+					+alert.alert-secondary.alert-darker.mt-1
+						span.alert-icon.fa-check
+						span #[b Well done!] You successfully read #[b this important alert message.]
+				.col-md-6.col-lg-3
+					div
+						code.code-bg .alert-success.alert-lighter
+					+alert.alert-success.alert-lighter.mt-1
+						span.alert-icon.fa-check
+						span #[b Well done!] You successfully read #[b this important alert message.]
+					.mt-3
+						code.code-bg .alert-success
+					+alert.alert-success.mt-1
+						span.alert-icon.fa-check
+						span #[b Well done!] You successfully read #[b this important alert message.]
+					.mt-3
+						code.code-bg .alert-success.alert-darker
+					+alert.alert-success.alert-darker.mt-1
+						span.alert-icon.fa-check
+						span #[b Well done!] You successfully read #[b this important alert message.]
+				.col-md-6.col-lg-3
+					div
+						code.code-bg .alert-info.alert-lighter
+					+alert.alert-info.alert-lighter.mt-1
+						span.alert-icon.fa-info
+						span #[b Heads up!] This #[b alert needs your attention], it's kinda important.
+					.mt-3
+						code.code-bg .alert-info
+					+alert.alert-info.mt-1
+						span.alert-icon.fa-info
+						span #[b Heads up!] This #[b alert needs your attention], it's kinda important.
+					.mt-3
+						code.code-bg .alert-info.alert-darker
+					+alert.alert-info.alert-darker.mt-1
+						span.alert-icon.fa-info
+						span #[b Heads up!] This #[b alert needs your attention], it's kinda important.
+				.col-md-6.col-lg-3
+					div
+						code.code-bg .alert-warning.alert-lighter
+					+alert.alert-warning.alert-lighter.mt-1
+						span.alert-icon.fa-exclamation-triangle
+						span #[b Warning!] Best check the settings, something is wrong.
+					.mt-3
+						code.code-bg .alert-warning
+					+alert.alert-warning.mt-1
+						span.alert-icon.fa-exclamation-triangle
+						span #[b Warning!] Best check the settings, something is wrong.
+					.mt-3
+						code.code-bg .alert-warning.alert-darker
+					+alert.alert-warning.alert-darker.mt-1
+						span.alert-icon.fa-exclamation-triangle
+						span #[b Warning!] Best check the settings, something is wrong.
+				.col-md-6.col-lg-3
+					div
+						code.code-bg .alert-danger.alert-lighter
+					+alert.alert-danger.alert-lighter.mt-1
+						span.alert-icon.fa-remove
+						span #[b Attention!] This is #[b a multi-purpose alert] that's useful anywhere!.
+					.mt-3
+						code.code-bg .alert-danger
+					+alert.alert-danger.mt-1
+						span.alert-icon.fa-remove
+						span #[b Attention!] This is #[b a multi-purpose alert] that's useful anywhere!.
+					.mt-3
+						code.code-bg .alert-danger.alert-darker
+					+alert.alert-danger.alert-darker.mt-1
+						span.alert-icon.fa-remove
+						span #[b Attention!] This is #[b a multi-purpose alert] that's useful anywhere!.
+				.col-md-6.col-lg-3
+					div
+						code.code-bg .alert-light.alert-lighter
+					+alert.alert-light.alert-lighter.mt-1
+						span.alert-icon.fa-trophy
+						span #[b Attention!] This is #[b a multi-purpose alert] that's useful anywhere!.
+					.mt-3
+						code.code-bg .alert-light
+					+alert.alert-light.mt-1
+						span.alert-icon.fa-trophy
+						span #[b Attention!] This is #[b a multi-purpose alert] that's useful anywhere!.
+					.mt-3
+						code.code-bg .alert-light.alert-darker
+					+alert.alert-light.alert-darker.mt-1
+						span.alert-icon.fa-trophy
+						span #[b Attention!] This is #[b a multi-purpose alert] that's useful anywhere!.
+				.col-md-6.col-lg-3
+					div
+						code.code-bg .alert-dark.alert-lighter
+					+alert.alert-dark.alert-lighter.mt-1
+						span.alert-icon.fa-trophy
+						span #[b Attention!] This is #[b a multi-purpose alert] that's useful anywhere!.
+					.mt-3
+						code.code-bg .alert-dark
+					+alert.alert-dark.mt-1
+						span.alert-icon.fa-trophy
+						span #[b Attention!] This is #[b a multi-purpose alert] that's useful anywhere!.
+					.mt-3
+						code.code-bg .alert-dark.alert-darker
+					+alert.alert-dark.alert-darker.mt-1
+						span.alert-icon.fa-trophy
+						span #[b Attention!] This is #[b a multi-purpose alert] that's useful anywhere!.
+
+	section.section-sm.section-transparent
+		.container-fluid
+			.row.row-30
+				.col-12
+					h2 Alert Gradient
+				.col-md-6.col-lg-3
+					div
+						code.code-bg .alert-primary.alert-gradient
+					+alert( { close: true } ).alert-primary.alert-gradient.mt-1
+						span.alert-icon.fa-trophy
+						span #[b Attention!] This is #[b a multi-purpose alert] that's useful anywhere!.
+				.col-md-6.col-lg-3
+					div
+						code.code-bg .alert-secondary.alert-gradient
+					+alert( {close: true} ).alert-secondary.alert-gradient.mt-1
+						span.alert-icon.fa-trophy
+						span #[b Attention!] This is #[b a multi-purpose alert] that's useful anywhere!.
+				.col-md-6.col-lg-3
+					div
+						code.code-bg .alert-success.alert-gradient
+					+alert( {close: true} ).alert-success.alert-gradient.mt-1
+						span.alert-icon.fa-trophy
+						span #[b Attention!] This is #[b a multi-purpose alert] that's useful anywhere!.
+				.col-md-6.col-lg-3
+					div
+						code.code-bg .alert-info.alert-gradient
+					+alert( {close: true} ).alert-info.alert-gradient.mt-1
+						span.alert-icon.fa-trophy
+						span #[b Attention!] This is #[b a multi-purpose alert] that's useful anywhere!.
+				.col-md-6.col-lg-3
+					div
+						code.code-bg .alert-warning.alert-gradient
+					+alert( {close: true} ).alert-warning.alert-gradient.mt-1
+						span.alert-icon.fa-trophy
+						span #[b Attention!] This is #[b a multi-purpose alert] that's useful anywhere!.
+				.col-md-6.col-lg-3
+					div
+						code.code-bg .alert-danger.alert-gradient
+					+alert( {close: true} ).alert-danger.alert-gradient.mt-1
+						span.alert-icon.fa-trophy
+						span #[b Attention!] This is #[b a multi-purpose alert] that's useful anywhere!.
+				.col-md-6.col-lg-3
+					div
+						code.code-bg .alert-light.alert-gradient
+					+alert( {close: true} ).alert-light.alert-gradient.mt-1
+						span.alert-icon.fa-trophy
+						span #[b Attention!] This is #[b a multi-purpose alert] that's useful anywhere!.
+				.col-md-6.col-lg-3
+					div
+						code.code-bg .alert-dark.alert-gradient
+					+alert( {close: true} ).alert-dark.alert-gradient.mt-1
+						span.alert-icon.fa-trophy
+						span #[b Attention!] This is #[b a multi-purpose alert] that's useful anywhere!.
+
+	section.section-sm.section-transparent
+		.container-fluid
+			.row.row-30
+				.col-12
+					h2 Block Style Alerts
+				.col-md-6.col-lg-3
+					div
+						code.code-bg .alert-primary
+					+alert.alert-primary.mt-1
+						h5 Well done!
+						p Congratulations, you successfully read this important alert message. This example text is going to run a bit longer so that you can see how spacing within an alert works with this kind of content.
+						hr
+						p Whenever you need to, be sure to use margin utilities to keep things nice and tidy.
+				.col-md-6.col-lg-3
+					div
+						code.code-bg .alert-secondary
+					+alert.alert-secondary.mt-1
+						h5 Well done!
+						p Congratulations, you successfully read this important alert message. This example text is going to run a bit longer so that you can see how spacing within an alert works with this kind of content.
+						hr
+						p Whenever you need to, be sure to use margin utilities to keep things nice and tidy.
+				.col-md-6.col-lg-3
+					div
+						code.code-bg .alert-success
+					+alert.alert-success.mt-1
+						h5 Well done!
+						p Congratulations, you successfully read this important alert message. This example text is going to run a bit longer so that you can see how spacing within an alert works with this kind of content.
+						hr
+						p Whenever you need to, be sure to use margin utilities to keep things nice and tidy.
+				.col-md-6.col-lg-3
+					div
+						code.code-bg .alert-info
+					+alert.alert-info.mt-1
+						h5 Well done!
+						p Congratulations, you successfully read this important alert message. This example text is going to run a bit longer so that you can see how spacing within an alert works with this kind of content.
+						hr
+						p Whenever you need to, be sure to use margin utilities to keep things nice and tidy.
+				.col-md-6.col-lg-3
+					div
+						code.code-bg .alert-warning
+					+alert.alert-warning.mt-1
+						h5 Well done!
+						p Congratulations, you successfully read this important alert message. This example text is going to run a bit longer so that you can see how spacing within an alert works with this kind of content.
+						hr
+						p Whenever you need to, be sure to use margin utilities to keep things nice and tidy.
+				.col-md-6.col-lg-3
+					div
+						code.code-bg .alert-danger
+					+alert.alert-danger.mt-1
+						h5 Well done!
+						p Congratulations, you successfully read this important alert message. This example text is going to run a bit longer so that you can see how spacing within an alert works with this kind of content.
+						hr
+						p Whenever you need to, be sure to use margin utilities to keep things nice and tidy.
+				.col-md-6.col-lg-3
+					div
+						code.code-bg .alert-light
+					+alert.alert-light.mt-1
+						h5 Well done!
+						p Congratulations, you successfully read this important alert message. This example text is going to run a bit longer so that you can see how spacing within an alert works with this kind of content.
+						hr
+						p Whenever you need to, be sure to use margin utilities to keep things nice and tidy.
+				.col-md-6.col-lg-3
+					div
+						code.code-bg .alert-dark
+					+alert.alert-dark.mt-1
+						h5 Well done!
+						p Congratulations, you successfully read this important alert message. This example text is going to run a bit longer so that you can see how spacing within an alert works with this kind of content.
+						hr
+						p Whenever you need to, be sure to use margin utilities to keep things nice and tidy.
+
+	section.section-sm.section-transparent
+		.container-fluid
+			.row.row-30
+				.col-12
+					h2 Alert Sizes
+				.col-md-6.col-lg-3
+					div
+						code.code-bg .alert-primary.alert-sm
+					+alert( {close: true} ).alert-primary.alert-sm.mt-1
+						span.alert-icon.fa-trophy
+						span Congratulations, you successfully read this important alert message. This example text is going to run a bit longer so that you can see how spacing within an alert works with this kind of content.
+					.mt-3
+						code.code-bg .alert-primary
+					+alert( {close: true} ).alert-primary.mt-1
+						span.alert-icon.fa-trophy
+						span Congratulations, you successfully read this important alert message. This example text is going to run a bit longer so that you can see how spacing within an alert works with this kind of content.
+					.mt-3
+						code.code-bg .alert-primary.alert-lg
+					+alert( {close: true} ).alert-primary.alert-lg.mt-1
+						span.alert-icon.fa-trophy
+						span Congratulations, you successfully read this important alert message. This example text is going to run a bit longer so that you can see how spacing within an alert works with this kind of content.
+				.col-md-6.col-lg-3
+					div
+						code.code-bg .alert-secondary.alert-sm
+					+alert( {close: true} ).alert-secondary.alert-sm.mt-1
+						span.alert-icon.fa-trophy
+						span Congratulations, you successfully read this important alert message. This example text is going to run a bit longer so that you can see how spacing within an alert works with this kind of content.
+					.mt-3
+						code.code-bg .alert-secondary
+					+alert( {close: true} ).alert-secondary.mt-1
+						span.alert-icon.fa-trophy
+						span Congratulations, you successfully read this important alert message. This example text is going to run a bit longer so that you can see how spacing within an alert works with this kind of content.
+					.mt-3
+						code.code-bg .alert-secondary.alert-lg
+					+alert( {close: true} ).alert-secondary.alert-lg.mt-1
+						span.alert-icon.fa-trophy
+						span Congratulations, you successfully read this important alert message. This example text is going to run a bit longer so that you can see how spacing within an alert works with this kind of content.
+				.col-md-6.col-lg-3
+					div
+						code.code-bg .alert-success.alert-sm
+					+alert( {close: true} ).alert-success.alert-sm.mt-1
+						span.alert-icon.fa-trophy
+						span Congratulations, you successfully read this important alert message. This example text is going to run a bit longer so that you can see how spacing within an alert works with this kind of content.
+					.mt-3
+						code.code-bg .alert-success
+					+alert( {close: true} ).alert-success.mt-1
+						span.alert-icon.fa-trophy
+						span Congratulations, you successfully read this important alert message. This example text is going to run a bit longer so that you can see how spacing within an alert works with this kind of content.
+					.mt-3
+						code.code-bg .alert-success.alert-lg
+					+alert( {close: true} ).alert-success.alert-lg.mt-1
+						span.alert-icon.fa-trophy
+						span Congratulations, you successfully read this important alert message. This example text is going to run a bit longer so that you can see how spacing within an alert works with this kind of content.
+				.col-md-6.col-lg-3
+					div
+						code.code-bg .alert-info.alert-sm
+					+alert( {close: true} ).alert-info.alert-sm.mt-1
+						span.alert-icon.fa-trophy
+						span Congratulations, you successfully read this important alert message. This example text is going to run a bit longer so that you can see how spacing within an alert works with this kind of content.
+					.mt-3
+						code.code-bg .alert-info
+					+alert( {close: true} ).alert-info.mt-1
+						span.alert-icon.fa-trophy
+						span Congratulations, you successfully read this important alert message. This example text is going to run a bit longer so that you can see how spacing within an alert works with this kind of content.
+					.mt-3
+						code.code-bg .alert-info.alert-lg
+					+alert( {close: true} ).alert-info.alert-lg.mt-1
+						span.alert-icon.fa-trophy
+						span Congratulations, you successfully read this important alert message. This example text is going to run a bit longer so that you can see how spacing within an alert works with this kind of content.
+				.col-md-6.col-lg-3
+					div
+						code.code-bg .alert-warning.alert-sm
+					+alert( {close: true} ).alert-warning.alert-sm.mt-1
+						span.alert-icon.fa-trophy
+						span Congratulations, you successfully read this important alert message. This example text is going to run a bit longer so that you can see how spacing within an alert works with this kind of content.
+					.mt-3
+						code.code-bg .alert-warning
+					+alert( {close: true} ).alert-warning.mt-1
+						span.alert-icon.fa-trophy
+						span Congratulations, you successfully read this important alert message. This example text is going to run a bit longer so that you can see how spacing within an alert works with this kind of content.
+					.mt-3
+						code.code-bg .alert-warning.alert-lg
+					+alert( {close: true} ).alert-warning.alert-lg.mt-1
+						span.alert-icon.fa-trophy
+						span Congratulations, you successfully read this important alert message. This example text is going to run a bit longer so that you can see how spacing within an alert works with this kind of content.
+				.col-md-6.col-lg-3
+					div
+						code.code-bg .alert-danger.alert-sm
+					+alert( {close: true} ).alert-danger.alert-sm.mt-1
+						span.alert-icon.fa-trophy
+						span Congratulations, you successfully read this important alert message. This example text is going to run a bit longer so that you can see how spacing within an alert works with this kind of content.
+					.mt-3
+						code.code-bg .alert-danger
+					+alert( {close: true} ).alert-danger.mt-1
+						span.alert-icon.fa-trophy
+						span Congratulations, you successfully read this important alert message. This example text is going to run a bit longer so that you can see how spacing within an alert works with this kind of content.
+					.mt-3
+						code.code-bg .alert-danger.alert-lg
+					+alert( {close: true} ).alert-danger.alert-lg.mt-1
+						span.alert-icon.fa-trophy
+						span Congratulations, you successfully read this important alert message. This example text is going to run a bit longer so that you can see how spacing within an alert works with this kind of content.
+				.col-md-6.col-lg-3
+					div
+						code.code-bg .alert-light.alert-sm
+					+alert( {close: true} ).alert-light.alert-sm.mt-1
+						span.alert-icon.fa-trophy
+						span Congratulations, you successfully read this important alert message. This example text is going to run a bit longer so that you can see how spacing within an alert works with this kind of content.
+					.mt-3
+						code.code-bg .alert-light
+					+alert( {close: true} ).alert-light.mt-1
+						span.alert-icon.fa-trophy
+						span Congratulations, you successfully read this important alert message. This example text is going to run a bit longer so that you can see how spacing within an alert works with this kind of content.
+					.mt-3
+						code.code-bg .alert-light.alert-lg
+					+alert( {close: true} ).alert-light.alert-lg.mt-1
+						span.alert-icon.fa-trophy
+						span Congratulations, you successfully read this important alert message. This example text is going to run a bit longer so that you can see how spacing within an alert works with this kind of content.
+				.col-md-6.col-lg-3
+					div
+						code.code-bg .alert-dark.alert-sm
+					+alert( {close: true} ).alert-dark.alert-sm.mt-1
+						span.alert-icon.fa-trophy
+						span Congratulations, you successfully read this important alert message. This example text is going to run a bit longer so that you can see how spacing within an alert works with this kind of content.
+					.mt-3
+						code.code-bg .alert-dark
+					+alert( {close: true} ).alert-dark.mt-1
+						span.alert-icon.fa-trophy
+						span Congratulations, you successfully read this important alert message. This example text is going to run a bit longer so that you can see how spacing within an alert works with this kind of content.
+					.mt-3
+						code.code-bg .alert-dark.alert-lg
+					+alert( {close: true} ).alert-dark.alert-lg.mt-1
+						span.alert-icon.fa-trophy
+						span Congratulations, you successfully read this important alert message. This example text is going to run a bit longer so that you can see how spacing within an alert works with this kind of content.
+
+	section.section-sm.section-transparent
+		.container-fluid
+			.row.row-30
+				.col-12
+					h2 Alert Borders
+				.col-md-6.col-lg-3
+					div
+						code.code-bg .alert-primary.alert-border-left
+					+alert( {close: true} ).alert-primary.alert-border-left.mt-1
+						span.alert-icon.fa-trophy
+						span Congratulations, you successfully read this important alert message. This example text is going to run a bit longer so that you can see how spacing within an alert works with this kind of content.
+					.mt-3
+						code.code-bg .alert-primary.alert-border-right
+					+alert( {close: true} ).alert-primary.alert-border-right.mt-1
+						span.alert-icon.fa-trophy
+						span Congratulations, you successfully read this important alert message. This example text is going to run a bit longer so that you can see how spacing within an alert works with this kind of content.
+					.mt-3
+						code.code-bg .alert-primary.alert-border-top
+					+alert( {close: true} ).alert-primary.alert-border-top.mt-1
+						span.alert-icon.fa-trophy
+						span Congratulations, you successfully read this important alert message. This example text is going to run a bit longer so that you can see how spacing within an alert works with this kind of content.
+					.mt-3
+						code.code-bg .alert-primary.alert-border-bottom
+					+alert( {close: true} ).alert-primary.alert-border-bottom.mt-1
+						span.alert-icon.fa-trophy
+						span Congratulations, you successfully read this important alert message. This example text is going to run a bit longer so that you can see how spacing within an alert works with this kind of content.
+				.col-md-6.col-lg-3
+					div
+						code.code-bg .alert-secondary.alert-border-left
+					+alert( {close: true} ).alert-secondary.alert-border-left.mt-1
+						span.alert-icon.fa-trophy
+						span Congratulations, you successfully read this important alert message. This example text is going to run a bit longer so that you can see how spacing within an alert works with this kind of content.
+					.mt-3
+						code.code-bg .alert-secondary.alert-border-right
+					+alert( {close: true} ).alert-secondary.alert-border-right.mt-1
+						span.alert-icon.fa-trophy
+						span Congratulations, you successfully read this important alert message. This example text is going to run a bit longer so that you can see how spacing within an alert works with this kind of content.
+					.mt-3
+						code.code-bg .alert-secondary.alert-border-top
+					+alert( {close: true} ).alert-secondary.alert-border-top.mt-1
+						span.alert-icon.fa-trophy
+						span Congratulations, you successfully read this important alert message. This example text is going to run a bit longer so that you can see how spacing within an alert works with this kind of content.
+					.mt-3
+						code.code-bg .alert-secondary.alert-border-bottom
+					+alert( {close: true} ).alert-secondary.alert-border-bottom.mt-1
+						span.alert-icon.fa-trophy
+						span Congratulations, you successfully read this important alert message. This example text is going to run a bit longer so that you can see how spacing within an alert works with this kind of content.
+				.col-md-6.col-lg-3
+					div
+						code.code-bg .alert-success.alert-border-left
+					+alert( {close: true} ).alert-success.alert-border-left.mt-1
+						span.alert-icon.fa-trophy
+						span Congratulations, you successfully read this important alert message. This example text is going to run a bit longer so that you can see how spacing within an alert works with this kind of content.
+					.mt-3
+						code.code-bg .alert-success.alert-border-right
+					+alert( {close: true} ).alert-success.alert-border-right.mt-1
+						span.alert-icon.fa-trophy
+						span Congratulations, you successfully read this important alert message. This example text is going to run a bit longer so that you can see how spacing within an alert works with this kind of content.
+					.mt-3
+						code.code-bg .alert-success.alert-border-top
+					+alert( {close: true} ).alert-success.alert-border-top.mt-1
+						span.alert-icon.fa-trophy
+						span Congratulations, you successfully read this important alert message. This example text is going to run a bit longer so that you can see how spacing within an alert works with this kind of content.
+					.mt-3
+						code.code-bg .alert-success.alert-border-bottom
+					+alert( {close: true} ).alert-success.alert-border-bottom.mt-1
+						span.alert-icon.fa-trophy
+						span Congratulations, you successfully read this important alert message. This example text is going to run a bit longer so that you can see how spacing within an alert works with this kind of content.
+				.col-md-6.col-lg-3
+					div
+						code.code-bg .alert-info.alert-border-left
+					+alert( {close: true} ).alert-info.alert-border-left.mt-1
+						span.alert-icon.fa-trophy
+						span Congratulations, you successfully read this important alert message. This example text is going to run a bit longer so that you can see how spacing within an alert works with this kind of content.
+					.mt-3
+						code.code-bg .alert-info.alert-border-right
+					+alert( {close: true} ).alert-info.alert-border-right.mt-1
+						span.alert-icon.fa-trophy
+						span Congratulations, you successfully read this important alert message. This example text is going to run a bit longer so that you can see how spacing within an alert works with this kind of content.
+					.mt-3
+						code.code-bg .alert-info.alert-border-top
+					+alert( {close: true} ).alert-info.alert-border-top.mt-1
+						span.alert-icon.fa-trophy
+						span Congratulations, you successfully read this important alert message. This example text is going to run a bit longer so that you can see how spacing within an alert works with this kind of content.
+					.mt-3
+						code.code-bg .alert-info.alert-border-bottom
+					+alert( {close: true} ).alert-info.alert-border-bottom.mt-1
+						span.alert-icon.fa-trophy
+						span Congratulations, you successfully read this important alert message. This example text is going to run a bit longer so that you can see how spacing within an alert works with this kind of content.
+				.col-md-6.col-lg-3
+					div
+						code.code-bg .alert-warning.alert-border-left
+					+alert( {close: true} ).alert-warning.alert-border-left.mt-1
+						span.alert-icon.fa-trophy
+						span Congratulations, you successfully read this important alert message. This example text is going to run a bit longer so that you can see how spacing within an alert works with this kind of content.
+					.mt-3
+						code.code-bg .alert-warning.alert-border-right
+					+alert( {close: true} ).alert-warning.alert-border-right.mt-1
+						span.alert-icon.fa-trophy
+						span Congratulations, you successfully read this important alert message. This example text is going to run a bit longer so that you can see how spacing within an alert works with this kind of content.
+					.mt-3
+						code.code-bg .alert-warning.alert-border-top
+					+alert( {close: true} ).alert-warning.alert-border-top.mt-1
+						span.alert-icon.fa-trophy
+						span Congratulations, you successfully read this important alert message. This example text is going to run a bit longer so that you can see how spacing within an alert works with this kind of content.
+					.mt-3
+						code.code-bg .alert-warning.alert-border-bottom
+					+alert( {close: true} ).alert-warning.alert-border-bottom.mt-1
+						span.alert-icon.fa-trophy
+						span Congratulations, you successfully read this important alert message. This example text is going to run a bit longer so that you can see how spacing within an alert works with this kind of content.
+				.col-md-6.col-lg-3
+					div
+						code.code-bg .alert-danger.alert-border-left
+					+alert( {close: true} ).alert-danger.alert-border-left.mt-1
+						span.alert-icon.fa-trophy
+						span Congratulations, you successfully read this important alert message. This example text is going to run a bit longer so that you can see how spacing within an alert works with this kind of content.
+					.mt-3
+						code.code-bg .alert-danger.alert-border-right
+					+alert( {close: true} ).alert-danger.alert-border-right.mt-1
+						span.alert-icon.fa-trophy
+						span Congratulations, you successfully read this important alert message. This example text is going to run a bit longer so that you can see how spacing within an alert works with this kind of content.
+					.mt-3
+						code.code-bg .alert-danger.alert-border-top
+					+alert( {close: true} ).alert-danger.alert-border-top.mt-1
+						span.alert-icon.fa-trophy
+						span Congratulations, you successfully read this important alert message. This example text is going to run a bit longer so that you can see how spacing within an alert works with this kind of content.
+					.mt-3
+						code.code-bg .alert-danger.alert-border-bottom
+					+alert( {close: true} ).alert-danger.alert-border-bottom.mt-1
+						span.alert-icon.fa-trophy
+						span Congratulations, you successfully read this important alert message. This example text is going to run a bit longer so that you can see how spacing within an alert works with this kind of content.
+				.col-md-6.col-lg-3
+					div
+						code.code-bg .alert-light.alert-border-left
+					+alert( {close: true} ).alert-light.alert-border-left.mt-1
+						span.alert-icon.fa-trophy
+						span Congratulations, you successfully read this important alert message. This example text is going to run a bit longer so that you can see how spacing within an alert works with this kind of content.
+					.mt-3
+						code.code-bg .alert-light.alert-border-right
+					+alert( {close: true} ).alert-light.alert-border-right.mt-1
+						span.alert-icon.fa-trophy
+						span Congratulations, you successfully read this important alert message. This example text is going to run a bit longer so that you can see how spacing within an alert works with this kind of content.
+					.mt-3
+						code.code-bg .alert-light.alert-border-top
+					+alert( {close: true} ).alert-light.alert-border-top.mt-1
+						span.alert-icon.fa-trophy
+						span Congratulations, you successfully read this important alert message. This example text is going to run a bit longer so that you can see how spacing within an alert works with this kind of content.
+					.mt-3
+						code.code-bg .alert-light.alert-border-bottom
+					+alert( {close: true} ).alert-light.alert-border-bottom.mt-1
+						span.alert-icon.fa-trophy
+						span Congratulations, you successfully read this important alert message. This example text is going to run a bit longer so that you can see how spacing within an alert works with this kind of content.
+				.col-md-6.col-lg-3
+					div
+						code.code-bg .alert-dark.alert-border-left
+					+alert( {close: true} ).alert-dark.alert-border-left.mt-1
+						span.alert-icon.fa-trophy
+						span Congratulations, you successfully read this important alert message. This example text is going to run a bit longer so that you can see how spacing within an alert works with this kind of content.
+					.mt-3
+						code.code-bg .alert-dark.alert-border-right
+					+alert( {close: true} ).alert-dark.alert-border-right.mt-1
+						span.alert-icon.fa-trophy
+						span Congratulations, you successfully read this important alert message. This example text is going to run a bit longer so that you can see how spacing within an alert works with this kind of content.
+					.mt-3
+						code.code-bg .alert-dark.alert-border-top
+					+alert( {close: true} ).alert-dark.alert-border-top.mt-1
+						span.alert-icon.fa-trophy
+						span Congratulations, you successfully read this important alert message. This example text is going to run a bit longer so that you can see how spacing within an alert works with this kind of content.
+					.mt-3
+						code.code-bg .alert-dark.alert-border-bottom
+					+alert( {close: true} ).alert-dark.alert-border-bottom.mt-1
+						span.alert-icon.fa-trophy
+						span Congratulations, you successfully read this important alert message. This example text is going to run a bit longer so that you can see how spacing within an alert works with this kind of content.
+
+	section.section-sm.section-transparent
+		.container-fluid
+			.row.row-30
+				.col-12
+					h2 Alert Toggles
+				.col-md-6.col-lg-3
+					button.btn.btn-primary( data-target-alert='#alert1' ) Slide toggle
+					button.btn.btn-secondary( data-target-alert='#alert2', data-alert-fade ) Fade toggle
+					+alert#alert1.alert-primary.alert-border-top
+						span.alert-icon.fa-trophy
+						span Congratulations, you successfully read this important alert message. This example text is going to run a bit longer so that you can see how spacing within an alert works with this kind of content.
+					+alert#alert2.alert-secondary.alert-border-top
+						span.alert-icon.fa-trophy
+						span Congratulations, you successfully read this important alert message. This example text is going to run a bit longer so that you can see how spacing within an alert works with this kind of content.

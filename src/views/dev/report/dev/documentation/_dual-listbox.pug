@@ -1,0 +1,31 @@
+#dual-listbox.panel
+	.panel-header
+		h3.panel-title Dual Listbox
+	.panel-body
+		p Dual Listbox is an improved version of a simple choice field.
+		p Plugin and style sheets linking occurs when the element that matches the #[code .dual-listbox] selector is present on the page.
+
+		p Plugin operation example:
+		.mt-1
+			select.dual-listbox( multiple='', data-available-title='Available', data-selected-title='Selected' )
+				option( value='1' ) One
+				option( value='2' ) Two
+				option( value='3' ) Three
+				option( value='4' ) Four
+				option( value='5' ) Five
+				option( value='6' ) Six
+				option( value='7' ) Seven
+				option( value='8' ) Eight
+				option( value='9' ) Nine
+				option( value='10' ) Ten
+
+		p Markup example:
+		pre.highlight.html.scroller.scroller-horizontal
+			= '<select class="dual-listbox" multiple="" data-available-title="Available" data-selected-title="Selected">\n'
+			= '  <option value="1">One</option>\n'
+			= '  <option value="2">Two</option>\n'
+			= '  ...\n'
+			= '</select>'
+
+		p #[code data-available-title] and #[code data-selected-title] attributes are used for modifying the headings of available and selected items.
+		p All available parameters of the plugin can be viewed in its #[a( href="https://github.com/maykinmedia/dual-listbox#dual-listbox" ) GitHub repository].

@@ -1,0 +1,145 @@
+extends ../components/base/_skeleton
+include ../components/rd-navbar/_rd-navbar
+include ../components/breadcrumbs/_breadcrumbs
+
+block variables
+	- pageName = 'FAQ';
+
+block page
+	header.section.page-header
+		+rd-navbar
+
+	section.topbar
+		+breadcrumbs( breadcrumbs )
+
+	section.section-md
+		.container-fluid
+			.row.row-30
+				.col-md-8
+					.bg-white
+						.px-3.py-4.px-md-4.py-md-5.border-top
+							h3 Need support? We're here to help!
+							.input-group.form-group
+								.input-group-prepend
+									span#basic-addon1.input-group-text.fa-search
+								input.form-control( type='text', placeholder='Username', aria-label='Username', aria-describedby='basic-addon1' )
+
+						.border-top.border-bottom( style='background-image: url(images/img-03-657x900.jpg)' )
+							.row.align-items-center
+								.col-md-4.text-center
+									.py-4.fa-slideshare.text-warning.display-2
+								.col-md-8.border-md-left
+									.px-3.pb-4.py-md-4
+										h4 Recent Questions
+										ul.list-unstyled.list-divided.list-marked-2.mt-2.text-primary
+											li: a( href='#' ) How do I recover or change my password?
+											li: a( href='#' ) How do I track a subdomain?
+											li: a( href='#' ) Can I use my data outside of Zemez?
+											li: a( href='#' ) What does it mean when my Data doesn't ...
+
+						.px-3.py-4.px-md-4.py-md-5
+							h4 Recent Questions
+							#accordionFAQ1.accordion
+								.panel
+									#hfaq1.panel-header
+										.group-5.d-flex.flex-wrap.align-items-center.justify-content-between
+											a.collapse-link.h3( href='#coll-faq1', data-toggle='collapse', data-target='#coll-faq1', aria-expanded='true', aria-controls='coll-faq1' )
+												| Will you be providing continuous support and adding new features?
+									#coll-faq1.collapse.show( aria-labelledby='hfaq1', data-parent='#accordionFAQ1' )
+										.panel-body Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse.
+								.panel
+									h3#heading2.panel-header
+										a.collapse-link( href='#coll-faq2', data-toggle='collapse', data-target='#coll-faq2', aria-expanded='false', aria-controls='coll-faq2' )
+											| How did you organize the LESS Structure in this Theme?
+									#coll-faq2.collapse( aria-labelledby='heading2', data-parent='#accordionFAQ1' )
+										.panel-body Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid.
+								.panel
+									h3#heading3.panel-header
+										a.collapse-link( href='#coll-faq3', data-toggle='collapse', data-target='#coll-faq3', aria-expanded='false', aria-controls='coll-faq3' )
+											| How do I create a media object with a responsive image?
+									#coll-faq3.collapse( aria-labelledby='heading3', data-parent='#accordionFAQ1' )
+										.panel-body Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed.
+
+						.border-top.border-bottom( style='background-image: url(images/img-03-657x900.jpg)' )
+							.row
+								.col-md-6
+									.px-3.py-4.pl-md-4.pr-md-0
+										h4 Recent Questions
+										ul.list-unstyled.list-divided.list-marked-2.mt-2.text-info
+											li: a( href='#' ) How do I recover or change my password?
+											li: a( href='#' ) How do I track a subdomain?
+											li: a( href='#' ) Can I use my data outside of Zemez.io?
+											li: a( href='#' ) What does it mean when my Data doesn't ...
+								.col-md-6.border-md-left
+									.px-3.pt-md-4.pb-4.pr-md-4.pl-md-0
+										h4 Recent Questions
+										ul.list-unstyled.list-divided.list-marked-3.mt-2.text-primary
+											li: a( href='#' ) How do I recover or change my password?
+											li: a( href='#' ) How do I track a subdomain?
+											li: a( href='#' ) Can I use my data outside of Zemez.io?
+											li: a( href='#' ) What does it mean when my Data doesn't ...
+
+						.px-3.py-4.px-md-4.py-md-5
+							h4 Recent Questions
+							#accordionFAQ2.accordion
+								.panel
+									#hfaq2-1.panel-header
+										.group-5.d-flex.flex-wrap.align-items-center.justify-content-between
+											a.collapse-link.h3( href='#coll-faq-2-1', data-toggle='collapse', data-target='#coll-faq-2-1', aria-expanded='true', aria-controls='coll-faq-2-1' )
+												| Will you be providing continuous support and adding new features?
+									#coll-faq-2-1.collapse.show( aria-labelledby='hfaq2-1', data-parent='#accordionFAQ2' )
+										.panel-body Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed.
+								.panel
+									h3#hfaq2-2.panel-header
+										a.collapse-link( href='#coll-faq-2-2', data-toggle='collapse', data-target='#coll-faq-2-2', aria-expanded='false', aria-controls='coll-faq-2-2' )
+											| How did you organize the LESS Structure in this Theme?
+									#coll-faq-2-2.collapse( aria-labelledby='hfaq2-2', data-parent='#accordionFAQ2' )
+										.panel-body Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid.
+								.panel
+									h3#hfaq2-3.panel-header
+										a.collapse-link( href='#coll-faq-2-3', data-toggle='collapse', data-target='#coll-faq-2-3', aria-expanded='false', aria-controls='coll-faq-2-3' )
+											| How do I create a media object with a responsive image?
+									#coll-faq-2-3.collapse( aria-labelledby='hfaq2-3', data-parent='#accordionFAQ2' )
+										.panel-body Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse.
+
+				.col-md-4
+					.row.row-10
+						.col-lg-12
+							button.btn.btn-block.btn-primary Open ticket
+							button.btn.btn-block.btn-info Contact us
+							.panel
+								.panel-header
+									.group-5.d-flex.flex-wrap.align-items-center.justify-content-between
+										h4.panel-title
+											span.panel-icon.fa-life-ring
+											= ' '
+											span Your Latest Tickets
+								.panel-body
+									ul.list-unstyled.list-divided
+										li
+											.d-block Product: #[span.font-weight-bold Sansa Micro]
+											.d-block Posted: 1 week ago
+											.d-block Status: #[span.font-weight-bold.text-primary Open]
+										li
+											.d-block Product: #[span.font-weight-bold Quick Keyboard]
+											.d-block Posted: 1 week ago
+											.d-block Status: #[span.font-weight-bold.text-primary Open]
+								.panel-body
+									ul.list-unstyled.list-divided
+										li
+											.d-block Product: #[span.font-weight-bold Wireless Headset]
+											.d-block Posted: 1 week ago
+											.d-block Status: #[span.font-weight-bold.text-danger Closed]
+						.col-lg-12
+							.panel
+								.panel-header
+									.group-5.d-flex.flex-wrap.align-items-center.justify-content-between
+										h4.panel-title
+											span.panel-icon.fa-life-ring
+											= ' '
+											span Resources
+								.panel-body.p-0
+									.list-group
+										a.list-group-item.list-group-item-action.rounded-0.active( href='#' ) #[span.fa-envelope]&nbsp; Email us
+										a.list-group-item.list-group-item-action.rounded-0( href='#' ) #[span.fa-phone]&nbsp; Request a call
+										a.list-group-item.list-group-item-action.rounded-0( href='#' ) #[span.fa-comments-o]&nbsp; Ask the community

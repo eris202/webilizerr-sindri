@@ -1,0 +1,286 @@
+extends ../components/base/_skeleton
+include  ../components/dropdown/_dropdown
+include ../components/rd-navbar/_rd-navbar
+include ../components/breadcrumbs/_breadcrumbs
+
+block variables
+	- pageName = 'Search results'
+
+block page
+	header.section.page-header
+		+rd-navbar
+
+	section.topbar
+		+breadcrumbs( breadcrumbs )
+
+	section
+		.row.no-gutters
+			.col-md-4.col-lg-3.col-xxl-2.d-flex.align-items-stretch
+				aside.search-aside.bg-white.w-100
+					.media.group-10
+						.media-item
+							img( src='images/users/user-03-50x50.jpg', width='50', height='50', alt='' )
+						.media-body
+							h4
+								| Tom Jorgensen
+								= ' - '
+								small.text-success Online
+							.small.mt-1
+								a( href='#' ) Incognito mode
+								= ' - '
+								a( href='#' ) Sign out
+
+					hr.divider.divider-bold.divider-primary
+
+					.list-block-container
+						h5.list-block-title Your privacy settings
+						.list-block
+							.list-block-item.d-flex.justify-content-between
+								span Visibility:
+								span.text-warning Online
+
+							.list-block-item.d-flex.justify-content-between
+								span Social Sharing:
+								span.text-warning Auto
+
+							.list-block-item.d-flex.justify-content-between
+								span Javascript:
+								span.text-success Allowed
+
+							.list-block-item.d-flex.justify-content-between
+								span Cookies:
+								span.text-danger Disabled
+
+					.list-block-container
+						h5.list-block-title Your Favorites
+						ul.list-block.list-marked.text-primary
+							li.list-block-item.fa-star-o: a( href='#' ) www.demolink.org
+							li.list-block-item.fa-star-o: a( href='#' ) www.yahoo.com/money
+							li.list-block-item.fa-star-o: a( href='#' ) www.cnn.com/news
+
+					.list-block-container
+						h5.list-block-title Recent Searches...
+						ol.list-block.list-ordered.text-primary
+							li.list-block-item: a( href='#' ) 'Gaming Computer Deals'
+							li.list-block-item: a( href='#' ) 'Sony Entertainment Stock'
+							li.list-block-item: a( href='#' ) 'Apple Smartwatch Release'
+							li.list-block-item: a( href='#' ) 'Facebook Oculus Rift'
+
+			.col-md-8.col-lg-9.col-xxl-10.p-4
+				.panel.panel-nav
+					.panel-header.d-flex.flex-wrap.align-items-center.justify-content-between
+						h4.panel-title Returned 13,628 results (0.15 seconds)
+						ul.nav.nav-tabs.scroller.scroller-horizontal( role='tablist' )
+							li.nav-item: a.nav-link.active( data-toggle='tab', href='#panelTab1', role='tab', aria-controls='panelTab1', aria-selected='true'  ) Classic search
+							li.nav-item: a.nav-link( data-toggle='tab', href='#panelTab2', role='tab', aria-controls='panelTab2', aria-selected='false' ) User search
+					.panel-menu
+						.input-group.form-group
+							.input-group-prepend
+								span#basic-addon1.input-group-text.fa-search
+							input.form-control( type='text', placeholder='Username', aria-label='Username', aria-describedby='basic-addon1' )
+					.panel-body
+						.tab-content
+							// Tab content 1
+							#panelTab1.tab-pane.fade.show.active( role='tabpanel' )
+								h3 Displaying #[span.text-primary 872] results for 'Admin Themes'
+								.search-result
+									h4.search-result-title: a( href='#' ) Zemez.io - A Responsive Admin UI Framework Toolkit
+									.search-result-meta
+										a( href='#' ) http://www.zemez.io
+										= ' - '
+										a( href='#' ) 45 ratings
+										= ' - '
+										.d-inline-block.icon-container #[span.text-warning.fa-star-o] #[span.text-warning.fa-star-o] #[span.text-warning.fa-star-o] #[span.fa-star-o] #[span.fa-star-o]
+										= ' - '
+										a( href='#' ) $22.99
+									p Lorem ipsum dolor sit amet, #[span.search-match consectetur adipisicing] elit. Sequi, obcaecati consequuntur aspernatur neque voluptatum mollitia eaque tenetur ea tempora itaque dolore incidunt explicabo voluptate quaerat at reprehenderit iste iusto asperiores?
+									.search-result-meta
+										a( href='#' ) Home
+										= ' - '
+										a( href='#' ) Our Products
+										= ' - '
+										a( href='#' ) About Us
+										= ' - '
+										a( href='#' ) Customer Support
+
+								.search-result
+									h4.search-result-title: a( href='#' ) Zemez.io - A Responsive Admin UI Framework Toolkit
+									.search-result-meta
+										a( href='#' ) http://www.zemez.io
+										= ' - '
+										a( href='#' ) 45 ratings
+										= ' - '
+										.d-inline-block.icon-container #[span.text-warning.fa-star-o] #[span.text-warning.fa-star-o] #[span.text-warning.fa-star-o] #[span.fa-star-o] #[span.fa-star-o]
+										= ' - '
+										a( href='#' ) $22.99
+									p Lorem ipsum dolor sit amet, elit. Sequi, obcaecati consequuntur aspernatur neque voluptatum mollitia eaque tenetur ea tempora #[span.search-match consectetur adipisicing] itaque dolore incidunt explicabo voluptate quaerat at reprehenderit iste iusto asperiores?
+									.search-result-meta
+										a( href='#' ) Home
+										= ' - '
+										a( href='#' ) Our Products
+										= ' - '
+										a( href='#' ) About Us
+										= ' - '
+										a( href='#' ) Customer Support
+
+								.search-result
+									h4.search-result-title: a( href='#' ) Zemez.io - A Responsive Admin UI Framework Toolkit
+									.search-result-meta
+										a( href='#' ) http://www.zemez.io
+										= ' - '
+										a( href='#' ) 45 ratings
+										= ' - '
+										.d-inline-block.icon-container #[span.text-warning.fa-star-o] #[span.text-warning.fa-star-o] #[span.text-warning.fa-star-o] #[span.fa-star-o] #[span.fa-star-o]
+										= ' - '
+										a( href='#' ) $22.99
+									p Lorem ipsum dolor sit amet, elit. Sequi, obcaecati consequuntur aspernatur neque voluptatum mollitia #[span.search-match consectetur adipisicing] eaque tenetur ea tempora itaque dolore incidunt explicabo voluptate quaerat at reprehenderit iste iusto asperiores?
+									.search-result-meta
+										a( href='#' ) Home
+										= ' - '
+										a( href='#' ) Our Products
+										= ' - '
+										a( href='#' ) About Us
+										= ' - '
+										a( href='#' ) Customer Support
+
+							// Tab content 2
+							#panelTab2.tab-pane.fade( role='tabpanel' )
+								.table-responsive.scroller.scroller-horizontal
+									table.table.table-vertical-align
+										thead
+											tr
+												th( scope='col' ) Avatar
+												th( scope='col' ) Name
+												th( scope='col' ) Email
+												th( scope='col' ) Registered
+												th( scope='col' ) Purchases
+												th( scope='col' ) Total Spent
+												th.text-right( scope='col' ) Status
+										tbody
+											tr
+												th( scope='row' ): img( src='images/users/user-01-50x50.jpg', width='50', height='50', alt='' )
+												td Dave Robert
+												td dave@company.com
+												td 12/03/2014
+												td 222
+												td $3,600
+												td.text-right
+													+button-dropdown({
+														buttonText: 'Active',
+														list:       [
+															{ text: 'Edit' },
+															{ text: 'Contact' },
+															{ divider: true },
+															{ text: 'Active' },
+															{ text: 'Suspent' },
+															{ text: 'Remove' }
+														]
+													}).btn-success.btn-sm
+											tr
+												th( scope='row' ): img( src='images/users/user-02-50x50.jpg', width='50', height='50', alt='' )
+												td Sara Marshall
+												td sara@company.com
+												td 12/03/2014
+												td 16
+												td $4,200
+												td.text-right
+													+button-dropdown({
+														buttonText: 'In-Active',
+														list:       [
+															{ text: 'Edit' },
+															{ text: 'Contact' },
+															{ divider: true },
+															{ text: 'Active' },
+															{ text: 'Suspent' },
+															{ text: 'Remove' }
+														]
+													}).btn-warning.btn-sm
+											tr
+												th( scope='row' ): img( src='images/users/user-03-50x50.jpg', width='50', height='50', alt='' )
+												td Larry Kingster
+												td larry@company.com
+												td 12/03/2014
+												td 46
+												td $16,200
+												td.text-right
+													+button-dropdown({
+														buttonText: 'In-Active',
+														list:       [
+															{ text: 'Edit' },
+															{ text: 'Contact' },
+															{ divider: true },
+															{ text: 'Active' },
+															{ text: 'Suspent' },
+															{ text: 'Remove' }
+														]
+													}).btn-warning.btn-sm
+											tr
+												th( scope='row' ): img( src='images/users/user-04-50x50.jpg', width='50', height='50', alt='' )
+												td Emily Roundwheel
+												td emily@company.com
+												td 12/03/2014
+												td 06
+												td $1,400
+												td.text-right
+													+button-dropdown({
+														buttonText: 'In-Active',
+														list:       [
+															{ text: 'Edit' },
+															{ text: 'Contact' },
+															{ divider: true },
+															{ text: 'Active' },
+															{ text: 'Suspent' },
+															{ text: 'Remove' }
+														]
+													}).btn-warning.btn-sm
+											tr
+												th( scope='row' ): img( src='images/users/user-03-50x50.jpg', width='50', height='50', alt='' )
+												td Larry Kingster
+												td larry@company.com
+												td 12/03/2014
+												td 46
+												td $16,200
+												td.text-right
+													+button-dropdown({
+														buttonText: 'In-Active',
+														list:       [
+															{ text: 'Edit' },
+															{ text: 'Contact' },
+															{ divider: true },
+															{ text: 'Active' },
+															{ text: 'Suspent' },
+															{ text: 'Remove' }
+														]
+													}).btn-warning.btn-sm
+											tr
+												th( scope='row' ): img( src='images/users/user-03-50x50.jpg', width='50', height='50', alt='' )
+												td Larry Kingster
+												td larry@company.com
+												td 12/03/2014
+												td 46
+												td $16,200
+												td.text-right
+													+button-dropdown({
+														buttonText: 'In-Active',
+														list:       [
+															{ text: 'Edit' },
+															{ text: 'Contact' },
+															{ divider: true },
+															{ text: 'Active' },
+															{ text: 'Suspent' },
+															{ text: 'Remove' }
+														]
+													}).btn-warning.btn-sm
+					.panel-footer
+						nav( aria-label='Page navigation example' )
+							ul.pagination.justify-content-end
+								li.page-item
+									a.page-link( href='#' ) Previous
+								li.page-item.active
+									a.page-link( href='#' ) 1
+								li.page-item
+									a.page-link( href='#' ) 2
+								li.page-item
+									a.page-link( href='#' ) 3
+								li.page-item
+									a.page-link( href='#' ) Next

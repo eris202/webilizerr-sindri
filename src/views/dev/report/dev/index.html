@@ -1,0 +1,2730 @@
+<!DOCTYPE html>
+<html class="rd-navbar-sidebar-active page-small-footer" lang="en">
+  <head>
+    <title>Dashboard</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
+    <meta https-equiv="X-UA-Compatible" content="IE=edge">
+    <meta property="og:title" content="Template Monster Admin Template">
+    <meta property="og:description" content="brevis, barbatus clabulares aliquando convertam de dexter, peritus capio. devatio clemens habitio est.">
+    <meta property="og:image" content="http://digipunk.netii.net/images/radar.gif">
+    <meta property="og:url" content="http://digipunk.netii.net">
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="components/base/base.css">
+    <script src="components/base/script.js"></script>
+  </head>
+  <body>
+    <div class="page">
+      <header class="section page-header">
+        <!--RD Navbar-->
+        <div class="rd-navbar-wrap">
+          <nav class="rd-navbar">
+            <div class="rd-navbar-panel">
+              <div class="rd-navbar-panel-inner">
+                <div class="rd-navbar-panel-cell rd-navbar-panel-spacer">
+                  <div class="navbar-search" id="navbar-search">
+                    <input class="navbar-search-input" type="text" placeholder="Search..."/>
+                  </div>
+                </div>
+                <div class="rd-navbar-panel-cell navbar-toggle-search-cell">
+                  <button class="navbar-toggle navbar-toggle-search mdi-magnify" data-multi-switch='{"targets":".rd-navbar-panel","scope":"#navbar-search","isolate":"[data-multi-switch]"}' title="Search"></button>
+                </div>
+                <div class="rd-navbar-panel-cell">
+                  <button class="navbar-toggle mdi-content-paste" data-sidebar-switch="data-sidebar-switch" data-multi-switch='{"targets":".sidebar","scope":".sidebar, [data-sidebar-switch]","isolate":"[data-multi-switch]:not([data-sidebar-switch])"}' title="Sidebar"></button>
+                </div>
+                <div class="rd-navbar-panel-cell">
+                  <button class="navbar-toggle mdi-email-outline" data-multi-switch='{"targets":"#subpanel-chat","scope":"#subpanel-chat","isolate":"[data-multi-switch]"}' title="Chat"></button>
+                  <div class="rd-navbar-subpanel" id="subpanel-chat">
+                    <div class="panel">
+                      <div class="panel-header">
+                        <h4 class="panel-title"><span class="panel-icon fa-pencil"></span><span>Chat</span></h4>
+                      </div>
+                      <div class="panel-body">
+                        <div class="scroller scroller-vertical" style="max-height: 400px;">
+                          <div class="media media-cloud group-15">
+                            <div class="media-item"><img class="rounded-circle" src="images/users/user-02-50x50.jpg" width="50" height="50" alt=""/></div>
+                            <div class="media-body">
+                              <h4 class="media-heading offline">Sara Marshall <small>- 12:30am</small>
+                              </h4>
+                              <div class="media-text">Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin.</div>
+                            </div>
+                          </div>
+                          <div class="media media-cloud flex-row-reverse group-15">
+                            <div class="media-item"><img class="rounded-circle" src="images/users/user-03-50x50.jpg" width="50" height="50" alt=""/></div>
+                            <div class="media-body media-body-right-caret">
+                              <h4 class="media-heading online">Tom Jorgensen <small>- 12:30am</small>
+                              </h4>
+                              <div class="media-text">Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin.</div>
+                            </div>
+                          </div>
+                          <div class="media media-cloud group-15">
+                            <div class="media-item"><img class="rounded-circle" src="images/users/user-02-50x50.jpg" width="50" height="50" alt=""/></div>
+                            <div class="media-body">
+                              <h4 class="media-heading offline">Sara Marshall <small>- 12:30am</small>
+                              </h4>
+                              <div class="media-text">Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin.</div>
+                            </div>
+                          </div>
+                          <div class="media media-cloud flex-row-reverse group-15">
+                            <div class="media-item"><img class="rounded-circle" src="images/users/user-03-50x50.jpg" width="50" height="50" alt=""/></div>
+                            <div class="media-body media-body-right-caret">
+                              <h4 class="media-heading online">Tom Jorgensen <small>- 12:30am</small>
+                              </h4>
+                              <div class="media-text">Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin.</div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="panel-footer">
+                        <div class="input-group form-group">
+                          <input class="form-control" type="text" placeholder="Enter your message here"/>
+                          <div class="input-group-append">
+                            <button class="btn btn-primary">Send</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="rd-navbar-panel-cell">
+                  <button class="navbar-toggle mdi-bell-outline" data-multi-switch='{"targets":"#subpanel-notifications","scope":"#subpanel-notifications","isolate":"[data-multi-switch]"}' title="Notifications"></button>
+                  <div class="navbar-badge badge badge-warning badge-pill">3</div>
+                  <div class="rd-navbar-subpanel" id="subpanel-notifications">
+                    <div class="panel">
+                      <div class="panel-header">
+                        <h4 class="panel-title"><span class="panel-icon fa-bell"></span><span>Notifications</span></h4>
+                      </div>
+                      <div class="panel-body p-2 scroller scroller-vertical">
+                        <div class="group-5">
+                                      <div class="alert alert-dismissible alert-primary alert-darker alert-sm" role="alert"><span class="alert-icon fa-telegram"></span><span>Message</span>
+                                        <button class="close" type="button" data-dismiss="alert" aria-label="Close"><span class="fa-close" aria-hidden="true"></span></button>
+                                      </div>
+                                      <div class="alert alert-dismissible alert-secondary alert-sm" role="alert"><span class="alert-icon fa-warning"></span><span>Warning</span>
+                                        <button class="close" type="button" data-dismiss="alert" aria-label="Close"><span class="fa-close" aria-hidden="true"></span></button>
+                                      </div>
+                                      <div class="alert alert-dismissible alert-danger alert-sm" role="alert"><span class="alert-icon fa-remove"></span><span>Error</span>
+                                        <button class="close" type="button" data-dismiss="alert" aria-label="Close"><span class="fa-close" aria-hidden="true"></span></button>
+                                      </div>
+                                      <div class="alert alert-dismissible alert-success alert-sm" role="alert"><span class="alert-icon fa-thumbs-up"></span><span>Success</span>
+                                        <button class="close" type="button" data-dismiss="alert" aria-label="Close"><span class="fa-close" aria-hidden="true"></span></button>
+                                      </div>
+                        </div>
+                      </div>
+                      <div class="panel-footer p-2"><a class="btn btn-primary btn-sm" href="alerts.html">See more</a></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="rd-navbar-panel-cell">
+                  <div class="navbar-toggle navbar-user" data-multi-switch='{"targets":"#subpanel-user-menu","scope":"#subpanel-user-menu","isolate":"[data-multi-switch]"}' title="User Menu"><img src="images/users/user-17-60x60.jpg" alt=""/></div>
+                  <div class="rd-navbar-subpanel" id="subpanel-user-menu">
+                    <div class="panel">
+                      <div class="panel-header">
+                        <h4 class="panel-title">John Doe</h4>
+                      </div>
+                      <div class="panel-body p-0 scroller scroller-vertical">
+                        <div class="list-group list-group-flush"><a class="list-group-item rounded-0" href="#">
+                            <div class="media align-items-center">
+                              <div class="pr-2"><span class="fa-user"></span></div>
+                              <div class="media-body">
+                                <h5>My Profile</h5>
+                              </div>
+                            </div></a><a class="list-group-item rounded-0" href="#">
+                            <div class="media align-items-center">
+                              <div class="pr-2"><span class="fa-envelope-o"></span></div>
+                              <div class="media-body">
+                                <h5>My Messages</h5>
+                              </div>
+                              <div class="badge badge-warning">12</div>
+                            </div></a><a class="list-group-item rounded-0" href="#">
+                            <div class="media align-items-center">
+                              <div class="pr-2"><span class="fa-rocket"></span></div>
+                              <div class="media-body">
+                                <h5>My Activities</h5>
+                              </div>
+                            </div></a><a class="list-group-item rounded-0" href="#">
+                            <div class="media align-items-center">
+                              <div class="pr-2"><span class="fa-desktop"></span></div>
+                              <div class="media-body">
+                                <h5>My Tasks</h5>
+                              </div>
+                              <div class="badge badge-success">05</div>
+                            </div></a><a class="list-group-item rounded-0" href="#">
+                            <div class="media align-items-center">
+                              <div class="pr-2"><span class="fa-line-chart"></span></div>
+                              <div class="media-body">
+                                <h5>Billing</h5>
+                              </div>
+                            </div></a></div>
+                      </div>
+                      <div class="panel-footer p-2">
+                        <div class="d-flex align-items-center justify-content-between"><a class="btn btn-sm btn-danger" href="#">Sign Out</a><a class="btn btn-sm btn-success" href="#">Upgrade Plan</a></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="rd-navbar-sidebar-wrap">
+              <div class="rd-navbar-sidebar-panel">
+                <div class="rd-navbar-logo"><a class="logo-link" href="index.html"><img class="logo-default" src="images/logo-white-178x66.png" alt="Greendesk"/><img class="logo-compact" src="images/logo-white-compact-177x20.png" alt="Greendesk"/></a></div>
+                <button class="navbar-toggle-sidebar mdi-menu" data-navigation-switch="data-navigation-switch"></button>
+              </div>
+              <div class="rd-navbar-sidebar scroller scroller-vertical">
+                <ul class="rd-navbar-nav">
+                  <li class="rd-navbar-nav-item active"><a class="rd-navbar-link" href="index.html"><span class="rd-navbar-icon mdi-view-dashboard"></span><span class="rd-navbar-text">Dashboard</span></a>
+                  </li>
+                  <li class="rd-navbar-nav-item"><a class="rd-navbar-link" href="calendar.html"><span class="rd-navbar-icon mdi-calendar-text"></span><span class="rd-navbar-text">Calendar</span></a>
+                  </li>
+                  <li class="rd-navbar-nav-item"><a class="rd-navbar-link" href="documentation.html"><span class="rd-navbar-icon mdi-file-outline"></span><span class="rd-navbar-text">Documentation</span></a>
+                    <ul class="rd-navbar-dropdown">
+                      <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="documentation.html#bootstrap-components"><span class="rd-navbar-text">Bootstrap Components</span></a>
+                        <ul class="rd-navbar-dropdown">
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="documentation.html#button"><span class="rd-navbar-text">Button</span></a>
+                          </li>
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="documentation.html#badge"><span class="rd-navbar-text">Badge</span></a>
+                          </li>
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="documentation.html#code"><span class="rd-navbar-text">Code</span></a>
+                          </li>
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="documentation.html#media"><span class="rd-navbar-text">Media Object</span></a>
+                          </li>
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="documentation.html#card"><span class="rd-navbar-text">Card</span></a>
+                          </li>
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="documentation.html#table"><span class="rd-navbar-text">Table</span></a>
+                          </li>
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="documentation.html#progress"><span class="rd-navbar-text">Progress</span></a>
+                          </li>
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="documentation.html#close"><span class="rd-navbar-text">Close</span></a>
+                          </li>
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="documentation.html#pagination"><span class="rd-navbar-text">Pagination</span></a>
+                          </li>
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="documentation.html#alert"><span class="rd-navbar-text">Alert</span></a>
+                          </li>
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="documentation.html#dropdown"><span class="rd-navbar-text">Dropdown</span></a>
+                          </li>
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="documentation.html#nav"><span class="rd-navbar-text">Nav</span></a>
+                          </li>
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="documentation.html#tooltip"><span class="rd-navbar-text">Tooltip</span></a>
+                          </li>
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="documentation.html#modal"><span class="rd-navbar-text">Modal</span></a>
+                          </li>
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="documentation.html#jumbotron"><span class="rd-navbar-text">Jumbotron</span></a>
+                          </li>
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="documentation.html#input"><span class="rd-navbar-text">Input</span></a>
+                          </li>
+                        </ul>
+                      </li>
+                      <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="documentation.html#plugins"><span class="rd-navbar-text">Plugins</span></a>
+                        <ul class="rd-navbar-dropdown">
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="documentation.html#Nprogress"><span class="rd-navbar-text">Nprogress</span></a>
+                          </li>
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="documentation.html#highlight"><span class="rd-navbar-text">Highlight.js</span></a>
+                          </li>
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="documentation.html#dual-listbox"><span class="rd-navbar-text">Dual Listbox</span></a>
+                          </li>
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="documentation.html#maxlength"><span class="rd-navbar-text">Bootstrap Maxlength</span></a>
+                          </li>
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="documentation.html#typeahead"><span class="rd-navbar-text">Typeahead.js</span></a>
+                          </li>
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="documentation.html#select2"><span class="rd-navbar-text">Select2</span></a>
+                          </li>
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="documentation.html#spinner"><span class="rd-navbar-text">jQuery UI Spinner</span></a>
+                          </li>
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="documentation.html#time-spinner"><span class="rd-navbar-text">Time Spinner</span></a>
+                          </li>
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="documentation.html#daterangepiker"><span class="rd-navbar-text">Date Range Picker</span></a>
+                          </li>
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="documentation.html#datetimepicker"><span class="rd-navbar-text">Bootstrap Date/Timepicker</span></a>
+                          </li>
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="documentation.html#tag-manager"><span class="rd-navbar-text">Tags Manager</span></a>
+                          </li>
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="documentation.html#colorpicker"><span class="rd-navbar-text">Bootstrap Colorpicker</span></a>
+                          </li>
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="documentation.html#maskedinput"><span class="rd-navbar-text">jQuery Masked Input</span></a>
+                          </li>
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="documentation.html#ckeditor"><span class="rd-navbar-text">CKeditor</span></a>
+                          </li>
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="documentation.html#summernote"><span class="rd-navbar-text">Summernote</span></a>
+                          </li>
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="documentation.html#markdown"><span class="rd-navbar-text">Markdown.js</span></a>
+                          </li>
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="documentation.html#nestable"><span class="rd-navbar-text">Nestable jQuery Plugin</span></a>
+                          </li>
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="documentation.html#jstree"><span class="rd-navbar-text">jsTree</span></a>
+                          </li>
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="documentation.html#cropper"><span class="rd-navbar-text">Cropper.js</span></a>
+                          </li>
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="documentation.html#fileupload"><span class="rd-navbar-text">Tower File Input</span></a>
+                          </li>
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="documentation.html#easyzoom"><span class="rd-navbar-text">EasyZoom</span></a>
+                          </li>
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="documentation.html#xzoom"><span class="rd-navbar-text">xZoom</span></a>
+                          </li>
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="documentation.html#slick"><span class="rd-navbar-text">Slick Slider</span></a>
+                          </li>
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="documentation.html#dropzone"><span class="rd-navbar-text">DropzoneJS</span></a>
+                          </li>
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="documentation.html#pnotify"><span class="rd-navbar-text">PNotify</span></a>
+                          </li>
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="documentation.html#driver"><span class="rd-navbar-text">Driver.js</span></a>
+                          </li>
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="documentation.html#countdown"><span class="rd-navbar-text">αCountdown</span></a>
+                          </li>
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="documentation.html#progress-circle"><span class="rd-navbar-text">αCounter &amp; αProgressCircle</span></a>
+                          </li>
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="documentation.html#particles"><span class="rd-navbar-text">Particles.js</span></a>
+                          </li>
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="documentation.html#lightgallery"><span class="rd-navbar-text">Lightgallery</span></a>
+                          </li>
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="documentation.html#jvectormap"><span class="rd-navbar-text">jVectorMap</span></a>
+                          </li>
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="documentation.html#flotchart"><span class="rd-navbar-text">Flot</span></a>
+                          </li>
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="documentation.html#rd-navbar"><span class="rd-navbar-text">RD Navbar</span></a>
+                          </li>
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="documentation.html#highcharts"><span class="rd-navbar-text">Highcharts</span></a>
+                          </li>
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="documentation.html#multiswitch"><span class="rd-navbar-text">MultiSwitch</span></a>
+                          </li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="rd-navbar-nav-item"><a class="rd-navbar-link" href="#"><span class="rd-navbar-icon mdi-plus-circle-multiple-outline"></span><span class="rd-navbar-text">Admin plugins</span></a>
+                    <ul class="rd-navbar-dropdown">
+                      <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="admin-panels.html"><span class="rd-navbar-text">Admin panels</span></a>
+                      </li>
+                      <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="admin-modals.html"><span class="rd-navbar-text">Admin modals</span></a>
+                      </li>
+                      <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="admin-dock.html"><span class="rd-navbar-text">Admin Dock</span></a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="rd-navbar-nav-item"><a class="rd-navbar-link" href="#"><span class="rd-navbar-icon mdi-border-all"></span><span class="rd-navbar-text">Admin layouts</span></a>
+                    <ul class="rd-navbar-dropdown">
+                      <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="navbar.html"><span class="rd-navbar-text">Navbar</span></a>
+                      </li>
+                      <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="#"><span class="rd-navbar-text">Topbar</span></a>
+                        <ul class="rd-navbar-dropdown">
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="breadcrumbs.html"><span class="rd-navbar-text">Breadcrumbs</span></a>
+                          </li>
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="topbar-menu.html"><span class="rd-navbar-text">Topbar Menu</span></a>
+                          </li>
+                        </ul>
+                      </li>
+                      <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="#"><span class="rd-navbar-text">Content Body</span></a>
+                        <ul class="rd-navbar-dropdown">
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="blank-starter.html"><span class="rd-navbar-text">Blank Starter</span></a>
+                          </li>
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="jumbotron.html"><span class="rd-navbar-text">Jumbotron</span></a>
+                          </li>
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="content-tabs.html"><span class="rd-navbar-text">Content Tabs</span></a>
+                          </li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="rd-navbar-nav-item"><a class="rd-navbar-link" href="#"><span class="rd-navbar-icon mdi-information-outline"></span><span class="rd-navbar-text">Information Panels</span></a>
+                    <ul class="rd-navbar-dropdown">
+                      <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="tile-widgets.html"><span class="rd-navbar-text">Tile Widgets</span></a>
+                      </li>
+                      <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="panel-widgets.html"><span class="rd-navbar-text">Panel Widgets</span></a>
+                      </li>
+                      <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="admin-widgets.html"><span class="rd-navbar-text">Admin Widgets</span></a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="rd-navbar-nav-item"><a class="rd-navbar-link" href="#"><span class="rd-navbar-icon mdi-cart-outline"></span><span class="rd-navbar-text">Ecommerce</span></a>
+                    <ul class="rd-navbar-dropdown">
+                      <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="ecommerce-dashboard.html"><span class="rd-navbar-text">Ecommerce dashboard</span></a>
+                      </li>
+                      <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="products.html"><span class="rd-navbar-text">Products</span></a>
+                      </li>
+                      <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="orders.html"><span class="rd-navbar-text">Orders</span></a>
+                      </li>
+                      <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="customers.html"><span class="rd-navbar-text">Customers</span></a>
+                      </li>
+                      <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="store-settings.html"><span class="rd-navbar-text">Store Settings</span></a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="rd-navbar-nav-item"><a class="rd-navbar-link" href="#"><span class="rd-navbar-icon mdi-cube-outline"></span><span class="rd-navbar-text">UI Elements</span></a>
+                    <ul class="rd-navbar-dropdown">
+                      <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="alerts.html"><span class="rd-navbar-text">Alerts</span></a>
+                      </li>
+                      <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="animations.html"><span class="rd-navbar-text">Animations</span></a>
+                      </li>
+                      <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="buttons.html"><span class="rd-navbar-text">Buttons</span></a>
+                      </li>
+                      <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="typography.html"><span class="rd-navbar-text">Typography</span></a>
+                      </li>
+                      <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="panel.html"><span class="rd-navbar-text">Panel</span></a>
+                      </li>
+                      <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="progress-bars.html"><span class="rd-navbar-text">Progress Bars</span></a>
+                      </li>
+                      <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="tabs.html"><span class="rd-navbar-text">Tabs</span></a>
+                      </li>
+                      <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="icons.html"><span class="rd-navbar-text">Icons</span></a>
+                      </li>
+                      <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="grid.html"><span class="rd-navbar-text">Grid</span></a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="rd-navbar-nav-item"><a class="rd-navbar-link" href="#"><span class="rd-navbar-icon mdi-checkbox-marked-outline"></span><span class="rd-navbar-text">Form Elements</span></a>
+                    <ul class="rd-navbar-dropdown">
+                      <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="basic-inputs.html"><span class="rd-navbar-text">Basic Inputs</span></a>
+                      </li>
+                      <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="plugin-inputs.html"><span class="rd-navbar-text">Plugin Inputs</span></a>
+                      </li>
+                      <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="editors.html"><span class="rd-navbar-text">Editors</span></a>
+                      </li>
+                      <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="treeview.html"><span class="rd-navbar-text">Treeview</span></a>
+                      </li>
+                      <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="nestable.html"><span class="rd-navbar-text">Nestable</span></a>
+                      </li>
+                      <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="image-tools.html"><span class="rd-navbar-text">Image tools</span></a>
+                      </li>
+                      <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="uploaders.html"><span class="rd-navbar-text">Uploaders</span></a>
+                      </li>
+                      <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="notifications.html"><span class="rd-navbar-text">Notifications</span></a>
+                      </li>
+                      <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="content-sliders.html"><span class="rd-navbar-text">Content Sliders</span></a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="rd-navbar-nav-item"><a class="rd-navbar-link" href="#"><span class="rd-navbar-icon mdi-console"></span><span class="rd-navbar-text">Plugins</span></a>
+                    <ul class="rd-navbar-dropdown">
+                      <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="#"><span class="rd-navbar-text">Maps</span></a>
+                        <ul class="rd-navbar-dropdown">
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="google-maps.html"><span class="rd-navbar-text">Google Maps</span></a>
+                          </li>
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="jvector-map.html"><span class="rd-navbar-text">jVector Map</span></a>
+                          </li>
+                        </ul>
+                      </li>
+                      <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="#"><span class="rd-navbar-text">Charts</span></a>
+                        <ul class="rd-navbar-dropdown">
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="highcharts.html"><span class="rd-navbar-text">Highcharts</span></a>
+                          </li>
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="flotcharts.html"><span class="rd-navbar-text">Flotcharts</span></a>
+                          </li>
+                        </ul>
+                      </li>
+                      <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="#"><span class="rd-navbar-text">Tables</span></a>
+                        <ul class="rd-navbar-dropdown">
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="basic-tables.html"><span class="rd-navbar-text">Basic Tables</span></a>
+                          </li>
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="data-tables.html"><span class="rd-navbar-text">Data Tables</span></a>
+                          </li>
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="pricing-tables.html"><span class="rd-navbar-text">Pricing Tables</span></a>
+                          </li>
+                        </ul>
+                      </li>
+                      <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="#"><span class="rd-navbar-text">Misc</span></a>
+                        <ul class="rd-navbar-dropdown">
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="site-tour.html"><span class="rd-navbar-text">Site Tour</span></a>
+                          </li>
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="session-timeout.html"><span class="rd-navbar-text">Session Timeout</span></a>
+                          </li>
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="page-progress-loader.html"><span class="rd-navbar-text">Page Progress Loader</span></a>
+                          </li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="rd-navbar-nav-item"><a class="rd-navbar-link" href="#"><span class="rd-navbar-icon mdi-content-copy"></span><span class="rd-navbar-text">Pages</span></a>
+                    <ul class="rd-navbar-dropdown">
+                      <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="#"><span class="rd-navbar-text">Utility</span></a>
+                        <ul class="rd-navbar-dropdown">
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="confirmation.html"><span class="rd-navbar-text">Confirmation</span></a>
+                          </li>
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="login.html"><span class="rd-navbar-text">Login</span></a>
+                          </li>
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="register.html"><span class="rd-navbar-text">Register</span></a>
+                          </li>
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="screenlock.html"><span class="rd-navbar-text">Screenlock</span></a>
+                          </li>
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="password-reset.html"><span class="rd-navbar-text">Password Reset</span></a>
+                          </li>
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="coming-soon.html"><span class="rd-navbar-text">Coming Soon</span></a>
+                          </li>
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="404.html"><span class="rd-navbar-text">404</span></a>
+                          </li>
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="500.html"><span class="rd-navbar-text">500</span></a>
+                          </li>
+                        </ul>
+                      </li>
+                      <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="#"><span class="rd-navbar-text">Basic</span></a>
+                        <ul class="rd-navbar-dropdown">
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="search-results.html"><span class="rd-navbar-text">Search Results</span></a>
+                          </li>
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="profile.html"><span class="rd-navbar-text">Profile</span></a>
+                          </li>
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="timeline.html"><span class="rd-navbar-text">Timeline</span></a>
+                          </li>
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="faq.html"><span class="rd-navbar-text">FAQ</span></a>
+                          </li>
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="calendar.html"><span class="rd-navbar-text">Calendar</span></a>
+                          </li>
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="messages.html"><span class="rd-navbar-text">Messages</span></a>
+                          </li>
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="messages-compose.html"><span class="rd-navbar-text">Messages Compose</span></a>
+                          </li>
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="gallery.html"><span class="rd-navbar-text">Gallery</span></a>
+                          </li>
+                          <li class="rd-navbar-dropdown-item"><a class="rd-navbar-link" href="printable-invoice.html"><span class="rd-navbar-text">Printable Invoice</span></a>
+                          </li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </nav>
+        </div>
+      </header>
+
+        <section class="section-sm section-transparent">
+          <div class="col-lg-9 col-xxl-10">
+            <div class="panel">
+              <div class="panel-body p-0" style="margin: 10px;">
+                <div class="alert alert-primary alert-lighter mt-1" role="alert">
+                  <span>Audit Results for www.ja.is</span>
+                </div>
+                <div class="row row-30 justify-content-center">
+                  <div class="col-sm-6 col-lg-5">
+                    <div class="panel-header">
+                      <h4 class="panel-title">Overall Score!</h4>
+                    </div>
+                      <div class="media-item">
+                        <div class="progress-circle-wrap">
+                          <div class="progress-counter-wrap">
+                            <div class="progress-counter-value-header" style="color: #DC143C"><span class="progress-counter">40</span><span class="progress-postfix">%</span>
+                            </div>
+                          </div>
+                          <svg class="progress-circle" x="0" y="0" width="300" height="300" viewbox="0 0 60 60">
+                            <circle class="bg" cx="30" cy="30" r="29"></circle>
+                            <circle class="fg clipped" cx="30" cy="30" r="29" style="stroke: #DC143C"></circle>
+                          </svg>
+                        </div>
+                      </div>
+
+
+                    <div class="container">
+                      <h2>Your page could do better</h2>
+                      <button class="btn btn-block btn-sm btn-danger" type="button">You have 15 improvementes recommendation</button>
+                      <H6>Report Generated: 4 April 12:11PM</H6> 
+                      <button class="btn btn-block btn-sm btn-info" type="button">Scan again!</button>
+
+                    </div>
+                  </div>
+                    <div class="col-6 col-xxl-5 offset-xxl-1"><img src="images/imac.png" width="360" height="481" alt=""></div>
+                </div>
+
+                <div class="container-fluid">
+                  <div class="row row-30">
+                    <div class="col-md-2 col-lg-2">
+                      <div class="alert alert-lighter mt-1" style="text-align: center; "role="alert">
+                        <div class="media-item">
+                          <div class="progress-circle-wrap">
+                            <div class="progress-counter-wrap">
+                              <div class="progress-counter-value" style="color: #DC143C"><span class="progress-counter">30</span><span class="progress-postfix">%</span>
+                              </div>
+                            </div>
+                            <svg class="progress-circle" x="0" y="0" width="100" height="100" viewbox="0 0 60 60">
+                              <circle class="bg" cx="30" cy="30" r="29"></circle>
+                              <circle class="fg clipped" cx="30" cy="30" r="29" style="stroke: #DC143C"></circle>
+                            </svg>
+                          </div>
+                          <h2>SEO</h2>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col-md-2 col-lg-2">
+                      <div class="alert alert-lighter mt-1" style="text-align: center; "role="alert">
+                        <div class="media-item">
+                          <div class="progress-circle-wrap">
+                            <div class="progress-counter-wrap">
+                              <div class="progress-counter-value" style="color: #58a193"><span class="progress-counter">100</span><span class="progress-postfix">%</span>
+                              </div>
+                            </div>
+                            <svg class="progress-circle" x="0" y="0" width="100" height="100" viewbox="0 0 60 60">
+                              <circle class="bg" cx="30" cy="30" r="29"></circle>
+                              <circle class="fg clipped" cx="30" cy="30" r="29" style="stroke: #58a193"></circle>
+                            </svg>
+                          </div>
+                          <h2>Usability</h2>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col-md-2 col-lg-2">
+                      <div class="alert alert-lighter mt-1" style="text-align: center; "role="alert">
+                        <div class="media-item">
+                          <div class="progress-circle-wrap">
+                            <div class="progress-counter-wrap">
+                              <div class="progress-counter-value" style="color: #DC143C"><span class="progress-counter">46</span><span class="progress-postfix">%</span>
+                              </div>
+                            </div>
+                            <svg class="progress-circle" x="0" y="0" width="100" height="100" viewbox="0 0 60 60">
+                              <circle class="bg" cx="30" cy="30" r="29"></circle>
+                              <circle class="fg clipped" cx="30" cy="30" r="29" style="stroke: #DC143C"></circle>
+                            </svg>
+                          </div>
+                          <h2>Performance</h2>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col-md-2 col-lg-2">
+                      <div class="alert alert-lighter mt-1" style="text-align: center; "role="alert">
+                        <div class="media-item">
+                          <div class="progress-circle-wrap">
+                            <div class="progress-counter-wrap">
+                              <div class="progress-counter-value" style="color: #FF8C00"><span class="progress-counter">65</span><span class="progress-postfix">%</span>
+                              </div>
+                            </div>
+                            <svg class="progress-circle" x="0" y="0" width="100" height="100" viewbox="0 0 60 60">
+                              <circle class="bg" cx="30" cy="30" r="29"></circle>
+                              <circle class="fg clipped" cx="30" cy="30" r="29" style="stroke: #FF8C00"></circle>
+                            </svg>
+                          </div>
+                          <h2>Social</h2>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col-md-2 col-lg-2">
+                      <div class="alert alert-lighter mt-1" style="text-align: center; "role="alert">
+                        <div class="media-item">
+                          <div class="progress-circle-wrap">
+                            <div class="progress-counter-wrap">
+                              <div class="progress-counter-value" style="color: #DC143C"><span class="progress-counter">0</span><span class="progress-postfix">%</span>
+                              </div>
+                            </div>
+                            <svg class="progress-circle" x="0" y="0" width="100" height="100" viewbox="0 0 60 60">
+                              <circle class="bg" cx="30" cy="30" r="29"></circle>
+                              <circle class="fg clipped" cx="30" cy="30" r="29" style="stroke: #DC143C"></circle>
+                            </svg>
+                          </div>
+                          <h2>Security</h2>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>        
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section-sm section-transparent" style="margin: 10px;">
+          <div class="col-lg-12 col-xxl-10">
+            <div class="panel">
+              <div class="panel-body p-0" >
+                <div class="alert alert-primary alert-lighter mt-1" role="alert">
+                  <span>SEO resaults</span>
+                </div>
+              </div>
+              <div class="container-fluid">
+                <div class="row row-30">
+                  <div class="col-md-4 col-lg-4">
+                    <div class="media-item">
+                      <div class="progress-circle-wrap">
+                        <div class="progress-counter-wrap">
+                          <div class="progress-counter-value-main" style="color: #DC143C"><span class="progress-counter">40</span><span class="progress-postfix">%</span>
+                          </div>
+                        </div>
+                        <svg class="progress-circle" x="0" y="0" width="200" height="200" viewbox="0 0 60 60">
+                          <circle class="bg" cx="30" cy="30" r="29"></circle>
+                          <circle class="fg clipped" cx="30" cy="30" r="29" style="stroke: #DC143C"></circle>
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-8 col-lg-6">
+                    <h2>Your SEO could be better</h2>
+                    <p>Your page has some level of optimization but could be improved further. SEO optimization is important to ensure you can maximize ranking potential and drive traffic to your website from search engines. You should ensure your page fulfils common recommended improvements outlined here before moving onto more advanced SEO strategies.</p>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="container-fluid" >
+                  <div class="alert alert-primary alert-lighter mt-1" role="alert" style="margin-left: 20%;margin-right: 20%;">
+                    <span style="text-transform: uppercase;">HTML Header</span>
+                  </div>  
+
+                  <div class="container">
+                    <div class="row row-30">
+
+                      <div class="col-md-6 col-lg-6"> 
+                        <div class="col-md-12">
+                          <div class="panel panel-danger">
+                            <div class="panel-header">
+                              <div class="group-5 d-flex flex-wrap align-items-center justify-content-between">
+                                <h4 class="panel-title">Title Tag</h4><code class="code-bg">Warning</code>
+                              </div>
+                            </div>
+                            <div class="panel-body">
+                              <p class="panel-text">You have a title tag, but ideally it should be between 10 and 70 characters in length (including space</p>
+                              <p>Já.is</p>
+                              <p>Length: 5</p>
+                            </div>
+                          </div>
+                        </div> 
+                      </div>
+                      <div class="col-sm-6 col-lg-6">
+                        <div class="col-md-12">
+                          <div class="panel panel-danger">
+                            <div class="panel-header">
+                              <div class="group-5 d-flex flex-wrap align-items-center justify-content-between">
+                                <h4 class="panel-title">Meta Description Tag</h4><code class="code-bg">Warning</code>
+                              </div>
+                            </div>
+                            <div class="panel-body">
+                              <p class="panel-text">Your page has a meta description tag however, your meta description should ideally be between 70 and 320 characters (including spaces).</p>
+                              <p>Fljótlegasta leiðin til að tengjast fólki og fyrirtækjum á Íslandi.</p>
+                              <p>Length : 67</p>
+                            </div>
+                          </div>
+                        </div> 
+                      </div>
+                    </div>
+                  </div>
+              </div>
+
+              <div class="container-fluid">
+                <div class="alert alert-primary alert-lighter mt-1" role="alert" style="margin-left: 20%;margin-right: 20%;">
+                  <span style="text-transform: uppercase;">Body Content</span>
+                </div>  
+
+                <div class="container">
+                  <div class="row row-30">
+
+                    <div class="col-md-6 col-lg-12"> 
+                      <div class="col-md-12">
+                        <div class="panel panel-danger">
+                          <div class="panel-header">
+                            <div class="group-5 d-flex flex-wrap align-items-center justify-content-between">
+                              <h4 class="panel-title">Header Tags</h4><code class="code-bg">Warning</code>
+                            </div>
+                          </div>
+                          <div class="panel-body">
+                            <p class="panel-text">Your page is not making effective use of header tags.</p>
+                            <p>HTML header tags are an important way of signaling to search engines the important content topics of your page, and subsequently the keywords it should rank for.</p>
+                          </div>
+                        </div>
+                      </div> 
+                    </div>
+                    <div class="col-12">
+                      <div class="panel">
+                        <div class="panel-header">
+                          <h4 class="panel-title">Header Tags Bar</h4>
+                        </div>
+                        <div class="panel-body">
+                          <div class="table-responsive">
+                            <table class="table">
+                              <thead>
+                                <tr>
+                                  <th style="width: 30%; min-width: 180px;">Class</th>
+                                  <th style="min-width: 180px;">Description</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <tr>
+                                  <td><code class="code-bg">H1</code></td>
+                                  <td>
+                                    <div class="progress-wrap">
+                                      <div class="progress-header">
+                                        <div class="progress-title">Frequency</div>
+                                        <div class="progress-value">0</div>
+                                      </div>
+                                      <div class="progress progress-lg">
+                                        <div class="progress-bar progress-primary" role="progressbar" style="width: 0%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                                      </div>
+                                    </div>
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td><code class="code-bg">H2</code></td>
+                                  <td>
+                                    <div class="progress-wrap">
+                                      <div class="progress-header">
+                                        <div class="progress-title">Frequency</div>
+                                        <div class="progress-value">1</div>
+                                      </div>
+                                      <div class="progress progress-lg">
+                                        <div class="progress-bar progress-primary" role="progressbar" style="width: 100%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                                      </div>
+                                    </div>
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td><code class="code-bg">H3</code></td>
+                                  <td>
+                                    <div class="progress-wrap">
+                                      <div class="progress-header">
+                                        <div class="progress-title">Frequency</div>
+                                        <div class="progress-value">0</div>
+                                      </div>
+                                      <div class="progress progress-lg">
+                                        <div class="progress-bar progress-primary" role="progressbar" style="width: 0%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                                      </div>
+                                    </div>
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td><code class="code-bg">H4</code></td>
+                                  <td>
+                                    <div class="progress-wrap">
+                                      <div class="progress-header">
+                                        <div class="progress-title">Frequency</div>
+                                        <div class="progress-value">0</div>
+                                      </div>
+                                      <div class="progress progress-lg">
+                                        <div class="progress-bar progress-primary" role="progressbar" style="width: 0%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                                      </div>
+                                    </div>
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td><code class="code-bg">H5</code></td>
+                                  <td>
+                                    <div class="progress-wrap">
+                                      <div class="progress-header">
+                                        <div class="progress-title">Frequency</div>
+                                        <div class="progress-value">0</div>
+                                      </div>
+                                      <div class="progress progress-lg">
+                                        <div class="progress-bar progress-primary" role="progressbar" style="width: 0%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                                      </div>
+                                    </div>
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td><code class="code-bg">H6</code></td>
+                                  <td>
+                                    <div class="progress-wrap">
+                                      <div class="progress-header">
+                                        <div class="progress-title">Frequency</div>
+                                        <div class="progress-value">0</div>
+                                      </div>
+                                      <div class="progress progress-lg">
+                                        <div class="progress-bar progress-primary" role="progressbar" style="width: 0%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                                      </div>
+                                    </div>
+                                  </td>
+                                </tr>
+
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="container">
+                  <div class="row row-30">
+                    <div class="col-12">
+                      <div class="panel">
+                        <div class="panel-header">
+                          <h4 class="panel-title">Individual Keywords</h4>
+                        </div>
+                        <div class="panel-body">
+                          <div class="table-responsive">
+                            <table class="table" style="text-align: center;">
+                              <thead>
+                                <tr>
+                                  <th style="width: 30%; min-width: 150px; text-align: left;">Keyword</th>
+                                  <th style="min-width: 100px;">Title</th>
+                                  <th style="min-width: 100px;">Meta Description Tag</th>
+                                  <th style="min-width: 100px;">Headings Tag </th>
+                                  <th style="min-width: 400px;">Page Frequency</th>
+
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <tr>
+                                  <td><code class="code-bg" style="font-size: larger;">vefkökur</code></td>
+                                  <td><code><div class="h2 mdi-close red" ></div></code></td>
+                                  <td><code><div class="h2 mdi-close red" ></div></code></td>
+                                  <td><code><div class="h2 mdi-close red"></div></code></td>
+                                <td>
+                                  <div class="progress-wrap">
+                                    <div class="progress-header">
+                                      <div class="progress-title">Frequency</div>
+                                      <div class="progress-value">1</div>
+                                    </div>
+                                    <div class="progress progress-lg">
+                                      <div class="progress-bar progress-primary" role="progressbar" style="width: 10%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                  </div>
+                                </td>
+                                </tr>
+
+                                <tr>
+                                  <td><code class="code-bg" style="font-size: larger; ">finnur</code></td>
+                                  <td><code><div class="h2 mdi-close red"></div></code></td>
+                                  <td><code><div class="h2 mdi-close red"></div></code></td>
+                                  <td><code><div class="h2 mdi-check green"></div></code></td>
+                                  <td>
+                                    <div class="progress-wrap">
+                                      <div class="progress-header">
+                                        <div class="progress-title">Frequency</div>
+                                        <div class="progress-value">2</div>
+                                      </div>
+                                      <div class="progress progress-lg">
+                                        <div class="progress-bar progress-primary" role="progressbar" style="width: 20%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                                      </div>
+                                    </div>
+                                  </td>
+                                </tr>
+
+
+                                <tr>
+                                  <td><code class="code-bg" style="font-size: larger;">vefsíðunni</code></td>
+                                  <td><code><div class="h2 mdi-close red"></div></code></td>
+                                  <td><code><div class="h2 mdi-close red"></div></code></td>
+                                  <td><code><div class="h2 mdi-close red"></div></code></td>
+                                  <td>
+                                    <div class="progress-wrap">
+                                      <div class="progress-header">
+                                        <div class="progress-title">Frequency</div>
+                                        <div class="progress-value">1</div>
+                                      </div>
+                                      <div class="progress progress-lg">
+                                        <div class="progress-bar progress-primary" role="progressbar" style="width: 10%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                                      </div>
+                                    </div>
+                                  </td>
+                                </tr>
+
+                                <tr>
+                                  <td><code class="code-bg" style="font-size: larger;">hér</code></td>
+                                  <td><code><div class="h2 mdi-close red"></div></code></td>
+                                  <td><code><div class="h2 mdi-close red"></div></code></td>
+                                  <td><code><div class="h2 mdi-close red"></div></code></td>
+                                  <td>
+                                    <div class="progress-wrap">
+                                      <div class="progress-header">
+                                        <div class="progress-title">Frequency</div>
+                                        <div class="progress-value">1</div>
+                                      </div>
+                                      <div class="progress progress-lg">
+                                        <div class="progress-bar progress-primary" role="progressbar" style="width: 10%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                                      </div>
+                                    </div>
+                                  </td>
+                                </tr>
+
+                                <tr>
+                                  <td><code class="code-bg" style="font-size: larger;">stefnuna</code></td>
+                                  <td><code><div class="h2 mdi-close red"></div></code></td>
+                                  <td><code><div class="h2 mdi-close red"></div></code></td>
+                                  <td><code><div class="h2 mdi-close red"></div></code></td>
+                                  <td>
+                                    <div class="progress-wrap">
+                                      <div class="progress-header">
+                                        <div class="progress-title">Frequency</div>
+                                        <div class="progress-value">1</div>
+                                      </div>
+                                      <div class="progress progress-lg">
+                                        <div class="progress-bar progress-primary" role="progressbar" style="width: 10%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                                      </div>
+                                    </div>
+                                  </td>
+                                </tr>
+
+                                <tr>
+                                  <td><code class="code-bg" style="font-size: larger;">nánar</code></td>
+                                  <td><code><div class="h2 mdi-close red"></div></code></td>
+                                  <td><code><div class="h2 mdi-close red"></div></code></td>
+                                  <td><code><div class="h2 mdi-close red"></div></code></td>
+                                  <td>
+                                    <div class="progress-wrap">
+                                      <div class="progress-header">
+                                        <div class="progress-title">Frequency</div>
+                                        <div class="progress-value">1</div>
+                                      </div>
+                                      <div class="progress progress-lg">
+                                        <div class="progress-bar progress-primary" role="progressbar" style="width: 10%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                                      </div>
+                                    </div>
+                                  </td>
+                                </tr>
+
+                                <tr>
+                                  <td><code class="code-bg" style="font-size: larger;">sína</code></td>
+                                  <td><code><div class="h2 mdi-close red"></div></code></td>
+                                  <td><code><div class="h2 mdi-close red"></div></code></td>
+                                  <td><code><div class="h2 mdi-close red"></div></code></td>
+                                  <td>
+                                    <div class="progress-wrap">
+                                      <div class="progress-header">
+                                        <div class="progress-title">Frequency</div>
+                                        <div class="progress-value">1</div>
+                                      </div>
+                                      <div class="progress progress-lg">
+                                        <div class="progress-bar progress-primary" role="progressbar" style="width: 10%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                                      </div>
+                                    </div>
+                                  </td>
+                                </tr>
+
+                                <tr>
+                                  <td><code class="code-bg" style="font-size: larger;">persónuverndarstefnu</code></td>
+                                  <td><code><div class="h2 mdi-close red"></div></code></td>
+                                  <td><code><div class="h2 mdi-close red"></div></code></td>
+                                  <td><code><div class="h2 mdi-close red"></div></code></td>
+                                  <td>
+                                      <div class="progress-wrap">
+                                        <div class="progress-header">
+                                          <div class="progress-title">Frequency</div>
+                                          <div class="progress-value">1</div>
+                                        </div>
+                                        <div class="progress progress-lg">
+                                          <div class="progress-bar progress-primary" role="progressbar" style="width: 10%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                                        </div>
+                                      </div>
+                                  </td>
+                                </tr>
+
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                  <div class="container">
+                    <div class="row row-30">
+
+                      <div class="col-md-6 col-lg-6"> 
+                        <div class="col-md-12">
+                          <div class="panel panel-danger">
+                            <div class="panel-header">
+                              <div class="group-5 d-flex flex-wrap align-items-center justify-content-between">
+                                <h4 class="panel-title">Amount of Content</h4><code class="code-bg">Warning</code>
+                              </div>
+                            </div>
+                            <div class="panel-body">
+                              <p class="panel-text">Your page has a low volume of text content which search engines can interpret as 'thin content'. It has been well researched that higher text content volumes are related to better ranking ability in general.</p>
+                              <p>Word Count: 59</p>
+                            </div>
+                          </div>
+                        </div> 
+                      </div>
+                      <div class="col-sm-10 col-lg-6">
+                        <div class="col-md-12">
+                          <div class="panel panel-success">
+                            <div class="panel-header">
+                              <div class="group-5 d-flex flex-wrap align-items-center justify-content-between">
+                                <h4 class="panel-title">Image Alt Attributes</h4><code class="code-bg">Good</code>
+                              </div>
+                            </div>
+                            <div class="panel-body">
+                              <p class="panel-text">You do not have any images missing ALT attributes on your page.</p>
+                            </div>
+                          </div>
+                        </div> 
+                      </div>
+                    </div>
+                  </div>
+              </div>
+
+              <div class="container-fluid">
+                <div class="alert alert-primary alert-lighter mt-1" role="alert" style="margin-left: 20%;margin-right: 20%;">
+                  <span style="text-transform: uppercase;">Links</span>
+                </div>  
+
+                <div class="container">
+                  <div class="row row-30">
+
+                    <div class="col-md-12 col-lg-12"> 
+                      <div class="col-md-12">
+                        <div class="panel panel-success">
+                          <div class="panel-header">
+                            <div class="group-5 d-flex flex-wrap align-items-center justify-content-between">
+                              <h4 class="panel-title">Number of Backlinks</h4><code class="code-bg">Good</code>
+                            </div>
+                          </div>
+                          <div class="panel-body">
+                            <p class="panel-text">You have a strong level of backlink activity to this page. Backlink data provided by 
+                              <a href="https://moz.com/" style="font-style: oblique; font-weight: bold;color: white;">MOZ</a>.</p>
+                          </div>
+                        </div>
+                      </div> 
+                    </div>
+                  </div>
+                  
+                  <div class="row row-30" style="font-size: x-large;">
+                    <div class="col-sm-6 col-lg-4">
+                      <div class="widget-counter widget-counter-boxed widget-counter-boxed-success widget-counter-boxed-gradient">
+                        <div class="widget-counter-body">
+                          <h2 class="widget-counter-title"><div class="h1 mdi-arrow-collapse"></div></h2>
+                          <div class="widget-counter-text">External Backlinks</div>
+                        </div>
+                        <div class="widget-counter-footer small"><span class="widget-counter-footer-icon mdi-arrow-up pr-1"></span>  <strong style="font-weight: 200;">3.7m</strong>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-sm-6 col-lg-4">
+                      <div class="widget-counter widget-counter-boxed widget-counter-boxed-success widget-counter-boxed-gradient">
+                        <div class="widget-counter-body">
+                          <h2 class="widget-counter-title"><div class="h1 mdi-link-variant"></div></h2>
+                          <div class="widget-counter-text">Referring Domains</div>
+                        </div>
+                        <div class="widget-counter-footer small"><span class="widget-counter-footer-icon mdi-arrow-up pr-1"></span>  <strong style="font-weight: 200;">4100</strong>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-sm-6 col-lg-4">
+                      <div class="widget-counter widget-counter-boxed widget-counter-boxed-success widget-counter-boxed-gradient">
+                        <div class="widget-counter-body">
+                          <h2 class="widget-counter-title"><div class="h1 mdi-image-filter-drama"></div></h2>
+                          <div class="widget-counter-text">Moz Domain Authority</div>
+                        </div>
+                        <div class="widget-counter-footer small"><span class="widget-counter-footer-icon mdi-arrow-up pr-1"></span><strong style="font-weight: 200;">51</strong>
+                        </div>
+                      </div>
+                    </div>                        
+                  </div>
+                </div>
+              </div>
+
+                <div class="container-fluid">
+                  <div class="row row-30">
+                    <div class="col-lg-12">
+                      <div class="panel">
+                        <div class="panel-header">
+                          <h4 class="panel-title">These are the highest value external pages we have found linking to your site.</h4>
+                        </div>
+                        <div class="panel-body p-0">
+                          <div class="table-responsive scroller scroller-horizontal">
+                            <table class="table table-striped">
+                              <thead>
+                                <tr>
+                                  <th scope="col">Domain Authority</th>
+                                  <th scope="col">URL</th>
+                                  <th scope="col">Source Page Title</th>
+                                  <th scope="col">Anchor Text</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <tr>
+                                  <th scope="row">1</th>
+                                  <td>europa.eu/youth/is/article/57/3862_en</td>
+                                  <td>Searching for a job in Iceland | European Youth Portal  </td>
+                                  <td>the yellow pages at já.is</td>
+                                </tr>
+                                <tr>
+                                  <th scope="row">2</th>
+                                  <td>europa.eu/youth/is/article/57/3862_en?language=pl </td>
+                                  <td></td>
+                                  <td>the yellow pages at já.is
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <th scope="row">3</th>
+                                  <td>europa.eu/youth/is/article/57/3862_en?language=pl </td>
+                                  <td>Searching for a job in Iceland | European Youth Portal  </td>
+                                  <td>the yellow pages at já.is</td>
+                                </tr>
+                                <tr>
+                                  <th scope="row">4</th>
+                                  <td>europa.eu/youth/is/article/57/3862_sv?language=bg </td>
+                                  <td>Searching for a job in Iceland | European Youth Portal  </td>
+                                  <td>the yellow pages at já.is</td>
+                                </tr>
+                                <tr>
+                                  <th scope="row">5</th>
+                                  <td>europa.eu/youth/is/article/57/3862_en?language=sv </td>
+                                  <td>Searching for a job in Iceland | European Youth Portal  </td>
+                                  <td>the yellow pages at já.is</td>
+                                </tr>
+                                <tr>
+                                  <th scope="row">6</th>
+                                  <td>europa.eu/youth/is/article/57/3862_hu?language=is </td>
+                                  <td>Searching for a job in Iceland | European Youth Portal  </td>
+                                  <td>the yellow pages at já.is</td>
+                                </tr>
+                                <tr>
+                                  <th scope="row">7</th>
+                                  <td>europa.eu/youth/is/article/57/3862_da?language=es </td>
+                                  <td>Searching for a job in Iceland | European Youth Portal  </td>
+                                  <td>the yellow pages at já.is</td>
+                                </tr>
+                                <tr>
+                                  <th scope="row">8</th>
+                                  <td>europa.eu/youth/is/article/57/3862_fi </td>
+                                  <td>Searching for a job in Iceland | European Youth Portal  </td>
+                                  <td>the yellow pages at já.is</td>
+                                </tr>
+                                <tr>
+                                  <th scope="row">9</th>
+                                  <td>europa.eu/youth/is/article/57/3862_fi </td>
+                                  <td>Searching for a job in Iceland | European Youth Portal  </td>
+                                  <td>the yellow pages at já.is</td>
+                                </tr>
+                                <tr>
+                                  <th scope="row">10</th>
+                                  <td>europa.eu/youth/is/article/57/3862_en?language=hr </td>
+                                  <td>Searching for a job in Iceland | European Youth Portal  </td>
+                                  <td>the yellow pages at já.is</td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="container-fluid">
+                  <div class="row row-30">
+                    <div class="col-md-6 col-lg-12"> 
+                      <div class="col-md-12">
+                        <div class="panel panel-success">
+                          <div class="panel-header">
+                            <div class="group-5 d-flex flex-wrap align-items-center justify-content-between">
+                              <h4 class="panel-title">Broken Links</h4><code class="code-bg">Good</code>
+                            </div>
+                          </div>
+                          <div class="panel-body">
+                            <p class="panel-text">We have not detected any broken links on your page.</p>
+                          </div>
+                        </div>
+                      </div> 
+                    </div>
+                    <div class="col-md-6 col-lg-6"> 
+                      <div class="col-md-12">
+                        <div class="panel panel-warning">
+                          <div class="panel-header">
+                            <div class="group-5 d-flex flex-wrap align-items-center justify-content-between">
+                              <h4 class="panel-title">On-Page Link Structure</h4><code class="code-bg">Info</code>
+                            </div>
+                          </div>
+                          <div class="panel-body">
+                            <p class="panel-text">We found 9 total links. 0% of your links are external links and are sending authority to other sites. 0% of your links are nofollow links, meaning authority is not being passed to those destination pages.</p>
+                          </div>
+                        </div>
+                      </div> 
+                    </div>
+                    <div class="col-sm-10 col-lg-6">
+                      <div class="col-md-12">
+                        <div class="panel panel-danger">
+                          <div class="panel-header">
+                            <div class="group-5 d-flex flex-wrap align-items-center justify-content-between">
+                              <h4 class="panel-title">Friendly URLs</h4><code class="code-bg">Warning</code>
+                            </div>
+                          </div>
+                          <div class="panel-body">
+                            <p class="panel-text">Some of your link URLs do not appear friendly to humans or search engines. We would recommend making links as readable as possible by reducing length, file names, code strings and special characters.</p>
+                          </div>
+                        </div>
+                      </div> 
+                    </div>
+                  </div>
+                </div>
+
+                <div class="container-fluid">
+                  <div class="alert alert-primary alert-lighter mt-1" role="alert" style="margin-left: 20%;margin-right: 20%;">
+                    <span style="text-transform: uppercase;">Indexing</span>
+                  </div>  
+                  <div class="container">
+                    <div class="row row-30">
+                      <div class="col-md-6 col-lg-6"> 
+                        <div class="col-md-12">
+                          <div class="panel panel-success">
+                            <div class="panel-header">
+                              <div class="group-5 d-flex flex-wrap align-items-center justify-content-between">
+                                <h4 class="panel-title">Noindex Tag Test</h4><code class="code-bg">Good</code>
+                              </div>
+                            </div>
+                            <div class="panel-body">
+                              <p class="panel-text">Your page is not using the Noindex Tag which prevents indexing.</p>
+                            </div>
+                          </div>
+                        </div> 
+                      </div>
+                      <div class="col-md-6 col-lg-6"> 
+                        <div class="col-md-12">
+                          <div class="panel panel-success">
+                            <div class="panel-header">
+                              <div class="group-5 d-flex flex-wrap align-items-center justify-content-between">
+                                <h4 class="panel-title">Noindex Header Test</h4><code class="code-bg">Good</code>
+                              </div>
+                            </div>
+                            <div class="panel-body">
+                              <p class="panel-text">Your page is not using the Noindex Header which prevents indexing.</p>
+                            </div>
+                          </div>
+                        </div> 
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="container-fluid">
+                  <div class="alert alert-primary alert-lighter mt-1" role="alert" style="margin-left: 20%;margin-right: 20%;">
+                    <span style="text-transform: uppercase;">Other</span>
+                  </div>  
+
+                  <div class="container">
+                    <div class="row row-30">
+
+                      <div class="col-md-6 col-lg-6"> 
+                        <div class="col-md-12">
+                          <div class="panel panel-success">
+                            <div class="panel-header">
+                              <div class="group-5 d-flex flex-wrap align-items-center justify-content-between">
+                                <h4 class="panel-title">Robots.txt</h4><code class="code-bg">Good</code>
+                              </div>
+                            </div>
+                            <div class="panel-body">
+                              <p class="panel-text">Your page is not using the Noindex Tag which prevents indexing.</p>
+                              <p>https://www.ja.is/robots.txt</p>
+                            </div>
+                          </div>
+                        </div> 
+                      </div>
+                      <div class="col-md-6 col-lg-6"> 
+                        <div class="col-md-12">
+                          <div class="panel panel-success">
+                            <div class="panel-header">
+                              <div class="group-5 d-flex flex-wrap align-items-center justify-content-between">
+                                <h4 class="panel-title">XML Sitemaps</h4><code class="code-bg">Good</code>
+                              </div>
+                            </div>
+                            <div class="panel-body">
+                              <p class="panel-text">Your website appears to have an XML sitemap.</p>
+                              <p>https://ja.is/sitemap.xml</p>
+                            </div>
+                          </div>
+                        </div> 
+                      </div>
+                    </div>
+                  </div>
+                  <div class="container">
+                    <div class="row row-30">
+
+                      <div class="col-md-6 col-lg-6"> 
+                        <div class="col-md-12">
+                          <div class="panel panel-success">
+                            <div class="panel-header">
+                              <div class="group-5 d-flex flex-wrap align-items-center justify-content-between">
+                                <h4 class="panel-title">Analytics</h4><code class="code-bg">Good</code>
+                              </div>
+                            </div>
+                            <div class="panel-body">
+                              <p class="panel-text">Your page is using an analytics tool.</p>
+                              <p> 1. Google Analytics</p>
+                            </div>
+                          </div>
+                        </div> 
+                      </div>
+                      <div class="col-md-6 col-lg-6"> 
+                        <div class="col-md-12">
+                          <div class="panel panel-danger">
+                            <div class="panel-header">
+                              <div class="group-5 d-flex flex-wrap align-items-center justify-content-between">
+                                <h4 class="panel-title">Schema.org Structured Data</h4><code class="code-bg">Warning</code>
+                              </div>
+                            </div>
+                            <div class="panel-body">
+                              <p class="panel-text">We have not detected any usage of Schema.org on your page.</p>
+                              <p>Schema.org is a structured data markup for webpages which helps Search Engines understand your site better and provide rich snippets directly in their search results.</p>
+                            </div>
+                          </div>
+                        </div> 
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+          </div>
+        </section>
+
+
+        <section class="section-sm section-transparent" style="margin: 10px;">
+          <div class="col-lg-6 col-xxl-10">
+            <div class="panel">
+              <div class="panel-body p-0" >
+                
+                <div class="alert alert-primary alert-lighter mt-1" role="alert">
+                  <span>Usability</span>
+                </div>
+
+                <div class="container-fluid">
+                  <div class="row row-30">
+                    <div class="col-md-4 col-lg-4">
+                      <div class="media-item">
+                        <div class="progress-circle-wrap">
+                          <div class="progress-counter-wrap">
+                            <div class="progress-counter-value-main" style="color: #58a193"><span class="progress-counter">100</span><span class="progress-postfix">%</span>
+                            </div>
+                          </div>
+                          <svg class="progress-circle" x="0" y="0" width="200" height="200" viewbox="0 0 60 60">
+                            <circle class="bg" cx="30" cy="30" r="29"></circle>
+                            <circle class="fg clipped" cx="30" cy="30" r="29" style="stroke: #58a193"></circle>
+                          </svg>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-sm-8 col-lg-6">
+                      <h2>Your usability is very good!</h2>
+                      <p>Your page is highly usable across devices. Usability is important to maximize your available audience and minimize user bounce rates (which can indirectly affect your search engine rankings).</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="container-fluid" >
+                  <div class="alert alert-primary alert-lighter mt-1" role="alert" style="margin-left: 20%;margin-right: 20%;">
+                    <span style="text-transform: uppercase;">HTML Header</span>
+                  </div>  
+
+                  <div class="container">
+                    <div class="row row-30">
+
+                      <div class="col-md-6 col-lg-12"> 
+                        <div class="col-md-12">
+                          <div class="panel panel-warning">
+                            <div class="panel-header">
+                              <div class="group-5 d-flex flex-wrap align-items-center justify-content-between">
+                                <h4 class="panel-title">Device Rendering</h4><code class="code-bg">Info</code>
+                              </div>
+                            </div>
+                            <div class="panel-body">
+                              <p class="panel-text">This check visually demonstrates how your page renders on different devices. It is important that your page is optimized for mobile and tablet experiences as today the majority of web traffic comes from these sources.</p>
+                            </div>
+                          </div>
+                        </div> 
+                      </div>
+                      
+                    </div>
+                  </div>
+                  <div class="container">
+                    <div class="row row-30">
+                      <div class="col-md-6 col-lg-6"> 
+                        <div class="col-md-12">
+
+                          <div class="col-md-10 col-xxl-7">
+                            <div class="panel">
+                              <div class="panel-header">
+                                <h4 class="panel-title">Tour Item 2</h4>
+                              </div>
+                              <div class="panel-body"><img src="images/mobile.png" width="1000" height="500" alt="" style="width: 100%;"></div>
+                            </div>
+                          </div>
+
+                        </div> 
+                      </div>
+                      <div class="col-md-6 col-lg-6"> 
+                        <div class="col-md-12">
+
+                          <div class="col-md-10 col-xxl-10">
+                            <div class="panel">
+                              <div class="panel-header">
+                                <h4 class="panel-title">Tour Item 2</h4>
+                              </div>
+                              <div class="panel-body"><img src="images/tablet.png" width="1000" height="500" alt="" style="width: 100%;"></div>
+                            </div>
+                          </div>
+
+                        </div> 
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="container">
+                    <div class="row row-30">
+
+                      <div class="col-md-6 col-lg-6"> 
+                        <div class="col-md-12">
+                          <div class="panel panel-success">
+                            <div class="panel-header">
+                              <div class="group-5 d-flex flex-wrap align-items-center justify-content-between">
+                                <h4 class="panel-title">Tap Target Sizing</h4><code class="code-bg">Good</code>
+                              </div>
+                            </div>
+                            <div class="panel-body">
+                              <p class="panel-text">The links and buttons on your page appear to be appropriately sized for a user to easily tap on a touchscreen.</p>
+                            </div>
+                          </div>
+                        </div> 
+                      </div>
+                      <div class="col-md-6 col-lg-6"> 
+                        <div class="col-md-12">
+                          <div class="panel panel-success">
+                            <div class="panel-header">
+                              <div class="group-5 d-flex flex-wrap align-items-center justify-content-between">
+                                <h4 class="panel-title">Use of Mobile Viewports</h4><code class="code-bg">Good</code>
+                              </div>
+                            </div>
+                            <div class="panel-body">
+                              <p class="panel-text">Your page specifies a viewport matching the device's size, allowing it to render appropriately across devices.</p>
+                            </div>
+                          </div>
+                        </div> 
+                      </div>
+                    </div>
+                    <div class="row row-30">
+
+                      <div class="col-md-6 col-lg-6"> 
+                        <div class="col-md-12">
+                          <div class="panel panel-success">
+                            <div class="panel-header">
+                              <div class="group-5 d-flex flex-wrap align-items-center justify-content-between">
+                                <h4 class="panel-title">Flash Used?</h4><code class="code-bg">Good</code>
+                              </div>
+                            </div>
+                            <div class="panel-body">
+                              <p class="panel-text">No Flash content has been identified on your page.</p>
+                            </div>
+                          </div>
+                        </div> 
+                      </div>
+                      <div class="col-md-6 col-lg-6"> 
+                        <div class="col-md-12">
+                          <div class="panel panel-success">
+                            <div class="panel-header">
+                              <div class="group-5 d-flex flex-wrap align-items-center justify-content-between">
+                                <h4 class="panel-title">Legible Font Sizes</h4><code class="code-bg">Good</code>
+                              </div>
+                            </div>
+                            <div class="panel-body">
+                              <p class="panel-text">The text on your page appears to be legible across devices.</p>
+                            </div>
+                          </div>
+                        </div> 
+                      </div>
+                    </div>
+                    <div class="row row-30">
+                      <div class="col-md-6 col-lg-6"> 
+                        <div class="col-md-12">
+                          <div class="panel panel-success">
+                            <div class="panel-header">
+                              <div class="group-5 d-flex flex-wrap align-items-center justify-content-between">
+                                <h4 class="panel-title">iFrames Used?</h4><code class="code-bg">Good</code>
+                              </div>
+                            </div>
+                            <div class="panel-body">
+                              <p class="panel-text">There are no iFrames detected on your page.</p>
+                            </div>
+                          </div>
+                        </div> 
+                      </div>
+                      <div class="col-md-6 col-lg-6"> 
+                        <div class="col-md-12">
+                          <div class="panel panel-success">
+                            <div class="panel-header">
+                              <div class="group-5 d-flex flex-wrap align-items-center justify-content-between">
+                                <h4 class="panel-title">Favicon</h4><code class="code-bg">Good</code>
+                              </div>
+                            </div>
+                            <div class="panel-body">
+                              <p class="panel-text">Your page has specified a favicon.</p>
+                            </div>
+                          </div>
+                        </div> 
+                      </div>
+                    </div>
+                  </div>
+
+
+              </div>
+
+
+
+
+
+
+
+
+
+
+
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section-sm section-transparent" style="margin: 10px;">
+          <div class="col-lg-6 col-xxl-10">
+            <div class="panel">
+              <div class="panel-body p-0" >
+                
+                <div class="alert alert-primary alert-lighter mt-1" role="alert">
+                  <span>Performance Resaults</span>
+                </div>
+
+                <div class="container-fluid">
+
+                  <div class="row row-30">
+                    <div class="col-md-4 col-lg-4">
+                      <div class="media-item">
+                        <div class="progress-circle-wrap">
+                          <div class="progress-counter-wrap">
+                            <div class="progress-counter-value-main" style="color: #58a193"><span class="progress-counter">92</span><span class="progress-postfix">%</span>
+                            </div>
+                          </div>
+                          <svg class="progress-circle" x="0" y="0" width="200" height="200" viewbox="0 0 60 60">
+                            <circle class="bg" cx="30" cy="30" r="29"></circle>
+                            <circle class="fg clipped" cx="30" cy="30" r="29" style="stroke: #58a193"></circle>
+                          </svg>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-sm-8 col-lg-6">
+                      <h2>Your performance is very good!</h2>
+                      <p>Congratulations, your page has performed very well in our testing meaning it should be reasonably fast and responsive for users. Performance is important to ensure a good user experience, and reduced bounce rates (which can also indirectly affect your search engine rankings). Continue to monitor your performance over time to ensure there are no periodic fluctuations.</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="container-fluid" >
+
+
+                  <div class="container">
+                    <div class="row row-30">
+
+                      <div class="col-md-6 col-lg-12"> 
+                        <div class="col-md-12">
+                          <div class="panel panel-warning">
+                            <div class="panel-header">
+                              <div class="group-5 d-flex flex-wrap align-items-center justify-content-between">
+                                <h4 class="panel-title">Page Size Info</h4><code class="code-bg">Good</code>
+                              </div>
+                            </div>
+                            <div class="panel-body">
+                              <p class="panel-text">Your page's file size is reasonably low which is good for Page Load Speed and user experience.</p>
+                              <p>See more below.</p>
+                            </div>
+                          </div>
+                        </div> 
+                      </div>
+                      
+                    </div>
+                    <div class="row row-30">
+                      <div class="col-md-4 col-xxl-4 d-xxl-flex">
+                        <div class="panel">
+                          <div class="panel-header">
+                            <div class="d-flex justify-content-between align-items-center flex-wrap group-10">
+                              <h4 class="panel-title">Server Response</h4>
+                            </div>
+                          </div>
+                          <div class="panel-body">
+                            <div class="highcharts-container" data-highcharts-options="{&quot;credits&quot;:false,&quot;colors&quot;:[&quot;#f7ad6a&quot;,&quot;#58a193&quot;],&quot;chart&quot;:{&quot;type&quot;:&quot;pie&quot;,&quot;plotBackgroundColor&quot;:null,&quot;plotBorderWidth&quot;:0,&quot;plotShadow&quot;:false},&quot;title&quot;:{&quot;useHTML&quot;:true,&quot;text&quot;:&quot;&lt;h1 style=\&quot;font-size:30px; text-align:center\&quot;&gt;0.48s&lt;/h1&gt;&lt;p&gt;To load&lt;/p&gt;&quot;,&quot;align&quot;:&quot;center&quot;,&quot;verticalAlign&quot;:&quot;middle&quot;,&quot;y&quot;:27},&quot;tooltip&quot;:{&quot;pointFormat&quot;:&quot;&lt;b&gt;{point.y} items&lt;/b&gt;&quot;},&quot;plotOptions&quot;:{&quot;pie&quot;:{&quot;dataLabels&quot;:{&quot;enabled&quot;:false},&quot;startAngle&quot;:-90,&quot;endAngle&quot;:90,&quot;center&quot;:[&quot;50%&quot;,&quot;75%&quot;],&quot;size&quot;:&quot;110%&quot;}},&quot;series&quot;:[{&quot;name&quot;:&quot;Browser share&quot;,&quot;innerSize&quot;:&quot;88%&quot;,&quot;data&quot;:[[&quot;Paid orders&quot;,610],[&quot;Registrations&quot;,3400]]}],&quot;responsive&quot;:{&quot;rules&quot;:[{&quot;condition&quot;:{&quot;minWidth&quot;:396},&quot;chartOptions&quot;:{&quot;title&quot;:{&quot;text&quot;:&quot;&lt;h1 style=\&quot;font-size:50px; text-align:center\&quot;&gt;30%&lt;/h1&gt;&lt;p&gt;Paid orders&lt;/p&gt;&quot;},&quot;plotOptions&quot;:{&quot;pie&quot;:{&quot;center&quot;:[&quot;50%&quot;,&quot;100%&quot;],&quot;size&quot;:&quot;190%&quot;}}}}]}}" style="height:240px;"></div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="col-md-4 col-xxl-4 d-xxl-flex">
+                        <div class="panel">
+                          <div class="panel-header">
+                            <div class="d-flex justify-content-between align-items-center flex-wrap group-10">
+                              <h4 class="panel-title">All Page Content Loaded</h4>
+                            </div>
+                          </div>
+                          <div class="panel-body">
+                            <div class="highcharts-container" data-highcharts-options="{&quot;credits&quot;:false,&quot;colors&quot;:[&quot;#f7ad6a&quot;,&quot;#58a193&quot;],&quot;chart&quot;:{&quot;type&quot;:&quot;pie&quot;,&quot;plotBackgroundColor&quot;:null,&quot;plotBorderWidth&quot;:0,&quot;plotShadow&quot;:false},&quot;title&quot;:{&quot;useHTML&quot;:true,&quot;text&quot;:&quot;&lt;h1 style=\&quot;font-size:30px; text-align:center\&quot;&gt;3.2s&lt;/h1&gt;&lt;p&gt;To load&lt;/p&gt;&quot;,&quot;align&quot;:&quot;center&quot;,&quot;verticalAlign&quot;:&quot;middle&quot;,&quot;y&quot;:27},&quot;tooltip&quot;:{&quot;pointFormat&quot;:&quot;&lt;b&gt;{point.y} items&lt;/b&gt;&quot;},&quot;plotOptions&quot;:{&quot;pie&quot;:{&quot;dataLabels&quot;:{&quot;enabled&quot;:false},&quot;startAngle&quot;:-90,&quot;endAngle&quot;:90,&quot;center&quot;:[&quot;50%&quot;,&quot;75%&quot;],&quot;size&quot;:&quot;110%&quot;}},&quot;series&quot;:[{&quot;name&quot;:&quot;Browser share&quot;,&quot;innerSize&quot;:&quot;88%&quot;,&quot;data&quot;:[[&quot;Paid orders&quot;,610],[&quot;Registrations&quot;,3400]]}],&quot;responsive&quot;:{&quot;rules&quot;:[{&quot;condition&quot;:{&quot;minWidth&quot;:396},&quot;chartOptions&quot;:{&quot;title&quot;:{&quot;text&quot;:&quot;&lt;h1 style=\&quot;font-size:50px; text-align:center\&quot;&gt;30%&lt;/h1&gt;&lt;p&gt;Paid orders&lt;/p&gt;&quot;},&quot;plotOptions&quot;:{&quot;pie&quot;:{&quot;center&quot;:[&quot;50%&quot;,&quot;100%&quot;],&quot;size&quot;:&quot;190%&quot;}}}}]}}" style="height:240px;"></div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="col-md-4 col-xxl-4 d-xxl-flex">
+                        <div class="panel">
+                          <div class="panel-header">
+                            <div class="d-flex justify-content-between align-items-center flex-wrap group-10">
+                              <h4 class="panel-title">All Page Scripts Complete</h4>
+                            </div>
+                          </div>
+                          <div class="panel-body">
+                            <div class="highcharts-container" data-highcharts-options="{&quot;credits&quot;:false,&quot;colors&quot;:[&quot;#f7ad6a&quot;,&quot;#58a193&quot;],&quot;chart&quot;:{&quot;type&quot;:&quot;pie&quot;,&quot;plotBackgroundColor&quot;:null,&quot;plotBorderWidth&quot;:0,&quot;plotShadow&quot;:false},&quot;title&quot;:{&quot;useHTML&quot;:true,&quot;text&quot;:&quot;&lt;h1 style=\&quot;font-size:30px; text-align:center\&quot;&gt;5.4s&lt;/h1&gt;&lt;p&gt;To load&lt;/p&gt;&quot;,&quot;align&quot;:&quot;center&quot;,&quot;verticalAlign&quot;:&quot;middle&quot;,&quot;y&quot;:27},&quot;tooltip&quot;:{&quot;pointFormat&quot;:&quot;&lt;b&gt;{point.y} items&lt;/b&gt;&quot;},&quot;plotOptions&quot;:{&quot;pie&quot;:{&quot;dataLabels&quot;:{&quot;enabled&quot;:false},&quot;startAngle&quot;:-90,&quot;endAngle&quot;:90,&quot;center&quot;:[&quot;50%&quot;,&quot;75%&quot;],&quot;size&quot;:&quot;110%&quot;}},&quot;series&quot;:[{&quot;name&quot;:&quot;Browser share&quot;,&quot;innerSize&quot;:&quot;88%&quot;,&quot;data&quot;:[[&quot;Paid orders&quot;,610],[&quot;Registrations&quot;,3400]]}],&quot;responsive&quot;:{&quot;rules&quot;:[{&quot;condition&quot;:{&quot;minWidth&quot;:396},&quot;chartOptions&quot;:{&quot;title&quot;:{&quot;text&quot;:&quot;&lt;h1 style=\&quot;font-size:50px; text-align:center\&quot;&gt;30%&lt;/h1&gt;&lt;p&gt;Paid orders&lt;/p&gt;&quot;},&quot;plotOptions&quot;:{&quot;pie&quot;:{&quot;center&quot;:[&quot;50%&quot;,&quot;100%&quot;],&quot;size&quot;:&quot;190%&quot;}}}}]}}" style="height:240px;"></div>
+                          </div>
+                        </div>
+                      </div>
+
+                    </div>
+
+                                        <div class="row row-30">
+                      <div class="col-md-6 col-xxl-6 d-xxl-flex">
+                        <div class="panel">
+                          <div class="panel-header">
+                            <div class="d-flex justify-content-between align-items-center flex-wrap group-10">
+                              <h4 class="panel-title">Total Page Size</h4>
+                            </div>
+                          </div>
+                          <div class="panel-body">
+                            <div class="highcharts-container" data-highcharts-options="{&quot;credits&quot;:false,&quot;colors&quot;:[&quot;#f7ad6a&quot;,&quot;#58a193&quot;],&quot;chart&quot;:{&quot;type&quot;:&quot;pie&quot;,&quot;plotBackgroundColor&quot;:null,&quot;plotBorderWidth&quot;:0,&quot;plotShadow&quot;:false},&quot;title&quot;:{&quot;useHTML&quot;:true,&quot;text&quot;:&quot;&lt;h1 style=\&quot;font-size:30px; text-align:center\&quot;&gt;3.2mb&lt;/h1&gt;&lt;p&gt;To load&lt;/p&gt;&quot;,&quot;align&quot;:&quot;center&quot;,&quot;verticalAlign&quot;:&quot;middle&quot;,&quot;y&quot;:27},&quot;tooltip&quot;:{&quot;pointFormat&quot;:&quot;&lt;b&gt;{point.y} items&lt;/b&gt;&quot;},&quot;plotOptions&quot;:{&quot;pie&quot;:{&quot;dataLabels&quot;:{&quot;enabled&quot;:false},&quot;startAngle&quot;:-90,&quot;endAngle&quot;:90,&quot;center&quot;:[&quot;50%&quot;,&quot;75%&quot;],&quot;size&quot;:&quot;110%&quot;}},&quot;series&quot;:[{&quot;name&quot;:&quot;Browser share&quot;,&quot;innerSize&quot;:&quot;88%&quot;,&quot;data&quot;:[[&quot;Paid orders&quot;,610],[&quot;Registrations&quot;,3400]]}],&quot;responsive&quot;:{&quot;rules&quot;:[{&quot;condition&quot;:{&quot;minWidth&quot;:396},&quot;chartOptions&quot;:{&quot;title&quot;:{&quot;text&quot;:&quot;&lt;h1 style=\&quot;font-size:50px; text-align:center\&quot;&gt;30%&lt;/h1&gt;&lt;p&gt;Paid orders&lt;/p&gt;&quot;},&quot;plotOptions&quot;:{&quot;pie&quot;:{&quot;center&quot;:[&quot;50%&quot;,&quot;100%&quot;],&quot;size&quot;:&quot;190%&quot;}}}}]}}" style="height:240px;"></div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="col-md-6 col-xxl-6 d-xxl-flex">
+                        <!-- Pie Chart-->
+                        <div class="col-xxl-12">
+                          <div class="panel">
+                            <div class="panel-header">
+                              <h4 class="panel-title">Page Size Breakdown</h4>
+                            </div>
+                            <div class="panel-body">
+                              <div class="highcharts-container" data-highcharts-options="{&quot;credits&quot;:false,&quot;colors&quot;:[&quot;#58a193&quot;,&quot;#dc3545&quot;,&quot;#fd7e14&quot;,&quot;#f7ad6a&quot;,&quot;#5b5eab&quot;,&quot;#34B1CC&quot;],&quot;chart&quot;:{&quot;type&quot;:&quot;pie&quot;},&quot;title&quot;:{&quot;text&quot;:null},&quot;legend&quot;:{&quot;itemStyle&quot;:{&quot;color&quot;:&quot;#aaa&quot;,&quot;fontWeight&quot;:&quot;normal&quot;},&quot;itemHoverStyle&quot;:{&quot;color&quot;:&quot;#777&quot;}},&quot;tooltip&quot;:{&quot;pointFormat&quot;:&quot;{series.name}: &lt;b&gt;{point.percentage:.1f}%&lt;/b&gt;&quot;},&quot;plotOptions&quot;:{&quot;pie&quot;:{&quot;allowPointSelect&quot;:true,&quot;cursor&quot;:&quot;pointer&quot;,&quot;borderColor&quot;:&quot;transparent&quot;,&quot;dataLabels&quot;:{&quot;enabled&quot;:false},&quot;showInLegend&quot;:true}},&quot;series&quot;:[{&quot;name&quot;:&quot;Brands&quot;,&quot;colorByPoint&quot;:true,&quot;data&quot;:[
+                              {&quot;name&quot;:&quot;JS &quot;,&quot;y&quot;:2.67},
+                              {&quot;name&quot;:&quot;HTML&quot;,&quot;y&quot;:0.03},
+                              {&quot;name&quot;:&quot;CSS&quot;,&quot;y&quot;:0.3},
+                              {&quot;name&quot;:&quot;Other&quot;,&quot;y&quot;:0.17},
+                              {&quot;name&quot;:&quot;Images&quot;,&quot;y&quot;:0.08}]}]}" style="height:400px;"></div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                    </div>
+                  </div>
+                  <div class="container">
+                    <div class="row row-30">
+                      <div class="col-md-6 col-lg-6"> 
+                        <div class="col-md-12">
+
+                          <div class="col-md-10 col-xxl-7">
+                            <div class="panel">
+                              <div class="panel-header">
+                                <h4 class="panel-title">Tour Item 2</h4>
+                              </div>
+                              <div class="panel-body"><img src="images/mobile.png" width="1000" height="500" alt="" style="width: 100%;"></div>
+                            </div>
+                          </div>
+
+                        </div> 
+                      </div>
+                      <div class="col-md-6 col-lg-6"> 
+                        <div class="col-md-12">
+
+                          <div class="col-md-10 col-xxl-10">
+                            <div class="panel">
+                              <div class="panel-header">
+                                <h4 class="panel-title">Tour Item 2</h4>
+                              </div>
+                              <div class="panel-body"><img src="images/tablet.png" width="1000" height="500" alt="" style="width: 100%;"></div>
+                            </div>
+                          </div>
+
+                        </div> 
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="container">
+                    <div class="row row-30">
+
+                      <div class="col-md-6 col-lg-6"> 
+                        <div class="col-md-12">
+                          <div class="panel panel-success">
+                            <div class="panel-header">
+                              <div class="group-5 d-flex flex-wrap align-items-center justify-content-between">
+                                <h4 class="panel-title">Tap Target Sizing</h4><code class="code-bg">Good</code>
+                              </div>
+                            </div>
+                            <div class="panel-body">
+                              <p class="panel-text">The links and buttons on your page appear to be appropriately sized for a user to easily tap on a touchscreen.</p>
+                            </div>
+                          </div>
+                        </div> 
+                      </div>
+                      <div class="col-md-6 col-lg-6"> 
+                        <div class="col-md-12">
+                          <div class="panel panel-success">
+                            <div class="panel-header">
+                              <div class="group-5 d-flex flex-wrap align-items-center justify-content-between">
+                                <h4 class="panel-title">Use of Mobile Viewports</h4><code class="code-bg">Good</code>
+                              </div>
+                            </div>
+                            <div class="panel-body">
+                              <p class="panel-text">Your page specifies a viewport matching the device's size, allowing it to render appropriately across devices.</p>
+                            </div>
+                          </div>
+                        </div> 
+                      </div>
+                    </div>
+                    <div class="row row-30">
+
+                      <div class="col-md-6 col-lg-6"> 
+                        <div class="col-md-12">
+                          <div class="panel panel-success">
+                            <div class="panel-header">
+                              <div class="group-5 d-flex flex-wrap align-items-center justify-content-between">
+                                <h4 class="panel-title">Flash Used?</h4><code class="code-bg">Good</code>
+                              </div>
+                            </div>
+                            <div class="panel-body">
+                              <p class="panel-text">No Flash content has been identified on your page.</p>
+                            </div>
+                          </div>
+                        </div> 
+                      </div>
+                      <div class="col-md-6 col-lg-6"> 
+                        <div class="col-md-12">
+                          <div class="panel panel-success">
+                            <div class="panel-header">
+                              <div class="group-5 d-flex flex-wrap align-items-center justify-content-between">
+                                <h4 class="panel-title">Legible Font Sizes</h4><code class="code-bg">Good</code>
+                              </div>
+                            </div>
+                            <div class="panel-body">
+                              <p class="panel-text">The text on your page appears to be legible across devices.</p>
+                            </div>
+                          </div>
+                        </div> 
+                      </div>
+                    </div>
+                    <div class="row row-30">
+                      <div class="col-md-6 col-lg-6"> 
+                        <div class="col-md-12">
+                          <div class="panel panel-success">
+                            <div class="panel-header">
+                              <div class="group-5 d-flex flex-wrap align-items-center justify-content-between">
+                                <h4 class="panel-title">iFrames Used?</h4><code class="code-bg">Good</code>
+                              </div>
+                            </div>
+                            <div class="panel-body">
+                              <p class="panel-text">There are no iFrames detected on your page.</p>
+                            </div>
+                          </div>
+                        </div> 
+                      </div>
+                      <div class="col-md-6 col-lg-6"> 
+                        <div class="col-md-12">
+                          <div class="panel panel-success">
+                            <div class="panel-header">
+                              <div class="group-5 d-flex flex-wrap align-items-center justify-content-between">
+                                <h4 class="panel-title">Favicon</h4><code class="code-bg">Good</code>
+                              </div>
+                            </div>
+                            <div class="panel-body">
+                              <p class="panel-text">Your page has specified a favicon.</p>
+                            </div>
+                          </div>
+                        </div> 
+                      </div>
+                    </div>
+                  </div>
+                  <div class="container">
+                    <div class="row row-30">
+                      <div class="col-md-6 col-lg-12"> 
+                        <div class="col-md-12">
+                          <div class="panel panel-warning">
+                            <div class="panel-header">
+                              <div class="group-5 d-flex flex-wrap align-items-center justify-content-between">
+                                <h4 class="panel-title">Number of Resources</h4><code class="code-bg">Good</code>
+                              </div>
+                            </div>
+                            <div class="panel-body">
+                              <p class="panel-text">This check displays the total number of files that need to be retrieved from web servers to load your page. As a general rule, having more files to retrieve increases the number of server requests and can subsequently increase page load time. It is a good idea to removing unnecessary files or consolidate files like styles and scripts where possible.</p>
+                            </div>
+                          </div>
+                        </div> 
+                      </div>
+                    </div>
+                    <div class="row row-30" style="font-size: x-large;">
+                      <div class="col-sm-6 col-lg-4">
+                        <div class="widget-counter widget-counter-boxed widget-counter-boxed-success widget-counter-boxed-gradient">
+                          <div class="widget-counter-body">
+                            <h2 class="widget-counter-title"><div class="h1 mdi-pound"></div></h2>
+                            <div class="widget-counter-text">Total Objects</div>
+                          </div>
+                          <div class="widget-counter-footer small"><span class="widget-counter-footer-icon  pr-1"></span>  <strong style="font-weight: 200;">44</strong>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-sm-6 col-lg-4">
+                        <div class="widget-counter widget-counter-boxed widget-counter-boxed-success widget-counter-boxed-gradient">
+                          <div class="widget-counter-body">
+                            <h2 class="widget-counter-title"><div class="h1 mdi-code-tags"></div></h2>
+                            <div class="widget-counter-text">Number of HTML Pages</div>
+                          </div>
+                          <div class="widget-counter-footer small"><span class="widget-counter-footer-icon pr-1"></span>  <strong style="font-weight: 200;">4</strong>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-sm-6 col-lg-4">
+                        <div class="widget-counter widget-counter-boxed widget-counter-boxed-success widget-counter-boxed-gradient">
+                          <div class="widget-counter-body">
+                            <h2 class="widget-counter-title"><div class="h1 mdi-nodejs"></div></h2>
+                            <div class="widget-counter-text">Number of JS Resources</div>
+                          </div>
+                          <div class="widget-counter-footer small"><span class="widget-counter-footer-icon pr-1"></span><strong style="font-weight: 200;">14</strong>
+                          </div>
+                        </div>
+                      </div>
+                    </div>                        
+                  
+                    <div class="row row-30" style="font-size: x-large;">
+                      <div class="col-sm-6 col-lg-4">
+                        <div class="widget-counter widget-counter-boxed widget-counter-boxed-success widget-counter-boxed-gradient">
+                          <div class="widget-counter-body">
+                            <h2 class="widget-counter-title"><div class="h1 mdi-code-braces"></div></h2>
+                            <div class="widget-counter-text">Number of CSS Resources</div>
+                          </div>
+                          <div class="widget-counter-footer small"><span class="widget-counter-footer-icon  pr-1"></span>  <strong style="font-weight: 200;">2</strong>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-sm-6 col-lg-4">
+                        <div class="widget-counter widget-counter-boxed widget-counter-boxed-success widget-counter-boxed-gradient">
+                          <div class="widget-counter-body">
+                            <h2 class="widget-counter-title"><div class="h1 mdi-image-filter"></div></h2>
+                            <div class="widget-counter-text">Number of Images</div>
+                          </div>
+                          <div class="widget-counter-footer small"><span class="widget-counter-footer-icon  pr-1"></span>  <strong style="font-weight: 200;">11</strong>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-sm-6 col-lg-4">
+                        <div class="widget-counter widget-counter-boxed widget-counter-boxed-success widget-counter-boxed-gradient">
+                          <div class="widget-counter-body">
+                            <h2 class="widget-counter-title"><div class="h1 mdi-image-filter-none"></div></h2>
+                            <div class="widget-counter-text">Other Resources</div>
+                          </div>
+                          <div class="widget-counter-footer small"><span class="widget-counter-footer-icon  pr-1"></span><strong style="font-weight: 200;">13</strong>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+              </div>
+
+              <div class="container">
+                    <div class="row row-30">
+
+                      <div class="col-md-6 col-lg-6"> 
+                        <div class="col-md-12">
+                          <div class="panel panel-success">
+                            <div class="panel-header">
+                              <div class="group-5 d-flex flex-wrap align-items-center justify-content-between">
+                                <h4 class="panel-title">JavaScript Errors</h4><code class="code-bg">Good</code>
+                              </div>
+                            </div>
+                            <div class="panel-body">
+                              <p class="panel-text">Your page is not reporting any JavaScript errors.</p>
+                            </div>
+                          </div>
+                        </div> 
+                      </div>
+                      <div class="col-md-6 col-lg-6"> 
+                        <div class="col-md-12">
+                          <div class="panel panel-success">
+                            <div class="panel-header">
+                              <div class="group-5 d-flex flex-wrap align-items-center justify-content-between">
+                                <h4 class="panel-title">GZIP Compression</h4><code class="code-bg">Good</code>
+                              </div>
+                            </div>
+                            <div class="panel-body">
+                              <p class="panel-text">Your website is using GZIP compression.</p>
+                            </div>
+                          </div>
+                        </div> 
+                      </div>
+                    </div>
+                    <div class="row row-30">
+                      <div class="col-md-6 col-lg-6"> 
+                        <div class="col-md-12">
+                          <div class="panel panel-success">
+                            <div class="panel-header">
+                              <div class="group-5 d-flex flex-wrap align-items-center justify-content-between">
+                                <h4 class="panel-title">Optimize Images</h4><code class="code-bg">Good</code>
+                              </div>
+                            </div>
+                            <div class="panel-body">
+                              <p class="panel-text">All of the images on your page appear to be optimized.</p>
+                            </div>
+                          </div>
+                        </div> 
+                      </div>
+                      <div class="col-md-6 col-lg-6"> 
+                        <div class="col-md-12">
+                          <div class="panel panel-success">
+                            <div class="panel-header">
+                              <div class="group-5 d-flex flex-wrap align-items-center justify-content-between">
+                                <h4 class="panel-title">Minification</h4><code class="code-bg">Good</code>
+                              </div>
+                            </div>
+                            <div class="panel-body">
+                              <p class="panel-text">All your JavaScript and CSS files appear to be minified.</p>
+                            </div>
+                          </div>
+                        </div> 
+                      </div>
+                    </div>
+                    <div class="row row-30">
+                      <div class="col-md-6 col-lg-6"> 
+                        <div class="col-md-12">
+                          <div class="panel panel-success">
+                            <div class="panel-header">
+                              <div class="group-5 d-flex flex-wrap align-items-center justify-content-between">
+                                <h4 class="panel-title">Deprecated HTML</h4><code class="code-bg">Good</code>
+                              </div>
+                            </div>
+                            <div class="panel-body">
+                              <p class="panel-text">No deprecated HTML tags have been found within your page.</p>
+                            </div>
+                          </div>
+                        </div> 
+                      </div>
+          
+                    </div>
+                    <div class="row row-30">
+                      <div class="col-md-6 col-lg-12"> 
+                        <div class="col-md-12">
+                          <div class="panel panel-danger">
+                            <div class="panel-header">
+                              <div class="group-5 d-flex flex-wrap align-items-center justify-content-between">
+                                <h4 class="panel-title">Inline Styles</h4><code class="code-bg">Warning</code>
+                              </div>
+                            </div>
+                            <div class="panel-body">
+                              <p class="panel-text">Your page appears to be using inline styles. Inline styles are an older coding practice and discouraged in favor of using CSS style sheets, due to their ability to degrade page load performance and unnecessarily complicate HTML Code.</p>
+                            </div>
+                          </div>
+                        </div> 
+                      </div>
+          
+                    </div>
+                  </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+
+        <section class="section-sm section-transparent" style="margin: 10px;">
+          <div class="col-lg-6 col-xxl-10">
+            <div class="panel">
+              <div class="panel-body p-0" >
+                <div class="alert alert-primary alert-lighter mt-1" role="alert">
+                  <span>Technology Information</span>
+                </div>
+                <div class="container-fluid" >
+                  <div class="container">
+                    
+                    <div class="row row-30">
+                      <div class="col-md-6 col-lg-12"> 
+                        <div class="col-md-12">
+                          <div class="panel panel-warning">
+                            <div class="panel-header">
+                              <div class="group-5 d-flex flex-wrap align-items-center justify-content-between">
+                                <h4 class="panel-title">Facebook Connected</h4><code class="code-bg">Info</code>
+                              </div>
+                            </div>
+                            <div class="panel-body">
+                              <p class="panel-text">These software or coding libraries have been identified on your page.</p>
+                            </div>
+                          </div>
+                        </div> 
+                      </div>
+                    </div>
+
+
+
+                    <div class="row row-30">
+                      <div class="col-md-6 col-lg-6"> 
+                        <div class="col-md-12">
+                          <div class="panel panel-success">
+                            <div class="panel-header">
+                              <div class="group-5 d-flex flex-wrap align-items-center justify-content-between">
+                                <h4 class="panel-title">Facebook Pixel</h4><code class="code-bg">Good</code>
+                              </div>
+                            </div>
+                            <div class="panel-body">
+                              <p class="panel-text">Your page has a Facebook Pixel installed.</p>
+                            </div>
+                          </div>
+                        </div> 
+                      </div>
+                      <div class="col-md-6 col-lg-6"> 
+                        <div class="col-md-12">
+                          <div class="panel panel-danger">
+                            <div class="panel-header">
+                              <div class="group-5 d-flex flex-wrap align-items-center justify-content-between">
+                                <h4 class="panel-title">Twitter Connected</h4><code class="code-bg">Warning</code>
+                              </div>
+                            </div>
+                            <div class="panel-body">
+                              <p class="panel-text">No associated Twitter profile found as a link on your page.</p>
+                            </div>
+                          </div>
+                        </div> 
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section-sm section-transparent" style="margin: 10px;">
+          <div class="col-lg-6 col-xxl-10">
+            <div class="panel">
+              <div class="panel-body p-0" >
+                <div class="alert alert-primary alert-lighter mt-1" role="alert">
+                  <span>Security Results</span>
+                </div>
+                <div class="container-fluid">
+                  <div class="row row-30">
+                    <div class="col-md-4 col-lg-4">
+                      <div class="media-item">
+                        <div class="progress-circle-wrap">
+                          <div class="progress-counter-wrap">
+                            <div class="progress-counter-value-main" style="color: #58a193"><span class="progress-counter">95</span><span class="progress-postfix">%</span>
+                            </div>
+                          </div>
+                          <svg class="progress-circle" x="0" y="0" width="200" height="200" viewbox="0 0 60 60">
+                            <circle class="bg" cx="30" cy="30" r="29"></circle>
+                            <circle class="fg clipped" cx="30" cy="30" r="29" style="stroke: #58a193"></circle>
+                          </svg>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-sm-8 col-lg-6">
+                      <h2>Your security looks very good!</h2>
+                      <p>We haven't identified obvious security problems on your website. Security is important to ensure your website protects user data, doesn't become compromised or experience downtime or data loss. We recommend ongoing patching and the continuous use of protective monitoring tools.</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="container-fluid" >
+                  <div class="container">
+                    
+                    <div class="row row-30">
+                      <div class="col-md-6 col-lg-6"> 
+                        <div class="col-md-12">
+                          <div class="panel panel-success">
+                            <div class="panel-header">
+                              <div class="group-5 d-flex flex-wrap align-items-center justify-content-between">
+                                <h4 class="panel-title">SSL Enabled</h4><code class="code-bg">Good</code>
+                              </div>
+                            </div>
+                            <div class="panel-body">
+                              <p class="panel-text">Your website has SSL enabled.</p>
+                            </div>
+                          </div>
+                        </div> 
+                      </div>
+                      <div class="col-md-6 col-lg-6"> 
+                        <div class="col-md-12">
+                          <div class="panel panel-success">
+                            <div class="panel-header">
+                              <div class="group-5 d-flex flex-wrap align-items-center justify-content-between">
+                                <h4 class="panel-title">HTTPS Redirect</h4><code class="code-bg">Good</code>
+                              </div>
+                            </div>
+                            <div class="panel-body">
+                              <p class="panel-text">Your page successfully redirects to a HTTPS (SSL secure) version.</p>
+                            </div>
+                          </div>
+                        </div> 
+                      </div>
+                    </div>
+
+                    <div class="row row-30">
+                      <div class="col-md-6 col-lg-12"> 
+                        <div class="col-md-12">
+                          <div class="panel panel-success">
+                            <div class="panel-header">
+                              <div class="group-5 d-flex flex-wrap align-items-center justify-content-between">
+                                <h4 class="panel-title">Malware Check</h4><code class="code-bg">Good</code>
+                              </div>
+                            </div>
+                            <div class="panel-body">
+                              <p class="panel-text">Your website has been flagged as safe by popular malware scanners.</p>
+                            </div>
+                          </div>
+                        </div> 
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="container">
+                    <div class="row row-30" style="font-size: x-large;">
+                      <div class="col-sm-6 col-lg-3">
+                        <div class="widget-counter widget-counter-boxed widget-counter-boxed-success widget-counter-boxed-gradient">
+                          <div class="widget-counter-body">
+                            <h2 class="widget-counter-title"><div class="h1 mdi-security"></div></h2>
+                            <div class="widget-counter-text">Google Safe Browsing</div>
+                          </div>
+                          <div class="widget-counter-footer small"><span class="widget-counter-footer-icon mdi-check pr-1"></span>  
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-sm-6 col-lg-3">
+                        <div class="widget-counter widget-counter-boxed widget-counter-boxed-success widget-counter-boxed-gradient">
+                          <div class="widget-counter-body">
+                            <h2 class="widget-counter-title"><div class="h1 mdi-security"></div></h2>
+                            <div class="widget-counter-text">McAfee</div>
+                          </div>
+                          <div class="widget-counter-footer small"><span class="widget-counter-footer-icon mdi-check pr-1"></span> 
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-sm-6 col-lg-3">
+                        <div class="widget-counter widget-counter-boxed widget-counter-boxed-success widget-counter-boxed-gradient">
+                          <div class="widget-counter-body">
+                            <h2 class="widget-counter-title"><div class="h1 mdi-security"></div></h2>
+                            <div class="widget-counter-text">Norton</div>
+                          </div>
+                          <div class="widget-counter-footer small"><span class="widget-counter-footer-icon mdi-check pr-1"></span>  
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-sm-6 col-lg-3">
+                        <div class="widget-counter widget-counter-boxed widget-counter-boxed-success widget-counter-boxed-gradient">
+                          <div class="widget-counter-body">
+                            <h2 class="widget-counter-title"><div class="h1 mdi-security"></div></h2>
+                            <div class="widget-counter-text">AVG</div>
+                          </div>
+                          <div class="widget-counter-footer small"><span class="widget-counter-footer-icon mdi-check pr-1"></span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>   
+
+                    <div class="row row-30">
+                      <div class="col-md-6 col-lg-12"> 
+                        <div class="col-md-12">
+                          <div class="panel panel-danger">
+                            <div class="panel-header">
+                              <div class="group-5 d-flex flex-wrap align-items-center justify-content-between">
+                                <h4 class="panel-title">Email Privacy</h4><code class="code-bg">Warning</code>
+                              </div>
+                            </div>
+                            <div class="panel-body">
+                              <p class="panel-text">Email addresses have been found in plain text. We recommend removing any plain text email addresses and replacing them with images or contact forms. Plain text email addresses can be susceptible to scrapers and email spammers.</p>
+                            </div>
+                          </div>
+                        </div> 
+                      </div>
+                    </div>
+
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section-sm section-transparent" style="margin: 10px;">
+          <div class="col-lg-6 col-xxl-10">
+            <div class="panel">
+              <div class="panel-body p-0" >
+                <div class="alert alert-primary alert-lighter mt-1" role="alert">
+                  <span>Technology Results</span>
+                </div>
+                <div class="container">
+                  <div class="row row-30">
+                      <div class="col-md-6 col-lg-12"> 
+                        <div class="col-md-12">
+                          <div class="panel panel-warning">
+                            <div class="panel-header">
+                              <div class="group-5 d-flex flex-wrap align-items-center justify-content-between">
+                                <h4 class="panel-title">Technology List</h4><code class="code-bg">Info</code>
+                              </div>
+                            </div>
+                            <div class="panel-body">
+                              <p class="panel-text">These software or coding libraries have been identified on your page.</p>
+                            </div>
+                          </div>
+                        </div> 
+                      </div>
+                    </div>
+
+                    <div class="col-lg-12">
+                      <div class="panel">
+                        <div class="panel-body p-0">
+                          <div class="table-responsive scroller scroller-horizontal">
+                            <table class="table table-striped">
+                              <thead>
+                                <tr>
+                                  <th scope="col"></th>
+
+                                  <th scope="col">Technology</th>
+                                  <th scope="col">Version</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <tr>
+                                  <th scope="row">1</th>
+                                  <td>Facebook</td>
+                                  <td></td>
+                                </tr>
+                                <tr>
+                                  <th scope="row">2</th>
+                                  <td>Google Analytics  </td>
+                                  <td></td>
+                                </tr>
+                                <tr>
+                                  <th scope="row">3</th>
+                                  <td>jQuery  </td>
+                                  <td>3.3.1</td>
+                                </tr>
+                                <tr>
+                                  <th scope="row">4</th>
+                                  <td>Nginx </td>
+                                  <td></td>
+                                </tr>
+                                <tr>
+                                  <th scope="row">5</th>
+                                  <td>Segment</td>
+                                  <td></td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+              
+            
+
+                <div class="container">
+                  <div class="row row-30">
+                    <div class="col-md-6 col-lg-12"> 
+                      <div class="col-md-3 col-lg-3"> 
+                        <div class="col-md-12">
+                          <div class="panel panel-warning">
+                            <div class="panel-header"><code class="code-bg">Info</code>
+                              <div class="group-5 d-flex flex-wrap align-items-center justify-content-between">
+                                <h4 class="panel-title">Server IP Address</h4>
+                              </div>
+                            </div>
+                            <div class="panel-body">
+                              <p class="panel-text">79.171.101.150</p>
+                            </div>
+                          </div>
+                        </div> 
+                      </div>
+                      <div class="col-md-3 col-lg-3"> 
+                        <div class="col-md-12">
+                          <div class="panel panel-warning">
+                            <div class="panel-header"><code class="code-bg">Info</code>
+                              <div class="group-5 d-flex flex-wrap align-items-center justify-content-between">
+                                <h4 class="panel-title">DNS Servers</h4>
+                              </div>
+                            </div>
+                            <div class="panel-body">
+                              <p class="panel-text">ns0.vist.is</p>
+                              <p>ns2.vist.is</p>
+                              <p>ns1.vist.is</p>
+                            </div>
+                          </div>
+                        </div> 
+                      </div>
+                      <div class="col-md-6 col-lg-3"> 
+                        <div class="col-md-12">
+                          <div class="panel panel-warning">
+                            <div class="panel-header"><code class="code-bg">Info</code>
+                              <div class="group-5 d-flex flex-wrap align-items-center justify-content-between">
+                                <h4 class="panel-title">Web Server</h4>
+                              </div>
+                            </div>
+                            <div class="panel-body">
+                              <p class="panel-text">nginx</p>
+                            </div>
+                          </div>
+                        </div> 
+                      </div>
+                      <div class="col-md-6 col-lg-3"> 
+                        <div class="col-md-12">
+                          <div class="panel panel-warning">
+                            <div class="panel-header"><code class="code-bg">Info</code>
+                              <div class="group-5 d-flex flex-wrap align-items-center justify-content-between">
+                                <h4 class="panel-title">Charset</h4>
+                              </div>
+                            </div>
+                            <div class="panel-body">
+                              <p class="panel-text">text/html; charset=utf-8</p>
+                            </div>
+                          </div>
+                        </div> 
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section-sm section-transparent" style="margin: 10px;">
+          <div class="col-lg-6 col-xxl-10">
+            <div class="panel">
+              <div class="panel-body p-0" >
+                <div class="alert alert-primary alert-lighter mt-1" role="alert">
+                  <span>Recommendations</span>
+                </div>
+                <div class="row row-30">
+                  <div class="col-12">
+                    <h3 class="text-center">Nav Tabs</h3>
+                  </div>
+                  <div class="col-md-12">
+              <div class="tabs tabs-vertical-top">
+                <ul class="nav nav-tabs scroller scroller-horizontal" role="tablist">
+                        <li class="nav-item">
+                          <a class="nav-link active" data-toggle="tab" href="#panelTab3-1" role="tab" aria-selected="true">All</a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" data-toggle="tab" href="#panelTab3-2" role="tab" aria-selected="false"><span class="fa-bolt"></span> SEO</a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" data-toggle="tab" href="#panelTab3-3" role="tab" aria-selected="false">Performance</a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" data-toggle="tab" href="#panelTab3-4" role="tab" aria-selected="false">Security</a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" data-toggle="tab" href="#panelTab3-5" role="tab" aria-selected="false">Social</a>
+                        </li>
+                      </ul>
+                      <div class="tab-content">
+                        <div class="tab-pane fade show active" id="panelTab3-1" role="tabpanel">
+                          
+                          <div class="col-md-3 col-lg-12">    
+                            <div class="alert alert-success mt-1" style="font-size: 1rem;" role="alert">
+                              <code class="code-bg" style="margin-right: 50px;float: left;">SEO</code>
+                              <span>Increase Page text content</span>
+                              <code class="code-bg" style="float: right; width: 130px;">Low Priority</code>
+                            </div>
+                          </div>
+
+
+                          <div class="col-md-3 col-lg-12">    
+                            <div class="alert alert-warning mt-1" style="font-size: 1rem;" role="alert">
+                              <code class="code-bg" style="margin-right: 50px;float: left;">SEO</code>
+                              <span>Lengthen meta description (to between 70 and 320 characters)</span>
+                              <code class="code-bg" style="float: right; width: 170px;">Medium Priority</code>
+                            </div>
+                          </div>
+
+
+                          <div class="col-md-3 col-lg-12">    
+                            <div class="alert alert-danger mt-1" style="font-size: 1rem;" role="alert">
+                              <code class="code-bg" style="margin-right: 50px;float: left;">SEO</code>
+                              <span>Make greater use of header tags</span>
+                              <code class="code-bg" style="float: right; width: 130px;">High Priority</code>
+                            </div>
+                          </div>
+
+
+                          <div class="col-md-3 col-lg-12">    
+                            <div class="alert alert-success mt-1" style="font-size: 1rem;" role="alert">
+                              <code class="code-bg" style="margin-right: 50px;float: left;">SEO</code>
+                              <span>Use your main keywords across the important HTML tags</span>
+                              <code class="code-bg" style="float: right; width: 130px;">Low Priority</code>
+                            </div>
+                          </div>
+
+
+                          <div class="col-md-3 col-lg-12">    
+                            <div class="alert alert-success mt-1" style="font-size: 1rem;" role="alert">
+                              <code class="code-bg" style="margin-right: 50px;float: left;">SEO</code>
+                              <span>Increase Page text content</span>
+                              <code class="code-bg" style="float: right; width: 130px;">Low Priority</code>
+                            </div>
+                          </div>
+
+
+                          <div class="col-md-3 col-lg-12">    
+                            <div class="alert alert-success mt-1" style="font-size: 1rem;" role="alert">
+                              <code class="code-bg" style="margin-right: 50px;float: left;">SEO</code>
+                              <span>Update URLs to be more human and Search Engine readable</span>
+                              <code class="code-bg" style="float: right; width: 130px;">Low Priority</code>
+                            </div>
+                          </div>
+
+
+                          <div class="col-md-3 col-lg-12">    
+                            <div class="alert alert-success mt-1" style="font-size: 1rem;" role="alert">
+                              <code class="code-bg" style="margin-right: 50px;float: left;">Social</code>
+                              <span>Create and link your Facebook Page</span>
+                              <code class="code-bg" style="float: right; width: 130px;">Low Priority</code>
+                            </div>
+                          </div>
+
+
+                          <div class="col-md-3 col-lg-12">    
+                            <div class="alert alert-success mt-1" style="font-size: 1rem;" role="alert">
+                              <code class="code-bg" style="margin-right: 50px;float: left;">Social</code>
+                              <span>Create and link your Twitter profile</span>
+                              <code class="code-bg" style="float: right; width: 130px;">Low Priority</code>
+                            </div>
+                          </div>
+
+
+                          <div class="col-md-3 col-lg-12">    
+                            <div class="alert alert-success mt-1" style="font-size: 1rem;" role="alert">
+                              <code class="code-bg" style="margin-right: 50px;float: left;">Performance</code>
+                              <span>Remove inline styles</span>
+                              <code class="code-bg" style="float: right; width: 130px;">Low Priority</code>
+                            </div>
+                          </div>
+
+
+                          <div class="col-md-3 col-lg-12">    
+                            <div class="alert alert-success mt-1" style="font-size: 1rem;" role="alert">
+                              <code class="code-bg" style="margin-right: 50px;float: left;">Security</code>
+                              <span>Remove clear text Email Addresses</span>
+                              <code class="code-bg" style="float: right; width: 130px;">Low Priority</code>
+                            </div>
+                          </div>
+
+
+                          <div class="col-md-3 col-lg-12">    
+                            <div class="alert alert-success mt-1" style="font-size: 1rem;" role="alert">
+                              <code class="code-bg" style="margin-right: 50px;float: left;">SEO</code>
+                              <span>Add Schema Markup</span>
+                              <code class="code-bg" style="float: right; width: 130px;">Low Priority</code>
+                            </div>
+                          </div>
+
+
+                          <div class="col-md-3 col-lg-12">    
+                            <div class="alert alert-success mt-1" style="font-size: 1rem;" role="alert">
+                              <code class="code-bg" style="margin-right: 50px;float: left;">Social</code>
+                              <span>Add Twitter Cards</span>
+                              <code class="code-bg" style="float: right; width: 130px;">Low Priority</code>
+                            </div>
+                          </div>
+
+
+                          <div class="col-md-3 col-lg-12">    
+                            <div class="alert alert-success mt-1" style="font-size: 1rem;" role="alert">
+                              <code class="code-bg" style="margin-right: 50px;float: left;">Social</code>
+                              <span>Create and link associated Instagram profile</span>
+                              <code class="code-bg" style="float: right; width: 130px;">Low Priority</code>
+                            </div>
+                          </div>
+
+
+                          <div class="col-md-3 col-lg-12">    
+                            <div class="alert alert-success mt-1" style="font-size: 1rem;" role="alert">
+                              <code class="code-bg" style="margin-right: 50px;float: left;">Social</code>
+                              <span>Create and link an associated YouTube channel</span>
+                              <code class="code-bg" style="float: right; width: 130px;">Low Priority</code>
+                            </div>
+                          </div>
+
+
+                          <div class="col-md-3 col-lg-12">    
+                            <div class="alert alert-success mt-1" style="font-size: 1rem;" role="alert">
+                              <code class="code-bg" style="margin-right: 50px;float: left;">Social</code>
+                              <span>Create and link an associated LinkedIn profile</span>
+                              <code class="code-bg" style="float: right; width: 130px;">Low Priority</code>
+                            </div>
+                          </div>
+
+
+
+
+                        </div>
+                        <div class="tab-pane fade" id="panelTab3-2" role="tabpanel">
+
+                          <div class="col-md-3 col-lg-12">    
+                            <div class="alert alert-success mt-1" style="font-size: 1rem;" role="alert">
+                              <code class="code-bg" style="margin-right: 50px;float: left;">SEO</code>
+                              <span>Increase Page text content</span>
+                              <code class="code-bg" style="float: right; width: 130px;">Low Priority</code>
+                            </div>
+                          </div>
+
+
+                          <div class="col-md-3 col-lg-12">    
+                            <div class="alert alert-warning mt-1" style="font-size: 1rem;" role="alert">
+                              <code class="code-bg" style="margin-right: 50px;float: left;">SEO</code>
+                              <span>Lengthen meta description (to between 70 and 320 characters)</span>
+                              <code class="code-bg" style="float: right; width: 170px;">Medium Priority</code>
+                            </div>
+                          </div>
+
+
+                          <div class="col-md-3 col-lg-12">    
+                            <div class="alert alert-danger mt-1" style="font-size: 1rem;" role="alert">
+                              <code class="code-bg" style="margin-right: 50px;float: left;">SEO</code>
+                              <span>Make greater use of header tags</span>
+                              <code class="code-bg" style="float: right; width: 130px;">High Priority</code>
+                            </div>
+                          </div>
+
+
+                          <div class="col-md-3 col-lg-12">    
+                            <div class="alert alert-success mt-1" style="font-size: 1rem;" role="alert">
+                              <code class="code-bg" style="margin-right: 50px;float: left;">SEO</code>
+                              <span>Use your main keywords across the important HTML tags</span>
+                              <code class="code-bg" style="float: right; width: 130px;">Low Priority</code>
+                            </div>
+                          </div>
+
+
+                          <div class="col-md-3 col-lg-12">    
+                            <div class="alert alert-success mt-1" style="font-size: 1rem;" role="alert">
+                              <code class="code-bg" style="margin-right: 50px;float: left;">SEO</code>
+                              <span>Increase Page text content</span>
+                              <code class="code-bg" style="float: right; width: 130px;">Low Priority</code>
+                            </div>
+                          </div>
+
+
+                          <div class="col-md-3 col-lg-12">    
+                            <div class="alert alert-success mt-1" style="font-size: 1rem;" role="alert">
+                              <code class="code-bg" style="margin-right: 50px;float: left;">SEO</code>
+                              <span>Update URLs to be more human and Search Engine readable</span>
+                              <code class="code-bg" style="float: right; width: 130px;">Low Priority</code>
+                            </div>
+                          </div>
+
+                          <div class="col-md-3 col-lg-12">    
+                            <div class="alert alert-success mt-1" style="font-size: 1rem;" role="alert">
+                              <code class="code-bg" style="margin-right: 50px;float: left;">SEO</code>
+                              <span>Add Schema Markup</span>
+                              <code class="code-bg" style="float: right; width: 130px;">Low Priority</code>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="tab-pane fade" id="panelTab3-3" role="tabpanel">
+                          <div class="col-md-3 col-lg-12">    
+                            <div class="alert alert-success mt-1" style="font-size: 1rem;" role="alert">
+                              <code class="code-bg" style="margin-right: 50px;float: left;">Performance</code>
+                              <span>Remove inline styles</span>
+                              <code class="code-bg" style="float: right; width: 130px;">Low Priority</code>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="tab-pane fade" id="panelTab3-4" role="tabpanel">
+
+                          <div class="col-md-3 col-lg-12">    
+                            <div class="alert alert-success mt-1" style="font-size: 1rem;" role="alert">
+                              <code class="code-bg" style="margin-right: 50px;float: left;">Security</code>
+                              <span>Remove clear text Email Addresses</span>
+                              <code class="code-bg" style="float: right; width: 130px;">Low Priority</code>
+                            </div>
+                          </div>
+
+                        </div>
+                        <div class="tab-pane fade" id="panelTab3-5" role="tabpanel">
+
+                          <div class="col-md-3 col-lg-12">    
+                            <div class="alert alert-success mt-1" style="font-size: 1rem;" role="alert">
+                              <code class="code-bg" style="margin-right: 50px;float: left;">Social</code>
+                              <span>Create and link your Facebook Page</span>
+                              <code class="code-bg" style="float: right; width: 130px;">Low Priority</code>
+                            </div>
+                          </div>
+
+
+                          <div class="col-md-3 col-lg-12">    
+                            <div class="alert alert-success mt-1" style="font-size: 1rem;" role="alert">
+                              <code class="code-bg" style="margin-right: 50px;float: left;">Social</code>
+                              <span>Create and link your Twitter profile</span>
+                              <code class="code-bg" style="float: right; width: 130px;">Low Priority</code>
+                            </div>
+                          </div>
+
+                                                    <div class="col-md-3 col-lg-12">    
+                            <div class="alert alert-success mt-1" style="font-size: 1rem;" role="alert">
+                              <code class="code-bg" style="margin-right: 50px;float: left;">Social</code>
+                              <span>Add Twitter Cards</span>
+                              <code class="code-bg" style="float: right; width: 130px;">Low Priority</code>
+                            </div>
+                          </div>
+
+
+                          <div class="col-md-3 col-lg-12">    
+                            <div class="alert alert-success mt-1" style="font-size: 1rem;" role="alert">
+                              <code class="code-bg" style="margin-right: 50px;float: left;">Social</code>
+                              <span>Create and link associated Instagram profile</span>
+                              <code class="code-bg" style="float: right; width: 130px;">Low Priority</code>
+                            </div>
+                          </div>
+
+
+                          <div class="col-md-3 col-lg-12">    
+                            <div class="alert alert-success mt-1" style="font-size: 1rem;" role="alert">
+                              <code class="code-bg" style="margin-right: 50px;float: left;">Social</code>
+                              <span>Create and link an associated YouTube channel</span>
+                              <code class="code-bg" style="float: right; width: 130px;">Low Priority</code>
+                            </div>
+                          </div>
+
+
+                          <div class="col-md-3 col-lg-12">    
+                            <div class="alert alert-success mt-1" style="font-size: 1rem;" role="alert">
+                              <code class="code-bg" style="margin-right: 50px;float: left;">Social</code>
+                              <span>Create and link an associated LinkedIn profile</span>
+                              <code class="code-bg" style="float: right; width: 130px;">Low Priority</code>
+                            </div>
+                          </div>
+
+
+
+
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+
+
+
+
+
+
+
+
+
+    </div>
+  </body>
+
+
+      <footer class="footer footer-small">
+        <div class="d-flex justify-content-between align-items-center group-10">
+          <div> <span>Greendesk</span>© 2019. Design by Zemez</div>
+          <div>
+            <button class="to-top btn btn-sm btn-primary"><span class="fa-chevron-up"></span></button>
+          </div>
+        </div>
+      </footer>
+      <div class="sidebar scroller">
+        <div class="panel">
+          <div class="panel-header">
+            <h4 class="panel-title"><span class="panel-icon fa-trophy"></span><span>Right Sidebar Content</span></h4>
+          </div>
+          <div class="panel-body">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce volutpat ac tortor eu viverra. Etiam ipsum neque, fermentum quis sagittis nec, hendrerit id diam. Mauris a tincidunt odio. Sed porttitor ex pulvinar, tristique sapien sed, malesuada nunc.</p>
+          </div>
+        </div>
+      </div>
+      <div class="template-panel">
+        <div class="template-panel-heading">Navbar Themes
+          <button class="template-panel-switch fa-cog" data-multi-switch='{"targets":".template-panel","scope":".template-panel","isolate":"[data-multi-switch]"}'></button>
+        </div>
+        <div class="template-panel-body">
+          <div class="template-panel-group">
+            <button class="theme-switch fa-check active" title="Navbar Theme" style="border-color: #58a193 #58a193 #fff #fff; color: black;" data-theme-switch="greendesk-navbar-primary" data-theme='{"navbar-sidebar-color":"#fff","navbar-sidebar-bg":"#58a193","navbar-toggle-color":"#58a193","navbar-logo-invert":"0%"}'></button>
+            <button class="theme-switch fa-check" title="Navbar Theme" style="border-color: #5b5eab #5b5eab #fff #fff; color: black;" data-theme-switch="greendesk-navbar-secondary" data-theme='{"navbar-sidebar-color":"#fff","navbar-sidebar-bg":"#5b5eab","navbar-toggle-color":"#5b5eab","navbar-logo-invert":"0%"}'></button>
+            <button class="theme-switch fa-check" title="Navbar Theme" style="border-color: #34b1cc #34b1cc #fff #fff; color: black;" data-theme-switch="greendesk-navbar-info" data-theme='{"navbar-sidebar-color":"#fff","navbar-sidebar-bg":"#34b1cc","navbar-toggle-color":"#34b1cc","navbar-logo-invert":"0%"}'></button>
+            <button class="theme-switch fa-check" title="Navbar Theme" style="border-color: #f7ad6a #f7ad6a #fff #fff; color: black;" data-theme-switch="greendesk-navbar-warning" data-theme='{"navbar-sidebar-color":"#fff","navbar-sidebar-bg":"#f7ad6a","navbar-toggle-color":"#f7ad6a","navbar-logo-invert":"0%"}'></button>
+            <button class="theme-switch fa-check" title="Navbar Theme" style="border-color: #ff5f68 #ff5f68 #fff #fff; color: black;" data-theme-switch="greendesk-navbar-danger" data-theme='{"navbar-sidebar-color":"#fff","navbar-sidebar-bg":"#ff5f68","navbar-toggle-color":"#ff5f68","navbar-logo-invert":"0%"}'></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

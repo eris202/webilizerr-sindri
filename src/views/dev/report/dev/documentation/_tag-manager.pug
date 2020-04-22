@@ -1,0 +1,25 @@
+#tag-manager.panel
+	.panel-header
+		h3.panel-title Tags Manager
+	.panel-body
+		p Tags Manager is a jQuery plugin for creating tag input fields.
+		p Plugin and style sheets linking occurs when the element that matches the #[code .tag-manager] selector is present on the page.
+
+		p Plugin operation example:
+		.tag-manager.mt-1( data-tag-manager!={ prefilled: [ 'admin', 'template', 'sample' ], tagClass: 'badge badge-success' } )
+			input.form-control.tag-manager-input( type='text', placeholder='Create a new tag...' )
+			.tag-manager-container
+
+		p Markup example:
+		pre.highlight.html.scroller.scroller-horizontal
+			= '<div class="tag-manager">\n'
+			= '  <input class="form-control tag-manager-input" type="text" placeholder="Create a new tag...">\n'
+			= '  <div class="tag-manager-container"></div>\n'
+			= '</div>'
+
+		p This template provides a #[code data-tag-manager] attribute for Tags Manager that can accept a JSON object with the plugin parameters, e.g.:
+		pre.highlight.html.scroller.scroller-horizontal
+			= '<div class="tag-manager" data-tag-manager=\'{ "prefilled": [ "admin", "template", "sample" ] }\'>...</div>'
+
+		p #[code tagManager] component implies a mandatory availability of #[code .tag-manager-input] and #[code .tag-manager-container] elements in it.
+		p All available parameters of the plugin can be viewed in its #[a( href="https://github.com/max-favilli/tagmanager" ) GitHub repository].

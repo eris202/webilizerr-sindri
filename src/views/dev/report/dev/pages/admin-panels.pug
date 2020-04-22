@@ -1,0 +1,121 @@
+extends ../components/base/_skeleton
+include ../components/rd-navbar/_rd-navbar
+include ../components/breadcrumbs/_breadcrumbs
+
+block variables
+	- pageName = 'Admin Panels';
+
+block page
+	header.page-header
+		+rd-navbar
+
+	section.topbar
+		+breadcrumbs( breadcrumbs )
+
+	section.section-sm.bg-transparent
+		.container-fluid
+			.row.justify-content-center
+				.col-lg-10.col-xxl-8
+					.row.row-30
+						.col-md-6
+							.panel.panel-image-bg
+								.panel-body
+									h3 Admin Panels
+									ul.list-unstyled.list-md.mt-2
+										li
+											span.fa-exclamation-circle.pr-2
+											b Author:
+											span  Monster Dashboard
+										li
+											span.fa-exclamation-circle.pr-2
+											b License:
+											span  CC - Commercial 3.0
+										li
+											span.fa-exclamation-circle.pr-2
+											b Website:
+											a( href='https://www.zemez.io' )  www.zemez.io
+									p Admin Panel is a plugin that extends the functionality of regular panels to improve interaction. It provides the abilities to change the color scheme and title, fullscreen, minimizing and deleting of the panel.
+
+						.col-md-6
+							.panel.admin-panel
+								.panel-header
+									.d-flex.align-items-center
+										.h4.panel-title.flex-grow-1 Selectable color theme
+										.admin-panel-buttons
+											button.admin-panel-button( title='color', data-panel='color' )
+										.admin-panel-switch.fa-bars
+								.panel-body
+									p Pess tolerare in aetheres! Peritus nuptias ducunt ad adgium. Eheu. Domesticus historias ducunt ad medicina. Calcarias credere! Eheu, medicina! Cum planeta persuadere, omnes plasmatores vitare rusticus, peritus gabaliumes. 
+									hr
+									p Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod.
+
+						.col-md-6
+							.panel.admin-panel
+								.panel-header
+									.d-flex.align-items-center
+										.h4.panel-title.flex-grow-1 Editable title
+										.admin-panel-buttons
+											button.admin-panel-button( title='title', data-panel='title' )
+										.admin-panel-switch.fa-bars
+								.panel-body
+									p Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.
+									hr
+									p Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est.
+
+						.col-md-6
+							.panel.admin-panel
+								.panel-header
+									.d-flex.align-items-center
+										.h4.panel-title.flex-grow-1 Minimizable panel
+										.admin-panel-buttons
+											button.admin-panel-button( title='collapse', data-panel='collapse' )
+										.admin-panel-switch.fa-bars
+								.panel-body
+									p Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
+									hr
+									p Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor.
+
+						.col-md-6
+							.panel.admin-panel
+								.panel-header
+									.d-flex.align-items-center
+										.h4.panel-title.flex-grow-1 Expandable panel
+										.admin-panel-buttons
+											button.admin-panel-button( title='fullscreen', data-panel='fullscreen' )
+										.admin-panel-switch.fa-bars
+								.panel-body
+									p At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in.
+									hr
+									p Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam.
+
+						.col-md-6
+							.panel.admin-panel
+								.panel-header
+									.d-flex.align-items-center
+										.h4.panel-title.flex-grow-1 Removable panel
+										.admin-panel-buttons
+											button.admin-panel-button( title='remove', data-panel='remove' )
+										.admin-panel-switch.fa-bars
+								.panel-body
+									p Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo.
+									hr
+									p Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+						.col-md-12
+							.panel.admin-panel
+								.panel-header
+									.d-flex.align-items-center
+										.h4.panel-title.flex-grow-1 Panel with All options
+										.admin-panel-buttons
+											button.admin-panel-button( title='title', data-panel='title' )
+											button.admin-panel-button( title='color', data-panel='color' )
+											button.admin-panel-button( title='collapse', data-panel='collapse' )
+											button.admin-panel-button( title='fullscreen', data-panel='fullscreen' )
+											button.admin-panel-button( title='remove', data-panel='remove' )
+										.admin-panel-switch.fa-bars
+								.panel-body
+									p Pess tolerare in aetheres! Peritus nuptias ducunt ad adgium. Eheu. Domesticus historias ducunt ad medicina. Calcarias credere! Eheu, medicina! Cum planeta persuadere, omnes plasmatores vitare rusticus, peritus gabaliumes. 
+									hr
+									p Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. 
+									hr
+									p Cadunt nunquam ducunt ad placidus apolloniates. Fortis de emeritis ratione, quaestio abactus! Cur quadra peregrinationes? Nunquam transferre capio. Barbatus, castus adelphiss virtualiter gratia de mirabilis, salvus clinias.
