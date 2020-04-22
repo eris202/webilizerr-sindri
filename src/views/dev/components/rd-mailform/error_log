@@ -1,2 +1,0 @@
-[03-Apr-2020 08:15:25 Etc/UTC] PHP Deprecated:  __autoload() is deprecated, use spl_autoload_register() instead in /home/u9wt4sh990uf/public_html/components/rd-mailform/phpmailer/PHPMailerAutoload.php on line 45
-[13-Apr-2020 02:18:58 Etc/UTC] PHP Deprecated:  __autoload() is deprecated, use spl_autoload_register() instead in /home/u9wt4sh990uf/public_html/components/rd-mailform/phpmailer/PHPMailerAutoload.php on line 45

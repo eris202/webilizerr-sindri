@@ -26,7 +26,7 @@ exports.getReport = (req, res) => {
       },
     })
     .then((response) => {
-      console.log(response.data);
+      //console.log(response.data);
       const { temp: success } = response.data.success;
       res.render("report", {
         success: JSON.stringify(response.data.data),
@@ -81,7 +81,7 @@ exports.renderReportPage = (req, res) => {
 
           //console.log(reportModel.data)
           jsonn = reportModel.data.output;
-          console.log(response.data.data.output.deviceRendering);
+          //console.log(response.data.data.output.deviceRendering);
 
           for (let key of Object.entries(jsonn)) {
             //let object = jsonn[key];
