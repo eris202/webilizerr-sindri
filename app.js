@@ -9,7 +9,11 @@ const port = process.env.PORT || 5555;
 const flash = require("connect-flash");
 const session = require("express-session");
 const MongoDBStore = require("connect-mongodb-session")(session);
-const hbs = require("hbs");
+const Handlebars = require("handlebars");
+const exphbs = require("express-handlebars");
+const {
+  allowInsecurePrototypeAccess,
+} = require("@handlebars/allow-prototype-access");
 
 app.use(express.urlencoded({ extended: false }));
 app.use(bodyParser.json());
@@ -18,14 +22,15 @@ require("./src/config/passport")(passport);
 app.use(express.static(path.join(__dirname, "./src/js")));
 app.use(express.static(path.join(__dirname, "./src/public")));
 
-var handlebars = require("express-handlebars").create({
+var hbs = exphbs.create({
   layoutsDir: path.join(__dirname, "src/views/"),
   partialsDir: path.join(__dirname, "src/views/partials"),
   defaultLayout: false,
   extname: "hbs",
+  handlebars: allowInsecurePrototypeAccess(Handlebars),
 });
 
-app.engine("hbs", handlebars.engine);
+app.engine("hbs", hbs.engine);
 app.set("view engine", "hbs");
 app.set("views", path.join(__dirname, "src/views"));
 
