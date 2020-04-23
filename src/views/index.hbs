@@ -38,37 +38,18 @@
             <h5 style="color: #31c77f">Scan your website for free</h5>
             <div class="offset-md group-30">
 
-              <form class="so-widget-form" id="so1585812779"
-                action="https://www.websiteauditserver.com/process-embedded.inc" target="so-iframe"
-                data-behaviour="redirect" data-title="Website Report for "
-                data-touch="Thank you for requesting a report. We'll be in touch shortly!"
-                onsubmit="return soSubmit(this)">
-                <input id="so-typeso1585812779" type="hidden" name="type" value="web">
-                <input type="hidden" name="uid" value="14640">
-                <input type="hidden" name="behaviour" value="redirect">
-                <input type="hidden" name="template" value="1047">
+              <form class="so-widget-form" action="/" method="post" data-title="Website Audit"
+                data-touch="Thank you for requesting a report.">
 
-                <input id="so-redirectso1585812779" type="hidden" name="redirect"
-                  value="https://www.webilizerr.com/thank-you">
-
-                <div id="so-fieldswrapso1585812779">
-                  <input type="text" name="domain" id="so-domainso1585812779" class="form-control"
-                    placeholder="Enter website" style="
-    margin: 2px;
-" data-validation="Please enter a correct website domain">
-
-                  <input class="form-control" id="so-first-nameso1585812779" type="text" name="first_name" style="
-    margin: 2px;
-" placeholder="Your Name" data-validation="Please enter your First Name">
-
-                  <input type="text" name="email" id="so-emailso1585812779" class="form-control" style="
-    margin: 2px;
-" placeholder="Your e-mail" data-validation="Please enter your email">
+                <div>
+                  <input type="text" name="websiteUrl" class="form-control" placeholder="Enter website"
+                    style="margin: 2px;" data-validation="Please enter a correct website domain">
 
                   <input type="submit" id="so-submitso1585812779" value="Scan my Website for Free!"
                     style="min-width: -webkit-fill-available;margin: 5px;">
                 </div>
               </form>
+
 
 
 
@@ -625,5 +606,16 @@
     </footer>
   </div>
 </body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+<script src="report.js"></script>
+<script>
+  var data = "{{reportId}}";
+
+  if (data) {
+    callApi(data);
+  }
+</script>
 
 </html>

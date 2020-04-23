@@ -9,10 +9,11 @@ const { ensureAuthenticated } = require("./config/auth");
 
 router.get("/", controller.renderHomePage);
 router.post("/", controller.postReport);
+router.post("/index/report", controller.getReport);
 
-router.get("/about", controller.renderAboutPage);
-router.post("/about", controller.postReport);
-router.post("/check/report", controller.getReport);
+// router.get("/index", controller.renderAboutPage);
+// router.post("/index", controller.postReport);
+//
 
 router.get("/report/:reportId", reportController.renderReportPage);
 router.post("/report", reportController.getReport);
