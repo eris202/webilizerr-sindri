@@ -448,11 +448,13 @@ exports.renderReportPage = (req, res) => {
 
           res.render("report", {
             success: reportModel.success,
+            status: reportModel.success,
             data: reportModel.data,
           });
         } else {
           res.render("report", {
-            data: false,
+            status: response.data.success,
+            reportId: reportId
           });
         }
       })

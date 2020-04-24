@@ -42,9 +42,7 @@ exports.postReport = (req, res) => {
     this.errors.push("Please enter a website URL.");
   }
   if (websiteUrl && websiteUrl.length == 0) {
-    res.render("about", {
-      error: websiteUrl.errors.toString(),
-    });
+    res.end("website url is required.");
   } else {
     console.log("2 GET in Controller: " + websiteUrl);
 
@@ -64,15 +62,7 @@ exports.postReport = (req, res) => {
       .then((response) => {
         console.log("3 POST successful");
         console.log(response.data);
-        // if (response.data.success) {
-        //   let reportId = response.data.data.id;
-        //   res.redirect("/report/" + reportId);
-        // } else {
-        //   res.render("about");
-        // }
-        res.render("about", {
-          reportId: response.data.data.id,
-        });
+        res.json(response.data);
       })
       .catch((error) => {
         console.log("4 Error");
