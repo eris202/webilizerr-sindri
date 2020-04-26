@@ -61,7 +61,7 @@ exports.postReport = (req, res) => {
       )
       .then((response) => {
         console.log("3 POST successful");
-        console.log(response.data);
+        //console.log(response.data);
         res.json(response.data);
       })
       .catch((error) => {
