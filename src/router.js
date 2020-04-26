@@ -17,6 +17,7 @@ router.post("/index/report", controller.getReport);
 
 router.get("/report/:reportId", reportController.renderReportPage);
 router.post("/report", reportController.getReport);
+router.post("/check/report", controller.getReport);
 
 router.get("/login", loginController.renderLoginPage);
 router.post("/login", loginController.postLogin);
