@@ -88,20 +88,7 @@ exports.renderReportPage = (req, res) => {
             const temp = key[1];
 
             if (key[1]) {
-              if (temp.passed === true) {
-                temp.color = "panel-success";
-                temp.warning = "Good";
-
-                //console.log(key[0] + " " + key[1].passed + " " + key[1].color )
-              } else if (temp.passed === false) {
-                temp.color = "panel-danger";
-                temp.warning = "Warning";
-
-                //console.log(key[0] + " " + key[1].passed + " " + key[1].color )
-              } else {
-                temp.color = "panel-warning";
-                temp.warning = "Info";
-              }
+              addColor(temp);
 
               if (temp.section === "performance") {
                 if (temp.passed === true) {
@@ -270,190 +257,186 @@ exports.renderReportPage = (req, res) => {
 
           if (jsonn.headers.data.h1) {
             jsonn.headers.h1count = jsonn.headers.data.h1.length;
-            console.log("H1 count: " + jsonn.headers.h1count);
           }
           if (jsonn.headers.data.h2) {
             jsonn.headers.h2count = jsonn.headers.data.h2.length;
-            console.log("H2 count: " + jsonn.headers.h2count);
           }
 
           if (jsonn.headers.data.h3) {
             jsonn.headers.h3count = jsonn.headers.data.h3.length;
-            console.log("H3 count: " + jsonn.headers.h3count);
           }
 
           if (jsonn.headers.data.h4) {
             jsonn.headers.h4count = jsonn.headers.data.h4.length;
-            console.log("H4 count: " + jsonn.headers.h4count);
           }
 
           if (jsonn.headers.data.h5) {
             jsonn.headers.h5count = jsonn.headers.data.h5.length;
-            console.log("H5 count: " + jsonn.headers.h5count);
-          }
 
-          if (jsonn.headers.data.h6) {
-            jsonn.headers.h6count = jsonn.headers.data.h6.length;
-            console.log("H6 count: " + jsonn.headers.h6count);
-          }
+            if (jsonn.headers.data.h6) {
+              jsonn.headers.h6count = jsonn.headers.data.h6.length;
+            }
 
-          if (jsonn.malware.data.google == "safe") {
-            jsonn.malware.googleVerified = "mdi-check";
-            jsonn.malware.googleColor = "success";
-          } else if (jsonn.malware.data.google == "unverified") {
-            jsonn.malware.googleVerified = "mdi-close";
-            jsonn.malware.googleColor = "danger";
-          }
+            if (jsonn.malware.data.google == "safe") {
+              jsonn.malware.googleVerified = "mdi-check";
+              jsonn.malware.googleColor = "success";
+            } else if (jsonn.malware.data.google == "unverified") {
+              jsonn.malware.googleVerified = "mdi-close";
+              jsonn.malware.googleColor = "danger";
+            }
 
-          if (jsonn.malware.data.mcafee == "safe") {
-            jsonn.malware.mcafeeVerified = "mdi-check";
-            jsonn.malware.mcafeeColor = "success";
-          } else if (jsonn.malware.data.mcafee == "unverified") {
-            jsonn.malware.mcafeeVerified = "mdi-close";
-            jsonn.malware.mcafeeColor = "danger";
-          }
+            if (jsonn.malware.data.mcafee == "safe") {
+              jsonn.malware.mcafeeVerified = "mdi-check";
+              jsonn.malware.mcafeeColor = "success";
+            } else if (jsonn.malware.data.mcafee == "unverified") {
+              jsonn.malware.mcafeeVerified = "mdi-close";
+              jsonn.malware.mcafeeColor = "danger";
+            }
 
-          if (jsonn.malware.data.norton == "safe") {
-            jsonn.malware.nortonVerified = "mdi-check";
-            jsonn.malware.nortonColor = "success";
-          } else if (jsonn.malware.data.norton == "unverified") {
-            jsonn.malware.nortonVerified = "mdi-close";
-            jsonn.malware.nortonColor = "danger";
-          }
+            if (jsonn.malware.data.norton == "safe") {
+              jsonn.malware.nortonVerified = "mdi-check";
+              jsonn.malware.nortonColor = "success";
+            } else if (jsonn.malware.data.norton == "unverified") {
+              jsonn.malware.nortonVerified = "mdi-close";
+              jsonn.malware.nortonColor = "danger";
+            }
 
-          if (jsonn.malware.data.avg == "safe") {
-            jsonn.malware.avgVerified = "mdi-check";
-            jsonn.malware.avgColor = "success";
-          } else if (jsonn.malware.data.avg == "unverified") {
-            jsonn.malware.avgVerified = "mdi-close";
-            jsonn.malware.avgColor = "danger";
-          }
+            if (jsonn.malware.data.avg == "safe") {
+              jsonn.malware.avgVerified = "mdi-check";
+              jsonn.malware.avgColor = "success";
+            } else if (jsonn.malware.data.avg == "unverified") {
+              jsonn.malware.avgVerified = "mdi-close";
+              jsonn.malware.avgColor = "danger";
+            }
 
-          if (
-            jsonn.malware.data.avg == "unverified" ||
-            jsonn.malware.data.norton == "unverified" ||
-            jsonn.malware.data.mcafee == "unverified" ||
-            jsonn.malware.data.google == "unverified"
-          ) {
-            jsonn.malware.color = "panel-danger";
-            jsonn.malware.warning = "Warning";
-            jsonn.malware.shortAnswer =
-              "Your website has NOT been flagged as safe by popular malware scanners.";
+            if (
+              jsonn.malware.data.avg == "unverified" ||
+              jsonn.malware.data.norton == "unverified" ||
+              jsonn.malware.data.mcafee == "unverified" ||
+              jsonn.malware.data.google == "unverified"
+            ) {
+              jsonn.malware.color = "panel-danger";
+              jsonn.malware.warning = "Warning";
+              jsonn.malware.shortAnswer =
+                "Your website has NOT been flagged as safe by popular malware scanners.";
+            } else {
+              jsonn.malware.color = "panel-success";
+              jsonn.malware.warning = "Good";
+              jsonn.malware.shortAnswer =
+                "Your website has been flagged as safe by popular malware scanners";
+            }
+
+            const responseTime = jsonn.serverResponseTime.data.responseTime;
+            const loadTime = jsonn.serverResponseTime.data.loadTime;
+            const completeTime = jsonn.serverResponseTime.data.completeTime;
+            var responseTimeColor = "";
+            var loadTimeColor = "";
+            var completeTimeColor = "";
+            var loadTimeLeft;
+            var responseTimeLeft;
+            var completeTimeLeft;
+            var green = "#16fa62";
+            var yellow = "#fae316";
+            var red = "#ff5f68";
+
+            if (responseTime <= 10) {
+              responseTimeColor = green;
+              jsonn.serverResponseTime.data.responsegood = "Very good";
+            } else if (responseTime > 10 && responseTime < 20) {
+              responseTimeColor = yellow;
+              jsonn.serverResponseTime.data.responsegood =
+                "You need to do better";
+            } else if (responseTime >= 20) {
+              responseTimeColor = red;
+              jsonn.serverResponseTime.data.responsegood =
+                "Very slow, must fix!";
+            }
+
+            if (loadTime <= 10) {
+              loadTimeColor = green;
+              jsonn.serverResponseTime.data.loadgood = "Very good";
+            } else if (loadTime > 10 && loadTime < 20) {
+              loadTimeColor = yellow;
+              jsonn.serverResponseTime.data.loadgood = "You need to do better";
+            } else if (loadTime > 10) {
+              loadTimeColor = red;
+              jsonn.serverResponseTime.data.loadgood = "Very slow, must fix!";
+            }
+
+            if (completeTime <= 10) {
+              completeTimeColor = green;
+              jsonn.serverResponseTime.data.completegood = "Very good";
+            } else if (completeTime > 10 && completeTime < 20) {
+              completeTimeColor = yellow;
+              jsonn.serverResponseTime.data.completegood =
+                "You need to do better";
+            } else if (completeTime > 10) {
+              completeTimeColor = red;
+              jsonn.serverResponseTime.data.completegood =
+                "Very slow, must fix!";
+            }
+
+            if (responseTime < 60) {
+              responseTimeLeft = 60 - responseTime;
+            } else {
+              responseTimeLeft = Math.round(responseTime * 0.3);
+            }
+
+            if (loadTime < 60) {
+              loadTimeLeft = 60 - loadTime;
+            } else {
+              loadTimeLeft = Math.round(loadTime * 0.1);
+            }
+
+            if (completeTime < 60) {
+              completeTimeLeft = 60 - completeTime;
+            } else {
+              completeTimeLeft = Math.round(completeTime * 0.2);
+            }
+            jsonn.serverResponseTime.data.responseTime = responseTime;
+            jsonn.serverResponseTime.data.loadTime = loadTime;
+            jsonn.serverResponseTime.data.completeTime = completeTime;
+            jsonn.serverResponseTime.data.responseTimeColor = responseTimeColor;
+            jsonn.serverResponseTime.data.loadTimeColor = loadTimeColor;
+            jsonn.serverResponseTime.data.completeTimeColor = completeTimeColor;
+            jsonn.serverResponseTime.data.responseTimeLeft = responseTimeLeft;
+            jsonn.serverResponseTime.data.loadTimeLeft = loadTimeLeft;
+            jsonn.serverResponseTime.data.completeTimeLeft = completeTimeLeft;
+
+            // Change byte to mb
+            jsonn.pageSize.data.mbSize = formatBytes(
+              jsonn.pageSize.data.totalSize
+            );
+
+            function formatBytes(bytes, decimals = 2) {
+              if (bytes === 0) return "0 Bytes";
+
+              const k = 1024;
+              const dm = decimals < 0 ? 0 : decimals;
+
+              const i = Math.floor(Math.log(bytes) / Math.log(k));
+
+              return parseFloat((bytes / Math.pow(k, i)).toFixed(dm));
+            }
+
+            var string = jsonn.dns.data;
+            string = string.replace(/[<BR>]/g, " ");
+            string = string.replace(/[br]/g, " ");
+            jsonn.dns.data = string;
+
+            reportModel.data.output = jsonn;
+
+            console.log(jsonn.charset);
+
+            res.render("report", {
+              success: reportModel.success,
+              data: reportModel.data,
+            });
           } else {
-            jsonn.malware.color = "panel-success";
-            jsonn.malware.warning = "Good";
-            jsonn.malware.shortAnswer =
-              "Your website has been flagged as safe by popular malware scanners";
+            res.render("report", {
+              data: false,
+            });
           }
-
-          const responseTime = jsonn.serverResponseTime.data.responseTime;
-          const loadTime = jsonn.serverResponseTime.data.loadTime;
-          const completeTime = jsonn.serverResponseTime.data.completeTime;
-          var responseTimeColor = "";
-          var loadTimeColor = "";
-          var completeTimeColor = "";
-          var loadTimeLeft;
-          var responseTimeLeft;
-          var completeTimeLeft;
-          var green = "#16fa62";
-          var yellow = "#fae316";
-          var red = "#ff5f68";
-
-          if (responseTime <= 10) {
-            responseTimeColor = green;
-            jsonn.serverResponseTime.data.responsegood = "Very good";
-          } else if (responseTime > 10 && responseTime < 20) {
-            responseTimeColor = yellow;
-            jsonn.serverResponseTime.data.responsegood =
-              "You need to do better";
-          } else if (responseTime >= 20) {
-            responseTimeColor = red;
-            jsonn.serverResponseTime.data.responsegood = "Very slow, must fix!";
-          }
-
-          if (loadTime <= 10) {
-            loadTimeColor = green;
-            jsonn.serverResponseTime.data.loadgood = "Very good";
-          } else if (loadTime > 10 && loadTime < 20) {
-            loadTimeColor = yellow;
-            jsonn.serverResponseTime.data.loadgood = "You need to do better";
-          } else if (loadTime > 10) {
-            loadTimeColor = red;
-            jsonn.serverResponseTime.data.loadgood = "Very slow, must fix!";
-          }
-
-          if (completeTime <= 10) {
-            completeTimeColor = green;
-            jsonn.serverResponseTime.data.completegood = "Very good";
-          } else if (completeTime > 10 && completeTime < 20) {
-            completeTimeColor = yellow;
-            jsonn.serverResponseTime.data.completegood =
-              "You need to do better";
-          } else if (completeTime > 10) {
-            completeTimeColor = red;
-            jsonn.serverResponseTime.data.completegood = "Very slow, must fix!";
-          }
-
-          if (responseTime < 60) {
-            responseTimeLeft = 60 - responseTime;
-          } else {
-            responseTimeLeft = Math.round(responseTime * 0.3);
-          }
-
-          if (loadTime < 60) {
-            loadTimeLeft = 60 - loadTime;
-          } else {
-            loadTimeLeft = Math.round(loadTime * 0.1);
-          }
-
-          if (completeTime < 60) {
-            completeTimeLeft = 60 - completeTime;
-          } else {
-            completeTimeLeft = Math.round(completeTime * 0.2);
-          }
-          jsonn.serverResponseTime.data.responseTime = responseTime;
-          jsonn.serverResponseTime.data.loadTime = loadTime;
-          jsonn.serverResponseTime.data.completeTime = completeTime;
-          jsonn.serverResponseTime.data.responseTimeColor = responseTimeColor;
-          jsonn.serverResponseTime.data.loadTimeColor = loadTimeColor;
-          jsonn.serverResponseTime.data.completeTimeColor = completeTimeColor;
-          jsonn.serverResponseTime.data.responseTimeLeft = responseTimeLeft;
-          jsonn.serverResponseTime.data.loadTimeLeft = loadTimeLeft;
-          jsonn.serverResponseTime.data.completeTimeLeft = completeTimeLeft;
-
-          // Change byte to mb
-          jsonn.pageSize.data.mbSize = formatBytes(
-            jsonn.pageSize.data.totalSize
-          );
-
-          function formatBytes(bytes, decimals = 2) {
-            if (bytes === 0) return "0 Bytes";
-
-            const k = 1024;
-            const dm = decimals < 0 ? 0 : decimals;
-
-            const i = Math.floor(Math.log(bytes) / Math.log(k));
-
-            return parseFloat((bytes / Math.pow(k, i)).toFixed(dm));
-          }
-
-          var string = jsonn.dns.data;
-          string = string.replace(/[<BR>]/g, " ");
-          string = string.replace(/[br]/g, " ");
-          jsonn.dns.data = string;
-
-          reportModel.data.output = jsonn;
-
-          console.log(jsonn.charset);
-
-          res.render("report", {
-            success: reportModel.success,
-            data: reportModel.data,
-          });
-        } else {
-          res.render("report", {
-            data: false,
-          });
         }
       })
       .catch((error) => {
@@ -467,3 +450,21 @@ exports.renderReportPage = (req, res) => {
     res.render("report");
   }
 };
+
+function addColor(temp) {
+  if (temp.passed === true) {
+    temp.color = "panel-success";
+    temp.warning = "Good";
+    return;
+
+    //console.log(key[0] + " " + key[1].passed + " " + key[1].color )
+  } else if (temp.passed === false) {
+    temp.color = "panel-danger";
+    temp.warning = "Warning";
+
+    //console.log(key[0] + " " + key[1].passed + " " + key[1].color )
+  } else {
+    temp.color = "panel-warning";
+    temp.warning = "Info";
+  }
+}

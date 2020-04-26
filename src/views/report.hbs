@@ -13,15 +13,56 @@
   <meta property="og:url" content="http://digipunk.netii.net">
   <link rel="icon" href="images/favicon.ico" type="image/x-icon">
   <link rel="stylesheet" href="components/base/base.css">
+  <link rel="stylesheet" href="/components/report.css">
   <script src="components/base/script.js"></script>
 
 </head>
 
 <body>
-  <div class="page">
+  <div id="nav-mobile">
+    <div>
+      <div class="nav-mobile-inner">
+        <div></div>
+        <div id="hamburger">
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+      </div>
+      <div id="links">
+        <li class="section-link active" id="1">Audit Results</li>
+        <li class="section-link active" id="2">Seo Results</li>
+        <li class="section-link" id="3">Usability</li>
+        <li class="section-link" id="4">Performance Results</li>
+        <li class="section-link" id="5">Social Results</li>
+        <li class="section-link" id="6">Security Results</li>
+        <li class="section-link" id="7">Technology Results</li>
+        <li class="section-link recc" id="8">Recommendations Results</li>
+      </div>
+    </div>
+  </div>
+  <nav>
+    <div class="container-ct">
+      <div class="nav-inner">
+        <li class="section-link active" id="1">Audit Results</li>
+        <li class="section-link" id="2">Seo Results</li>
+        <li class="section-link" id="3">Usability</li>
+        <li class="section-link" id="4">Performance Results</li>
+        <li class="section-link" id="5">Social Results</li>
+        <li class="section-link" id="6">Security Results</li>
+        <li class="section-link" id="7">Technology Results</li>
+        <li class="section-link recc" id="8">Recommendations Results</li>
+      </div>
+    </div>
+  </nav>
 
-    <section class="section-sm section-transparent">
-      <div class="col-lg-9 col-xxl-10">
+
+
+  <div class="container-ct">
+
+
+    <section class="section-sm active section-transparent">
+      <div>
         <div class="panel">
           <div class="panel-body p-0" style="margin: 10px;">
             <div class="alert alert-primary alert-lighter mt-1" role="alert">
@@ -51,7 +92,7 @@
 
                 <div class="container">
                   <h2>{{data.output.scores.overall.title}}</h2>
-                  <button class="btn btn-block btn-sm btn-danger" type="button">You have
+                  <button class="btn btn-block btn-sm btn-danger" id="reccomendation-link" type="button">You have
                     {{data.output.recommendation_count}} improvementes recommendation</button>
                   <H6>Report Generated: {{data.completed_at}}</H6>
                   <button class="btn btn-block btn-sm btn-info" type="button">Scan again!</button>
@@ -63,8 +104,8 @@
             </div>
 
             <div class="container-fluid">
-              <div class="row row-30">
-                <div class="col-md-2 col-lg-2">
+              <div class="custom-row">
+                <div class="">
                   <div class="alert alert-lighter mt-1" style="text-align: center; " role="alert">
                     <div class="media-item">
                       <div class="progress-circle-wrap">
@@ -85,7 +126,7 @@
                   </div>
                 </div>
 
-                <div class="col-md-2 col-lg-2">
+                <div class="">
                   <div class="alert alert-lighter mt-1" style="text-align: center; " role="alert">
                     <div class="media-item">
                       <div class="progress-circle-wrap">
@@ -106,7 +147,7 @@
                   </div>
                 </div>
 
-                <div class="col-md-2 col-lg-2">
+                <div class="">
                   <div class="alert alert-lighter mt-1" style="text-align: center; " role="alert">
                     <div class="media-item">
                       <div class="progress-circle-wrap">
@@ -128,7 +169,7 @@
                   </div>
                 </div>
 
-                <div class="col-md-2 col-lg-2">
+                <div class="">
                   <div class="alert alert-lighter mt-1" style="text-align: center; " role="alert">
                     <div class="media-item">
                       <div class="progress-circle-wrap">
@@ -149,7 +190,7 @@
                   </div>
                 </div>
 
-                <div class="col-md-2 col-lg-2">
+                <div class="">
                   <div class="alert alert-lighter mt-1" style="text-align: center; " role="alert">
                     <div class="media-item">
                       <div class="progress-circle-wrap">
@@ -177,11 +218,11 @@
     </section>
 
     <section class="section-sm section-transparent" style="margin: 10px;">
-      <div class="col-lg-12 col-xxl-10">
+      <div>
         <div class="panel">
           <div class="panel-body p-0">
             <div class="alert alert-primary alert-lighter mt-1" role="alert">
-              <span>SEO resaults</span>
+              <span>SEO results</span>
             </div>
           </div>
           <div class="container-fluid">
@@ -221,7 +262,7 @@
 
                 <div class="col-md-6 col-lg-6">
                   <div class="col-md-12">
-                    <div class="panel {{data.output.title.color}}">
+                    <div class="panel sameSize2 {{data.output.title.color}}">
                       <div class="panel-header">
                         <div class="group-5 d-flex flex-wrap align-items-center justify-content-between">
                           <h4 class="panel-title">Title Tag</h4><code
@@ -239,7 +280,7 @@
                 </div>
                 <div class="col-sm-6 col-lg-6">
                   <div class="col-md-12">
-                    <div class="panel {{data.output.description.color}}">
+                    <div class="panel sameSize2 {{data.output.description.color}}">
                       <div class="panel-header">
                         <div class="group-5 d-flex flex-wrap align-items-center justify-content-between">
                           <h4 class="panel-title">Meta Description Tag</h4><code
@@ -506,7 +547,7 @@
 
                 <div class="col-md-6 col-lg-6">
                   <div class="col-md-12">
-                    <div class="panel {{data.output.contentLength.color}}">
+                    <div class="panel sameSize6 {{data.output.contentLength.color}}">
                       <div class="panel-header">
                         <div class="group-5 d-flex flex-wrap align-items-center justify-content-between">
                           <h4 class="panel-title">Amount of Content</h4><code
@@ -515,7 +556,7 @@
                       </div>
                       <div class="panel-body">
                         <p class="panel-text">{{data.output.contentLength.shortAnswer}}</p>
-                        <p>Word Count: {{data.output.contentLength.value}}</p>
+                        <p>Word Count: {{data.output.contentLength.value}} <br></p>
                         <p> {{data.output.contentLength.recommendation}}</p>
                       </div>
                     </div>
@@ -523,7 +564,7 @@
                 </div>
                 <div class="col-sm-10 col-lg-6">
                   <div class="col-md-12">
-                    <div class="panel {{data.output.imageAlt.color}}">
+                    <div class="panel sameSize6 {{data.output.imageAlt.color}}">
                       <div class="panel-header">
                         <div class="group-5 d-flex flex-wrap align-items-center justify-content-between">
                           <h4 class="panel-title">Image Alt Attributes</h4><code
@@ -572,14 +613,14 @@
               </div>
 
               <div class="row row-30" style="font-size: x-large;">
-                <div class="col-sm-6 col-lg-4">
+                <div class="col-sm-6 col-lg-4 sameSize5">
                   <div
                     class="widget-counter widget-counter-boxed widget-counter-boxed-success widget-counter-boxed-gradient">
                     <div class="widget-counter-body">
                       <h2 class="widget-counter-title">
                         <div class="h1 mdi-arrow-collapse"></div>
                       </h2>
-                      <div class="widget-counter-text">External Backlinks</div>
+                      <div class="widget-counter-text">External <br> Backlinks</div>
                     </div>
                     <div class="widget-counter-footer small"><span
                         class="widget-counter-footer-icon mdi-arrow-up pr-1"></span> <strong
@@ -587,14 +628,14 @@
                     </div>
                   </div>
                 </div>
-                <div class="col-sm-6 col-lg-4">
+                <div class="col-sm-6 col-lg-4 sameSize5">
                   <div
                     class="widget-counter widget-counter-boxed widget-counter-boxed-success widget-counter-boxed-gradient">
                     <div class="widget-counter-body">
                       <h2 class="widget-counter-title">
                         <div class="h1 mdi-link-variant"></div>
                       </h2>
-                      <div class="widget-counter-text">Referring Domains</div>
+                      <div class="widget-counter-text">Referring <br> Domains</div>
                     </div>
                     <div class="widget-counter-footer small"><span
                         class="widget-counter-footer-icon mdi-arrow-up pr-1"></span> <strong
@@ -602,14 +643,14 @@
                     </div>
                   </div>
                 </div>
-                <div class="col-sm-6 col-lg-4">
+                <div class="col-sm-6 col-lg-4 sameSize5">
                   <div
                     class="widget-counter widget-counter-boxed widget-counter-boxed-success widget-counter-boxed-gradient">
                     <div class="widget-counter-body">
                       <h2 class="widget-counter-title">
                         <div class="h1 mdi-image-filter-drama"></div>
                       </h2>
-                      <div class="widget-counter-text">Moz Domain Authority</div>
+                      <div class="widget-counter-text">Moz Domain <br> Authority</div>
                     </div>
                     <div class="widget-counter-footer small"><span
                         class="widget-counter-footer-icon mdi-arrow-up pr-1"></span><strong
@@ -661,7 +702,7 @@
             <div class="row row-30">
               <div class="col-md-6 col-lg-12">
                 <div class="col-md-12">
-                  <div class="panel {{data.output.brokenLinks.color}}">
+                  <div class="panel sameSize3 {{data.output.brokenLinks.color}}">
                     <div class="panel-header">
                       <div class="group-5 d-flex flex-wrap align-items-center justify-content-between">
                         <h4 class="panel-title">Broken Links</h4><code
@@ -677,7 +718,7 @@
               </div>
               <div class="col-md-6 col-lg-6">
                 <div class="col-md-12">
-                  <div class="panel {{data.output.onPageLinks.color}}">
+                  <div class="panel sameSize3 {{data.output.onPageLinks.color}}">
                     <div class="panel-header">
                       <div class="group-5 d-flex flex-wrap align-items-center justify-content-between">
                         <h4 class="panel-title">On-Page Link Structure</h4><code
@@ -696,7 +737,7 @@
               </div>
               <div class="col-sm-10 col-lg-6">
                 <div class="col-md-12">
-                  <div class="panel {{data.output.friendlyUrls.color}}">
+                  <div class="panel sameSize3 {{data.output.friendlyUrls.color}}">
                     <div class="panel-header">
                       <div class="group-5 d-flex flex-wrap align-items-center justify-content-between">
                         <h4 class="panel-title">Friendly URLs</h4><code
@@ -722,7 +763,7 @@
               <div class="row row-30">
                 <div class="col-md-6 col-lg-6">
                   <div class="col-md-12">
-                    <div class="panel {{data.output.noindexTags.color}}">
+                    <div class="panel sameSize4 {{data.output.noindexTags.color}}">
                       <div class="panel-header">
                         <div class="group-5 d-flex flex-wrap align-items-center justify-content-between">
                           <h4 class="panel-title">Noindex Tag Test</h4><code
@@ -738,7 +779,7 @@
                 </div>
                 <div class="col-md-6 col-lg-6">
                   <div class="col-md-12">
-                    <div class="panel {{data.output.noindexHeaders.color}}">
+                    <div class="panel sameSize4 {{data.output.noindexHeaders.color}}">
                       <div class="panel-header">
                         <div class="group-5 d-flex flex-wrap align-items-center justify-content-between">
                           <h4 class="panel-title">Noindex Header Test</h4><code
@@ -767,7 +808,7 @@
 
                 <div class="col-md-6 col-lg-6">
                   <div class="col-md-12">
-                    <div class="panel {{data.output.robotsTxt.color}}">
+                    <div class="panel sameSize1 {{data.output.robotsTxt.color}}">
                       <div class="panel-header">
                         <div class="group-5 d-flex flex-wrap align-items-center justify-content-between">
                           <h4 class="panel-title">Robots.txt</h4><code
@@ -784,7 +825,7 @@
                 </div>
                 <div class="col-md-6 col-lg-6">
                   <div class="col-md-12">
-                    <div class="panel {{data.output.sitemap.color}}">
+                    <div class="panel sameSize1 {{data.output.sitemap.color}}">
                       <div class="panel-header">
                         <div class="group-5 d-flex flex-wrap align-items-center justify-content-between">
                           <h4 class="panel-title">XML Sitemaps</h4><code
@@ -808,7 +849,7 @@
 
                 <div class="col-md-6 col-lg-6">
                   <div class="col-md-12">
-                    <div class="panel {{data.output.analytics.color}}">
+                    <div class="panel sameSize1 {{data.output.analytics.color}}">
                       <div class="panel-header">
                         <div class="group-5 d-flex flex-wrap align-items-center justify-content-between">
                           <h4 class="panel-title">Analytics</h4><code
@@ -827,7 +868,7 @@
                 </div>
                 <div class="col-md-6 col-lg-6">
                   <div class="col-md-12">
-                    <div class="panel {{data.output.schemaOrg.color}}">
+                    <div class="panel sameSize1 {{data.output.schemaOrg.color}}">
                       <div class="panel-header">
                         <div class="group-5 d-flex flex-wrap align-items-center justify-content-between">
                           <h4 class="panel-title">Schema.org Structured Data</h4><code
@@ -851,7 +892,7 @@
 
 
     <section class="section-sm section-transparent" style="margin: 10px;">
-      <div class="col-lg-6 col-xxl-10">
+      <div>
         <div class="panel">
           <div class="panel-body p-0">
 
@@ -1078,12 +1119,12 @@
     </section>
 
     <section class="section-sm section-transparent" style="margin: 10px;">
-      <div class="col-lg-6 col-xxl-10">
+      <div>
         <div class="panel">
           <div class="panel-body p-0">
 
             <div class="alert alert-primary alert-lighter mt-1" role="alert">
-              <span>Performance Resaults</span>
+              <span>Performance Results</span>
             </div>
 
             <div class="container-fluid">
@@ -1487,12 +1528,12 @@
 
 
     <section class="section-sm section-transparent" style="margin: 10px;">
-      <div class="col-lg-6 col-xxl-10">
+      <div>
         <div class="panel">
           <div class="panel-body p-0">
 
             <div class="alert alert-primary alert-lighter mt-1" role="alert">
-              <span>Social Resaults</span>
+              <span>Social Results</span>
             </div>
 
             <div class="container-fluid">
@@ -1693,12 +1734,12 @@
 
 
     <section class="section-sm section-transparent" style="margin: 10px;">
-      <div class="col-lg-6 col-xxl-10">
+      <div>
         <div class="panel">
           <div class="panel-body p-0">
 
             <div class="alert alert-primary alert-lighter mt-1" role="alert">
-              <span>Security Resaults</span>
+              <span>Security Results</span>
             </div>
 
             <div class="container-fluid">
@@ -1880,12 +1921,12 @@
     </section>
 
     <section class="section-sm section-transparent" style="margin: 10px;">
-      <div class="col-lg-6 col-xxl-10">
+      <div>
         <div class="panel">
           <div class="panel-body p-0">
 
             <div class="alert alert-primary alert-lighter mt-1" role="alert">
-              <span>Technology Resaults</span>
+              <span>Technology Results</span>
             </div>
 
             <div class="container-fluid">
@@ -1997,22 +2038,13 @@
                 </div>
               </div>
 
-
-
-
-
-
-
-
-
-
             </div>
           </div>
         </div>
     </section>
 
     <section class="section-sm section-transparent" style="margin: 10px;">
-      <div class="col-lg-6 col-xxl-10">
+      <div>
         <div class="panel">
           <div class="panel-body p-0">
             <div class="alert alert-primary alert-lighter mt-1" role="alert">
@@ -2214,6 +2246,8 @@
   </div>
 </div>
 </div>
+
+<script src="/components/report.js"></script>
 
 </body>
 
