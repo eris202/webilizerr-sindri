@@ -76,19 +76,30 @@ exports.renderReportPage = (req, res) => {
         },
       })
       .then((response) => {
+        console.log(response.data);
         if (response.data.success) {
           let reportModel = new Report(response.data);
 
           //console.log(reportModel.data)
           jsonn = reportModel.data.output;
-          //console.log(response.data.data.output.deviceRendering);
+          console.log(response.data.data.output.deviceRendering);
 
           for (let key of Object.entries(jsonn)) {
             //let object = jsonn[key];
             const temp = key[1];
 
             if (key[1]) {
-              addColor(temp);
+              if (temp.passed === true) {
+                temp.color = "panel-success";
+                temp.warning = "Good";
+                return;
+              } else if (temp.passed === false) {
+                temp.color = "panel-danger";
+                temp.warning = "Warning";
+              } else {
+                temp.color = "panel-warning";
+                temp.warning = "Info";
+              }
 
               if (temp.section === "performance") {
                 if (temp.passed === true) {
@@ -445,8 +456,6 @@ exports.renderReportPage = (req, res) => {
 
           reportModel.data.output = jsonn;
 
-          console.log(jsonn.charset);
-
           res.render("report", {
             success: reportModel.success,
             status: reportModel.success,
@@ -473,20 +482,4 @@ exports.renderReportPage = (req, res) => {
   }
 };
 
-function addColor(temp) {
-  if (temp.passed === true) {
-    temp.color = "panel-success";
-    temp.warning = "Good";
-    return;
-
-    //console.log(key[0] + " " + key[1].passed + " " + key[1].color )
-  } else if (temp.passed === false) {
-    temp.color = "panel-danger";
-    temp.warning = "Warning";
-
-    //console.log(key[0] + " " + key[1].passed + " " + key[1].color )
-  } else {
-    temp.color = "panel-warning";
-    temp.warning = "Info";
-  }
-}
+function addColor(temp) {}
