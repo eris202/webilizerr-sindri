@@ -437,8 +437,6 @@ exports.renderReportPage = (req, res) => {
               data: false,
             });
           }
-<<<<<<< HEAD
-=======
 
           var string = jsonn.dns.data;
           string = string.replace(/[<BR>]/g, " ");
@@ -455,11 +453,12 @@ exports.renderReportPage = (req, res) => {
             data: reportModel.data,
           });
         } else {
+          console.log(response.data);
+
           res.render("report", {
             status: response.data.success,
-            reportId: reportId
+            reportId: reportId,
           });
->>>>>>> b78d015f2a363ac661690369a47d0383e843a3ea
         }
       })
       .catch((error) => {

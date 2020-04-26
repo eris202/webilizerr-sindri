@@ -15,7 +15,7 @@ exports.renderHomePage = (req, res) => {
     rreport.sessionID = req.sessionID;
     Report.find({ sessionID }, function (err, report) {
       if (err) {
-        console.log(err);
+        console.log("Error: " + err);
         return;
       } else {
         console.log("Worked: " + rreport.sessionID);
@@ -24,7 +24,7 @@ exports.renderHomePage = (req, res) => {
   } else {
     console.log("Session ID failed: " + sessionID);
   }
-  console.log(res);
+  //console.log(res);
 };
 
 exports.postReport = (req, res) => {
