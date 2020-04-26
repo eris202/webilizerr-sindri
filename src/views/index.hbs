@@ -37,7 +37,7 @@
               Optimized! </p>
             <h5 style="color: #31c77f">Scan your website for free</h5>
             <div class="offset-md group-30">
-
+              {{!-- 
               <form class="so-widget-form" id="so1585812779"
                 action="https://www.websiteauditserver.com/process-embedded.inc" target="so-iframe"
                 data-behaviour="redirect" data-title="Website Report for "
@@ -68,9 +68,19 @@
                   <input type="submit" id="so-submitso1585812779" value="Scan my Website for Free!"
                     style="min-width: -webkit-fill-available;margin: 5px;">
                 </div>
+              </form> --}}
+
+              <form class="so-widget-form" action="/" method="post" data-title="Website Audit"
+                data-touch="Thank you for requesting a report.">
+
+                <div>
+                  <input type="text" name="websiteUrl" class="form-control" placeholder="Enter website"
+                    style="margin: 2px;" data-validation="Please enter a correct website domain">
+
+                  <button type="button" id="so-submitso1585812779"
+                    style="min-width: -webkit-fill-available;margin: 5px;">Scan my Website for Free!</button>
+                </div>
               </form>
-
-
 
             </div>
           </div>
@@ -625,5 +635,19 @@
     </footer>
   </div>
 </body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script>
+  jQuery("#so-submitso1585812779").click(function () {
+    jQuery.ajax({
+      url: $('.so-widget-form').attr('actions'),
+      type: 'POST',
+      data: $(".so-widget-form").serialize()
+    }).done((response) => {
+      location.href = "http://localhost:5555/report/" + response.data.id
+    }).fail((error) => {
+      console.log(error);
+    });
+  });
+</script>
 
 </html>
