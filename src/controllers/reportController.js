@@ -437,6 +437,29 @@ exports.renderReportPage = (req, res) => {
               data: false,
             });
           }
+<<<<<<< HEAD
+=======
+
+          var string = jsonn.dns.data;
+          string = string.replace(/[<BR>]/g, " ");
+          string = string.replace(/[br]/g, " ");
+          jsonn.dns.data = string;
+
+          reportModel.data.output = jsonn;
+
+          console.log(jsonn.charset);
+
+          res.render("report", {
+            success: reportModel.success,
+            status: reportModel.success,
+            data: reportModel.data,
+          });
+        } else {
+          res.render("report", {
+            status: response.data.success,
+            reportId: reportId
+          });
+>>>>>>> b78d015f2a363ac661690369a47d0383e843a3ea
         }
       })
       .catch((error) => {

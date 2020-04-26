@@ -15,10 +15,44 @@
   <link rel="stylesheet" href="components/base/base.css">
   <link rel="stylesheet" href="/components/report.css">
   <script src="components/base/script.js"></script>
+  <style>
+    .loader {
+      border: 16px solid #f3f3f3;
+      border-radius: 50%;
+      border-top: 16px solid #3498db;
+      width: 120px;
+      height: 120px;
+      margin: 100px auto;
+      -webkit-animation: spin 2s linear infinite;
+      /* Safari */
+      animation: spin 2s linear infinite;
+    }
 
+    /* Safari */
+    @-webkit-keyframes spin {
+      0% {
+        -webkit-transform: rotate(0deg);
+      }
+
+      100% {
+        -webkit-transform: rotate(360deg);
+      }
+    }
+
+    @keyframes spin {
+      0% {
+        transform: rotate(0deg);
+      }
+
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+  </style>
 </head>
 
 <body>
+<<<<<<< HEAD
   <div id="nav-mobile">
     <div>
       <div class="nav-mobile-inner">
@@ -63,6 +97,13 @@
 
     <section class="section-sm active section-transparent">
       <div>
+=======
+  <div class="loader" style="display: none;"></div>
+  {{#if status}}
+  <div class="page">
+    <section class="section-sm section-transparent">
+      <div class="col-lg-9 col-xxl-10">
+>>>>>>> b78d015f2a363ac661690369a47d0383e843a3ea
         <div class="panel">
           <div class="panel-body p-0" style="margin: 10px;">
             <div class="alert alert-primary alert-lighter mt-1" role="alert">
@@ -110,8 +151,8 @@
                     <div class="media-item">
                       <div class="progress-circle-wrap">
                         <div class="progress-counter-wrap">
-                          <div class="progress-counter-value" style="color: {{data.output.scores.seo.colorGrade}}"><span
-                              class="progress-counter">{{data.output.scores.seo.newGrade}}</span><span
+                          <div class="progress-counter-value" style="color: {{data.output.scores.seo.colorGrade}}">
+                            <span class="progress-counter">{{data.output.scores.seo.newGrade}}</span><span
                               class="progress-postfix">%</span>
                           </div>
                         </div>
@@ -131,8 +172,8 @@
                     <div class="media-item">
                       <div class="progress-circle-wrap">
                         <div class="progress-counter-wrap">
-                          <div class="progress-counter-value" style="color: {{data.output.scores.ui.colorGrade}}"><span
-                              class="progress-counter">{{data.output.scores.ui.newGrade}}</span><span
+                          <div class="progress-counter-value" style="color: {{data.output.scores.ui.colorGrade}}">
+                            <span class="progress-counter">{{data.output.scores.ui.newGrade}}</span><span
                               class="progress-postfix">%</span>
                           </div>
                         </div>
@@ -727,9 +768,11 @@
                     </div>
                     <div class="panel-body">
                       <p class="panel-text">We found {{data.output.onPageLinks.data.total}} total links.
-                        {{data.output.onPageLinks.data.externalPercentage}}% of your links are external links, or total
+                        {{data.output.onPageLinks.data.externalPercentage}}% of your links are external links, or
+                        total
                         of {{data.output.onPageLinks.data.externalCount}} external links, and are sending
-                        authority to other sites. {{data.output.onPageLinks.data.nofollowPercentage}}% of your links are
+                        authority to other sites. {{data.output.onPageLinks.data.nofollowPercentage}}% of your links
+                        are
                         nofollow links.</p>
                     </div>
                   </div>
@@ -889,7 +932,6 @@
         </div>
       </div>
     </section>
-
 
     <section class="section-sm section-transparent" style="margin: 10px;">
       <div>
@@ -1526,7 +1568,6 @@
         </div>
     </section>
 
-
     <section class="section-sm section-transparent" style="margin: 10px;">
       <div>
         <div class="panel">
@@ -1731,7 +1772,6 @@
         </div>
       </div>
     </section>
-
 
     <section class="section-sm section-transparent" style="margin: 10px;">
       <div>
@@ -2188,18 +2228,9 @@
         </div>
       </div>
     </section>
-
-
-
-
-
-
-
-
   </div>
+  {{/if}}
 </body>
-
-
 <footer class="footer footer-small">
   <div class="d-flex justify-content-between align-items-center group-10">
     <div> <span>Greendesk</span>© 2019. Design by Zemez</div>
@@ -2250,5 +2281,39 @@
 <script src="/components/report.js"></script>
 
 </body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script>
+  var data = "{{reportId}}";
+
+  if (data) {
+    callApi(data);
+  }
+
+  function callApi(id) {
+    $(".loader").show();
+    $(".form-data").hide();
+
+    jQuery
+      .ajax({
+        url: "http://localhost:5555/check/report",
+        type: "POST",
+        data: {
+          report_id: id,
+        },
+      })
+      .done(function (response) {
+        if (response == "wait") {
+          setTimeout(function () {
+            callApi(id);
+          }, 15000);
+        } else {
+          location.href = "http://localhost:5555/report/" + id;
+        }
+      })
+      .fail(function (error) {
+        console.log(error);
+      });
+  }
+</script>
 
 </html>
