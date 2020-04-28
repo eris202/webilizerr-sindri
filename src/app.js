@@ -1,7 +1,7 @@
 const path = require("path");
 const express = require("express");
 const app = express();
-const router = require("./src/router");
+const router = require("./router");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const passport = require("passport");
@@ -17,14 +17,14 @@ const {
 
 app.use(express.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-require("./src/config/passport")(passport);
+require("./config/passport")(passport);
 
-app.use(express.static(path.join(__dirname, "./src/js")));
-app.use(express.static(path.join(__dirname, "./src/public")));
+app.use(express.static(path.join(__dirname, "../src/js")));
+app.use(express.static(path.join(__dirname, "../src/public")));
 
 var hbs = exphbs.create({
-  layoutsDir: path.join(__dirname, "src/views/"),
-  partialsDir: path.join(__dirname, "src/views/partials"),
+  layoutsDir: path.join(__dirname, "../src/views/"),
+  partialsDir: path.join(__dirname, "../src/views/partials"),
   defaultLayout: false,
   extname: "hbs",
   handlebars: allowInsecurePrototypeAccess(Handlebars),
@@ -32,7 +32,7 @@ var hbs = exphbs.create({
 
 app.engine("hbs", hbs.engine);
 app.set("view engine", "hbs");
-app.set("views", path.join(__dirname, "src/views"));
+app.set("views", path.join(__dirname, "../src/views"));
 
 app.use(
   require("express-session")({
@@ -44,7 +44,7 @@ app.use(
 );
 
 // DB config
-const db = require("./src/config/keys").mongoURI;
+const db = require("./config/keys").mongoURI;
 var store = new MongoDBStore({
   uri: db,
   mongooseConnection: mongoose.connection,

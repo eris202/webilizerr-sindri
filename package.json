@@ -3,8 +3,9 @@
   "version": "1.0.0",
   "main": "app.js",
   "scripts": {
-    "start": "node app.js",
-    "server": "nodemon app.js"
+    "start": "tsc && nodemon dist/app.js",
+    "server": "node dist/app.js",
+    "tsc" : "tsc --build tsconfig.json"
   },
   "author": "Sindri Stefansson",
   "license": "MIT",
