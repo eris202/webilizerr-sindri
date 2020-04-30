@@ -1,0 +1,17 @@
+import { Express } from 'express'
+import DbLoader from './dbloader'
+import PassportLoader from './passportloader'
+import RouteLoader from './routeloader'
+import ExpressLoader from './expressloader'
+
+export default class AppLoader {
+    static async init(app : Express) {
+        await Promise.all([
+            DbLoader.init(app),
+            ExpressLoader.init(app),
+            RouteLoader.init(app),
+            PassportLoader.init(app),
+        ]);
+        console.log(`All configs are loaded`);
+    }
+}
