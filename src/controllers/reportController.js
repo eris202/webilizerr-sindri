@@ -1,47 +1,13 @@
 const axios = require("axios");
 const Report = require("../model/Report");
-const Handlebars = require("handlebars");
 const seo_API_URL = require(".././config/keys").seoptimerAPI;
 const seo_API_KEY = require(".././config/keys").seoptimerKEY;
-const weather = require("../model/Weather");
 
 // exports.renderReportPage = (req, res) => {
 
 //   res.render("report");
 //   console.log("starting report controller");
 // };
-
-exports.getReport = (req, res) => {
-  console.log("1 GET report report controller");
-  console.log("GET" + seo_API_URL + "get/" + 637);
-
-  const report = req.body.websiteUrl;
-  const reportt = new Report(req.body.report);
-
-  axios
-    .get(seo_API_URL + "get/" + 637, {
-      headers: {
-        "x-api-key": seo_API_KEY,
-        "Content-Type": "application/json",
-      },
-    })
-    .then((response) => {
-      //console.log(response.data);
-      const { temp: success } = response.data.success;
-      res.render("report", {
-        success: JSON.stringify(response.data.data),
-      });
-
-      //console.log("Report Schema data.id: " + response.post.data.id)
-      //const { temp: temperature } = response.data.main
-      //const { name: location } = response.data
-    })
-    .catch((error) => {
-      console.log("4 GET report error");
-      console.log(error);
-      return response;
-    });
-};
 
 exports.getCallback = (req, res) => {
   console.log("params", req.params);
@@ -52,6 +18,14 @@ exports.getCallback = (req, res) => {
 exports.renderReportPage = (req, res) => {
   console.log(req.params.reportId);
   let reportId = req.params.reportId;
+
+  // If report id is null just render empty report page and stop
+  if (!reportId) {
+    res.render('report')
+
+    return
+  }
+
   var perC = 0;
   var perW = 0;
   var seoC = 0;

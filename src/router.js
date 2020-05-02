@@ -1,8 +1,8 @@
 const express = require("express");
 const router = express.Router();
-const controller = require("./controllers/controller");
+const controller = require("./controllers/webDataController");
 const reportController = require("./controllers/reportController");
-const loginController = require("./controllers/loginController");
+const loginController = require("./controllers/authController");
 const registerController = require("./controllers/registerController");
 const forgotpsController = require("./controllers/forgotpsController");
 const { ensureAuthenticated } = require("./config/auth");

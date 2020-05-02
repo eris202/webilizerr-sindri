@@ -1,6 +1,6 @@
-import controller from '../controllers/controller'
+import controller from '../controllers/webDataController'
 import reportController from '../controllers/reportController'
-import loginController from '../controllers/loginController'
+import loginController from '../controllers/authController'
 import registerController from '../controllers/registerController'
 import forgotpsController from '../controllers/forgotpsController'
 
