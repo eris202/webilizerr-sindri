@@ -1,16 +1,16 @@
-import controller from '../controllers/webDataController'
-import reportController from '../controllers/reportController'
-import loginController from '../controllers/authController'
-import registerController from '../controllers/registerController'
-import forgotpsController from '../controllers/forgotpsController'
+import {ReportController } from '../controllers/reportController'
+import { AuthController} from '../controllers/authController'
+import {Container} from 'typedi'
 
+const reportController = Container.get(ReportController)
+const authController = Container.get(AuthController)
 
 const authMiddleWare = (req, res, next) => {
     if (req.isAuthenticated()) {
         return next();
     }
 
-    res.redirect("/index");
+    res.redirect("/index")
 }
 
 export interface RouteMapper {
@@ -19,27 +19,25 @@ export interface RouteMapper {
 
 export interface RouteDefinition {
     method: 'post' | 'get' | 'put' | 'delete',
-    handler: (req, res) => void
+    handler: (req, res, next?) => void
 }
 
+/*
+    This is kind of like a small routing framework. All you have to do is make 
+    a route name. Then inside the route name you may have different handlers which
+    will be HTTP method specific to different controller methods. Then the routes
+    will automatically be configured with the express router.
+*/
 export const routes: RouteMapper[] = [
     {
         '/': [
             {
                 method: 'post',
-                handler: controller.postReport,
+                handler: reportController.postReport,
             },
             {
                 method: 'get',
-                handler: controller.renderHomePage,
-            }
-        ]
-    },
-    {
-        '/index/report': [
-            {
-                method: 'post',
-                handler: controller.getReport
+                handler: reportController.viewHomePage,
             }
         ]
     },
@@ -52,30 +50,14 @@ export const routes: RouteMapper[] = [
         ]
     },
     {
-        '/report': [
-            {
-                method: 'post',
-                handler: reportController.getReport
-            }
-        ]
-    },
-    {
-        '/check/report': [
-            {
-                method: 'post',
-                handler: controller.getReport
-            }
-        ]
-    },
-    {
         '/login': [
             {
                 method: 'get',
-                handler: loginController.renderLoginPage
+                handler: authController.viewLoginPage
             },
             {
                 method: 'post',
-                handler: loginController.postLogin
+                handler: authController.postLogin
             }
         ]
     },
@@ -83,11 +65,11 @@ export const routes: RouteMapper[] = [
         '/forgotpassword': [
             {
                 method: 'get',
-                handler: forgotpsController.renderForgotpasswordPage
+                handler: authController.viewForgotPasswordPage
             },
             {
                 method: 'post',
-                handler: forgotpsController.postForgotPassword
+                handler: authController.postForgotPassword
             }
         ]
     },
@@ -95,19 +77,11 @@ export const routes: RouteMapper[] = [
         '/register': [
             {
                 method: 'get',
-                handler: registerController.renderRegisterPage
+                handler: authController.viewRegisterPage
             },
             {
                 method: 'post',
-                handler: registerController.postRegister
-            }
-        ]
-    },
-    {
-        '/callback': [
-            {
-                method: 'post',
-                handler: reportController.getCallback
+                handler: authController.postRegister
             }
         ]
     },

@@ -30,7 +30,7 @@ export default class ExpressViewLoader {
         const hbs = expressHb.create({
             layoutsDir: path.join(__dirname, "../../src/views/"),
             partialsDir: path.join(__dirname, "../../src/views/partials"),
-            defaultLayout: false,
+            defaultLayout: "",
             extname: "hbs",
             handlebars: allowInsecurePrototypeAccess(handlebars),
         })

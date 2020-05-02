@@ -3,7 +3,7 @@ import { Service, Inject } from "typedi";
 import { AuthService, RegistrationResult } from '../services/auth-service'
 
 @Service()
-class AuthController {
+export class AuthController {
 
   @Inject() private authService: AuthService
 

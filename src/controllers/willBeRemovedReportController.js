@@ -1,7 +1,9 @@
+// TODO: This will be removed
+
 const axios = require("axios");
 const Report = require("../model/Report");
-const seo_API_URL = require(".././config/keys").seoptimerAPI;
-const seo_API_KEY = require(".././config/keys").seoptimerKEY;
+const seo_API_URL = require("../config/keys").seoptimerAPI;
+const seo_API_KEY = require("../config/keys").seoptimerKEY;
 
 // exports.renderReportPage = (req, res) => {
 
