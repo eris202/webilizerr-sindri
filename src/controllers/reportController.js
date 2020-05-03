@@ -53,6 +53,7 @@ exports.renderReportPage = (req, res) => {
   console.log(req.params.reportId);
   let reportId = req.params.reportId;
   var perC = 0;
+
   var perW = 0;
   var seoC = 0;
   var seoW = 0;
@@ -82,7 +83,7 @@ exports.renderReportPage = (req, res) => {
 
           //console.log(reportModel.data)
           jsonn = reportModel.data.output;
-          console.log(response.data.data.output.deviceRendering);
+          console.log(response.data.data.output);
 
           for (let key of Object.entries(jsonn)) {
             //let object = jsonn[key];
@@ -269,7 +270,7 @@ exports.renderReportPage = (req, res) => {
             jsonn.headers.h1count = jsonn.headers.data.h1.length;
           }
           if (jsonn.headers.data.h2) {
-            jsonn.headers.h2count = jsonn.headers.data.h2.length;
+            jsonn.headers.h2count = jsonn.headers.data.h2.lengtth;
           }
 
           if (jsonn.headers.data.h3) {

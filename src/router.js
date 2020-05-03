@@ -57,5 +57,7 @@ router.get("/appointment", function (req, res) {
 router.get("/thank-you", function (req, res) {
   res.render("thank-you");
 });
-
+router.get("/resetpassword", function (req, res) {
+  res.render("resetpassword");
+});
 module.exports = router;
