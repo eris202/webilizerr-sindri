@@ -1,8 +1,11 @@
+//TODO: This will be removed
+
+
 const express = require("express");
 const router = express.Router();
-const controller = require("./controllers/controller");
-const reportController = require("./controllers/reportController");
-const loginController = require("./controllers/loginController");
+const controller = require("./controllers/reportController");
+const reportController = require("./controllers/willBeRemovedReportController");
+const loginController = require("./controllers/authController");
 const registerController = require("./controllers/registerController");
 const forgotpsController = require("./controllers/forgotpsController");
 const { ensureAuthenticated } = require("./config/auth");
