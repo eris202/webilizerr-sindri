@@ -8,10 +8,12 @@ export default class AppLoader {
     static async init(app : Express) {
         await Promise.all([
             DbLoader.init(app),
-            ExpressLoader.init(app),
-            RouteLoader.init(app),
+            ExpressLoader.init(app),    
             PassportLoader.init(app),
-        ]);
+        ])
+
+        await RouteLoader.init(app)
+
         console.log(`All configs are loaded`);
     }
 }

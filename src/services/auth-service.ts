@@ -1,9 +1,16 @@
-import { Service } from 'typedi'
+import { Service, Inject } from 'typedi'
 import User from "../model/User";
 import bcrypt from "bcrypt";
+import { TokenService } from './encryption-token-service';
+import { MailService } from './mail-service';
+import * as mongoose from 'mongoose'
 
 @Service()
 export class AuthService {
+
+    @Inject() private tokenService: TokenService
+
+    @Inject() private mailService: MailService
 
     registerUser = async (userInfo: UserInfo): Promise<RegistrationResult> => {
         const errors = await this.validateUserInfo(userInfo)
@@ -36,7 +43,7 @@ export class AuthService {
         const re = /\S+@\S+\.\S+/;
 
         if (re.test(userInfo.email)) {
-            const dbUser = User.findOne({ 
+            const dbUser = User.findOne({
                 email: userInfo.email,
                 isActive: true
             })
@@ -49,6 +56,31 @@ export class AuthService {
         }
 
         return errors
+    }
+
+    verifyUserLink = async (token: string) => {
+        const data = await this.tokenService.getRegistrationTokenPayload(token)
+        const userEmail = data.email
+        const user = await User.findOne({ email: userEmail, isActive: false })
+
+        user.isActive = true
+
+        const session = await mongoose.startSession();
+        session.startTransaction();
+        try {
+            //Saving updated user
+            await user.save()
+            // Deleting inactive users with same email
+            await User.deleteMany({ email: userEmail, isActive: false })
+
+            await session.commitTransaction()
+        } catch(e) {
+            await session.abortTransaction()
+            throw e
+        } finally {
+            session.endSession()
+        }
+        
     }
 
     private registerNewUser = async (userInfo: UserInfo) => {
@@ -65,11 +97,14 @@ export class AuthService {
 
             const savedUser = await newUser.save()
 
+            await this.mailService.sendAccountConfirmationEmail(savedUser.email)
+
             return {
                 errors: [],
                 data: savedUser,
             }
         } catch (e) {
+            console.log(e)
             return {
                 errors: [
                     {

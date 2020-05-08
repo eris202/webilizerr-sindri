@@ -42,6 +42,14 @@ export const routes: RouteMapper[] = [
         ]
     },
     {
+        '/auth/verify': [
+            {
+                method: 'get',
+                handler: authController.verifyUserLink,
+            }
+        ]
+    },
+    {
         '/report/:reportId': [
             {
                 method: 'get',

@@ -19,14 +19,14 @@ export default class PassportLoader {
   }
 
   static initLocalStrategy(app: Express) {
-    
+
     const strategyOptions = {
       usernameField: "login",
       passwordField: "password"
     }
 
     const verificationCallback = async (email, password, done) => {
-      
+
       const user = await User.findOne({ email: email, isActive: true })
 
       if (!user) {
@@ -57,8 +57,8 @@ export default class PassportLoader {
   }
 
   static initUserSerializers(app: Express) {
-    
-    passport.serializeUser((user : any, done) => {
+
+    passport.serializeUser((user: any, done) => {
       done(null, user.id)
     })
 
