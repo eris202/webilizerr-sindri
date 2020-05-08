@@ -1,6 +1,7 @@
 import passport from "passport"
 import { Service, Inject } from "typedi"
 import { AuthService, RegistrationResult } from "../services/auth-service"
+import User from "../model/User";
 
 @Service()
 export class AuthController {
@@ -24,9 +25,11 @@ export class AuthController {
     }
   };
 
-  viewRegisterPage = (req, res) => {
+  viewRegisterPage = async (req, res) => {
     res.render("register")
-  };
+  }
+
+  
 
   verifyUserLink = async (req, res) => {
     const token = req.query.token
@@ -36,13 +39,20 @@ export class AuthController {
 
     try {
       await this.authService.verifyUserLink(token)
-      req.flash('message', 'Your email is now registered. You can login with your credentials')
+      req.flash('message', 'Account has been registered successfully. Please log in now.')
 
       return res.redirect('/')
     } catch (e) {
       console.log(e)
       return res.status(401).send('Token has expired or is invalid')
     }
+  }
+
+  logout = (req, res) => {
+    req.logout()
+
+    req.flash('message', 'You have been logged out.')
+    res.redirect('/')
   }
 
   postLogin = (req, res, next) => {
@@ -59,31 +69,61 @@ export class AuthController {
 
       req.login(user, info => {
         if (info) {
-          console.log(info)
           next(info)
         }
 
         req.flash('message', 'You are logged in')
         return res.redirect('/')
       })
-    })(req, res, next);
-  };
+    })(req, res, next)
+  }
 
   viewLoginPage = (req, res) => {
     const message = req.flash('message')
-    console.log(`flash message ${message}`)
     res.render("login", {
       message: message
-    });
-  };
+    })
+  }
 
   postForgotPassword = (req, res) => {
-    res.render("login");
-  };
+    const email = req.body.email
+    if (!email) {
+      return res.redirect('/forgot-password')
+    }
+
+    try {
+      this.authService.resetPassword(email)
+    } catch (e) {
+      console.log(e)
+    } finally {
+      req.flash('message', `An email with instructions has been sent to your email 
+      address (please also check your spam folder)`)
+      res.redirect('/')
+    }
+  }
 
   viewForgotPasswordPage = (req, res) => {
-    console.log("starting forgot password controller");
-    res.render("forgotpassword");
-  };
+    res.render("forgot-password");
+  }
+
+  viewResetPassword = (req, res) => {
+    res.render('reset-password')
+  }
+
+  postResetPassword = async (req, res) => {
+    const token = req.query.token
+    const { password, repeatedPassword } = req.body
+
+    const result: any = await this.authService.updatePassword(token, password, repeatedPassword)
+    console.log(result)
+
+    if (result.error) {
+      req.flash('message', result.error)
+    } else {
+      req.flash('message', result.data)
+    }
+
+    return res.redirect('/')
+  }
 }
 

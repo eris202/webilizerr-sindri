@@ -1,6 +1,5 @@
-import { Express } from 'express'
+import { Express, Router } from 'express'
 import { routes, RouteDefinition, RouteMapper } from '../config/routes'
-import { Router } from 'express'
 
 export default class RouteLoader {
 
@@ -22,24 +21,26 @@ export default class RouteLoader {
 
     static populateRouterWithDefinition(path: string, router: Router, definitions: RouteDefinition[]) {
         for (const definition of definitions) {
+            const middleWares = definition.middleWares || []
+            
             switch (definition.method) {
                 case 'post': {
-                    router.post(path, definition.handler)
+                    router.post(path, ...middleWares, definition.handler)
 
                     break
                 }
                 case 'get': {
-                    router.get(path, definition.handler)
+                    router.get(path, ...middleWares, definition.handler)
 
                     break
                 }
                 case 'put': {
-                    router.put(path, definition.handler)
+                    router.put(path, ...middleWares, definition.handler)
 
                     break
                 }
                 case 'delete': {
-                    router.delete(path, definition.handler)
+                    router.delete(path, ...middleWares, definition.handler)
 
                     break
                 }

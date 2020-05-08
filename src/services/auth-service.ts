@@ -59,13 +59,13 @@ export class AuthService {
     }
 
     verifyUserLink = async (token: string) => {
-        const data = await this.tokenService.getRegistrationTokenPayload(token)
+        const data = await this.tokenService.getTokenPayload(token)
         const userEmail = data.email
         const user = await User.findOne({ email: userEmail, isActive: false })
 
         user.isActive = true
 
-        const session = await mongoose.startSession();
+        const session = await User.startSession();
         session.startTransaction();
         try {
             //Saving updated user
@@ -74,13 +74,13 @@ export class AuthService {
             await User.deleteMany({ email: userEmail, isActive: false })
 
             await session.commitTransaction()
-        } catch(e) {
+        } catch (e) {
             await session.abortTransaction()
             throw e
         } finally {
             session.endSession()
         }
-        
+
     }
 
     private registerNewUser = async (userInfo: UserInfo) => {
@@ -111,6 +111,65 @@ export class AuthService {
                         msg: "Sorry, the service failed. Please try again."
                     }
                 ],
+                data: ''
+            }
+        }
+    }
+
+    resetPassword = async (email) => {
+        const user = await User.findOne({ email: email, isActive: true })
+        if (!user) {
+            throw Error('Security issue. Trying to reset a non user')
+        }
+
+        await this.mailService.sendResetLink(email)
+    }
+
+    updatePassword = async (token, password, repeatedPassword) => {
+        if (!token) {
+            return {
+                error: 'Token is empty',
+                data: ''
+            }
+        }
+
+        if (!password || !repeatedPassword) {
+            return {
+                error: 'Both fields are required',
+                data: ''
+            }
+        }
+
+        if (password != repeatedPassword) {
+            return {
+                error: 'Passwords do not match',
+                data: ''
+            }
+        }
+
+        try {
+            const payload = await this.tokenService.getTokenPayload(token)
+            console.log(`payload is ${payload.email}`)
+            const user = await User.findOne({email: payload.email, isActive: true})
+            
+            if (!user) {
+                throw new Error('Trying for an invalid user')
+            }
+
+            const passwordSalt = await bcrypt.genSalt(10)
+            const hashedPassword = await bcrypt.hash(password, passwordSalt)
+            user.password = hashedPassword
+            
+            await user.save()
+
+            return {
+                error: false,
+                data: 'Password has been updated'
+            }
+        } catch (e) {
+            console.log(e)
+            return {
+                error: 'Token is invalid or expired',
                 data: ''
             }
         }

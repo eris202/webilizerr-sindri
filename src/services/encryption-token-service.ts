@@ -6,13 +6,13 @@ const SECRET = 's3cr3t'
 @Service()
 export class TokenService {
 
-    createEmailConfirmationToken = (email: string) => {
+    createTokenWithEmailEmbedded = (email: string) => {
         return sign({ email: email }, SECRET, {
             expiresIn: 1800 // expires in 24 hours
         })
     }
 
-    getRegistrationTokenPayload = async (token): Promise<{email:string}> => {
+    getTokenPayload = async (token): Promise<{email:string}> => {
         const decodedToken: any = await verify(token, SECRET)
         
         return {

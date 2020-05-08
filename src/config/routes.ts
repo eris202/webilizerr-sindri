@@ -5,21 +5,23 @@ import {Container} from 'typedi'
 const reportController = Container.get(ReportController)
 const authController = Container.get(AuthController)
 
-const authMiddleWare = (req, res, next) => {
-    if (req.isAuthenticated()) {
+const alreadyLoggedInMiddleWare = (req, res, next) => {
+    if (!req.isAuthenticated()) {
         return next();
     }
 
-    res.redirect("/index")
+    req.flash('message', 'You cannot access the page while logged in.')
+    res.redirect("/")
 }
 
 export interface RouteMapper {
     [key: string]: RouteDefinition[]
 }
 
-export interface RouteDefinition {
-    method: 'post' | 'get' | 'put' | 'delete',
+export class RouteDefinition {
+    method: 'post' | 'get' | 'put' | 'delete'
     handler: (req, res, next?) => void
+    middleWares?: Array<(req, res, next) => void> = [] 
 }
 
 /*
@@ -42,6 +44,30 @@ export const routes: RouteMapper[] = [
         ]
     },
     {
+        '/forgot-password': [
+            {
+                method: 'get',
+                handler: authController.viewForgotPasswordPage
+            },
+            {
+                method: 'post',
+                handler: authController.postForgotPassword
+            }
+        ]
+    },
+    {
+        '/reset-password': [
+            {
+                method: 'get',
+                handler: authController.viewResetPassword
+            },
+            {
+                method: 'post',
+                handler: authController.postResetPassword
+            }
+        ]
+    },
+    {
         '/auth/verify': [
             {
                 method: 'get',
@@ -58,14 +84,28 @@ export const routes: RouteMapper[] = [
         ]
     },
     {
+        '/logout': [
+            {
+                method: 'get',
+                handler: authController.logout
+            }
+        ]
+    },
+    {
         '/login': [
             {
                 method: 'get',
-                handler: authController.viewLoginPage
+                handler: authController.viewLoginPage,
+                middleWares: [
+                    alreadyLoggedInMiddleWare
+                ]
             },
             {
                 method: 'post',
-                handler: authController.postLogin
+                handler: authController.postLogin,
+                middleWares: [
+                    alreadyLoggedInMiddleWare
+                ]
             }
         ]
     },
@@ -73,11 +113,17 @@ export const routes: RouteMapper[] = [
         '/forgotpassword': [
             {
                 method: 'get',
-                handler: authController.viewForgotPasswordPage
+                handler: authController.viewForgotPasswordPage,
+                middleWares: [
+                    alreadyLoggedInMiddleWare
+                ]
             },
             {
                 method: 'post',
-                handler: authController.postForgotPassword
+                handler: authController.postForgotPassword,
+                middleWares: [
+                    alreadyLoggedInMiddleWare
+                ]
             }
         ]
     },
@@ -85,11 +131,17 @@ export const routes: RouteMapper[] = [
         '/register': [
             {
                 method: 'get',
-                handler: authController.viewRegisterPage
+                handler: authController.viewRegisterPage,
+                middleWares: [
+                    alreadyLoggedInMiddleWare
+                ]
             },
             {
                 method: 'post',
-                handler: authController.postRegister
+                handler: authController.postRegister,
+                middleWares: [
+                    alreadyLoggedInMiddleWare
+                ]
             }
         ]
     },
