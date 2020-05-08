@@ -7,39 +7,50 @@ export class AuthController {
   @Inject() private authService: AuthService;
 
   postRegister = async (req, res) => {
-    console.log("Start postRegister: ");
     const { name, email, password, password2 } = req.body;
     const userInfo = { name, email, password, password2 };
     const result: RegistrationResult = await this.authService.registerUser(
       userInfo
-    );
+    )
 
     if (result.errors.length > 0) {
       res.render("register", {
         error: result.errors,
         ...userInfo,
-      });
+      })
     } else {
-      //TODO: new release to show redirect flash message
-      res.redirect("/");
+      req.flash('message', 'You have been sent an email for account confirmation')
+      res.redirect("/")
     }
   };
 
   viewRegisterPage = (req, res) => {
-    console.log("starting register controller");
+    res.render("register")
   };
 
   postLogin = (req, res, next) => {
     // passport authenticate
-    passport.authenticate("local", {
-      successRedirect: "/index",
-      failureRedirect: "/about-us",
+    passport.authenticate("local", async (err, user, info) => {
+      if (err) {
+        return next(err)
+      }
+
+      if (!user) {
+        req.flash('message', 'Invalid user name or password')
+        return res.redirect('/login')
+      }
+
+      await req.login(user)
+      return res.redirect('/')
     })(req, res, next);
   };
 
   viewLoginPage = (req, res) => {
-    console.log("starting login controller");
-    res.render("login");
+    const message = req.flash('message')
+    console.log(`flash message ${message}`)
+    res.render("login", {
+      message: message
+    });
   };
 
   postForgotPassword = (req, res) => {
@@ -52,10 +63,3 @@ export class AuthController {
   };
 }
 
-// Register function
-exports.postRegister = (req, res) => {};
-
-exports.renderRegisterPage = (req, res) => {
-  res.render("register");
-  console.log("starting register controller");
-};

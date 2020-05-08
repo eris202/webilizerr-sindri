@@ -27,7 +27,7 @@ export default class PassportLoader {
 
     const verificationCallback = async (email, password, done) => {
       
-      const user = await User.findOne({ email: email });
+      const user = await User.findOne({ email: email, isActive: true })
 
       if (!user) {
         done(null, false, {

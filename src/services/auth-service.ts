@@ -33,9 +33,19 @@ export class AuthService {
             errors.push({ msg: "Pass must be at least 6 characters" })
         }
 
-        const dbUser = User.findOne({ email: userInfo.email })
-        if (!dbUser) {
-            errors.push({ msg: 'Email is already registered' })
+        const re = /\S+@\S+\.\S+/;
+
+        if (re.test(userInfo.email)) {
+            const dbUser = User.findOne({ 
+                email: userInfo.email,
+                isActive: true
+            })
+
+            if (!dbUser) {
+                errors.push({ msg: 'Email is already registered' })
+            }
+        } else {
+            errors.push({ msg: 'Please enter a valid email address' })
         }
 
         return errors
@@ -49,8 +59,8 @@ export class AuthService {
         })
 
         try {
-            const passwordSalt = bcrypt.genSalt(10)
-            const hashedPassword = bcrypt.hash(newUser.password, passwordSalt)
+            const passwordSalt = await bcrypt.genSalt(10)
+            const hashedPassword = await bcrypt.hash(newUser.password, passwordSalt)
             newUser.password = hashedPassword
 
             const savedUser = await newUser.save()
