@@ -1,69 +1,129 @@
 import passport from "passport"
-import { Service, Inject } from "typedi";
-import { AuthService, RegistrationResult } from '../services/auth-service'
+import { Service, Inject } from "typedi"
+import { AuthService, RegistrationResult } from "../services/auth-service"
+import User from "../model/User";
 
 @Service()
 export class AuthController {
-
   @Inject() private authService: AuthService
 
   postRegister = async (req, res) => {
-    console.log("Start postRegister: ");
     const { name, email, password, password2 } = req.body;
-    const userInfo = { name, email, password, password2 }
-    const result: RegistrationResult =
-      await this.authService.registerUser(userInfo)
+    const userInfo = { name, email, password, password2 };
+    const result: RegistrationResult = await this.authService.registerUser(
+      userInfo
+    )
 
     if (result.errors.length > 0) {
-      res.render('register', {
+      res.render("register", {
         error: result.errors,
-        ...userInfo
+        ...userInfo,
       })
     } else {
-      //TODO: new release to show redirect flash message
+      req.flash('message', 'You have been sent an email for account confirmation')
       res.redirect("/")
+    }
+  };
+
+  viewRegisterPage = async (req, res) => {
+    res.render("register")
+  }
+
+  
+
+  verifyUserLink = async (req, res) => {
+    const token = req.query.token
+    if (!token) {
+      return res.status(401).send('No token supplied')
+    }
+
+    try {
+      await this.authService.verifyUserLink(token)
+      req.flash('message', 'Account has been registered successfully. Please log in now.')
+
+      return res.redirect('/')
+    } catch (e) {
+      console.log(e)
+      return res.status(401).send('Token has expired or is invalid')
     }
   }
 
-  viewRegisterPage = (req, res) => {
-    console.log("starting register controller");
+  logout = (req, res) => {
+    req.logout()
+
+    req.flash('message', 'You have been logged out.')
+    res.redirect('/')
   }
 
   postLogin = (req, res, next) => {
     // passport authenticate
-    passport.authenticate("local", {
-      successRedirect: "/index",
-      failureRedirect: "/about-us",
+    passport.authenticate("local", async (err, user, info) => {
+      if (err) {
+        return next(err)
+      }
+
+      if (!user) {
+        req.flash('message', 'Invalid user name or password')
+        return res.redirect('/login')
+      }
+
+      req.login(user, info => {
+        if (info) {
+          next(info)
+        }
+
+        req.flash('message', 'You are logged in')
+        return res.redirect('/')
+      })
     })(req, res, next)
   }
 
   viewLoginPage = (req, res) => {
-    console.log("starting login controller")
-    res.render("login")
+    const message = req.flash('message')
+    res.render("login", {
+      message: message
+    })
   }
 
   postForgotPassword = (req, res) => {
-    console.log("starting forgotten password")
+    const email = req.body.email
+    if (!email) {
+      return res.redirect('/forgot-password')
+    }
+
+    try {
+      this.authService.resetPassword(email)
+    } catch (e) {
+      console.log(e)
+    } finally {
+      req.flash('message', `An email with instructions has been sent to your email 
+      address (please also check your spam folder)`)
+      res.redirect('/')
+    }
   }
 
   viewForgotPasswordPage = (req, res) => {
-    console.log("starting forgot password controller")
-    res.render("forgotpassword")
+    res.render("forgot-password");
+  }
+
+  viewResetPassword = (req, res) => {
+    res.render('reset-password')
+  }
+
+  postResetPassword = async (req, res) => {
+    const token = req.query.token
+    const { password, repeatedPassword } = req.body
+
+    const result: any = await this.authService.updatePassword(token, password, repeatedPassword)
+    console.log(result)
+
+    if (result.error) {
+      req.flash('message', result.error)
+    } else {
+      req.flash('message', result.data)
+    }
+
+    return res.redirect('/')
   }
 }
-
-
-
-// Register function
-exports.postRegister = (req, res) => {
-
-};
-
-exports.renderRegisterPage = (req, res) => {
-  res.render("register");
-  console.log("starting register controller");
-};
-
-
-
 

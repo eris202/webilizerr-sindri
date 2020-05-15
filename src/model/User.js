@@ -3,7 +3,6 @@ const Schema = mongoose.Schema;
 
 //Create Schema
 const UserSchema = new Schema({
-    
     name: {
         type: String,
         required: true
@@ -19,6 +18,10 @@ const UserSchema = new Schema({
     date: {
         type: Date,
         default: Date.now
+    },
+    isActive: {
+        type: Boolean,
+        default: false
     }
 });
   

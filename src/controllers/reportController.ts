@@ -32,7 +32,11 @@ export class ReportController {
       console.log(e)
     }
 
-    res.render('index')
+    const flashMessage = req.flash('message')
+    console.log(`flash message ${flashMessage}`)
+    res.render('index', {
+      message: flashMessage
+    })
   }
 
   postReport = async (req, res) => {

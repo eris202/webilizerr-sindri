@@ -16,18 +16,33 @@ export default class PassportLoader {
     // Passport middleware
     app.use(passport.initialize());
     app.use(passport.session());
+
+    // Utility to pass user session to handle bar view
+    app.use((req, res, next) => {
+      console.log('calling middleware')
+      if (req.isAuthenticated()) {
+        console.log('logged in')
+        console.log(JSON.stringify(req.user))
+        res.locals.loggedIn = true
+      } else {
+        console.log('not logged in')
+        res.locals.loggedIn = false
+      }
+
+      next()
+    })
   }
 
   static initLocalStrategy(app: Express) {
-    
+
     const strategyOptions = {
       usernameField: "login",
       passwordField: "password"
     }
 
     const verificationCallback = async (email, password, done) => {
-      
-      const user = await User.findOne({ email: email });
+
+      const user = await User.findOne({ email: email, isActive: true })
 
       if (!user) {
         done(null, false, {
@@ -57,8 +72,8 @@ export default class PassportLoader {
   }
 
   static initUserSerializers(app: Express) {
-    
-    passport.serializeUser((user : any, done) => {
+
+    passport.serializeUser((user: any, done) => {
       done(null, user.id)
     })
 
