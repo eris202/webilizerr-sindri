@@ -18,7 +18,12 @@ export class MailService {
             `
         };
 
-        const info = await mailer.sendMail(mailOptions)
+        mailer
+            .send(`${emailAddress}`, 'Email Confirmation', `Please confirm your email by clicking ${this.createConfirmationLink(emailAddress)}
+            The link will be valid for 30 minutes.
+            `)
+            .then((result) => console.log('Done', result))
+            .catch((error) => console.error('Error: ', error));
     }
 
     sendResetLink = async (emailAddress: string) => {
@@ -30,7 +35,12 @@ export class MailService {
             text: `Please reset password by clicking ${this.createResetLink(emailAddress)}. The link will be valid for 30 minutes.`
         };
 
-        const info = await mailer.sendMail(mailOptions)
+        mailer
+            .send(`${emailAddress}`, 
+            'User Password Reset',
+            `Please reset password by clicking ${this.createResetLink(emailAddress)}. The link will be valid for 30 minutes.`)
+            .then((result) => console.log('Done', result))
+            .catch((error) => console.error('Error: ', error));
     }
 
     // TODO: These two can be one method
