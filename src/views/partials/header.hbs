@@ -27,21 +27,24 @@
                             href="/about-us">About Us</a>
                     </li>
                     <li class="navbar-navigation-root-item"><a class="navbar-navigation-root-link"
+                            href="/pricing">Pricing</a>
+                    </li>
+                    <li class="navbar-navigation-root-item"><a class="navbar-navigation-root-link"
                             href="/get-in-touch">Contact Us</a>
                     </li>
                     {{#if loggedIn}}
-                        <li class="navbar-navigation-root-item active"><a href="/logout"><button
-                                    style="padding-top: 6px;padding-bottom: 6px;"
-                                    class="btn btn-outline btn-secondary btn-anis">Logout</button></a>
-                        </li>
+                    <li class="navbar-navigation-root-item active"><a href="/logout"><button
+                                style="padding-top: 6px;padding-bottom: 6px;"
+                                class="btn btn-outline btn-secondary btn-anis">Logout</button></a>
+                    </li>
                     {{else}}
-                        <li class="navbar-navigation-root-item"><a class="navbar-navigation-root-link"
-                                style="color: #6b39bd;" href="/login">Login</a>
-                        </li>
-                        <li class="navbar-navigation-root-item active"><a href="/register"><button
-                                    style="padding-top: 6px;padding-bottom: 6px;"
-                                    class="btn btn-outline btn-secondary btn-anis">Register</button></a>
-                        </li>
+                    <li class="navbar-navigation-root-item"><a class="navbar-navigation-root-link"
+                            style="color: #6b39bd;" href="/login">Login</a>
+                    </li>
+                    <li class="navbar-navigation-root-item active"><a href="/register"><button
+                                style="padding-top: 6px;padding-bottom: 6px;"
+                                class="btn btn-outline btn-secondary btn-anis">Register</button></a>
+                    </li>
                     {{/if}}
                 </ul>
             </div>
