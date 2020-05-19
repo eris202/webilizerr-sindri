@@ -24,6 +24,11 @@ export default class ExpressViewLoader {
 
         // Enable flash messages
         app.use(flash())
+
+        app.use('*', (req, res, next) => {
+            res.locals.absoluteUrl = `${req.protocol}://${req.get('Host')}`
+            next()
+        })
     }
 
     static async initHandleBars(app: Express) {

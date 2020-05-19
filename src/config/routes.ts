@@ -1,17 +1,28 @@
 import {ReportController } from '../controllers/reportController'
 import { AuthController} from '../controllers/authController'
 import {Container} from 'typedi'
+import { InvoiceController } from '../controllers/invoiceController';
 
 const reportController = Container.get(ReportController)
 const authController = Container.get(AuthController)
+const invoiceController = Container.get(InvoiceController)
 
 const alreadyLoggedInMiddleWare = (req, res, next) => {
     if (!req.isAuthenticated()) {
-        return next();
+        return next()
     }
 
     req.flash('message', 'You cannot access the page while logged in.')
-    res.redirect("/")
+    return res.redirect("/")
+}
+
+const shouldBeLoggedInMiddleWare = (req, res, next) => {
+    if (req.isAuthenticated()) {
+        return next()
+    }
+
+    const backUrl = `${req.protocol}://${req.get('Host')}${req.originalUrl}`;
+    return res.redirect(`/login?backUrl=${backUrl}`)
 }
 
 export interface RouteMapper {
@@ -80,6 +91,25 @@ export const routes: RouteMapper[] = [
             {
                 method: 'get',
                 handler: reportController.renderReportPage
+            }
+        ]
+    },
+    {
+        '/pricing': [
+            {
+                method: 'get',
+                handler: invoiceController.viewPricingPage
+            }
+        ]
+    },
+    {
+        '/checkout': [
+            {
+                method: 'get',
+                handler: invoiceController.viewCheckoutPage,
+                middleWares: [
+                    shouldBeLoggedInMiddleWare
+                ]
             }
         ]
     },
