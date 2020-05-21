@@ -15,6 +15,9 @@
     <link rel="stylesheet" href="components/base/base.css">
     <script src="components/base/core.js"></script>
     <script src="components/base/script.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://js.stripe.com/v3/"></script>
+    <script src="{{absoluteUrl}}/js/pricing-stripe.js"></script>
 </head>
 
 <body>
@@ -118,6 +121,7 @@
 
                     <div class="col-sm-12 col-md-6">
                         <article class="accent-box">
+                            <form action="" method="POST" id="card-form">
                             <div class="form-row row-15 novi-disabled">
                                 <div class="col-sm-12">
                                     <div class="form-group">
@@ -132,30 +136,14 @@
                                     <div class="form-group">
                                         <label for="input-name">Card:</label>
                                         <div class="position-relative">
-                                            <input class="form-control" id="input" type="text" name="name"
-                                                placeholder="1234 5678 1234 5678" data-constraints="@Required">
+                                            <div id="input-card-number">
+                                                <input class="form-control" type="text" name="name"
+                                                    data-constraints="@Required">
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
 
-                                <div class="col-sm-6">
-                                    <div class="form-group">
-                                        <label for="input-tel">Date:</label>
-                                        <div class="position-relative">
-                                            <input class="form-control" id="input" type="tel" name="tel"
-                                                placeholder="DDMM" data-constraints=" @Required">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-6">
-                                    <div class="form-group">
-                                        <label for="input-subject">CCV:</label>
-                                        <div class="position-relative">
-                                            <input class="form-control" id="input" type="text" name="subject"
-                                                placeholder="123" data-constraints="@Required">
-                                        </div>
-                                    </div>
-                                </div>
                                 <div class="col-sm-12">
                                     <div class="form-group">
                                         <label for="input-name">Name:</label>
@@ -165,10 +153,10 @@
                                         </div>
                                     </div>
                                 </div>
+                                
                                 <div class="col-12">
-                                    <select class="form-control" name="location">
-                                        <option selected="selected">Select country...</option>
-                                        <option value="AL">Albania</option>
+                                    <select class="form-control" id='select-location' name="location">
+                                        <option value="AL" selected="selected">Albania</option>
                                         <option value="DZ">Algeria</option>
                                         <option value="AD">Andorra</option>
                                         <option value="AO">Angola</option>
@@ -370,7 +358,7 @@
                                     type="submit">Proceed with
                                     Payment</button>
                             </div>
-
+                        </form>
                         </article>
 
                     </div>

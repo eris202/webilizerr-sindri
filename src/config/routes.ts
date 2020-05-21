@@ -110,6 +110,13 @@ export const routes: RouteMapper[] = [
                 middleWares: [
                     shouldBeLoggedInMiddleWare
                 ]
+            },
+            {
+                method: 'post',
+                handler: invoiceController.postCheckout,
+                middleWares: [
+                    shouldBeLoggedInMiddleWare
+                ]
             }
         ]
     },

@@ -4,6 +4,7 @@ import bcrypt from "bcrypt";
 import { TokenService } from './encryption-token-service';
 import { MailService } from './mail-service';
 import * as mongoose from 'mongoose'
+import { StripeService } from './stripe-service';
 
 @Service()
 export class AuthService {
@@ -11,6 +12,8 @@ export class AuthService {
     @Inject() private tokenService: TokenService
 
     @Inject() private mailService: MailService
+
+    @Inject() private stripeService: StripeService
 
     registerUser = async (userInfo: UserInfo): Promise<RegistrationResult> => {
         const errors = await this.validateUserInfo(userInfo)
@@ -68,11 +71,14 @@ export class AuthService {
         const session = await User.startSession();
         session.startTransaction();
         try {
-            //Saving updated user
+            const stripeCustomer = await this.stripeService.createCustomer(user.name, userEmail)
+            user.stripeCustomerId = stripeCustomer.id
+
             await user.save()
+
             // Deleting inactive users with same email
             await User.deleteMany({ email: userEmail, isActive: false })
-
+            
             await session.commitTransaction()
         } catch (e) {
             await session.abortTransaction()
