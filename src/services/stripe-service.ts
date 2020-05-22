@@ -1,6 +1,7 @@
 import stripeClient from '../factories/stripe-client-factory'
 import Stripe from 'stripe'
-import { Service } from 'typedi';
+import { Service } from 'typedi'
+import { ProductPlan } from '../factories/product-plan-factory'
 
 @Service()
 export class StripeService {
@@ -15,12 +16,31 @@ export class StripeService {
         return await stripeClient.customers.create(params)
     }
 
-    createSubscription = async (stripeCustomerId, token, planId): Promise<Stripe.Subscription> => {
+    getDiscountPrice = async (price: number, couponId: string) => {
+        try {
+            const coupon = await stripeClient.coupons.retrieve(couponId)
+
+            return {
+                percentage: coupon.percent_off,
+                discountPrice: (price - (price * (coupon.percent_off / 100.0))).toFixed(2)
+            }
+        }
+        catch(e) {
+            return {
+                error: 'Coupon does not exist or has expired'
+            }
+        }
+    }
+
+    createSubscription = async (stripeCustomerId, token, planId, couponName?): Promise<Stripe.Subscription> => {
+        const productConfig = ProductPlan.getProductConfig(planId)
+        
         const params: Stripe.SubscriptionCreateParams = {
             customer: stripeCustomerId,
+            coupon: couponName,
             items: [
                 {
-                    plan: this.getStripePlanId(planId)
+                    plan: productConfig.planId
                 }
             ]
         }
@@ -44,14 +64,5 @@ export class StripeService {
         })
 
         return await stripeClient.subscriptions.create(params)
-    }
-
-    private getStripePlanId(planFlag): string {
-        console.log(`Plan is: ${planFlag}`)
-        if (planFlag === 0) {
-            return 'plan_HJvwMXFtyiblKe'
-        }
-
-        throw new Error('Illegal State')
     }
 }

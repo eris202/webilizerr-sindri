@@ -36,4 +36,28 @@ $(function() {
 
         form.submit()
     }
+    
+    var promoInput = $("#promo-code")
+    $("#promo-button").click(function() {
+        var promoVal = promoInput.val()
+        if (!promoVal) {
+            return
+        } 
+
+        var origin = window.origin
+        var planParam = getUrlParam('plan')
+
+        var modifiedUrl = origin + "/checkout?plan=" + planParam + "&coupon=" + promoVal
+        console.log(modifiedUrl)
+
+        window.location = modifiedUrl
+    })
+
+    function getUrlParam(name){
+        var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
+        if (results==null) {
+           return null;
+        }
+        return decodeURI(results[1]) || 0;
+    }
 })

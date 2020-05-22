@@ -58,7 +58,7 @@
                                             <li>Dimension: 180X1250mm</li>
                                         </ul>
                                     </td>
-                                    <td style="min-width: 80px; width: 12.6%">€199</td>
+                                    <td style="min-width: 80px; width: 12.6%">€{{price}}</td>
                                     <td style="min-width: 120px; width: 14.3%">
                                         <div class="form-group mb-4">
                                             <label class="d-block small" for="input-quality">Qty:</label>
@@ -66,7 +66,7 @@
                                                 type="text" data-masked="99" value="01" size="2">
                                         </div>
                                     </td>
-                                    <td class="text-right" style="min-width: 60px; width: 9.8%">€199</td>
+                                    <td class="text-right" style="min-width: 60px; width: 9.8%">€{{price}}</td>
                                 </tr>
 
                             </tbody>
@@ -74,22 +74,37 @@
                         <div class="offset-sm group-20 d-flex align-items-center flex-wrap justify-content-end"
                             style="float: left;">
                             <div class="small">Have a promo code?</div>
+                            {{#if discountedPrice}}
+                                {{#if discountedPrice.error}}
+                                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                        {{discountedPrice.error}}
+                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                            <span aria-hidden="true">×</span>
+                                        </button>
+                                    </div>
+                                {{/if}}
+                            {{/if}}
                             <div>
                                 <form class="form-inline justify-content-end group-10">
                                     <div class="form-inline-group">
-                                        <input class="form-control" type="text" placeholder="Promo code">
+                                        <input class="form-control" id="promo-code" type="text" placeholder="Promo code">
                                     </div>
-                                    <button class="btn btn-lg btn-dark" type="submit">Apply</button>
+                                    <button class="btn btn-lg btn-dark" id="promo-button" type="button">Apply</button>
                                 </form>
                             </div>
                         </div>
 
                         <table class="table table-cart-total">
                             <tbody>
-                                <tr>
-                                    <th style="min-width: 100px; width: 50%">Subtotal:</th>
-                                    <td style="min-width: 100px; width: 50%">€0.00</td>
-                                </tr>
+                                {{#if discountedPrice}}
+                                    {{#if discountedPrice.percentage}}
+                                        <tr>
+                                            <th style="min-width: 100px; width: 50%">Discount:</th>
+                                            <td style="min-width: 100px; width: 50%">{{discountedPrice.percentage}}%</td>
+                                        </tr>
+                                    {{/if}}
+                                {{/if}}
+                                
                                 <tr>
                                     <th>Shipping:</th>
                                     <td>Free</td>
@@ -103,20 +118,19 @@
                                 <tr>
                                     <th>Total:</th>
                                     <td>
-                                        <h3 style="line-height: 1">€199</h3>Tax excl.
+                                        <h3 style="line-height: 1">
+                                            {{#if discountedPrice}}
+                                                {{#if discountedPrice.discountPrice}}
+                                                    €{{discountedPrice.discountPrice}}
+                                                {{else}}
+                                                    €{{price}}
+                                                {{/if}}
+                                            {{/if}}
+                                        </h3>Tax excl.
                                     </td>
                                 </tr>
                             </tfoot>
                         </table>
-
-
-
-
-
-
-
-
-
                     </div>
 
                     <div class="col-sm-12 col-md-6">
