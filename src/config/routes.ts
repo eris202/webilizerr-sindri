@@ -202,7 +202,17 @@ export const routes: RouteMapper[] = [
         '/appointment': [
             {
                 method: 'get',
+                middleWares: [
+                    shouldBeLoggedInMiddleWare
+                ],
                 handler: (req, res) => res.render('appointment')
+            },
+            {
+                method: 'post',
+                middleWares: [
+                    shouldBeLoggedInMiddleWare
+                ],
+                handler: invoiceController.postAppointment
             }
         ]
     },

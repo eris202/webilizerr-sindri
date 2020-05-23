@@ -2,6 +2,7 @@
 import { Service, Inject } from 'typedi'
 import { InvoiceService } from '../services/invoice-service'
 import { ProductPlan } from '../factories/product-plan-factory'
+import User from "../model/User"
 
 @Service()
 export class InvoiceController {
@@ -41,8 +42,29 @@ export class InvoiceController {
     const productConfig = ProductPlan.getProductConfig(plan)
     
     console.log('success')
-    req.flash('message', `You are now subscribed to ${productConfig.name}`)
+    req.flash('message', `You are now using ${productConfig.name}`)
     
     return res.redirect(result.redirectUrl)
+  }
+
+  postAppointment = async (req, res) => {
+    const {email, name, url, backendUrl, userName, userPassword, notes} = req.body
+    const localUser = req.user
+
+    const user = await User.findOne({ email: localUser.email, isActive: true })
+    user.appointment = {
+      email,
+      name,
+      url,
+      backendUrl,
+      userName,
+      userPassword,
+      notes
+    }
+
+    await user.save()
+    console.log(user.appointment)
+
+    return res.redirect('/')
   }
 }

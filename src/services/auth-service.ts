@@ -1,9 +1,8 @@
 import { Service, Inject } from 'typedi'
-import User from "../model/User";
+import User from "../model/User"
 import bcrypt from "bcrypt";
 import { TokenService } from './encryption-token-service';
 import { MailService } from './mail-service';
-import * as mongoose from 'mongoose'
 import { StripeService } from './stripe-service';
 
 @Service()

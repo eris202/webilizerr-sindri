@@ -43,8 +43,8 @@
           <div class="col-md-10 col-xxl-8">
             <article class="accent-box">
               <h4 class="accent-box-title text-center">Make an Order</h4>
-              <form class="accent-box-form rd-mailform" data-form-output="form-output-global" data-form-type="contact"
-                method="post" action="components/rd-mailform/rd-mailform.php">
+              <form class="accent-box-form" data-form-output="form-output-global" data-form-type="contact"
+                method="post" action="">
                 <div class="form-row row-15 novi-disabled">
                   <div class="col-12">
                     <div class="form-group">
@@ -68,7 +68,7 @@
                     <div class="form-group">
                       <label for="input-email">Domain URL:</label>
                       <div class="position-relative">
-                        <input class="form-control" id="input-email" type="email" name="email"
+                        <input class="form-control" id="input-email" type="email" name="url"
                           placeholder="Your e-mail address" data-constraints="@Email @Required">
                       </div>
                     </div>
@@ -77,7 +77,7 @@
                     <div class="form-group">
                       <label for="input-email">Back-end login URL:</label>
                       <div class="position-relative">
-                        <input class="form-control" id="input-email" type="email" name="email"
+                        <input class="form-control" id="input-email" type="email" name="backendUrl"
                           placeholder="Your e-mail address" data-constraints="@Email @Required">
                       </div>
                     </div>
@@ -86,7 +86,7 @@
                     <div class="form-group">
                       <label for="input-email">Username:</label>
                       <div class="position-relative">
-                        <input class="form-control" id="input-email" type="email" name="email"
+                        <input class="form-control" id="input-email" type="email" name="userName"
                           placeholder="Your e-mail address" data-constraints="@Email @Required">
                       </div>
                     </div>
@@ -95,7 +95,7 @@
                     <div class="form-group">
                       <label for="input-email">Password:</label>
                       <div class="position-relative">
-                        <input class="form-control" id="input-email" type="email" name="email"
+                        <input class="form-control" id="input-email" type="email" name="userPassword"
                           placeholder="Your e-mail address" data-constraints="@Email @Required">
                       </div>
                     </div>
@@ -104,7 +104,7 @@
                     <div class="form-group">
                       <label for="input-question">Any notes?:</label>
                       <div class="position-relative">
-                        <textarea class="form-control" id="input-question" name="question" placeholder="Any notes?"
+                        <textarea class="form-control" id="input-question" name="notes" placeholder="Any notes?"
                           data-constraints=""></textarea>
                       </div>
                     </div>
