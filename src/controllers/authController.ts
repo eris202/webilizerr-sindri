@@ -1,7 +1,6 @@
 import passport from "passport"
 import { Service, Inject } from "typedi"
 import { AuthService, RegistrationResult } from "../services/auth-service"
-import User from "../model/User";
 
 @Service()
 export class AuthController {
@@ -71,9 +70,11 @@ export class AuthController {
         if (info) {
           next(info)
         }
+        
+        const redirectUrl = req.query.backUrl || '/'
 
         req.flash('message', 'You are logged in')
-        return res.redirect('/')
+        return res.redirect(redirectUrl)
       })
     })(req, res, next)
   }

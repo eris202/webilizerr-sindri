@@ -22,6 +22,18 @@ const UserSchema = new Schema({
     isActive: {
         type: Boolean,
         default: false
+    },
+    stripeCustomerId: {
+        type: String,
+        default: null
+    },
+    stripeSubscriptionPlanId:{
+        type: String,
+        default: null
+    },
+    appointment: {
+        type: Map,
+        default: null
     }
 });
   

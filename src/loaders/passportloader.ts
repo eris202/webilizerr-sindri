@@ -19,13 +19,9 @@ export default class PassportLoader {
 
     // Utility to pass user session to handle bar view
     app.use((req, res, next) => {
-      console.log('calling middleware')
       if (req.isAuthenticated()) {
-        console.log('logged in')
-        console.log(JSON.stringify(req.user))
         res.locals.loggedIn = true
       } else {
-        console.log('not logged in')
         res.locals.loggedIn = false
       }
 
