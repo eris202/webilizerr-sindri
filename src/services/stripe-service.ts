@@ -32,6 +32,38 @@ export class StripeService {
         }
     }
 
+    createPayment = async (stripeCustomerId, token, planId, couponName?): Promise<Stripe.PaymentIntent> => {
+        const productConfig = ProductPlan.getProductConfig(planId)
+        const paymentMethod = await stripeClient.paymentMethods.create({
+            card: {
+                token: token,
+            },
+            type: 'card',
+        })
+
+        await stripeClient.paymentMethods.attach(paymentMethod.id, {
+            customer: stripeCustomerId
+        })
+
+        await stripeClient.customers.update(stripeCustomerId, {
+            invoice_settings: {
+                default_payment_method: paymentMethod.id,
+            },
+        })
+
+        const amount = productConfig.price * 100
+        const discountPrice = await this.getDiscountPrice(productConfig.price * 100, couponName) 
+        
+        return await stripeClient.paymentIntents.create({
+            payment_method: paymentMethod.id,
+            amount: +(discountPrice.discountPrice || amount),
+            currency: 'eur',
+            confirmation_method: 'manual',
+            confirm: true,
+            customer: stripeCustomerId,
+        });
+    }
+
     createSubscription = async (stripeCustomerId, token, planId, couponName?): Promise<Stripe.Subscription> => {
         const productConfig = ProductPlan.getProductConfig(planId)
         

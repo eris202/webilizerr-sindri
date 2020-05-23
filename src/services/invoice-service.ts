@@ -22,13 +22,20 @@ export class InvoiceService {
         }
 
         try {
-            const subscription = await this.stripeService.createSubscription(dbUser.stripeCustomerId, stripeToken, offerPlan, couponName)
-            dbUser.stripeSubscriptionPlanId = subscription.id
+            const config = ProductPlan.getProductConfig(offerPlan)
+
+            if (config.isOneTime) {
+                const paymentIntent = await this.stripeService.createPayment(dbUser.stripeCustomerId, stripeToken, offerPlan, couponName)
+                dbUser.stripeSubscriptionPlanId = paymentIntent.id
+            } else {
+                const subscription = await this.stripeService.createSubscription(dbUser.stripeCustomerId, stripeToken, offerPlan, couponName)
+                dbUser.stripeSubscriptionPlanId = subscription.id
+            }
 
             await dbUser.save()
 
             return {
-                redirectUrl: offerPlan === 1? '/appointment' : '/'
+                redirectUrl: offerPlan === 3? '/appointment' : '/thank-you'
             }
         } catch(e) {
             console.log(e)

@@ -30,6 +30,10 @@ const UserSchema = new Schema({
     stripeSubscriptionPlanId:{
         type: String,
         default: null
+    },
+    appointment: {
+        type: Map,
+        default: null
     }
 });
   

@@ -26,291 +26,299 @@
 
 
 
-        <!-- Pricing box sample-->
         <section class="section section-lg bg-transparent novi-background"
-            data-preset='{"title":"Pricing Box Sample","category":"price","reload":true,"id":"pricing-box-sample-2"}'>
+            data-preset='{"title":"Pricing Box Sample","category":"price","reload":true,"id":"pricing-box-sample"}'>
             <div class="container">
-                <h2 class="text-center">Products and Pricing</h2>
-                <br><br>
-                <div class="plans-switch-container switch-container switch-container-2">
-                    <div class="switch-inner">
-                        <div class="row row-30 no-gutters align-items-center novi-disabled">
-                            <div class="col-lg-4">
-                                <div class="pricing pricing-box pricing-box-filled">
-                                    <div class="pricing-box-header">
-                                        <div class="pricing-box-title h3">Pro</div>
-                                        <div class="pricing-box-subtitle lead">Ideal for getting started</div>
-                                        <div class="pricing-box-divider"></div>
-                                    </div>
-                                    <div class="pricing-box-body">
-                                        <div class="pricing-box-value">€19<span class="pricing-box-postfix"></span>
+                <h2 class="text-center">Plans types</h2>
+                <div class="plans">
+                    <div class="plans-switch-container switch-container switch-container-1">
+                        <div class="switch-inner">
+                            <div class="row row-30 align-items-end novi-disabled">
+                                <div class="col-lg-3">
+                                    <div class="pricing pricing-box">
+                                        <div class="pricing-box-header">
+                                            <div class="pricing-box-title h3">Yearly</div>
+                                            <div class="pricing-box-subtitle lead">Saves you money</div>
+                                            <div class="pricing-box-divider"></div>
                                         </div>
-                                        <div class="pricing-box-value-meta">Billed monthly</div>
-                                        <ul class="pricing-box-list">
-                                            <li><span
-                                                    class="pricing-box-list-icon int-check-circle-filled novi-icon"></span>5
-                                                Page Scans
-                                            </li>
-                                            {{!-- <li><span
-                                                    class="pricing-box-list-icon int-check-circle-filled novi-icon"></span>20
-                                                pages
-                                            </li>
-                                            <li><span
-                                                    class="pricing-box-list-icon int-check-circle-filled novi-icon"></span>3
-                                                website layouts
-                                            </li> --}}
-                                        </ul>
-                                        <a class="btn btn-block btn-lg pricing-box-btn btn-secondary" href="{{absoluteUrl}}/checkout?plan=0">
-                                            Buy Now!
-                                        </a>
+                                        <div class="pricing-box-body">
+                                            <div class="pricing-box-value">€450.00<span
+                                                    class="pricing-box-postfix">/year</span>
+                                            </div>
+                                            <div class="pricing-box-value-meta">Billed Yearly</div>
+                                            <ul class="pricing-box-list">
+                                                <li><span
+                                                        class="pricing-box-list-icon int-check-circle-filled novi-icon"></span>5
+                                                    Scans
+                                                </li>
+                                            </ul>
+                                            <a href="{{absoluteUrl}}/checkout?plan=2" class="btn btn-block btn-lg pricing-box-btn btn-primary">Start a
+                                                Free 7-day Trial</a>
+                                        </div>
+                                    </div>
+                                </div>
 
+                                <div class="col-lg-3">
+                                    <div class="pricing pricing-box">
+                                        <div class="pricing-box-header">
+                                            <div class="pricing-box-title h3">Light</div>
+                                            <div class="pricing-box-subtitle lead">Ideal for testing</div>
+                                            <div class="pricing-box-divider"></div>
+                                        </div>
+                                        <div class="pricing-box-body">
+                                            <div class="pricing-box-value">€9.99<span
+                                                    class="pricing-box-postfix">/mo</span>
+                                            </div>
+                                            <div class="pricing-box-value-meta">Billed monthly</div>
+                                            <ul class="pricing-box-list">
+                                                <li><span
+                                                        class="pricing-box-list-icon int-check-circle-filled novi-icon"></span>5
+                                                    Scanns
+                                                </li>
+                                            </ul>
+                                            <a href="{{absoluteUrl}}/checkout?plan=0" class="btn btn-block btn-lg pricing-box-btn btn-primary">Start a
+                                                Free 7-day Trial</a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-3">
+                                    <div class="pricing pricing-box">
+                                        <div class="pricing-box-header">
+                                            <div class="pricing-box-title h3">Business</div>
+                                            <div class="pricing-box-subtitle lead">Ideal for business</div>
+                                            <div class="pricing-box-divider"></div>
+                                        </div>
+                                        <div class="pricing-box-body">
+                                            <div class="pricing-box-value">€49.99<span
+                                                    class="pricing-box-postfix">/mo</span>
+                                            </div>
+                                            <div class="pricing-box-value-meta">Billed monthly</div>
+                                            <ul class="pricing-box-list">
+                                                <li><span
+                                                        class="pricing-box-list-icon int-check-circle-filled novi-icon"></span>30
+                                                    Scans
+                                                </li>
+                                            </ul>
+                                            <a href="{{absoluteUrl}}/checkout?plan=1" class="btn btn-block btn-lg pricing-box-btn btn-primary">Start a
+                                                Free 7-day Trial</a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-3">
+                                    <div class="pricing pricing-box pricing-box-accent-secondary">
+                                        <div class="pricing-box-header">
+                                            <div class="pricing-box-label">Most popular</div>
+                                            <div class="pricing-box-title h3">Fix My Website</div>
+                                            <div class="pricing-box-subtitle lead">We do it all for you</div>
+                                            <div class="pricing-box-divider"></div>
+                                        </div>
+                                        <div class="pricing-box-body">
+                                            <div class="pricing-box-value">€199
+                                            </div>
+                                            <div class="pricing-box-value-meta">One Time Payment</div>
+                                            <ul class="pricing-box-list">
+                                                <li><span
+                                                        class="pricing-box-list-icon int-check-circle-filled novi-icon"></span>SEO
+                                                    Repair
+                                                </li>
+                                                <li><span
+                                                        class="pricing-box-list-icon int-check-circle-filled novi-icon"></span>Keyword
+                                                    Tracking
+                                                </li>
+                                                <li><span
+                                                        class="pricing-box-list-icon int-check-circle-filled novi-icon"></span>Create
+                                                    200 Backlinks
+                                                </li>
+
+                                            </ul>
+                                            <a href="{{absoluteUrl}}/checkout?plan=3" class="btn btn-block btn-lg pricing-box-btn btn-primary">Start a
+                                                Free 7-day Trial</a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-lg-4">
-                                <div class="pricing pricing-box pricing-box-accent-primary">
-                                    <div class="pricing-box-header">
-                                        <div class="pricing-box-label">Most popular</div>
-                                        <div class="pricing-box-title h3">Premium</div>
-                                        <div class="pricing-box-subtitle lead">Ideal for getting started</div>
-                                        <div class="pricing-box-divider"></div>
-                                    </div>
-                                    <div class="pricing-box-body">
-                                        <div class="pricing-box-value">€199<span class="pricing-box-postfix"></span>
+                        </div>
+                        <div class="switch-inner">
+                            <div class="row row-30 align-items-end novi-disabled">
+                                <div class="col-lg-3">
+                                    <div class="pricing pricing-box">
+                                        <div class="pricing-box-header">
+                                            <div class="pricing-box-title h3">Pro</div>
+                                            <div class="pricing-box-subtitle lead">Ideal for getting started</div>
+                                            <div class="pricing-box-divider"></div>
                                         </div>
-                                        <div class="pricing-box-value-meta">Billed monthly</div>
-                                        <ul class="pricing-box-list">
-                                            <li><span
-                                                    class="pricing-box-list-icon int-check-circle-filled novi-icon"></span>Our
-                                                Development Team Fixes Your Website
-                                            </li>
-                                            <li><span
-                                                    class="pricing-box-list-icon int-check-circle-filled novi-icon"></span>100%
-                                                Money Back Guarantee
-                                            </li>
-                                            <li><span
-                                                    class="pricing-box-list-icon int-check-circle-filled novi-icon"></span>100%
-                                                Customer Support
-                                            </li>
-                                        </ul>
-                                        <a class="btn btn-block btn-lg pricing-box-btn btn-secondary" href="{{absoluteUrl}}/checkout?plan=1">
-                                            Buy Now!
-                                        </a>
-
+                                        <div class="pricing-box-body">
+                                            <div class="pricing-box-value">$10<span
+                                                    class="pricing-box-postfix">/mo</span>
+                                            </div>
+                                            <div class="pricing-box-value-meta">Billed monthly</div>
+                                            <ul class="pricing-box-list">
+                                                <li><span
+                                                        class="pricing-box-list-icon int-check-circle-filled novi-icon"></span>2
+                                                    websites
+                                                </li>
+                                                <li><span
+                                                        class="pricing-box-list-icon int-check-circle-filled novi-icon"></span>30
+                                                    pages
+                                                </li>
+                                                <li><span
+                                                        class="pricing-box-list-icon int-check-circle-filled novi-icon"></span>3
+                                                    website layouts
+                                                </li>
+                                            </ul>
+                                            <button class="btn btn-block btn-lg pricing-box-btn btn-primary">Start a
+                                                Free 7-day Trial</button>
+                                            <div class="pricing-box-links"><span>or</span><a class="pricing-box-link"
+                                                    href="#">See More Features</a></div>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="col-lg-4">
-                                <div class="pricing pricing-box pricing-box-filled">
-                                    <div class="pricing-box-header">
-                                        <div class="pricing-box-title h3">Business</div>
-                                        <div class="pricing-box-subtitle lead">Ideal for getting started</div>
-                                        <div class="pricing-box-divider"></div>
-                                    </div>
-                                    <div class="pricing-box-body">
-                                        <div class="pricing-box-value">€49<span class="pricing-box-postfix"></span>
+                                <div class="col-lg-3">
+                                    <div class="pricing pricing-box pricing-box-accent-secondary">
+                                        <div class="pricing-box-header">
+                                            <div class="pricing-box-label">Most popular</div>
+                                            <div class="pricing-box-title h3">Premium</div>
+                                            <div class="pricing-box-subtitle lead">Ideal for getting started</div>
+                                            <div class="pricing-box-divider"></div>
                                         </div>
-                                        <div class="pricing-box-value-meta">Billed monthly</div>
-                                        <ul class="pricing-box-list">
-                                            <li><span
-                                                    class="pricing-box-list-icon int-check-circle-filled novi-icon"></span>30
-                                                Page Scans
-                                            </li>
-                                            <li><span
-                                                    class="pricing-box-list-icon int-check-circle-filled novi-icon"></span>Custom
-                                                Branding, Logo & Company Details
-                                            </li>
-                                            <li><span
-                                                    class="pricing-box-list-icon int-check-circle-filled novi-icon"></span>
-                                                Unlimited PDF Report Downloads
-                                            </li>
-
-                                        </ul>
-                                        <a class="btn btn-block btn-lg pricing-box-btn btn-secondary" href="{{absoluteUrl}}/checkout?plan=2">
-                                            Buy Now!
-                                        </a>
-
+                                        <div class="pricing-box-body">
+                                            <div class="pricing-box-value">$50<span
+                                                    class="pricing-box-postfix">/mo</span>
+                                            </div>
+                                            <div class="pricing-box-value-meta">Billed monthly</div>
+                                            <ul class="pricing-box-list">
+                                                <li><span
+                                                        class="pricing-box-list-icon int-check-circle-filled novi-icon"></span>3
+                                                    websites
+                                                </li>
+                                                <li><span
+                                                        class="pricing-box-list-icon int-check-circle-filled novi-icon"></span>35
+                                                    pages
+                                                </li>
+                                                <li><span
+                                                        class="pricing-box-list-icon int-check-circle-filled novi-icon"></span>6
+                                                    website layouts
+                                                </li>
+                                            </ul>
+                                            <button class="btn btn-block btn-lg pricing-box-btn btn-primary">Start a
+                                                Free 7-day Trial</button>
+                                            <div class="pricing-box-links"><span>or</span><a class="pricing-box-link"
+                                                    href="#">See More Features</a></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3">
+                                    <div class="pricing pricing-box">
+                                        <div class="pricing-box-header">
+                                            <div class="pricing-box-title h3">Business</div>
+                                            <div class="pricing-box-subtitle lead">Ideal for getting started</div>
+                                            <div class="pricing-box-divider"></div>
+                                        </div>
+                                        <div class="pricing-box-body">
+                                            <div class="pricing-box-value">$80<span
+                                                    class="pricing-box-postfix">/mo</span>
+                                            </div>
+                                            <div class="pricing-box-value-meta">Billed monthly</div>
+                                            <ul class="pricing-box-list">
+                                                <li><span
+                                                        class="pricing-box-list-icon int-check-circle-filled novi-icon"></span>4
+                                                    websites
+                                                </li>
+                                                <li><span
+                                                        class="pricing-box-list-icon int-check-circle-filled novi-icon"></span>50
+                                                    pages
+                                                </li>
+                                                <li><span
+                                                        class="pricing-box-list-icon int-check-circle-filled novi-icon"></span>9
+                                                    website layouts
+                                                </li>
+                                            </ul>
+                                            <button class="btn btn-block btn-lg pricing-box-btn btn-primary">Start a
+                                                Free 7-day Trial</button>
+                                            <div class="pricing-box-links"><span>or</span><a class="pricing-box-link"
+                                                    href="#">See More Features</a></div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="switch-inner">
-                        <div class="row row-30 no-gutters align-items-center novi-disabled">
-                            <div class="col-lg-4">
-                                <div class="pricing pricing-box pricing-box-filled">
-                                    <div class="pricing-box-header">
-                                        <div class="pricing-box-title h3">Pro</div>
-                                        <div class="pricing-box-subtitle lead">Ideal for getting started</div>
-                                        <div class="pricing-box-divider"></div>
-                                    </div>
-                                    <div class="pricing-box-body">
-                                        <div class="pricing-box-value">$10<span class="pricing-box-postfix">/mo</span>
-                                        </div>
-                                        <div class="pricing-box-value-meta">Billed monthly</div>
-                                        <ul class="pricing-box-list">
-                                            <li><span
-                                                    class="pricing-box-list-icon int-check-circle-filled novi-icon"></span>2
-                                                websites
-                                            </li>
-                                            <li><span
-                                                    class="pricing-box-list-icon int-check-circle-filled novi-icon"></span>20
-                                                pages
-                                            </li>
-                                            <li><span
-                                                    class="pricing-box-list-icon int-check-circle-filled novi-icon"></span>3
-                                                website layouts
-                                            </li>
+
+                </div>
+        </section>
+
+
+        <!-- Footer default-->
+        <footer class="section footer bg-800 text-400 context-dark novi-background"
+            data-preset='{"title":"Footer Extended","category":"footer","reload":false,"id":"footer-extended"}'>
+            <div class="container">
+
+                <hr class="divider footer-divider">
+                <div class="row row-30 justify-content-xxl-between novi-disabled">
+                    <div class="col-lg-5">
+                        <!-- Logo-->
+                        <div class="logo"><a class="logo-link" href="/"><img class="logo-image-default"
+                                    src="images/logos/webilizerr_white.png" alt="Intense" width="170" height="27" /><img
+                                    class="logo-image-inverse" src="images/logos/webilizerr_white.png" alt="Intense"
+                                    width="170" height="27" /></a></div>
+                        <p class="small">Get the most for your website with Webilizerr.</p>
+                    </div>
+                    <div class="col-md-11 col-lg-7 col-xxl-6">
+                        <p class="small">C. Segovia 2-4, Finestrat, Alicante 03509, Spain</p>
+                        <div class="row row-20 novi-disabled">
+                            <div class="col-auto col-sm-4">
+                                <div class="media media-xxs text-white">
+                                    <div class="media-left"><span class="icon icon-xs int-phone novi-icon"></span></div>
+                                    <div class="media-body">
+                                        <ul class="list list-contact">
+                                            <li class="list-contact-item"><a class="list-contact-link" href="tel:#">+34
+                                                    601980086</a></li>
                                         </ul>
-                                        <button class="btn btn-block btn-lg pricing-box-btn btn-secondary">Start a
-                                            Free 7-day Trial</button>
-                                        <div class="pricing-box-links"><span>or</span><a class="pricing-box-link"
-                                                href="#">See More Features</a></div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-lg-4">
-                                <div class="pricing pricing-box pricing-box-accent-primary">
-                                    <div class="pricing-box-header">
-                                        <div class="pricing-box-label">Most popular</div>
-                                        <div class="pricing-box-title h3">Premium</div>
-                                        <div class="pricing-box-subtitle lead">Ideal for getting started</div>
-                                        <div class="pricing-box-divider"></div>
-                                    </div>
-                                    <div class="pricing-box-body">
-                                        <div class="pricing-box-value">$50<span class="pricing-box-postfix">/mo</span>
-                                        </div>
-                                        <div class="pricing-box-value-meta">Billed monthly</div>
-                                        <ul class="pricing-box-list">
-                                            <li><span
-                                                    class="pricing-box-list-icon int-check-circle-filled novi-icon"></span>3
-                                                websites
-                                            </li>
-                                            <li><span
-                                                    class="pricing-box-list-icon int-check-circle-filled novi-icon"></span>35
-                                                pages
-                                            </li>
-                                            <li><span
-                                                    class="pricing-box-list-icon int-check-circle-filled novi-icon"></span>6
-                                                website layouts
-                                            </li>
-                                        </ul>
-                                        <button class="btn btn-block btn-lg pricing-box-btn btn-secondary">Start a
-                                            Free 7-day Trial</button>
-                                        <div class="pricing-box-links"><span>or</span><a class="pricing-box-link"
-                                                href="#">See More Features</a></div>
-                                    </div>
-                                </div>
+                            <div class="col-auto col-sm-4">
+                                <ul class="list list-xs small">
+                                    <li class="list-item">Mon-Fri: 8am - 6pm</li>
+                                    <li class="list-item">Sat-Sun: 8am - 4pm</li>
+                                    <li class="list-item">Holidays: closed</li>
+                                </ul>
                             </div>
-                            <div class="col-lg-4">
-                                <div class="pricing pricing-box pricing-box-filled">
-                                    <div class="pricing-box-header">
-                                        <div class="pricing-box-title h3">Business</div>
-                                        <div class="pricing-box-subtitle lead">Ideal for getting started</div>
-                                        <div class="pricing-box-divider"></div>
-                                    </div>
-                                    <div class="pricing-box-body">
-                                        <div class="pricing-box-value">$80<span class="pricing-box-postfix">/mo</span>
-                                        </div>
-                                        <div class="pricing-box-value-meta">Billed monthly</div>
-                                        <ul class="pricing-box-list">
-                                            <li><span
-                                                    class="pricing-box-list-icon int-check-circle-filled novi-icon"></span>4
-                                                websites
-                                            </li>
-                                            <li><span
-                                                    class="pricing-box-list-icon int-check-circle-filled novi-icon"></span>50
-                                                pages
-                                            </li>
-                                            <li><span
-                                                    class="pricing-box-list-icon int-check-circle-filled novi-icon"></span>9
-                                                website layouts
-                                            </li>
-                                        </ul>
-                                        <button class="btn btn-block btn-lg pricing-box-btn btn-secondary">Start a
-                                            Free 7-day Trial</button>
-                                        <div class="pricing-box-links"><span>or</span><a class="pricing-box-link"
-                                                href="#">See More Features</a></div>
-                                    </div>
-                                </div>
+                            <div class="col-auto col-sm-4">
+                                <ul class="list list-lg small text-white">
+                                    <li class="list-item"><a class="link link-contrast link-secondary"
+                                            href="mailto:#">info
+                                            @
+                                            webilizerr.com</a></li>
+                                </ul>
                             </div>
                         </div>
                     </div>
                 </div>
-
-            </div>
-    </div>
-    </section>
-
-
-    <!-- Footer default-->
-    <footer class="section footer bg-800 text-400 context-dark novi-background"
-        data-preset='{"title":"Footer Extended","category":"footer","reload":false,"id":"footer-extended"}'>
-        <div class="container">
-
-            <hr class="divider footer-divider">
-            <div class="row row-30 justify-content-xxl-between novi-disabled">
-                <div class="col-lg-5">
-                    <!-- Logo-->
-                    <div class="logo"><a class="logo-link" href="/"><img class="logo-image-default"
-                                src="images/logos/webilizerr_white.png" alt="Intense" width="170" height="27" /><img
-                                class="logo-image-inverse" src="images/logos/webilizerr_white.png" alt="Intense"
-                                width="170" height="27" /></a></div>
-                    <p class="small">Get the most for your website with Webilizerr.</p>
-                </div>
-                <div class="col-md-11 col-lg-7 col-xxl-6">
-                    <p class="small">C. Segovia 2-4, Finestrat, Alicante 03509, Spain</p>
-                    <div class="row row-20 novi-disabled">
-                        <div class="col-auto col-sm-4">
-                            <div class="media media-xxs text-white">
-                                <div class="media-left"><span class="icon icon-xs int-phone novi-icon"></span></div>
-                                <div class="media-body">
-                                    <ul class="list list-contact">
-                                        <li class="list-contact-item"><a class="list-contact-link" href="tel:#">+34
-                                                601980086</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-auto col-sm-4">
-                            <ul class="list list-xs small">
-                                <li class="list-item">Mon-Fri: 8am - 6pm</li>
-                                <li class="list-item">Sat-Sun: 8am - 4pm</li>
-                                <li class="list-item">Holidays: closed</li>
-                            </ul>
-                        </div>
-                        <div class="col-auto col-sm-4">
-                            <ul class="list list-lg small text-white">
-                                <li class="list-item"><a class="link link-contrast link-secondary" href="mailto:#">info
-                                        @
-                                        webilizerr.com</a></li>
-                            </ul>
-                        </div>
+                <hr class="divider footer-divider">
+                <div class="row row-15 align-items-center justify-content-between footer-panel novi-disabled">
+                    <div class="col-auto">
+                        <!-- Copyright-->
+                        <p class="rights"><span>&copy; 2020&nbsp;</span><span>Webilizerr</span><span>. All rights
+                                reserved.&nbsp;</span><a class="rights-link" href="/privacy-policy">Privacy Policy</a>
+                        </p>
+                    </div>
+                    <div class="col-auto">
+                        <div class="group-30 d-flex align-items-center text-white"><a
+                                class="icon icon-xs icon-social int-facebook novi-icon"
+                                href="https://www.facebook.com/webilizerr"></a><a
+                                class="icon icon-xs icon-social int-instagram novi-icon"
+                                href="https://www.instagram.com/webilizerr/"></a><a
+                                class="icon icon-xs icon-social int-twitter novi-icon"
+                                href="https://twitter.com/Webilizerr"></a><a
+                                class="icon icon-xs icon-social int-linkedin novi-icon"
+                                href="https://www.linkedin.com/company/13004002"></a></div>
                     </div>
                 </div>
             </div>
-            <hr class="divider footer-divider">
-            <div class="row row-15 align-items-center justify-content-between footer-panel novi-disabled">
-                <div class="col-auto">
-                    <!-- Copyright-->
-                    <p class="rights"><span>&copy; 2020&nbsp;</span><span>Webilizerr</span><span>. All rights
-                            reserved.&nbsp;</span><a class="rights-link" href="/privacy-policy">Privacy Policy</a>
-                    </p>
-                </div>
-                <div class="col-auto">
-                    <div class="group-30 d-flex align-items-center text-white"><a
-                            class="icon icon-xs icon-social int-facebook novi-icon"
-                            href="https://www.facebook.com/webilizerr"></a><a
-                            class="icon icon-xs icon-social int-instagram novi-icon"
-                            href="https://www.instagram.com/webilizerr/"></a><a
-                            class="icon icon-xs icon-social int-twitter novi-icon"
-                            href="https://twitter.com/Webilizerr"></a><a
-                            class="icon icon-xs icon-social int-linkedin novi-icon"
-                            href="https://www.linkedin.com/company/13004002"></a></div>
-                </div>
-            </div>
-        </div>
-    </footer>
+        </footer>
     </div>
 </body>
 
