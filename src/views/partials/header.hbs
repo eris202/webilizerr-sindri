@@ -1,54 +1,194 @@
 <!--RD Navbar-->
-<header class="section rd-navbar-wrap"
+<header class="section rd-navbar-wrap" style="height: 50px;"
     data-preset='{"title":"Navbar Default","category":"header","reload":true,"id":"navbar-default"}'>
-    <nav class="rd-navbar">
+    <nav class="rd-navbar" style="height: 50px;">
         <div class="navbar-container">
             <div class="navbar-cell">
                 <div class="navbar-panel">
                     <button class="navbar-switch int-hamburger novi-icon"
                         data-multi-switch='{"targets":".rd-navbar","scope":".rd-navbar","isolate":"[data-multi-switch]"}'></button>
                     <div class="navbar-logo"><a class="navbar-logo-link" href="/"><img class="navbar-logo-default"
-                                src="images/logos/webilizerr3.png" alt="Intense" width="170" height="27" /><img
+                                src="images/logos/webilizerr3.png" alt="Intense" width="200" height="27" /><img
                                 class="navbar-logo-inverse" src="images/logos/webilizerr3.png" alt="Intense" width="170"
                                 height="27" style="padding-top: 10px;" /></a></div>
                 </div>
             </div>
+
+
+
             <div class="navbar-cell navbar-spacer"></div>
+
             <div class="navbar-cell navbar-sidebar">
                 <ul class="navbar-navigation rd-navbar-nav">
-                    <li class="navbar-navigation-root-item active"><a class="navbar-navigation-root-link"
-                            href="/">Home</a>
 
-                    </li>
-                    <li class="navbar-navigation-root-item"><a class="navbar-navigation-root-link"
-                            href="/features">Features</a>
-                    </li>
-                    <li class="navbar-navigation-root-item"><a class="navbar-navigation-root-link"
-                            href="/about-us">About Us</a>
-                    </li>
-                    <li class="navbar-navigation-root-item"><a class="navbar-navigation-root-link"
-                            href="/pricing">Pricing</a>
-                    </li>
-                    <li class="navbar-navigation-root-item"><a class="navbar-navigation-root-link"
-                            href="/get-in-touch">Contact Us</a>
-                    </li>
+
+
                     {{#if loggedIn}}
-                    <li class="navbar-navigation-root-item active"><a href="/logout"><button
-                                style="padding-top: 6px;padding-bottom: 6px;"
-                                class="btn btn-outline btn-secondary btn-anis">Logout</button></a>
-                    </li>
-                    {{else}}
-                    <li class="navbar-navigation-root-item"><a class="navbar-navigation-root-link"
-                            style="color: #6b39bd;" href="/login">Login</a>
-                    </li>
-                    <li class="navbar-navigation-root-item active"><a href="/register"><button
-                                style="padding-top: 6px;padding-bottom: 6px;"
-                                class="btn btn-outline btn-secondary btn-anis">Register</button></a>
-                    </li>
-                    {{/if}}
-                </ul>
-            </div>
 
+                    <div class="navbar-cell">
+                        <div class="navbar-subpanel">
+                            <div class="navbar-subpanel-item">
+
+
+
+
+                                <button class=" int-cart btn btn-outline btn-warning btn-anis"
+                                    style="width: auto; padding-top: 6px;padding-bottom: 6px; font-weight: 400"
+                                    data-multi-switch='{"targets":".rd-navbar","scope":".rd-navbar","class":"navbar-cart-active","isolate":"[data-multi-switch]"}'>
+                                    Scans left: &nbsp; <span class="text-dark"><span data-counter=""> 5</span></span>
+
+                                </button>
+
+                                <div class="navbar-cart">
+
+
+                                    <div class="plans">
+                                        <h5 class="navbar-cart-heading">Products</h5>
+                                        <div class="plans-switcher">
+                                            <div class="plans-switcher-text">Monthly billing</div>
+                                            <div>
+                                                <div class="switch-toggle plans-toggle"
+                                                    data-multi-switch='{"targets":".switch-container-1"}'>
+                                                    <div class="guide"></div>
+                                                    <div class="slider"></div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="plans-switcher-text">Annual billing</div>
+                                                <div class="plans-switcher-subtext">Free first 2 months</div>
+                                            </div>
+                                        </div>
+                                        <div class="plans-switch-container switch-container switch-container-1">
+                                            <div class="switch-inner">
+                                                <div class="row row-30 align-items-end novi-disabled">
+                                                    <div class="navbar-cart-item">
+                                                        <div class="navbar-cart-item-left"><a class="thumbnail-small"
+                                                                href="product-page.html"><img src="images/seo_scan.svg"
+                                                                    alt="" width="80" height="103" /></a></div>
+                                                        <div class="navbar-cart-item-body"><a
+                                                                class="navbar-cart-item-heading"
+                                                                href="product-page.html">Light Pro</a>
+                                                            <div class="navbar-cart-item-price">€24.90/mo</div>
+                                                            <div class="navbar-cart-item-parameter">Billed Monthly</div>
+                                                            <div class="navbar-cart-item-parameter">Scans: 10/mo</div>
+
+                                                        </div>
+                                                        <div class="navbar-cart-item-right">
+                                                            <div class="navbar-cart-buttons">
+                                                                <div class="navbar-cart-group">
+                                                                    <a class="btn btn-primary btn-sm"
+                                                                        href="cart.html"><span
+                                                                            class="btn-icon int-cart novi-icon"></span><span>Buy
+                                                                            More</span></a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="navbar-cart-item">
+                                                        <div class="navbar-cart-item-left"><a class="thumbnail-small"
+                                                                href="product-page.html"><img src="images/seo_scan.svg"
+                                                                    alt="" width="80" height="103" /></a></div>
+                                                        <div class="navbar-cart-item-body"><a
+                                                                class="navbar-cart-item-heading"
+                                                                href="product-page.html">Business Pro</a>
+                                                            <div class="navbar-cart-item-price">€99.90/mo</div>
+                                                            <div class="navbar-cart-item-parameter">Billed Monthly</div>
+                                                            <div class="navbar-cart-item-parameter">Scans: 50/mo</div>
+
+                                                        </div>
+                                                        <div class="navbar-cart-item-right">
+                                                            <div class="navbar-cart-buttons">
+                                                                <div class="navbar-cart-group">
+                                                                    <a class="btn btn-primary btn-sm"
+                                                                        href="cart.html"><span
+                                                                            class="btn-icon int-cart novi-icon"></span><span>Buy
+                                                                            More</span></a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="switch-inner">
+                                                <div class="row row-30 align-items-end novi-disabled">
+                                                    <div class="navbar-cart-item">
+                                                        <div class="navbar-cart-item-left"><a class="thumbnail-small"
+                                                                href="product-page.html"><img src="images/seo_scan.svg"
+                                                                    alt="" width="80" height="103" /></a></div>
+                                                        <div class="navbar-cart-item-body"><a
+                                                                class="navbar-cart-item-heading"
+                                                                href="product-page.html">Light Pro</a>
+                                                            <div class="navbar-cart-item-price">€249/year</div>
+                                                            <div class="navbar-cart-item-parameter">Billed Annually
+                                                            </div>
+                                                            <div class="navbar-cart-item-parameter">Scans: 10/mo</div>
+
+                                                        </div>
+                                                        <div class="navbar-cart-item-right">
+                                                            <div class="navbar-cart-buttons">
+                                                                <div class="navbar-cart-group">
+                                                                    <a class="btn btn-primary btn-sm"
+                                                                        href="cart.html"><span
+                                                                            class="btn-icon int-cart novi-icon"></span><span>Buy
+                                                                            More</span></a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="navbar-cart-item">
+                                                        <div class="navbar-cart-item-left"><a class="thumbnail-small"
+                                                                href="product-page.html"><img src="images/seo_scan.svg"
+                                                                    alt="" width="80" height="103" /></a></div>
+                                                        <div class="navbar-cart-item-body"><a
+                                                                class="navbar-cart-item-heading"
+                                                                href="product-page.html">Business Pro</a>
+                                                            <div class="navbar-cart-item-price">€999/year</div>
+                                                            <div class="navbar-cart-item-parameter">Billed Annually
+                                                            </div>
+                                                            <div class="navbar-cart-item-parameter">Scans: 50/mo</div>
+
+                                                        </div>
+                                                        <div class="navbar-cart-item-right">
+                                                            <div class="navbar-cart-buttons">
+                                                                <div class="navbar-cart-group">
+                                                                    <a class="btn btn-primary btn-sm"
+                                                                        href="cart.html"><span
+                                                                            class="btn-icon int-cart novi-icon"></span><span>Buy
+                                                                            More</span></a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="navbar-cart-line">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+            </div>
+            <li class="navbar-navigation-root-item active"><a href="/logout"><button
+                        style="padding-top: 6px;padding-bottom: 6px;"
+                        class="btn btn-outline btn-secondary btn-anis">Logout</button></a>
+            </li>
+            {{else}}
+            <li class="navbar-navigation-root-item"><a class="navbar-navigation-root-link" style="color: #6b39bd;"
+                    href="/login">Login</a>
+            </li>
+            <li class="navbar-navigation-root-item active"><a href="/register"><button
+                        style="padding-top: 6px;padding-bottom: 6px;"
+                        class="btn btn-outline btn-secondary btn-anis">Register</button></a>
+            </li>
+            {{/if}}
+            </ul>
         </div>
+
     </nav>
 </header>
