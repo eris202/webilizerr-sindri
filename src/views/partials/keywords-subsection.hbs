@@ -1,0 +1,133 @@
+<div class="item py-3" id="{{this.key}}">
+<div class="item-header">
+    <div class="item-num {{this.passedClass}}">
+        <p>{{this.circleTextDisplay}}</p>
+    </div>
+    <div class="item-title">
+        <h3>{{this.friendlyName}}</h3>
+        <div>
+            <div class="item-section">Seo</div>
+            <img data-title="Title Here" data-info="Info Here" class="question" src="img/info.png"
+                alt="Info">
+        </div>
+    </div>
+</div>
+<div class="item-body myt-2">
+    <div class="box-wrapper">
+        <div class="answer">
+            <div><img src="img/success.png" alt="Check"></div>
+            <div>
+                <p>
+                    {{this.shortAnswer}}
+                </p>
+            </div>
+        </div>
+    </div>
+    <h3>Keywords</h3>
+    <div class="box-wrapper">
+        <div class="info">
+            <div><img src="img/info2.png" alt="info"></div>
+            <div class="table-wrapper">
+                <table cellpadding="0" cellspacing="0" border="0" class="table">
+                    <thead>
+                        <tr>
+                            <th>Keyword</th>
+                            <th>Title</th>
+                            <th>Meta Description Tag</th>
+                            <th>Headings Tags</th>
+                            <th>Page Frequency</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{#each this.data.keywords}}
+                        <tr>
+                            <td>{{this.word}}</td>
+                            <td>
+                                {{#if this.title}}
+                                    <img src="img/check.svg" alt="Check">
+                                {{else}}
+                                    <img src="img/cross.svg" alt="cross">
+                                {{/if}}
+                            </td>
+                            <td>
+                                {{#if this.description}}
+                                    <img src="img/check.svg" alt="Check">
+                                {{else}}
+                                    <img src="img/cross.svg" alt="cross">
+                                {{/if}}
+                            </td>
+                            <td>
+                                {{#if this.headers}}
+                                    <img src="img/check.svg" alt="Check">
+                                {{else}}
+                                    <img src="img/cross.svg" alt="cross">
+                                {{/if}}
+                            </td>
+                            <td>
+                                <div class="bar-count-wrapper">
+                                    {{this.count}}
+                                    <div style="width: 60%;" class="f-bar"></div>
+                                </div>
+                            </td>
+                        </tr>
+                        {{/each}}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <h3>Phrases</h3>
+    <div class="box-wrapper">
+        <div class="info">
+            <div><img src="img/info2.png" alt="info"></div>
+            <div class="table-wrapper">
+                <table cellpadding="0" cellspacing="0" border="0" class="table">
+                    <thead>
+                        <tr>
+                            <th>Keyword</th>
+                            <th>Title</th>
+                            <th>Meta Description Tag</th>
+                            <th>Headings Tags</th>
+                            <th>Page Frequency</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{#each this.data.phrases}}
+                        <tr>
+                            <td>{{this.word}}{{this.name}}</td>
+                            <td>
+                                {{#if this.title}}
+                                    <img src="img/check.svg" alt="Check">
+                                {{else}}
+                                    <img src="img/cross.svg" alt="cross">
+                                {{/if}}
+                            </td>
+                            <td>
+                                {{#if this.description}}
+                                    <img src="img/check.svg" alt="Check">
+                                {{else}}
+                                    <img src="img/cross.svg" alt="cross">
+                                {{/if}}
+                            </td>
+                            <td>
+                                {{#if this.headers}}
+                                    <img src="img/check.svg" alt="Check">
+                                {{else}}
+                                    <img src="img/cross.svg" alt="cross">
+                                {{/if}}
+                            </td>
+                            <td>
+                                <div class="bar-count-wrapper">
+                                    {{this.count}}
+                                    <div style="width: 60%;" class="f-bar"></div>
+                                </div>
+                            </td>
+                        </tr>
+                        {{/each}}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
