@@ -1,0 +1,61 @@
+<hr class="section-line">
+<div class="item py-3" id="{{this.key}}">
+    <div class="item-header">
+        <div class="item-num item-num-green">
+            <p>P</p>
+        </div>
+        <div class="item-title">
+            <h3>{{this.friendlyName}}</h3>
+            <div>
+                <div class="item-section">Usability</div>
+                <img data-title="Title Here" data-info="Info Here" class="question" src="img/info.png"
+                    alt="Info">
+            </div>
+        </div>
+    </div>
+    <div class="item-body myt-2">
+        <div class="box-wrapper">
+            <div class="answer">
+                <div><img src="img/success.png" alt="Check"></div>
+                <div>
+                    <p>
+                        {{this.shortAnswer}}
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="g-1-1">
+            <div class="box-device">
+                <div>
+                    <p class="my-1">Mobile</p>
+                    <div class="mobile-wrapper">
+                        <div class="mobile">
+                            <img src="{{this.data.mobile}}" alt="mobile">
+                        </div>
+                        <img class="mxh-375" src="img/mobile.png" alt="mobile">
+                    </div>
+                </div>
+            </div>
+            <div class="box-device">
+
+                <div>
+                    <p class="my-1">Tablet</p>
+                    <div class="tablet-wrapper">
+                        <div class="tablet">
+                            <img src="{{this.data.tablet}}" alt="tablet">
+                        </div>
+                        <img class="mxh-375" src="img/tablet.png" alt="tablet">
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{!-- <div class="box-wrapper">
+            <div class="danger">
+                <div><img src="img/err.png" alt="err"></div>
+                <div>
+                    <p>Example.</p>
+                </div>
+            </div>
+        </div> --}}
+    </div>
+</div>

@@ -3,6 +3,7 @@ import * as path from 'path'
 import bodyParser from 'body-parser'
 import handlebars from 'handlebars'
 import expressHb from 'express-handlebars'
+import {capitalCase} from 'change-case'
 import { allowInsecurePrototypeAccess } from '@handlebars/allow-prototype-access'
 import flash from 'connect-flash'
 
@@ -38,6 +39,47 @@ export default class ExpressViewLoader {
             defaultLayout: "",
             extname: "hbs",
             handlebars: allowInsecurePrototypeAccess(handlebars),
+            helpers: {
+                ifeq: function(a, b, options) {
+                    if(a === b) {
+                        return options.fn(this)
+                    }
+
+                    return options.inverse(this)
+                },
+                ifObject: function(a, options) {
+                    if (!Array.isArray(a) && typeof a === 'object') {
+                        
+                        return options.fn(this)
+                    }
+
+                    return options.inverse(this)
+                },
+                ifArray: function(a, options) {
+                    if (Array.isArray(a)) {
+                        console.log('yes')
+                        return options.fn(this)
+                    }
+                    return options.inverse(this)
+                },
+                numeric: function(a, options) {
+                    return a? new handlebars.SafeString(a) : 0
+                },
+                ifString: function(a, options) {
+                    if (typeof a === "string") {
+                        return options.fn(this)
+                    }
+
+                    return options.inverse(this)
+                },
+                friendlyText: function(val, options) {
+                    if (val) {
+                        return capitalCase(val)
+                    }
+
+                    return ""
+                }
+            }
         })
 
         app.engine("hbs", hbs.engine)

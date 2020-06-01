@@ -1,0 +1,92 @@
+<hr class="section-line">
+<div class="item py-3" id="{{this.key}}">
+    <div class="item-header">
+        <div class="item-num {{this.passedClass}}">
+            <p>{{this.circleTextDisplay}}</p>
+        </div>
+        <div class="item-title">
+            <h3>{{this.friendlyName}}</h3>
+            <div>
+                <div class="item-section">Performance</div>
+                <img data-title="Title Here" data-info="Info Here" class="question" src="img/info.png"
+                    alt="Info">
+            </div>
+        </div>
+    </div>
+    <div class="item-body myt-2">
+        <div class="box-wrapper">
+            <div class="info">
+                <div><img src="img/info2.png" alt="info"></div>
+                <div>
+                    <p>
+                        {{this.shortAnswer}}
+                    </p>
+                </div>
+            </div>
+            <div class="g-1-1-1">
+                <div class="info info-vertical">
+                    <div><img src="img/info2.png" alt="info"></div>
+                    <div>
+                        <p class="my-1">Total Objects</p>
+                    </div>
+                    <div class="bold">
+                        <h3 class="odometer bold" data-count="{{this.data.total}}"></h3>
+                    </div>
+                </div>
+                <div class="info info-vertical">
+                    <div><img src="img/info2.png" alt="info"></div>
+                    <div>
+                        <p class="my-1">Number of HTML Pages</p>
+                    </div>
+                    <div class="bold">
+                        <h3 class="odometer bold" data-count="{{this.data.html}}"></h3>
+                    </div>
+                </div>
+                <div class="info info-vertical">
+                    <div><img src="img/info2.png" alt="info"></div>
+                    <div>
+                        <p class="my-1">Number of JS Files</p>
+                    </div>
+                    <div class="bold">
+                        <h3 class="odometer bold" data-count="{{this.data.js}}"></h3>
+                    </div>
+                </div>
+                <div class="info info-vertical">
+                    <div><img src="img/info2.png" alt="info"></div>
+                    <div>
+                        <p class="my-1">Number of Css Files</p>
+                    </div>
+                    <div class="bold">
+                        <h3 class="odometer bold" data-count="{{this.data.css}}"></h3>
+                    </div>
+                </div>
+                <div class="info info-vertical">
+                    <div><img src="img/info2.png" alt="info"></div>
+                    <div>
+                        <p class="my-1">Number of Images</p>
+                    </div>
+                    <div class="bold">
+                        <h3 class="odometer bold" data-count="{{this.data.images}}"></h3>
+                    </div>
+                </div>
+                <div class="info info-vertical">
+                    <div><img src="img/info2.png" alt="info"></div>
+                    <div>
+                        <p class="my-1">Other resources </p>
+                    </div>
+                    <div class="bold">
+                        <h3 class="odometer bold" data-count="{{this.data.other}}"></h3>
+                    </div>
+                </div>
+            </div>
+            {{!-- <div class="box-wrapper">
+                <div class="danger">
+                    <div><img src="img/err.png" alt="err"></div>
+                    <div>
+                        <p>Example.</p>
+                    </div>
+                </div>
+            </div> --}}
+        </div>
+    </div>
+</div>

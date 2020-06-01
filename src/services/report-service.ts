@@ -1,51 +1,24 @@
-import axios from "axios";
-import Report from "../model/Report";
-import seo_API_KEY from "../config/keys";
-import seo_API_URL from "../config/keys";
-import { Service, Inject } from "typedi";
-import { ReportUiFactory } from "../factories/report-ui-factory";
-import {
-  ReportScoreFactory,
-  ReportScore,
-  ReportGrade,
-} from "../factories/report-score-factory";
-import { CheckSectionUiFactory } from "../factories/check-section-ui-factory";
-import { PerformanceGradeUiFactory } from "../factories/performance-grade-ui-section";
-import { HeaderUiFactory } from "../factories/header-section-ui-factory";
-import { MalwareSectionUiFactory } from "../factories/malware-section-ui-factory";
-import { ResponseUiFactory } from "../factories/server-response-ui-factory";
-import { EncodedDataFactory } from "../factories/encoded-data-factory";
+import axios from "axios"
+import seo_API_KEY from "../config/keys"
+import seo_API_URL from "../config/keys"
+import { Service } from "typedi"
+import { TypedReport, Output } from '../model/TypedReport'
+import {capitalCase} from 'change-case'
+import blurredKeys from '../config/blur-keys'
 
 @Service()
 export class ReportService {
-  //Inject all factory dependencies
-  @Inject() private reportUiFactory: ReportUiFactory;
-
-  @Inject() private reportScoreFactory: ReportScoreFactory;
-
-  @Inject() private checkSectionUiFactory: CheckSectionUiFactory;
-
-  @Inject() private performanceGradeUiFactory: PerformanceGradeUiFactory;
-
-  @Inject() private headerUiFactory: HeaderUiFactory;
-
-  @Inject() private malwareUiFactory: MalwareSectionUiFactory;
-
-  @Inject() private responseUiFactory: ResponseUiFactory;
-
-  @Inject() private encodedDataFactory: EncodedDataFactory;
 
   renderReportPage = async (
     reportId
   ): Promise<{
     success: any;
     status: any;
-    data: any;
+    reportData: any;
     reportId: any;
   }> => {
     // Get response from SEO api
-    console.log(seo_API_URL.seoptimerAPI + "get/" + reportId);
-    const response = await axios.get(
+    const typedResponse = await axios.get<TypedReport>(
       seo_API_URL.seoptimerAPI + "get/" + reportId,
       {
         headers: {
@@ -53,104 +26,147 @@ export class ReportService {
           "Content-Type": "application/json",
         },
       }
-    );
+    )
 
-    // If response is not success then return from here, no need to
-    // go through the resf of the code
-    if (!response.data.success) {
+    if (!typedResponse.data.success) {
       return {
-        status: response.data.success,
+        status: typedResponse.data.success,
+        reportData: false,
         reportId: reportId,
-        data: false,
         success: false,
-      };
+      }
     }
 
-    // Create a model based on returning data
-    const reportModel = new Report(response.data);
-    const jsonn = reportModel.data.output;
+    const subsections = this.divideResponseToSubsections(typedResponse.data.data.output)
+    const sectionWiseData = this.createSectionWiseData(typedResponse.data.data.output, subsections)
 
-    // Score and grade the json data
-    const score = this.calculateScoreFromJson(jsonn);
-    const reportGrade: ReportGrade = score.createGrade();
 
-    // Decorate the json object based on different performance sections
-    this.performanceGradeUiFactory.decoratePerformanceSection(
-      jsonn,
-      reportGrade
-    );
-    this.performanceGradeUiFactory.decorateSecuritySection(jsonn, reportGrade);
-    this.performanceGradeUiFactory.decorateSeoSection(jsonn, reportGrade);
-    this.performanceGradeUiFactory.decorateSocialSection(jsonn, reportGrade);
-    this.performanceGradeUiFactory.decorateOverallSection(jsonn, reportGrade);
-    this.performanceGradeUiFactory.decorateOverallSection(jsonn, reportGrade);
-
-    // Decorate the json object with the calculated grade
-    reportGrade.decorateJsonWithGrades(jsonn);
-
-    // Decorate UI sections of report
-    this.headerUiFactory.decorateHeaderSection(jsonn);
-    this.malwareUiFactory.decorateMalwareSection(jsonn);
-    this.responseUiFactory.decorateResponseUiSection(jsonn);
-    this.encodedDataFactory.decorateEncodedData(jsonn);
-
-    reportModel.data.output = jsonn;
-
-    console.log("finish");
     // Return with success when everything done
     return {
-      success: reportModel.success,
-      status: reportModel.success,
-      data: reportModel.data,
+      success: true,
+      status: true,
+      reportData: {
+        ...sectionWiseData,
+        recommendations: typedResponse.data.data.output.recommendations,
+        url: typedResponse.data.data.input.url,
+        overall: typedResponse.data.data.output.scores.overall,
+        screenshot: typedResponse.data.data.output.screenshot,
+      },
       reportId: reportId,
-    };
-  };
+    }
+  }
 
-  // Utility function for scoring over the response data
-  private calculateScoreFromJson(json: any) {
-    const score = new ReportScore();
-    console.log(json);
-    const temp: any = json[1];
-    const responseStatus: any = json[0];
-    if (responseStatus) {
-      console.log(temp);
-      // Creating ui sections after api
-      const uiAttributes = this.reportUiFactory.getUiAttributes(temp.passed);
-
-      temp.color = uiAttributes.color;
-      temp.warning = uiAttributes.warning;
-
-      // Scoring api sums based on performance on sections
-      const reportScore = this.reportScoreFactory.getScore(
-        temp.section,
-        temp.passed
-      );
-      score.sum(reportScore);
-    } else if (
-      responseStatus == "youtubeActivity" ||
-      responseStatus == "instagramActivity"
-    ) {
-      score.sum({
-        socialC: temp[1] ? 1 : 0,
-        socialW: temp[1] ? 1 : 0,
-      });
+  //TODO: Move to a factory
+  private createSectionWiseData = (output: Output, subsections) => {
+    const seoSection = {
+      ...output.scores.seo,
+      ...this.computeSectionScore(subsections['seo']),
+      subSections: subsections['seo'],
     }
 
-    if (responseStatus === "keywords") {
-      if (temp == "passed") {
-        console.log("PASSED");
-      }
-
-      const tem = temp["data"]["keywords"];
-
-      for (let check of Object.values(tem)) {
-        this.checkSectionUiFactory.decorateDescriptionSection(check);
-        this.checkSectionUiFactory.decorateTitleSection(check);
-        this.checkSectionUiFactory.decorateHeaderSection(check);
-      }
+    const uiSection = {
+      ...output.scores.ui,
+      ...this.computeSectionScore(subsections['ui']),
+      subSections: subsections['ui'],
     }
 
-    return score;
+    const performanceSection = {
+      ...output.scores.performance,
+      ...this.computeSectionScore(subsections['performance']),
+      subSections: subsections['performance'],
+    }
+
+    const socialSection = {
+      ...output.scores.social,
+      ...this.computeSectionScore(subsections['social']),
+      subSections: subsections['social'],
+    }
+
+    const securitySection = {
+      ...output.scores.security,
+      ...this.computeSectionScore(subsections['security']),
+      subSections: subsections['security'],
+    }
+
+    const technologySection = {
+      ...this.computeSectionScore(subsections['technology']),
+      subSections: subsections['technology'],
+    }
+
+    const overallSum = seoSection.computedScore 
+                        + uiSection.computedScore 
+                        + performanceSection.computedScore
+                        + socialSection.computedScore 
+                        + securitySection.computedScore
+    
+    return {
+      data: {
+        seoSection,
+        uiSection,
+        performanceSection,
+        socialSection,
+        securitySection,
+        technologySection,
+      },
+      overallSection: {
+        score: Math.round((overallSum * 10) / 50.0) 
+      }
+    }
+  }
+
+  private computeSectionScore = (subsections: any[]) => {
+    const total = subsections.filter(value => value.passed !== null).length
+    const passingScore = subsections
+                            .filter(value => value.passed !== null && value.passed)
+                            .map(value => 1)
+                            .reduce((prev, cur) => prev + cur, 0)
+    
+    const computedScore = Math.round((passingScore * 10) / total)
+
+    return {
+      computedScore,
+      friendlyComputedScore: `${computedScore}`,
+      colorClass: this.getColorClass(computedScore),
+    }
+  }
+
+  private getColorClass = (score) => {
+    if (score < 5) {
+      return 'red'
+    } else if (score >= 5 && score < 8) {
+      return 'orange'
+    }
+    
+    return 'green'
+  }
+
+  private divideResponseToSubsections = (output: Output) => {
+    const subSections = {
+      'seo': [],
+      'ui': [],
+      'performance': [],
+      'social': [],
+      'security': [],
+      'technology': []
+    }
+
+    for (let [key, value] of Object.entries(output)) {
+      if (!value.section) {
+        continue
+      }
+
+      subSections[value.section].push({
+        ...value,
+        key: key,
+        isBlurred: blurredKeys.indexOf(key) > -1,
+        friendlyName: capitalCase(key),
+        passedClass: value.passed? 'item-num-green' : 'item-num-red',
+        navPassedClass: value.passed? 'score-item-nav-green' : 'score-item-nav-red',
+        circleTextDisplay:  value.passed? 'P' : 'F'
+      })
+    }
+
+    return subSections
   }
 
   postApi = async (websiteUrl: String): Promise<ReportApiResponse> => {
@@ -186,18 +202,18 @@ export class ReportService {
           "x-api-key": seo_API_KEY,
           "Content-Type": "application/json",
         },
-      });
+      })
 
-      return apiResponse.data.success ? "ok" : "wait";
+      return apiResponse.data.success ? "ok" : "wait"
     } catch (e) {
-      console.log(e);
+      console.log(e)
 
-      return e.toString();
+      return e.toString()
     }
   };
 }
 
 export interface ReportApiResponse {
-  data: any;
-  errors: string[];
+  data: any
+  errors: string[]
 }

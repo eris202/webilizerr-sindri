@@ -1,0 +1,36 @@
+<hr class="section-line">
+<div class="item py-3" id="{{this.key}}">
+    <div class="item-header">
+        <div class="item-title">
+            <h3>Technologies</h3>
+            <div>
+                <div class="item-section">Technology</div>
+                <img data-title="Title Here" data-info="Info Here" class="question" src="img/info.png"
+                    alt="Info">
+            </div>
+        </div>
+    </div>
+    <div class="item-body myt-2">
+        <div class="box-wrapper">
+            <div class="info">
+                <div><img src="img/info2.png" alt="info"></div>
+                <div class="table-wrapper">
+                    <table cellpadding="0" cellspacing="0" border="0" class="table header-tags">
+                        <thead>
+                            <tr>
+                                <th>Technology</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {{#each this.data}}
+                            <tr>
+                                <td>{{this}}</td>
+                            </tr>
+                            {{/each}}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

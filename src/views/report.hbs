@@ -93,257 +93,180 @@
                 <li class="c-w active hov-c-w" data-nav="nav-overview"><a class="hov-dec-u"
                         href="#overview">Overview</a></li>
                 <li class="r-m c-l-w hov-c-w light" data-nav="nav-seo">
-                    <div class="score-item-nav score-item-nav-green">10</div>
-
                     <a class="hov-dec-u" href="#seo">SEO</a>
                 </li>
                 <ul class="sub-nav">
-                    <li class="active">
-                        <div class="score-item-nav score-item-nav-green">10</div>
-                        <a href="#title">Title</a>
-                    </li>
-                    <li>
-                        <div class="score-item-nav score-item-nav-green">10</div>
-                        <a href="#meta">Meta Description</a>
-                    </li>
-                    <li>
-                        <div class="score-item-nav score-item-nav-green">10</div>
-                        <a href="#ht">Header Tags</a>
-                    </li>
-                    <li>
-                        <div class="score-item-nav score-item-nav-green">10</div>
-                        <a href="#keywords">Keywords</a>
-                    </li>
-                    <li>
-                        <div class="score-item-nav score-item-nav-green">10</div>
-                        <a href="#content">Amount of Content</a>
-                    </li>
-                    <li>
-                        <div class="score-item-nav score-item-nav-green">10</div>
-                        <a href="#alt">Alt Attributes</a>
-                    </li>
-                    <li>
-                        <div class="score-item-nav score-item-nav-green">10</div>
-                        <a href="#backlinks">Backlinks</a>
-                    </li>
-                    <li>
-                        <div class="score-item-nav score-item-nav-green">10</div>
-                        <a href="#pl">On Page Links</a>
-                    </li>
-                    <li>
-                        <div class="score-item-nav score-item-nav-green">10</div>
-                        <a href="#bl">Broken Links</a>
-                    </li>
-                    <li>
-                        <div class="score-item-nav score-item-nav-green">10</div>
-                        <a href="#friendly">Friendly URLs</a>
-                    </li>
-                    <li>
-                        <div class="score-item-nav score-item-nav-green">10</div>
-                        <a href="#it">No Index Tags</a>
-                    </li>
-                    <li>
-                        <div class="score-item-nav score-item-nav-green">10</div>
-                        <a href="#ih">No Index Headers</a>
-                    </li>
-                    <li>
-                        <div class="score-item-nav score-item-nav-green">10</div>
-                        <a href="#robotsTxt">robotsTxt</a>
-                    </li>
-                    <li>
-                        <div class="score-item-nav score-item-nav-green">10</div>
-                        <a href="#sitemap">sitemap</a>
-                    </li>
-                    <li>
-                        <div class="score-item-nav score-item-nav-green">10</div>
-                        <a href="#analytics">Analytics</a>
-                    </li>
-                    <li>
-                        <div class="score-item-nav score-item-nav-green">10</div>
-                        <a href="#schema">Schema.org</a>
-                    </li>
+                    {{#each reportData.data.seoSection.subSections}}
+                        {{#ifeq this.isBlurred true}}
+                            <li>
+                                <div class="score-item-nav">
+                                    ?
+                                </div>
+                                <a href="#{{this.key}}">{{this.friendlyName}}</a>
+                            </li>
+                        {{else ifeq this.key 'title'}}
+                            <li class="active">
+                                <div class="score-item-nav {{this.navPassedClass}}">
+                                    {{this.circleTextDisplay}}
+                                </div>
+                                <a href="#{{this.key}}">{{this.friendlyName}}</a>
+                            </li>
+                        {{else}}
+                            <li>
+                                {{#if this.passed}}
+                                    <div class="score-item-nav {{this.navPassedClass}}">
+                                        {{this.circleTextDisplay}}
+                                    </div>
+                                {{else}}
+                                    <div class="score-item-nav score-item-nav-orange">
+                                        I
+                                    </div>
+                                {{/if}}
+                                <a href="#{{this.key}}">{{this.friendlyName}}</a>
+                            </li>
+                        {{/ifeq}}
+                    {{/each}}
                 </ul>
                 <li class="r-m c-l-w hov-c-w light" data-nav="nav-usability">
-                    <div class="score-item-nav score-item-nav-green">10</div>
-
                     <a class="hov-dec-u" href="#usability">Usability</a>
                 </li>
                 <ul class="sub-nav">
-                    <li>
-                        <div class="score-item-nav score-item-nav-green">10</div>
-                        <a href="#device">Device Rendering</a>
-                    </li>
-                    <li>
-                        <div class="score-item-nav score-item-nav-green">10</div>
-                        <a href="#viewports">Viewports</a>
-                    </li>
-                    <li>
-                        <div class="score-item-nav score-item-nav-green">10</div>
-                        <a href="#flash">Flash</a>
-                    </li>
-                    <li>
-                        <div class="score-item-nav score-item-nav-green">10</div>
-                        <a href="#iFrames">iFrames</a>
-                    </li>
-                    <li>
-                        <div class="score-item-nav score-item-nav-green">10</div>
-                        <a href="#favicon">Favicon</a>
-                    </li>
-                    <li>
-                        <div class="score-item-nav score-item-nav-green">10</div>
-                        <a href="#font">Font Sizes</a>
-                    </li>
-                    <li>
-                        <div class="score-item-nav score-item-nav-green">10</div>
-                        <a href="#target">Target Sizing</a>
-                    </li>
+                    {{#each reportData.data.uiSection.subSections}}
+                        {{#ifeq this.isBlurred true}}
+                            <li>
+                                <div class="score-item-nav">
+                                    ?
+                                </div>
+                                <a href="#{{this.key}}">{{this.friendlyName}}</a>
+                            </li>
+                        {{else}}
+                            <li>
+                                {{#if this.passed}}
+                                    <div class="score-item-nav {{this.navPassedClass}}">
+                                        {{this.circleTextDisplay}}
+                                    </div>
+                                {{else}}
+                                    <div class="score-item-nav score-item-nav-orange">
+                                        I
+                                    </div>
+                                {{/if}}
+                                <a href="#{{this.key}}">{{this.friendlyName}}</a>
+                            </li>
+                        {{/ifeq}}
+                    {{/each}}
                 </ul>
                 <li class="r-m c-l-w hov-c-w light" data-nav="nav-performance">
-                    <div class="score-item-nav score-item-nav-green">10</div>
-
                     <a class="hov-dec-u" href="#performance">Performance</a>
                 </li>
                 <ul class="sub-nav">
-                    <li>
-                        <div class="score-item-nav score-item-nav-green">10</div>
-                        <a href="#loading">Loading</a>
-                    </li>
-                    <li>
-                        <div class="score-item-nav score-item-nav-green">10</div>
-                        <a href="#size">Page Size</a>
-                    </li>
-                    <li>
-                        <div class="score-item-nav score-item-nav-green">10</div>
-                        <a href="#resources">Resources</a>
-                    </li>
-                    <li>
-                        <div class="score-item-nav score-item-nav-green">10</div>
-                        <a href="#errors">JS Errors</a>
-                    </li>
-                    <li>
-                        <div class="score-item-nav score-item-nav-green">10</div>
-                        <a href="#gzip">GZIP</a>
-                    </li>
-                    <li>
-                        <div class="score-item-nav score-item-nav-green">10</div>
-                        <a href="#compression">Compression</a>
-                    </li>
-                    <li>
-                        <div class="score-item-nav score-item-nav-green">10</div>
-                        <a href="#minification">Minification</a>
-                    </li>
-                    <li>
-                        <div class="score-item-nav score-item-nav-green">10</div>
-                        <a href="#deprecated">Deprecated HTML</a>
-                    </li>
-                    <li>
-                        <div class="score-item-nav score-item-nav-green">10</div>
-                        <a href="#inline">Inline Styles</a>
-                    </li>
+                    {{#each reportData.data.performanceSection.subSections}}
+                        {{#ifeq this.isBlurred true}}
+                            <li>
+                                <div class="score-item-nav">
+                                    ?
+                                </div>
+                                <a href="#{{this.key}}">{{this.friendlyName}}</a>
+                            </li>
+                        {{else}}
+                            <li>
+                                {{#if this.passed}}
+                                    <div class="score-item-nav {{this.navPassedClass}}">
+                                        {{this.circleTextDisplay}}
+                                    </div>
+                                {{else}}
+                                    <div class="score-item-nav score-item-nav-orange">
+                                        I
+                                    </div>
+                                {{/if}}
+                                <a href="#{{this.key}}">{{this.friendlyName}}</a>
+                            </li>
+                        {{/ifeq}}
+                    {{/each}}
                 </ul>
                 <li class="r-m c-l-w hov-c-w light" data-nav="nav-social">
-                    <div class="score-item-nav score-item-nav-green">10</div>
-
                     <a class="hov-dec-u" href="#social">Social</a>
                 </li>
                 <ul class="sub-nav">
-                    <li>
-                        <div class="score-item-nav score-item-nav-green">10</div>
-                        <a href="#fc">Facebook Connected</a>
-                    </li>
-                    <li>
-                        <div class="score-item-nav score-item-nav-green">10</div>
-                        <a href="#fp">Facebook Pixel</a>
-                    </li>
-                    <li>
-                        <div class="score-item-nav score-item-nav-green">10</div>
-                        <a href="#tc">Twitter Connected</a>
-                    </li>
-                    <li>
-                        <div class="score-item-nav score-item-nav-green">10</div>
-                        <a href="#tt">Twitter Tags</a>
-                    </li>
-                    <li>
-                        <div class="score-item-nav score-item-nav-green">10</div>
-                        <a href="#ta">Twitter Activity</a>
-                    </li>
-                    <li>
-                        <div class="score-item-nav score-item-nav-green">10</div>
-                        <a href="#il">Instagram Link</a>
-                    </li>
-                    <li>
-                        <div class="score-item-nav score-item-nav-green">10</div>
-                        <a href="#yl">Youtube Links</a>
-                    </li>
-                    <li>
-                        <div class="score-item-nav score-item-nav-green">10</div>
-                        <a href="#ya">Youtube Activity</a>
-                    </li>
-                    <li>
-                        <div class="score-item-nav score-item-nav-green">10</div>
-                        <a href="#lc">LinkedIn Connected</a>
-                    </li>
-                    <li>
-                        <div class="score-item-nav score-item-nav-green">10</div>
-                        <a href="#fogt">Facebook Open Graph Tags</a>
-                    </li>
+                    {{#each reportData.data.socialSection.subSections}}
+                        {{#ifeq this.isBlurred true}}
+                            <li>
+                                <div class="score-item-nav">
+                                    ?
+                                </div>
+                                <a href="#{{this.key}}">{{this.friendlyName}}</a>
+                            </li>
+                        {{else}}
+                            <li>
+                                {{#if this.passed}}
+                                    <div class="score-item-nav {{this.navPassedClass}}">
+                                        {{this.circleTextDisplay}}
+                                    </div>
+                                {{else}}
+                                    <div class="score-item-nav score-item-nav-orange">
+                                        I
+                                    </div>
+                                {{/if}}
+                                <a href="#{{this.key}}">{{this.friendlyName}}</a>
+                            </li>
+                        {{/ifeq}}
+                    {{/each}}
                 </ul>
                 <li class="r-m c-l-w hov-c-w light" data-nav="nav-security">
-                    <div class="score-item-nav score-item-nav-green">10</div>
-
                     <a class="hov-dec-u" href="#security">Security</a>
                 </li>
                 <ul class="sub-nav">
-                    <li>
-                        <div class="score-item-nav score-item-nav-green">10</div>
-                        <a href="#ssl">ssl</a>
-                    </li>
-                    <li>
-                        <div class="score-item-nav score-item-nav-green">10</div>
-                        <a href="#https">https</a>
-                    </li>
-                    <li>
-                        <div class="score-item-nav score-item-nav-green">10</div>
-                        <a href="#malware">malware</a>
-                    </li>
-                    <li>
-                        <div class="score-item-nav score-item-nav-green">10</div>
-                        <a href="#email">e-mail</a>
-                    </li>
+                    {{#each reportData.data.securitySection.subSections}}
+                        {{#ifeq this.isBlurred true}}
+                            <li>
+                                <div class="score-item-nav">
+                                    ?
+                                </div>
+                                <a href="#{{this.key}}">{{this.friendlyName}}</a>
+                            </li>
+                        {{else}}
+                            <li>
+                                {{#if this.passed}}
+                                    <div class="score-item-nav {{this.navPassedClass}}">
+                                        {{this.circleTextDisplay}}
+                                    </div>
+                                {{else}}
+                                    <div class="score-item-nav score-item-nav-orange">
+                                        I
+                                    </div>
+                                {{/if}}
+                                <a href="#{{this.key}}">{{this.friendlyName}}</a>
+                            </li>
+                        {{/ifeq}}
+                    {{/each}}
                 </ul>
                 <li class="r-m c-l-w hov-c-w light" data-nav="nav-technology">
-                    <div class="score-item-nav score-item-nav-green">10</div>
-
                     <a class="hov-dec-u" href="#technology">Technology</a>
                 </li>
                 <ul class="sub-nav">
-                    <li>
-                        <div class="score-item-nav score-item-nav-green">10</div>
-                        <a href="#technologies">Technologies</a>
-                    </li>
-                    <li>
-                        <div class="score-item-nav score-item-nav-green">10</div>
-                        <a href="#ip">Ip</a>
-                    </li>
-                    <li>
-                        <div class="score-item-nav score-item-nav-green">10</div>
-                        <a href="#dns">Dns</a>
-                    </li>
-                    <li>
-                        <div class="score-item-nav score-item-nav-green">10</div>
-                        <a href="#server">Server</a>
-                    </li>
-                    <li>
-                        <div class="score-item-nav score-item-nav-green">10</div>
-                        <a href="#charset">Charset</a>
-                    </li>
+                    {{#each reportData.data.technologySection.subSections}}
+                        {{#ifeq this.isBlurred true}}
+                            <li>
+                                <div class="score-item-nav">
+                                    ?
+                                </div>
+                                <a href="#{{this.key}}">{{this.friendlyName}}</a>
+                            </li>
+                        {{else}}
+                            <li>
+                                <div class="score-item-nav score-item-nav-orange">
+                                    I
+                                </div>
+                                <a href="#{{this.key}}">{{this.friendlyName}}</a>
+                            </li>
+                        {{/ifeq}}
+                    {{/each}}
                 </ul>
                 <li class="c-l-w hov-c-w light" data-nav="nav-recommendations"><a class="hov-dec-u"
                         href="#recommendations">Recommendations</a></li>
             </aside>
         </nav>
         <div class="inner-body py-4 px-3">
-            <h1>Audit Results for www.{{data.input.url}} </h1>
+            <h1>Audit Results for {{reportData.url}} </h1>
             <header class="myt-2 section-wrapper" id="overview" data-section="overview">
                 <div class="py-2 px-1">
                     <svg viewBox="0 0 36 36" class="circular-chart green large-chart">
@@ -353,21 +276,17 @@
                         <path class="circle" stroke-dasharray="80, 100" d="M18 2.0845
                     a 15.9155 15.9155 0 0 1 0 31.831
                     a 15.9155 15.9155 0 0 1 0 -31.831"></path>
-                        <text x="18" y="20.35" class="percentage">{{data.output.scores.seo.grade}}</text>
+                        <text x="18" y="20.35" class="percentage">{{reportData.overallSection.score}}</text>
                     </svg>
-                    <h2 class="t-center my-1">{{data.output.scores.overall.title}}</h2>
+                    <h2 class="t-center my-1">{{reportData.overall.title}}</h2>
                     <a href="#recommendations">
                         <div class="box-wrapper">
                             <div class="danger">
                                 <div><img src="img/err.png" alt="err"></div>
                                 <div>
-                                    <p>You have {{data.output.recommendation_count}} improvements recommended</p>
-
-
+                                    <p>You have {{reportData.recommendations.length}} improvements recommended</p>
                                 </div>
-
                             </div>
-                            <p>Report Generated: {{data.output.scores.seo.newGrade}}</p>
                         </div>
                     </a>
                 </div>
@@ -376,7 +295,7 @@
 
                         <img class="mxw-450" src="img/pc.png" alt="pc">
                         <div class="imac">
-                            <img src="img/iMac.jpg" alt="imac">
+                            <img src="{{reportData.screenshot}}" alt="imac">
                         </div>
                     </div>
                 </div>
@@ -385,84 +304,80 @@
                 <div>
                     <h2>Seo</h2>
                     <div class="single-chart">
-                        <svg viewBox="0 0 36 36" class="m-a myt-1 circular-chart green">
+                        <svg viewBox="0 0 36 36" class="m-a myt-1 circular-chart {{reportData.data.seoSection.colorClass}}">
                             <path class="circle-bg" d="M18 2.0845
                         a 15.9155 15.9155 0 0 1 0 31.831
                         a 15.9155 15.9155 0 0 1 0 -31.831"></path>
                             <path class="circle" stroke-dasharray="100, 100" d="M18 2.0845
                         a 15.9155 15.9155 0 0 1 0 31.831
                         a 15.9155 15.9155 0 0 1 0 -31.831"></path>
-                            <text x="18" y="20.35" class="percentage">A+</text>
+                            <text x="18" y="20.35" class="percentage">
+                                {{reportData.data.seoSection.friendlyComputedScore}}
+                            </text>
                         </svg>
                     </div>
                 </div>
                 <div>
                     <h2>Usability</h2>
                     <div class="single-chart">
-                        <svg viewBox="0 0 36 36" class="m-a myt-1 circular-chart green">
+                        <svg viewBox="0 0 36 36" class="m-a myt-1 circular-chart {{reportData.data.uiSection.colorClass}}">
                             <path class="circle-bg" d="M18 2.0845
                         a 15.9155 15.9155 0 0 1 0 31.831
                         a 15.9155 15.9155 0 0 1 0 -31.831"></path>
                             <path class="circle" stroke-dasharray="100, 100" d="M18 2.0845
                         a 15.9155 15.9155 0 0 1 0 31.831
                         a 15.9155 15.9155 0 0 1 0 -31.831"></path>
-                            <text x="18" y="20.35" class="percentage">A+</text>
+                            <text x="18" y="20.35" class="percentage">
+                                {{reportData.data.uiSection.friendlyComputedScore}}
+                            </text>
                         </svg>
                     </div>
                 </div>
                 <div>
                     <h2>Performance</h2>
                     <div class="single-chart">
-                        <svg viewBox="0 0 36 36" class="m-a myt-1 circular-chart green">
+                        <svg viewBox="0 0 36 36" class="m-a myt-1 circular-chart {{reportData.data.performanceSection.colorClass}}">
                             <path class="circle-bg" d="M18 2.0845
                         a 15.9155 15.9155 0 0 1 0 31.831
                         a 15.9155 15.9155 0 0 1 0 -31.831"></path>
                             <path class="circle" stroke-dasharray="100, 100" d="M18 2.0845
                         a 15.9155 15.9155 0 0 1 0 31.831
                         a 15.9155 15.9155 0 0 1 0 -31.831"></path>
-                            <text x="18" y="20.35" class="percentage">A+</text>
+                            <text x="18" y="20.35" class="percentage">
+                                {{reportData.data.performanceSection.friendlyComputedScore}}
+                            </text>
                         </svg>
                     </div>
                 </div>
                 <div>
                     <h2>Social</h2>
                     <div class="single-chart">
-                        <svg viewBox="0 0 36 36" class="m-a myt-1 circular-chart green">
+                        <svg viewBox="0 0 36 36" class="m-a myt-1 circular-chart {{reportData.data.socialSection.colorClass}}">
                             <path class="circle-bg" d="M18 2.0845
                         a 15.9155 15.9155 0 0 1 0 31.831
                         a 15.9155 15.9155 0 0 1 0 -31.831"></path>
                             <path class="circle" stroke-dasharray="100, 100" d="M18 2.0845
                         a 15.9155 15.9155 0 0 1 0 31.831
                         a 15.9155 15.9155 0 0 1 0 -31.831"></path>
-                            <text x="18" y="20.35" class="percentage">A+</text>
+                            <text x="18" y="20.35" class="percentage">
+                                {{reportData.data.socialSection.friendlyComputedScore}}
+                            </text>
                         </svg>
                     </div>
                 </div>
                 <div>
                     <h2>Security</h2>
                     <div class="single-chart">
-                        <svg viewBox="0 0 36 36" class="m-a myt-1 circular-chart green">
+                        <svg viewBox="0 0 36 36" class="m-a myt-1 circular-chart {{reportData.data.securitySection.colorClass}}">
                             <path class="circle-bg" d="M18 2.0845
                         a 15.9155 15.9155 0 0 1 0 31.831
                         a 15.9155 15.9155 0 0 1 0 -31.831"></path>
                             <path class="circle" stroke-dasharray="100, 100" d="M18 2.0845
                         a 15.9155 15.9155 0 0 1 0 31.831
                         a 15.9155 15.9155 0 0 1 0 -31.831"></path>
-                            <text x="18" y="20.35" class="percentage">A+</text>
-                        </svg>
-                    </div>
-                </div>
-                <div>
-                    <h2>Technology</h2>
-                    <div class="single-chart">
-                        <svg viewBox="0 0 36 36" class="m-a myt-1 circular-chart green">
-                            <path class="circle-bg" d="M18 2.0845
-                        a 15.9155 15.9155 0 0 1 0 31.831
-                        a 15.9155 15.9155 0 0 1 0 -31.831"></path>
-                            <path class="circle" stroke-dasharray="100, 100" d="M18 2.0845
-                        a 15.9155 15.9155 0 0 1 0 31.831
-                        a 15.9155 15.9155 0 0 1 0 -31.831"></path>
-                            <text x="18" y="20.35" class="percentage">A+</text>
+                            <text x="18" y="20.35" class="percentage">
+                                {{reportData.data.securitySection.friendlyComputedScore}}
+                            </text>
                         </svg>
                     </div>
                 </div>
@@ -473,859 +388,38 @@
             <section class="section-body px-3 myt-2 section-wrapper" id="seo" data-section="seo">
                 <div class="section-average py-3">
                     <div class="single-chart">
-                        <svg viewBox="0 0 36 36" class="circular-chart green">
+                        <svg viewBox="0 0 36 36" class="circular-chart {{reportData.data.seoSection.colorClass}}">
                             <path class="circle-bg" d="M18 2.0845
                     a 15.9155 15.9155 0 0 1 0 31.831
                     a 15.9155 15.9155 0 0 1 0 -31.831"></path>
                             <path class="circle" stroke-dasharray="80, 100" d="M18 2.0845
                     a 15.9155 15.9155 0 0 1 0 31.831
                     a 15.9155 15.9155 0 0 1 0 -31.831"></path>
-                            <text x="18" y="20.35" class="percentage">B</text>
+                            <text x="18" y="20.35" class="percentage">{{reportData.data.seoSection.friendlyComputedScore}}</text>
                         </svg>
                     </div>
                     <div>
-                        <h4>Your SEO is very good!</h4>
-                        <p class="c-g">Congratulations, your page is well optimized for SEO performance. SEO
-                            optimization is important to ensure you can maximize ranking potential and drive traffic to
-                            your website from search engines. You can continue to build on your
-                            strong position through further application of SEO strategies like content generation and
-                            link building.</p>
+                        <h4>{{reportData.data.seoSection.title}}</h4>
+                        <p class="c-g">
+                            {{reportData.data.seoSection.description}}
+                        </p>
                     </div>
                 </div>
-                <hr class="section-line">
-                <div class="item py-3" id="title">
-                    <div class="item-header">
-                        <div class="item-num item-num-green">
-                            <p>10</p>
-                        </div>
-                        <div class="item-title">
-                            <h3>Title Tag</h3>
-                            <div>
-                                <div class="item-section">Seo</div>
-                                <img data-title="Title Here" data-info="Info Here" class="question" src="img/info.png"
-                                    alt="Info">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item-body myt-2">
-                        <div class="box-wrapper">
-                            <div class="answer">
-                                <div><img src="img/success.png" alt="Check"></div>
-                                <div>
-                                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quia aperiam quam
-                                        delectus libero corrupti veniam.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="box-wrapper">
-                            <div class="danger">
-                                <div><img src="img/err.png" alt="err"></div>
-                                <div>
-                                    <p>Example.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <hr class="section-line">
-                <div class="item py-3" id="meta">
-                    <div class="item-header">
-                        <div class="item-num item-num-green">
-                            <p>10</p>
-                        </div>
-                        <div class="item-title">
-                            <h3>Meta Description Tag</h3>
-                            <div>
-                                <div class="item-section">Seo</div>
-                                <img data-title="Title Here" data-info="Info Here" class="question" src="img/info.png"
-                                    alt="Info">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item-body myt-2">
-                        <div class="box-wrapper">
-                            <div class="answer">
-                                <div><img src="img/success.png" alt="Check"></div>
-                                <div>
-                                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quia aperiam quam
-                                        delectus libero corrupti veniam.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="box-wrapper">
-                            <div class="danger">
-                                <div><img src="img/err.png" alt="err"></div>
-                                <div>
-                                    <p>Example.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <hr class="section-line">
-                <div class="item py-3" id="ht">
-                    <div class="item-header">
-                        <div class="item-num item-num-green">
-                            <p>10</p>
-                        </div>
-                        <div class="item-title">
-                            <h3>Header Tags</h3>
-                            <div>
-                                <div class="item-section">Seo</div>
-                                <img data-title="Title Here" data-info="Info Here" class="question" src="img/info.png"
-                                    alt="Info">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item-body myt-2">
-                        <div class="box-wrapper">
-                            <div class="answer">
-                                <div><img src="img/success.png" alt="Check"></div>
-                                <div>
-                                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quia aperiam quam
-                                        delectus libero corrupti veniam.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="box-wrapper">
-                            <div class="info">
-                                <div><img src="img/info2.png" alt="info"></div>
-                                <div class="table-wrapper">
-                                    <table cellpadding="0" cellspacing="0" border="0" class="table header-tags">
-                                        <thead>
-                                            <tr>
-                                                <th>Header Tag</th>
-                                                <th>Frequency</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>H1</td>
-                                                <td>
-                                                    <div class="bar-count-wrapper">
-                                                        1
-                                                        <div style="width: 5%;" class="f-bar"></div>
-                                                    </div>
-
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>H2</td>
-                                                <td>
-                                                    <div class="bar-count-wrapper">
-                                                        5
-                                                        <div style="width: 25%;" class="f-bar"></div>
-                                                    </div>
-
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>H3
-                                                </td>
-                                                <td>
-                                                    <div class="bar-count-wrapper">
-                                                        5
-                                                        <div style="width: 25%;" class="f-bar"></div>
-                                                    </div>
-
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>H4</td>
-                                                <td>
-                                                    <div class="bar-count-wrapper">
-                                                        6
-                                                        <div style="width: 30%;" class="f-bar"></div>
-                                                    </div>
-
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>H5</td>
-                                                <td>
-                                                    <div class="bar-count-wrapper">
-                                                        3
-                                                        <div style="width: 15%;" class="f-bar"></div>
-                                                    </div>
-
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>H6</td>
-                                                <td>
-                                                    <div class="bar-count-wrapper">
-                                                        0
-                                                        <div style="width: 0%;" class="f-bar"></div>
-                                                    </div>
-
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <hr class="section-line">
-
-                <div class="item py-3" id="keywords">
-                    <div class="item-header">
-                        <div class="item-num item-num-green">
-                            <p>10</p>
-                        </div>
-                        <div class="item-title">
-                            <h3>Keywords</h3>
-                            <div>
-                                <div class="item-section">Seo</div>
-                                <img data-title="Title Here" data-info="Info Here" class="question" src="img/info.png"
-                                    alt="Info">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item-body myt-2">
-                        <div class="box-wrapper">
-                            <div class="answer">
-                                <div><img src="img/success.png" alt="Check"></div>
-                                <div>
-                                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quia aperiam quam
-                                        delectus libero corrupti veniam.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="box-wrapper">
-                            <div class="info">
-                                <div><img src="img/info2.png" alt="info"></div>
-                                <div class="table-wrapper">
-                                    <table cellpadding="0" cellspacing="0" border="0" class="table">
-                                        <thead>
-                                            <tr>
-                                                <th>Keyword</th>
-                                                <th>Title</th>
-                                                <th>Meta Description Tag</th>
-                                                <th>Headings Tags</th>
-                                                <th>Page Frequency</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>Seo</td>
-                                                <td><img src="img/check.svg" alt="Check"></td>
-                                                <td><img src="img/cross.svg" alt="cross"></td>
-                                                <td><img src="img/check.svg" alt="Check"></td>
-                                                <td>
-                                                    <div class="bar-count-wrapper">
-                                                        6
-                                                        <div style="width: 60%;" class="f-bar"></div>
-                                                    </div>
-
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>Seo</td>
-                                                <td><img src="img/check.svg" alt="Check"></td>
-                                                <td><img src="img/cross.svg" alt="cross"></td>
-                                                <td><img src="img/check.svg" alt="Check"></td>
-                                                <td>
-                                                    <div class="bar-count-wrapper">
-                                                        3
-                                                        <div style="width: 30%;" class="f-bar"></div>
-                                                    </div>
-
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>Seo</td>
-                                                <td><img src="img/check.svg" alt="Check"></td>
-                                                <td><img src="img/cross.svg" alt="cross"></td>
-                                                <td><img src="img/check.svg" alt="Check"></td>
-                                                <td>
-                                                    <div class="bar-count-wrapper">
-                                                        6
-                                                        <div style="width: 20%;" class="f-bar"></div>
-                                                    </div>
-
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="box-wrapper">
-                            <div class="info">
-                                <div><img src="img/info2.png" alt="info"></div>
-                                <div class="table-wrapper">
-                                    <table cellpadding="0" cellspacing="0" border="0" class="table">
-                                        <thead>
-                                            <tr>
-                                                <th>Keyword</th>
-                                                <th>Title</th>
-                                                <th>Meta Description Tag</th>
-                                                <th>Headings Tags</th>
-                                                <th>Page Frequency</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>Seo Word</td>
-                                                <td><img src="img/check.svg" alt="Check"></td>
-                                                <td><img src="img/cross.svg" alt="cross"></td>
-                                                <td><img src="img/check.svg" alt="Check"></td>
-                                                <td>
-                                                    <div class="bar-count-wrapper">
-                                                        6
-                                                        <div style="width: 60%;" class="f-bar"></div>
-                                                    </div>
-
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>Seo Word</td>
-                                                <td><img src="img/check.svg" alt="Check"></td>
-                                                <td><img src="img/cross.svg" alt="cross"></td>
-                                                <td><img src="img/check.svg" alt="Check"></td>
-                                                <td>
-                                                    <div class="bar-count-wrapper">
-                                                        3
-                                                        <div style="width: 30%;" class="f-bar"></div>
-                                                    </div>
-
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>Seo Word</td>
-                                                <td><img src="img/check.svg" alt="Check"></td>
-                                                <td><img src="img/cross.svg" alt="cross"></td>
-                                                <td><img src="img/check.svg" alt="Check"></td>
-                                                <td>
-                                                    <div class="bar-count-wrapper">
-                                                        6
-                                                        <div style="width: 20%;" class="f-bar"></div>
-                                                    </div>
-
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <hr class="section-line">
-
-                <div class="item py-3" id="content">
-                    <div class="item-header">
-                        <div class="item-num item-num-green">
-                            <p>10</p>
-                        </div>
-                        <div class="item-title">
-                            <h3>Amount of Content</h3>
-                            <div>
-                                <div class="item-section">Seo</div>
-                                <img data-title="Title Here" data-info="Info Here" class="question" src="img/info.png"
-                                    alt="Info">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item-body myt-2">
-                        <div class="box-wrapper">
-                            <div class="answer">
-                                <div><img src="img/success.png" alt="Check"></div>
-                                <div>
-                                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quia aperiam quam
-                                        delectus libero corrupti veniam.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="box-wrapper">
-                            <div class="danger">
-                                <div><img src="img/err.png" alt="err"></div>
-                                <div>
-                                    <p>Example.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <hr class="section-line">
-
-                <div class="item py-3" id="alt">
-                    <div class="item-header">
-                        <div class="item-num item-num-green">
-                            <p>10</p>
-                        </div>
-                        <div class="item-title">
-                            <h3>Image Alt Attributes</h3>
-                            <div>
-                                <div class="item-section">Seo</div>
-                                <img data-title="Title Here" data-info="Info Here" class="question" src="img/info.png"
-                                    alt="Info">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item-body myt-2">
-                        <div class="box-wrapper">
-                            <div class="answer">
-                                <div><img src="img/success.png" alt="Check"></div>
-                                <div>
-                                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quia aperiam quam
-                                        delectus libero corrupti veniam.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="box-wrapper">
-                            <div class="danger">
-                                <div><img src="img/err.png" alt="err"></div>
-                                <div>
-                                    <p>Example.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <hr class="section-line">
-
-                <div class="item py-3" id="backlinks">
-                    <div class="item-header">
-                        <div class="item-num item-num-green">
-                            <p>10</p>
-                        </div>
-                        <div class="item-title">
-                            <h3>Backlinks</h3>
-                            <div>
-                                <div class="item-section">Seo</div>
-                                <img data-title="Title Here" data-info="Info Here" class="question" src="img/info.png"
-                                    alt="Info">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item-body myt-2">
-                        <div class="box-wrapper">
-                            <div class="answer">
-                                <div><img src="img/success.png" alt="Check"></div>
-                                <div>
-                                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quia aperiam quam
-                                        delectus libero corrupti veniam.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="g-1-1-1">
-                            <div class="info info-vertical">
-                                <div><img src="img/info2.png" alt="info"></div>
-                                <div>
-                                    <p class="my-1">Extrenal Backlinks</p>
-                                </div>
-                                <div>
-                                    <div class="f-c bold">
-                                        <h3 class="odometer bold" data-count="148"></h3>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="info info-vertical">
-                                <div><img src="img/info2.png" alt="info"></div>
-                                <div>
-                                    <p class="my-1">Referring Backlinks</p>
-                                </div>
-                                <div>
-                                    <div class="f-c bold">
-                                        <h3 class="odometer bold" data-count="1,44"></h3>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="info info-vertical">
-                                <div><img src="img/info2.png" alt="info"></div>
-                                <div>
-                                    <p class="my-1">Moz Domain Authority</p>
-                                </div>
-                                <div>
-                                    <div class="f-c bold">
-                                        <h3 class="odometer bold" data-count="3,613"></h3>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="box-wrapper">
-                            <div class="info">
-                                <div><img src="img/info2.png" alt="info"></div>
-                                <div class="table-wrapper">
-                                    <table cellpadding="0" cellspacing="0" border="0" class="table">
-                                        <thead>
-                                            <tr>
-                                                <th>Authority</th>
-                                                <th>URL</th>
-                                                <th>Source Page Title</th>
-                                                <th>Anchor text</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>98</td>
-                                                <td>
-                                                    <a href="#"
-                                                        class="hov-dec-u backlink">sites.google.com/a/irakasleak.cebanc.com/experienciaprofesional_ijm/marketing_digital</a>
-                                                </td>
-                                                <td>xml sitemap | WordPress.org </td>
-                                                <td>http://seochecker.com/</td>
-                                            </tr>
-                                            <tr>
-                                                <td>98</td>
-                                                <td>
-                                                    <a href="#"
-                                                        class="hov-dec-u backlink">sites.google.com/a/irakasleak.cebanc.com/experienciaprofesional_ijm/marketing_digital</a>
-                                                </td>
-                                                <td>xml sitemap | WordPress.org </td>
-                                                <td>http://seochecker.com/</td>
-                                            </tr>
-                                            <tr>
-                                                <td>98</td>
-                                                <td>
-                                                    <a href="#"
-                                                        class="hov-dec-u backlink">sites.google.com/a/irakasleak.cebanc.com/experienciaprofesional_ijm/marketing_digital</a>
-                                                </td>
-                                                <td>xml sitemap | WordPress.org </td>
-                                                <td>http://seochecker.com/</td>
-                                            </tr>
-                                            <tr>
-                                                <td>98</td>
-                                                <td>
-                                                    <a href="#"
-                                                        class="hov-dec-u backlink">sites.google.com/a/irakasleak.cebanc.com/experienciaprofesional_ijm/marketing_digital</a>
-                                                </td>
-                                                <td>xml sitemap | WordPress.org </td>
-                                                <td>http://seochecker.com/</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <hr class="section-line">
-
-                <div class="item py-3" id="pl">
-                    <div class="item-header">
-                        <div class="item-num item-num-green">
-                            <p>10</p>
-                        </div>
-                        <div class="item-title">
-                            <h3>On Page Links</h3>
-                            <div>
-                                <div class="item-section">Seo</div>
-                                <img data-title="Title Here" data-info="Info Here" class="question" src="img/info.png"
-                                    alt="Info">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item-body myt-2">
-                        <div class="box-wrapper">
-                            <div class="answer">
-                                <div><img src="img/success.png" alt="Check"></div>
-                                <div>
-                                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quia aperiam quam
-                                        delectus libero corrupti veniam.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="box-wrapper">
-                            <div class="danger">
-                                <div><img src="img/err.png" alt="err"></div>
-                                <div>
-                                    <p>Example.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <hr class="section-line">
-                <div class="item py-3" id="bl">
-                    <div class="item-header">
-                        <div class="item-num item-num-green">
-                            <p>10</p>
-                        </div>
-                        <div class="item-title">
-                            <h3>Broken Links</h3>
-                            <div>
-                                <div class="item-section">Seo</div>
-                                <img data-title="Title Here" data-info="Info Here" class="question" src="img/info.png"
-                                    alt="Info">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item-body myt-2">
-                        <div class="box-wrapper">
-                            <div class="answer">
-                                <div><img src="img/success.png" alt="Check"></div>
-                                <div>
-                                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quia aperiam quam
-                                        delectus libero corrupti veniam.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="box-wrapper">
-                            <div class="danger">
-                                <div><img src="img/err.png" alt="err"></div>
-                                <div>
-                                    <p>Example.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <hr class="section-line">
-
-                <div class="item py-3" id="friendly">
-                    <div class="item-header">
-                        <div class="item-num item-num-green">
-                            <p>10</p>
-                        </div>
-                        <div class="item-title">
-                            <h3>Friendly URLs</h3>
-                            <div>
-                                <div class="item-section">Seo</div>
-                                <img data-title="Title Here" data-info="Info Here" class="question" src="img/info.png"
-                                    alt="Info">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item-body myt-2">
-                        <div class="box-wrapper">
-                            <div class="answer">
-                                <div><img src="img/success.png" alt="Check"></div>
-                                <div>
-                                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quia aperiam quam
-                                        delectus libero corrupti veniam.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="box-wrapper">
-                            <div class="danger">
-                                <div><img src="img/err.png" alt="err"></div>
-                                <div>
-                                    <p>Example.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <hr class="section-line">
-
-                <div class="item py-3" id="it">
-                    <div class="item-header">
-                        <div class="item-num item-num-green">
-                            <p>10</p>
-                        </div>
-                        <div class="item-title">
-                            <h3>No Index Tags</h3>
-                            <div>
-                                <div class="item-section">Seo</div>
-                                <img data-title="Title Here" data-info="Info Here" class="question" src="img/info.png"
-                                    alt="Info">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item-body myt-2">
-                        <div class="box-wrapper">
-                            <div class="answer">
-                                <div><img src="img/success.png" alt="Check"></div>
-                                <div>
-                                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quia aperiam quam
-                                        delectus libero corrupti veniam.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="box-wrapper">
-                            <div class="danger">
-                                <div><img src="img/err.png" alt="err"></div>
-                                <div>
-                                    <p>Example.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <hr class="section-line">
-
-                <div class="item py-3" id="ih">
-                    <div class="item-header">
-                        <div class="item-num item-num-green">
-                            <p>10</p>
-                        </div>
-                        <div class="item-title">
-                            <h3>No Index Headers</h3>
-                            <div>
-                                <div class="item-section">Seo</div>
-                                <img data-title="Title Here" data-info="Info Here" class="question" src="img/info.png"
-                                    alt="Info">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item-body myt-2">
-                        <div class="box-wrapper">
-                            <div class="answer">
-                                <div><img src="img/success.png" alt="Check"></div>
-                                <div>
-                                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quia aperiam quam
-                                        delectus libero corrupti veniam.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="box-wrapper">
-                            <div class="danger">
-                                <div><img src="img/err.png" alt="err"></div>
-                                <div>
-                                    <p>Example.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <hr class="section-line">
-
-                <div class="item py-3" id="robotsTxt">
-                    <div class="item-header">
-                        <div class="item-num item-num-green">
-                            <p>10</p>
-                        </div>
-                        <div class="item-title">
-                            <h3>robotsTxt</h3>
-                            <div>
-                                <div class="item-section">Seo</div>
-                                <img data-title="Title Here" data-info="Info Here" class="question" src="img/info.png"
-                                    alt="Info">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item-body myt-2">
-                        <div class="box-wrapper">
-                            <div class="answer">
-                                <div><img src="img/success.png" alt="Check"></div>
-                                <div>
-                                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quia aperiam quam
-                                        delectus libero corrupti veniam.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="box-wrapper">
-                            <div class="info">
-                                <div><img src="img/info2.png" alt="err"></div>
-                                <div>
-                                    <p><a href="#" class="hov-dec-u">Does the link go here?</a></p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <hr class="section-line">
-
-                <div class="item py-3" id="sitemap">
-                    <div class="item-header">
-                        <div class="item-num item-num-green">
-                            <p>10</p>
-                        </div>
-                        <div class="item-title">
-                            <h3>Sitemap</h3>
-                            <div>
-                                <div class="item-section">Seo</div>
-                                <img data-title="Title Here" data-info="Info Here" class="question" src="img/info.png"
-                                    alt="Info">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item-body myt-2">
-                        <div class="box-wrapper">
-                            <div class="answer">
-                                <div><img src="img/success.png" alt="Check"></div>
-                                <div>
-                                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quia aperiam quam
-                                        delectus libero corrupti veniam.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="box-wrapper">
-                            <div class="info">
-                                <div><img src="img/info2.png" alt="err"></div>
-                                <div>
-                                    <p><a href="#" class="hov-dec-u">Does the link go here?</a></p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <hr class="section-line">
-
-                <div class="item py-3" id="analytics">
-                    <div class="item-header">
-                        <div class="item-num item-num-green">
-                            <p>10</p>
-                        </div>
-                        <div class="item-title">
-                            <h3>Analytics</h3>
-                            <div>
-                                <div class="item-section">Seo</div>
-                                <img data-title="Title Here" data-info="Info Here" class="question" src="img/info.png"
-                                    alt="Info">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item-body myt-2">
-                        <div class="box-wrapper">
-                            <div class="answer">
-                                <div><img src="img/success.png" alt="Check"></div>
-                                <div>
-                                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quia aperiam quam
-                                        delectus libero corrupti veniam.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="box-wrapper">
-                            <div class="info">
-                                <div><img src="img/info2.png" alt="err"></div>
-                                <div>
-                                    <p><a href="#" class="hov-dec-u">Does the link go here?</a></p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <hr class="section-line">
-
-                <div class="item py-3" id="schema">
-                    <div class="item-header">
-                        <div class="item-num item-num-green">
-                            <p>10</p>
-                        </div>
-                        <div class="item-title">
-                            <h3>Schema.org</h3>
-                            <div>
-                                <div class="item-section">Seo</div>
-                                <img data-title="Title Here" data-info="Info Here" class="question" src="img/info.png"
-                                    alt="Info">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item-body myt-2">
-                        <div class="box-wrapper">
-                            <div class="answer">
-                                <div><img src="img/success.png" alt="Check"></div>
-                                <div>
-                                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quia aperiam quam
-                                        delectus libero corrupti veniam.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="box-wrapper">
-                            <div class="danger">
-                                <div><img src="img/err.png" alt="err"></div>
-                                <div>
-                                    <p>Example.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                {{#each reportData.data.seoSection.subSections}}
+                    {{#ifeq this.isBlurred true}}
+                        {{> blurred-subsection}}
+                    {{else ifeq this.key 'headers'}}
+                        {{> header-subsection}}
+                    {{else ifeq this.key 'keywords'}}
+                        {{> keywords-subsection}}
+                    {{else ifeq this.key 'onPageLinks'}}
+                        {{> on-page-subsection}}
+                    {{else ifeq this.passed null}}
+                    
+                    {{else}}
+                        {{> default-seo-subsection}}
+                    {{/ifeq}}
+                {{/each}}
             </section>
             <div class="section-title myt-2 t-center py-1 px-1">
                 <h2>Usability</h2>
@@ -1333,344 +427,34 @@
             <section class="section-body px-3 myt-2 section-wrapper" id="usability" data-section="usability">
                 <div class="section-average py-3">
                     <div class="single-chart">
-                        <svg viewBox="0 0 36 36" class="circular-chart green">
+                        <svg viewBox="0 0 36 36" class="circular-chart {{reportData.data.seoSection.colorClass}}">
                             <path class="circle-bg" d="M18 2.0845
                     a 15.9155 15.9155 0 0 1 0 31.831
                     a 15.9155 15.9155 0 0 1 0 -31.831"></path>
                             <path class="circle" stroke-dasharray="100, 100" d="M18 2.0845
                     a 15.9155 15.9155 0 0 1 0 31.831
                     a 15.9155 15.9155 0 0 1 0 -31.831"></path>
-                            <text x="18" y="20.35" class="percentage">A+</text>
+                            <text x="18" y="20.35" class="percentage">{{reportData.data.uiSection.friendlyComputedScore}}</text>
                         </svg>
                     </div>
                     <div>
-                        <h4>Your usability is very good!</h4>
-                        <p class="c-g">Your page is highly usable across devices. Usability is important to maximize
-                            your available audience and minimize user bounce rates (which can indirectly affect your
-                            search engine rankings).</p>
+                        <h4>
+                            {{reportData.data.uiSection.title}}
+                        </h4>
+                        <p class="c-g">
+                            {{reportData.data.uiSection.description}}
+                        </p>
                     </div>
                 </div>
-                <hr class="section-line">
-                <div class="item py-3" id="device">
-                    <div class="item-header">
-                        <div class="item-num item-num-green">
-                            <p>10</p>
-                        </div>
-                        <div class="item-title">
-                            <h3>Device Rendering</h3>
-                            <div>
-                                <div class="item-section">Usability</div>
-                                <img data-title="Title Here" data-info="Info Here" class="question" src="img/info.png"
-                                    alt="Info">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item-body myt-2">
-                        <div class="box-wrapper">
-                            <div class="answer">
-                                <div><img src="img/success.png" alt="Check"></div>
-                                <div>
-                                    <p>Your page is using Schema.org structured data.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="g-1-1">
-                            <div class="box-device">
-                                <div>
-                                    <p class="my-1">Mobile</p>
-                                    <div class="mobile-wrapper">
-                                        <div class="mobile">
-                                            <img src="img/mobile.jpg" alt="mobile">
-                                        </div>
-                                        <img class="mxh-375" src="img/mobile.png" alt="mobile">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="box-device">
-
-                                <div>
-                                    <p class="my-1">Tablet</p>
-                                    <div class="tablet-wrapper">
-                                        <div class="tablet">
-                                            <img src="img/tablet.jpg" alt="tablet">
-                                        </div>
-                                        <img class="mxh-375" src="img/tablet.png" alt="tablet">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="box-wrapper">
-                            <div class="danger">
-                                <div><img src="img/err.png" alt="err"></div>
-                                <div>
-                                    <p>Example.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <hr class="section-line">
-                <div class="item py-3" id="viewports">
-                    <div class="item-header">
-                        <div class="item-num item-num-green">
-                            <p>10</p>
-                        </div>
-                        <div class="item-title">
-                            <h3>Use of Mobile Viewports</h3>
-                            <div>
-                                <div class="item-section">Usability</div>
-                                <img data-title="Title Here" data-info="Info Here" class="question" src="img/info.png"
-                                    alt="Info">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item-body myt-2">
-                        <div class="box-wrapper">
-                            <div class="answer">
-                                <div><img src="img/success.png" alt="Check"></div>
-                                <div>
-                                    <p>Your page specifies a viewport matching the device's size, allowing it to render
-                                        appropriately across devices.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="box-wrapper">
-                            <div class="info">
-                                <div><img src="img/info2.png" alt="info"></div>
-                                <div>
-                                    <p>Example.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="box-wrapper">
-                            <div class="danger">
-                                <div><img src="img/err.png" alt="err"></div>
-                                <div>
-                                    <p>Example.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <hr class="section-line">
-                <div class="item py-3" id="flash">
-                    <div class="item-header">
-                        <div class="item-num item-num-green">
-                            <p>10</p>
-                        </div>
-                        <div class="item-title">
-                            <h3>Use of Flash</h3>
-                            <div>
-                                <div class="item-section">Usability</div>
-                                <img data-title="Title Here" data-info="Info Here" class="question" src="img/info.png"
-                                    alt="Info">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item-body myt-2">
-                        <div class="box-wrapper">
-                            <div class="answer">
-                                <div><img src="img/success.png" alt="Check"></div>
-                                <div>
-                                    <p>No Flash content has been identified on your page.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="box-wrapper">
-                            <div class="info">
-                                <div><img src="img/info2.png" alt="info"></div>
-                                <div>
-                                    <p>Example.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="box-wrapper">
-                            <div class="danger">
-                                <div><img src="img/err.png" alt="err"></div>
-                                <div>
-                                    <p>Example.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <hr class="section-line">
-                <div class="item py-3" id="iFrames">
-                    <div class="item-header">
-                        <div class="item-num item-num-green">
-                            <p>10</p>
-                        </div>
-                        <div class="item-title">
-                            <h3>iFrames Used?</h3>
-                            <div>
-                                <div class="item-section">Usability</div>
-                                <img data-title="Title Here" data-info="Info Here" class="question" src="img/info.png"
-                                    alt="Info">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item-body myt-2">
-                        <div class="box-wrapper">
-                            <div class="answer">
-                                <div><img src="img/success.png" alt="Check"></div>
-                                <div>
-                                    <p>There are no iFrames detected on your page.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="box-wrapper">
-                            <div class="info">
-                                <div><img src="img/info2.png" alt="info"></div>
-                                <div>
-                                    <p>Example.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="box-wrapper">
-                            <div class="danger">
-                                <div><img src="img/err.png" alt="err"></div>
-                                <div>
-                                    <p>Example.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <hr class="section-line">
-                <div class="item py-3" id="favicon">
-                    <div class="item-header">
-                        <div class="item-num item-num-green">
-                            <p>10</p>
-                        </div>
-                        <div class="item-title">
-                            <h3>Favicon</h3>
-                            <div>
-                                <div class="item-section">Usability</div>
-                                <img data-title="Title Here" data-info="Info Here" class="question" src="img/info.png"
-                                    alt="Info">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item-body myt-2">
-                        <div class="box-wrapper">
-                            <div class="answer">
-                                <div><img src="img/success.png" alt="Check"></div>
-                                <div>
-                                    <p>Your page has specified a favicon.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="box-wrapper">
-                            <div class="info">
-                                <div><img src="img/info2.png" alt="info"></div>
-                                <div>
-                                    <p>Example.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="box-wrapper">
-                            <div class="danger">
-                                <div><img src="img/err.png" alt="err"></div>
-                                <div>
-                                    <p>Example.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <hr class="section-line">
-                <div class="item py-3" id="font">
-                    <div class="item-header">
-                        <div class="item-num item-num-green">
-                            <p>10</p>
-                        </div>
-                        <div class="item-title">
-                            <h3>Legible Font Sizes</h3>
-                            <div>
-                                <div class="item-section">Usability</div>
-                                <img data-title="Title Here" data-info="Info Here" class="question" src="img/info.png"
-                                    alt="Info">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item-body myt-2">
-                        <div class="box-wrapper">
-                            <div class="answer">
-                                <div><img src="img/success.png" alt="Check"></div>
-                                <div>
-                                    <p>The text on your page appears to be legible across devices.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="box-wrapper">
-                            <div class="info">
-                                <div><img src="img/info2.png" alt="info"></div>
-                                <div>
-                                    <p>Example.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="box-wrapper">
-                            <div class="danger">
-                                <div><img src="img/err.png" alt="err"></div>
-                                <div>
-                                    <p>Example.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <hr class="section-line">
-                <div class="item py-3 blur" id="target">
-                    <div class="blur-content">
-                        <img src="img/logo.png" alt="logo">
-                        <h3 class="my-1">Get access to unlock premium data</h3>
-                        <div class="blur-buttons">
-                            <button class="color-b brd-b brd-r-5 py-0-5 px-1-5 d-i-b hov-c-w hov-bg-b">Log In</button>
-                            <button>Sign Up</button>
-                        </div>
-                    </div>
-                    <div class="item-header">
-                        <div class="item-num item-num-green">
-                            <p>10</p>
-                        </div>
-                        <div class="item-title">
-                            <h3>Tap Target Sizing</h3>
-                            <div>
-                                <div class="item-section">Usability</div>
-                                <img data-title="Title Here" data-info="Info Here" class="question" src="img/info.png"
-                                    alt="Info">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item-body myt-2">
-                        <div class="box-wrapper">
-                            <div class="answer">
-                                <div><img src="img/success.png" alt="Check"></div>
-                                <div>
-                                    <p>The links and buttons on your page appear to be appropriately sized for a user to
-                                        easily tap on a touchscreen.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="box-wrapper">
-                            <div class="info">
-                                <div><img src="img/info2.png" alt="info"></div>
-                                <div>
-                                    <p>Example.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="box-wrapper">
-                            <div class="danger">
-                                <div><img src="img/err.png" alt="err"></div>
-                                <div>
-                                    <p>Example.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                {{#each reportData.data.uiSection.subSections}}
+                    {{#ifeq this.isBlurred true}}
+                        {{> blurred-subsection}}
+                    {{else ifeq this.key 'deviceRendering'}}
+                        {{> device-rendering-subsection}}
+                    {{else}}
+                        {{> default-seo-subsection}}
+                    {{/ifeq}}
+                {{/each}}
             </section>
             <div class="section-title t-center py-1 px-1 myt-2">
                 <h2>Performance Results</h2>
@@ -1678,544 +462,40 @@
             <section class="section-body px-3 myt-2 section-wrapper" id="performance" data-section="performance">
                 <div class="section-average py-3">
                     <div class="single-chart">
-                        <svg viewBox="0 0 36 36" class="circular-chart green">
+                        <svg viewBox="0 0 36 36" class="circular-chart {{reportData.data.performanceSection.colorClass}}">
                             <path class="circle-bg" d="M18 2.0845
                     a 15.9155 15.9155 0 0 1 0 31.831
                     a 15.9155 15.9155 0 0 1 0 -31.831"></path>
                             <path class="circle" stroke-dasharray="100, 100" d="M18 2.0845
                     a 15.9155 15.9155 0 0 1 0 31.831
                     a 15.9155 15.9155 0 0 1 0 -31.831"></path>
-                            <text x="18" y="20.35" class="percentage">A+</text>
+                            <text x="18" y="20.35" class="percentage">{{reportData.data.performanceSection.friendlyComputedScore}}</text>
                         </svg>
                     </div>
                     <div>
-                        <h4>Your performance is very good!</h4>
-                        <p class="c-g">Congratulations, your page has performed very well in our testing meaning it
-                            should be reasonably fast and responsive for users. Performance is important to ensure a
-                            good user experience, and reduced bounce rates (which can also
-                            indirectly affect your search engine rankings). Continue to monitor your performance over
-                            time to ensure there are no periodic fluctuations.</p>
+                        <h4>
+                            {{reportData.data.performanceSection.title}}
+                        </h4>
+                        <p class="c-g">
+                            {{reportData.data.performanceSection.description}}
+                        </p>
                     </div>
                 </div>
-                <hr class="section-line">
-                <div class="item py-3" id="loading">
-                    <div class="item-header">
-                        <div class="item-num item-num-green">
-                            <p>10</p>
-                        </div>
-                        <div class="item-title">
-                            <h3>Loading times</h3>
-                            <div>
-                                <div class="item-section">Performance</div>
-                                <img data-title="Title Here" data-info="Info Here" class="question" src="img/info.png"
-                                    alt="Info">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item-body myt-2">
-                        <div class="box-wrapper">
-                            <div class="answer">
-                                <div><img src="img/success.png" alt="Check"></div>
-                                <div>
-                                    <p>Your page's server response time is reasonably low which is good for load speed
-                                        and user experience.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="g-1-1-1">
-                            <div class="info info-vertical">
-                                <div><img src="img/info2.png" alt="info"></div>
-                                <div>
-                                    <p class="my-1">Server Response Time</p>
-                                </div>
-                                <div>
-                                    <div class="f-c bold">
-                                        <h3 class="odometer bold" data-count="148"></h3>
-                                        <h3 class="bold">&nbsp;MS</h3>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="info info-vertical">
-                                <div><img src="img/info2.png" alt="info"></div>
-                                <div>
-                                    <p class="my-1">All Page Content Loaded</p>
-                                </div>
-                                <div>
-                                    <div class="f-c bold">
-                                        <h3 class="odometer bold" data-count="1,44"></h3>
-                                        <h3 class="bold">&nbsp;MS</h3>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="info info-vertical">
-                                <div><img src="img/info2.png" alt="info"></div>
-                                <div>
-                                    <p class="my-1">All Page Scripts Complete</p>
-                                </div>
-                                <div>
-                                    <div class="f-c bold">
-                                        <h3 class="odometer bold" data-count="3,613"></h3>
-                                        <h3 class="bold">&nbsp;MS</h3>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="box-wrapper">
-                            <div class="danger">
-                                <div><img src="img/err.png" alt="err"></div>
-                                <div>
-                                    <p>Example.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <hr class="section-line">
-                <div class="item py-3" id="size">
-                    <div class="item-header">
-                        <div class="item-num item-num-green">
-                            <p>10</p>
-                        </div>
-                        <div class="item-title">
-                            <h3>Page Size</h3>
-                            <div>
-                                <div class="item-section">Performance</div>
-                                <img data-title="Title Here" data-info="Info Here" class="question" src="img/info.png"
-                                    alt="Info">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item-body myt-2">
-                        <div class="box-wrapper">
-                            <div class="answer">
-                                <div><img src="img/success.png" alt="Check"></div>
-                                <div>
-                                    <p>Your page's file size is reasonably low which is good for Page Load Speed and
-                                        user experience.</p>
-                                </div>
-                            </div>
-                            <div class="g-1-1-1">
-                                <div class="info info-vertical">
-                                    <div><img src="img/info2.png" alt="info"></div>
-                                    <div>
-                                        <p class="my-1">Total Size</p>
-                                    </div>
-                                    <div>
-                                        <div class="f-c bold">
-                                            <h3 class="odometer bold" data-count="151,545"></h3>
-                                            <h3 class="bold">&nbsp;Bytes</h3>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="info info-vertical">
-                                    <div><img src="img/info2.png" alt="info"></div>
-                                    <div>
-                                        <p class="my-1">HTML Size</p>
-                                    </div>
-                                    <div class="f-c bold">
-                                        <h3 class="odometer bold" data-count="151,545"></h3>
-                                        <h3 class="bold">&nbsp;Bytes</h3>
-                                    </div>
-                                </div>
-                                <div class="info info-vertical">
-                                    <div><img src="img/info2.png" alt="info"></div>
-                                    <div>
-                                        <p class="my-1">Css Size</p>
-                                    </div>
-                                    <div class="f-c bold">
-                                        <h3 class="odometer bold" data-count="151,545"></h3>
-                                        <h3 class="bold">&nbsp;Bytes</h3>
-                                    </div>
-                                </div>
-                                <div class="info info-vertical">
-                                    <div><img src="img/info2.png" alt="info"></div>
-                                    <div>
-                                        <p class="my-1">Js Size</p>
-                                    </div>
-                                    <div class="f-c bold">
-                                        <h3 class="odometer bold" data-count="151,545"></h3>
-                                        <h3 class="bold">&nbsp;Bytes</h3>
-                                    </div>
-                                </div>
-                                <div class="info info-vertical">
-                                    <div><img src="img/info2.png" alt="info"></div>
-                                    <div>
-                                        <p class="my-1">Image Size</p>
-                                    </div>
-                                    <div class="f-c bold">
-                                        <h3 class="odometer bold" data-count="151,545"></h3>
-                                        <h3 class="bold">&nbsp;Bytes</h3>
-                                    </div>
-                                </div>
-                                <div class="info info-vertical">
-                                    <div><img src="img/info2.png" alt="info"></div>
-                                    <div>
-                                        <p class="my-1">Other Size</p>
-                                    </div>
-                                    <div class="f-c bold">
-                                        <h3 class="odometer bold" data-count="151,545"></h3>
-                                        <h3 class="bold">&nbsp;Bytes</h3>
-                                    </div>
-                                </div>
-
-                            </div>
-                            <div class="info">
-                                <div><img src="img/info2.png" alt="info"></div>
-                                <div>
-                                    <p class="my-1">Compare your page sizes with our charts.</p>
-                                </div>
-
-                            </div>
-                        </div>
-                        <div class="box-wrapper">
-                            <div class="danger">
-                                <div><img src="img/err.png" alt="err"></div>
-                                <div>
-                                    <p>Example.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <hr class="section-line">
-                <div class="item py-3" id="resources">
-                    <div class="item-header">
-                        <div class="item-num item-num-green">
-                            <p>10</p>
-                        </div>
-                        <div class="item-title">
-                            <h3>Number of Resources</h3>
-                            <div>
-                                <div class="item-section">Performance</div>
-                                <img data-title="Title Here" data-info="Info Here" class="question" src="img/info.png"
-                                    alt="Info">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item-body myt-2">
-                        <div class="box-wrapper">
-                            <div class="info">
-                                <div><img src="img/info2.png" alt="info"></div>
-                                <div>
-                                    <p>This check displays the total number of files that need to be retrieved from web
-                                        servers to load your page. As a general rule, having more files to retrieve
-                                        increases the number of server requests and can subsequently
-                                        increase page load time. It is a good idea to removing unnecessary files or
-                                        consolidate files like styles and scripts where possible.',</p>
-                                </div>
-                            </div>
-                            <div class="g-1-1-1">
-                                <div class="info info-vertical">
-                                    <div><img src="img/info2.png" alt="info"></div>
-                                    <div>
-                                        <p class="my-1">Total Objects</p>
-                                    </div>
-                                    <div class="bold">
-                                        <h3 class="odometer bold" data-count="151"></h3>
-                                    </div>
-                                </div>
-                                <div class="info info-vertical">
-                                    <div><img src="img/info2.png" alt="info"></div>
-                                    <div>
-                                        <p class="my-1">Number of HTML Pages</p>
-                                    </div>
-                                    <div class="bold">
-                                        <h3 class="odometer bold" data-count="151"></h3>
-                                    </div>
-                                </div>
-                                <div class="info info-vertical">
-                                    <div><img src="img/info2.png" alt="info"></div>
-                                    <div>
-                                        <p class="my-1">Number of JS Files</p>
-                                    </div>
-                                    <div class="bold">
-                                        <h3 class="odometer bold" data-count="151"></h3>
-                                    </div>
-                                </div>
-                                <div class="info info-vertical">
-                                    <div><img src="img/info2.png" alt="info"></div>
-                                    <div>
-                                        <p class="my-1">Number of Css Files</p>
-                                    </div>
-                                    <div class="bold">
-                                        <h3 class="odometer bold" data-count="151"></h3>
-                                    </div>
-                                </div>
-                                <div class="info info-vertical">
-                                    <div><img src="img/info2.png" alt="info"></div>
-                                    <div>
-                                        <p class="my-1">Number of Images</p>
-                                    </div>
-                                    <div class="bold">
-                                        <h3 class="odometer bold" data-count="151"></h3>
-                                    </div>
-                                </div>
-                                <div class="info info-vertical">
-                                    <div><img src="img/info2.png" alt="info"></div>
-                                    <div>
-                                        <p class="my-1">Other resources </p>
-                                    </div>
-                                    <div class="bold">
-                                        <h3 class="odometer bold" data-count="151"></h3>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="box-wrapper">
-                                <div class="danger">
-                                    <div><img src="img/err.png" alt="err"></div>
-                                    <div>
-                                        <p>Example.</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <hr class="section-line">
-                <div class="item py-3" id="errors">
-                    <div class="item-header">
-                        <div class="item-num item-num-green">
-                            <p>10</p>
-                        </div>
-                        <div class="item-title">
-                            <h3>JavaScript Errors</h3>
-                            <div>
-                                <div class="item-section">Performance</div>
-                                <img data-title="Title Here" data-info="Info Here" class="question" src="img/info.png"
-                                    alt="Info">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item-body myt-2">
-                        <div class="box-wrapper">
-                            <div class="answer">
-                                <div><img src="img/success.png" alt="Check"></div>
-                                <div>
-                                    <p>Your page is not reporting any JavaScript errors.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="box-wrapper">
-                            <div class="info">
-                                <div><img src="img/info2.png" alt="info"></div>
-                                <div>
-                                    <p>Example.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="box-wrapper">
-                            <div class="danger">
-                                <div><img src="img/err.png" alt="err"></div>
-                                <div>
-                                    <p>Example.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <hr class="section-line">
-                <div class="item py-3" id="gzip">
-                    <div class="item-header">
-                        <div class="item-num item-num-green">
-                            <p>10</p>
-                        </div>
-                        <div class="item-title">
-                            <h3>GZIP Compression</h3>
-                            <div>
-                                <div class="item-section">Performance</div>
-                                <img data-title="Title Here" data-info="Info Here" class="question" src="img/info.png"
-                                    alt="Info">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item-body myt-2">
-                        <div class="box-wrapper">
-                            <div class="answer">
-                                <div><img src="img/success.png" alt="Check"></div>
-                                <div>
-                                    <p>Your website is using GZIP compression.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="box-wrapper">
-                            <div class="info">
-                                <div><img src="img/info2.png" alt="info"></div>
-                                <div>
-                                    <p>Example.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="box-wrapper">
-                            <div class="danger">
-                                <div><img src="img/err.png" alt="err"></div>
-                                <div>
-                                    <p>Example.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <hr class="section-line">
-                <div class="item py-3" id="compression">
-                    <div class="item-header">
-                        <div class="item-num item-num-green">
-                            <p>10</p>
-                        </div>
-                        <div class="item-title">
-                            <h3>Optimize Images</h3>
-                            <div>
-                                <div class="item-section">Performance</div>
-                                <img data-title="Title Here" data-info="Info Here" class="question" src="img/info.png"
-                                    alt="Info">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item-body myt-2">
-                        <div class="box-wrapper">
-                            <div class="answer">
-                                <div><img src="img/success.png" alt="Check"></div>
-                                <div>
-                                    <p>All of the images on your page appear to be optimized.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="box-wrapper">
-                            <div class="info">
-                                <div><img src="img/info2.png" alt="info"></div>
-                                <div>
-                                    <p>Example.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="box-wrapper">
-                            <div class="danger">
-                                <div><img src="img/err.png" alt="err"></div>
-                                <div>
-                                    <p>Example.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <hr class="section-line">
-                <div class="item py-3" id="minification">
-                    <div class="item-header">
-                        <div class="item-num item-num-green">
-                            <p>10</p>
-                        </div>
-                        <div class="item-title">
-                            <h3>Minification</h3>
-                            <div>
-                                <div class="item-section">Performance</div>
-                                <img data-title="Title Here" data-info="Info Here" class="question" src="img/info.png"
-                                    alt="Info">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item-body myt-2">
-                        <div class="box-wrapper">
-                            <div class="answer">
-                                <div><img src="img/success.png" alt="Check"></div>
-                                <div>
-                                    <p>All your JavaScript and CSS files appear to be minified.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="box-wrapper">
-                            <div class="info">
-                                <div><img src="img/info2.png" alt="info"></div>
-                                <div>
-                                    <p>Example.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="box-wrapper">
-                            <div class="danger">
-                                <div><img src="img/err.png" alt="err"></div>
-                                <div>
-                                    <p>Example.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <hr class="section-line">
-                <div class="item py-3" id="deprecated">
-                    <div class="item-header">
-                        <div class="item-num item-num-green">
-                            <p>10</p>
-                        </div>
-                        <div class="item-title">
-                            <h3>Deprecated HTML</h3>
-                            <div>
-                                <div class="item-section">Performance</div>
-                                <img data-title="Title Here" data-info="Info Here" class="question" src="img/info.png"
-                                    alt="Info">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item-body myt-2">
-                        <div class="box-wrapper">
-                            <div class="answer">
-                                <div><img src="img/success.png" alt="Check"></div>
-                                <div>
-                                    <p>No deprecated HTML tags have been found within your page.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="box-wrapper">
-                            <div class="info">
-                                <div><img src="img/info2.png" alt="info"></div>
-                                <div>
-                                    <p>Example.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="box-wrapper">
-                            <div class="danger">
-                                <div><img src="img/err.png" alt="err"></div>
-                                <div>
-                                    <p>Example.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <hr class="section-line">
-                <div class="item py-3" id="inline">
-                    <div class="item-header">
-                        <div class="item-num item-num-green">
-                            <p>10</p>
-                        </div>
-                        <div class="item-title">
-                            <h3>Inline Styles</h3>
-                            <div>
-                                <div class="item-section">Performance</div>
-                                <img data-title="Title Here" data-info="Info Here" class="question" src="img/info.png"
-                                    alt="Info">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item-body myt-2">
-                        <div class="box-wrapper">
-                            <div class="danger">
-                                <div><img src="img/err.png" alt="err"></div>
-                                <div>
-                                    <p>Inline styles found</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="box-wrapper">
-                            <div class="danger">
-                                <div><img src="img/err.png" alt="err"></div>
-                                <div>
-                                    <p>Remove inline styles</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                {{#each reportData.data.performanceSection.subSections}}
+                    {{#ifeq this.isBlurred true}}
+                        {{> blurred-subsection}}
+                    {{else ifeq this.key 'serverResponseTime'}}
+                        {{> response-time-subsection}}
+                    {{else ifeq this.key 'pageSize'}}
+                        {{> page-size-subsection}}
+                    {{else ifeq this.key 'numberOfResources'}}
+                        {{> resource-number-subsection}}
+                    {{else ifeq this.passed null}}
+                    
+                    {{else}}
+                        {{> default-seo-subsection}}
+                    {{/ifeq}}
+                {{/each}}
             </section>
             <div class="section-title t-center py-1 px-1 myt-2">
                 <h2>Social Results</h2>
@@ -2223,434 +503,36 @@
             <section class="section-body px-3 myt-2 section-wrapper" id="social" data-section="social">
                 <div class="section-average py-3">
                     <div class="single-chart">
-                        <svg viewBox="0 0 36 36" class="circular-chart green">
+                        <svg viewBox="0 0 36 36" class="circular-chart {{reportData.data.socialSection.colorClass}}">
                             <path class="circle-bg" d="M18 2.0845
                 a 15.9155 15.9155 0 0 1 0 31.831
                 a 15.9155 15.9155 0 0 1 0 -31.831"></path>
                             <path class="circle" stroke-dasharray="100, 100" d="M18 2.0845
                 a 15.9155 15.9155 0 0 1 0 31.831
                 a 15.9155 15.9155 0 0 1 0 -31.831"></path>
-                            <text x="18" y="20.35" class="percentage">A+</text>
+                            <text x="18" y="20.35" class="percentage">{{reportData.data.socialSection.friendlyComputedScore}}</text>
                         </svg>
                     </div>
                     <div>
-                        <h4>Your social is good!</h4>
-                        <p class="c-g">You have a reasonably good social presence. Social activity is important for
-                            customer communication, brand awareness and as a marketing channel to bring more visitors to
-                            your website. We recommend that you have all of your profiles
-                            listed on your page, and work to build a larger following on those networks.</p>
+                        <h4>{{reportData.data.socialSection.title}}</h4>
+                        <p class="c-g">
+                            {{reportData.data.socialSection.description}}
+                        </p>
                     </div>
                 </div>
-                <hr class="section-line">
-                <div class="item py-3" id="fc">
-                    <div class="item-header">
-                        <div class="item-num item-num-green">
-                            <p>10</p>
-                        </div>
-                        <div class="item-title">
-                            <h3>Facebook Connected</h3>
-                            <div>
-                                <div class="item-section">Social</div>
-                                <img data-title="Title Here" data-info="Info Here" class="question" src="img/info.png"
-                                    alt="Info">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item-body myt-2">
-                        <div class="box-wrapper">
-                            <div class="answer">
-                                <div><img src="img/success.png" alt="Check"></div>
-                                <div>
-                                    <p>Your page has a link to a Facebook Page.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="box-wrapper">
-                            <div class="danger">
-                                <div><img src="img/err.png" alt="err"></div>
-                                <div>
-                                    <p>Example.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <hr class="section-line">
-                <div class="item py-3" id="fp">
-                    <div class="item-header">
-                        <div class="item-num item-num-green">
-                            <p>10</p>
-                        </div>
-                        <div class="item-title">
-                            <h3>Facebook Pixel</h3>
-                            <div>
-                                <div class="item-section">Performance</div>
-                                <img data-title="Title Here" data-info="Info Here" class="question" src="img/info.png"
-                                    alt="Info">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item-body myt-2">
-                        <div class="box-wrapper">
-                            <div class="danger">
-                                <div><img src="img/err.png" alt="err"></div>
-                                <div>
-                                    <p>No Facebook Pixel</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="box-wrapper">
-                            <div class="danger">
-                                <div><img src="img/err.png" alt="err"></div>
-                                <div>
-                                    <p>Setup & Install a Facebook Pixel</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <hr class="section-line">
-                <div class="item py-3" id="tc">
-                    <div class="item-header">
-                        <div class="item-num item-num-green">
-                            <p>10</p>
-                        </div>
-                        <div class="item-title">
-                            <h3>Twitter Connected</h3>
-                            <div>
-                                <div class="item-section">Performance</div>
-                                <img data-title="Title Here" data-info="Info Here" class="question" src="img/info.png"
-                                    alt="Info">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item-body myt-2">
-                        <div class="box-wrapper">
-                            <div class="answer">
-                                <div><img src="img/success.png" alt="Check"></div>
-                                <div>
-                                    <p>Your page has a link to a Twitter profile.</p>
-                                </div>
-                            </div>
-
-                        </div>
-                        <div class="box-wrapper">
-                            <div class="danger">
-                                <div><img src="img/err.png" alt="err"></div>
-                                <div>
-                                    <p>Example.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <hr class="section-line">
-                <div class="item py-3" id="tt">
-                    <div class="item-header">
-                        <div class="item-num item-num-green">
-                            <p>10</p>
-                        </div>
-                        <div class="item-title">
-                            <h3>Twitter Tags</h3>
-                            <div>
-                                <div class="item-section">Performance</div>
-                                <img data-title="Title Here" data-info="Info Here" class="question" src="img/info.png"
-                                    alt="Info">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item-body myt-2">
-                        <div class="box-wrapper">
-                            <div class="answer">
-                                <div><img src="img/success.png" alt="Check"></div>
-                                <div>
-                                    <p>Your page is using Twitter Cards.</p>
-                                </div>
-                                <div>
-                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt dolore placeat fuga
-                                        obcaecati, iste quam?</p>
-                                </div>
-
-                            </div>
-                        </div>
-                        <div class="g-1-1-1-1">
-                            <div class="info info-vertical">
-                                <div><img src="img/info2.png" alt="info"></div>
-                                <div>
-                                    <p class="my-1">Twitter Card</p>
-                                </div>
-                                <div>
-                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt dolore placeat fuga
-                                        obcaecati, iste quam?</p>
-                                </div>
-                            </div>
-                            <div class="info info-vertical">
-                                <div><img src="img/info2.png" alt="info"></div>
-                                <div>
-                                    <p class="my-1">Twitter Site</p>
-                                </div>
-                                <div>
-                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt dolore placeat fuga
-                                        obcaecati, iste quam?</p>
-                                </div>
-                            </div>
-                            <div class="info info-vertical">
-                                <div><img src="img/info2.png" alt="info"></div>
-                                <div>
-                                    <p class="my-1">Twitter Title</p>
-                                </div>
-                                <div>
-                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt dolore placeat fuga
-                                        obcaecati, iste quam?</p>
-                                </div>
-                            </div>
-                            <div class="info info-vertical">
-                                <div><img src="img/info2.png" alt="info"></div>
-                                <div>
-                                    <p class="my-1">Twitter Description</p>
-                                </div>
-                                <div>
-                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt dolore placeat fuga
-                                        obcaecati, iste quam?</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <hr class="section-line">
-                <div class="item py-3" id="ta">
-                    <div class="item-header">
-                        <div class="item-num item-num-green">
-                            <p>10</p>
-                        </div>
-                        <div class="item-title">
-                            <h3>Twitter Activity</h3>
-                            <div>
-                                <div class="item-section">Performance</div>
-                                <img data-title="Title Here" data-info="Info Here" class="question" src="img/info.png"
-                                    alt="Info">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item-body myt-2">
-                        <div class="box-wrapper">
-                            <div class="answer">
-                                <div><img src="img/success.png" alt="Check"></div>
-                                <div>
-                                    <p>You have a strong following on Twitter.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="box-wrapper">
-                            <div class="info">
-                                <div><img src="img/info2.png" alt="info"></div>
-                                <div>
-                                    <p>Followers: 346148</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <hr class="section-line">
-                <div class="item py-3" id="il">
-                    <div class="item-header">
-                        <div class="item-num item-num-green">
-                            <p>10</p>
-                        </div>
-                        <div class="item-title">
-                            <h3>Instagram Link</h3>
-                            <div>
-                                <div class="item-section">Performance</div>
-                                <img data-title="Title Here" data-info="Info Here" class="question" src="img/info.png"
-                                    alt="Info">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item-body myt-2">
-                        <div class="box-wrapper">
-                            <div class="answer">
-                                <div><img src="img/success.png" alt="Check"></div>
-                                <div>
-                                    <p>Your page has a link to an Instagram profile.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="box-wrapper">
-                            <div class="info">
-                                <div><img src="img/info2.png" alt="info"></div>
-                                <div>
-                                    <p>Example.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="box-wrapper">
-                            <div class="danger">
-                                <div><img src="img/err.png" alt="err"></div>
-                                <div>
-                                    <p>Example.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <hr class="section-line">
-                <div class="item py-3" id="yl">
-                    <div class="item-header">
-                        <div class="item-num item-num-green">
-                            <p>10</p>
-                        </div>
-                        <div class="item-title">
-                            <h3>Youtube Links</h3>
-                            <div>
-                                <div class="item-section">Performance</div>
-                                <img data-title="Title Here" data-info="Info Here" class="question" src="img/info.png"
-                                    alt="Info">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item-body myt-2">
-                        <div class="box-wrapper">
-                            <div class="answer">
-                                <div><img src="img/success.png" alt="Check"></div>
-                                <div>
-                                    <p>Your page has a link to a YouTube channel.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="box-wrapper">
-                            <div class="info">
-                                <div><img src="img/info2.png" alt="info"></div>
-                                <div>
-                                    <p>Example.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="box-wrapper">
-                            <div class="danger">
-                                <div><img src="img/err.png" alt="err"></div>
-                                <div>
-                                    <p>Example.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <hr class="section-line">
-                <div class="item py-3" id="ya">
-                    <div class="item-header">
-                        <div class="item-num item-num-green">
-                            <p>10</p>
-                        </div>
-                        <div class="item-title">
-                            <h3>Youtube Activity</h3>
-                            <div>
-                                <div class="item-section">Performance</div>
-                                <img data-title="Title Here" data-info="Info Here" class="question" src="img/info.png"
-                                    alt="Info">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item-body myt-2">
-                        <div class="box-wrapper">
-                            <div class="answer">
-                                <div><img src="img/success.png" alt="Check"></div>
-                                <div>
-                                    <p>You have a good number of YouTube channel subscribers</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="g-1-1">
-                            <div class="info info-vertical">
-                                <div><img src="img/info2.png" alt="info"></div>
-                                <div>
-                                    <p class="my-1">Subscribers</p>
-                                </div>
-                                <div class="bold">
-                                    <h3 class="odometer bold" data-count="151"></h3>
-                                </div>
-                            </div>
-                            <div class="info info-vertical">
-                                <div><img src="img/info2.png" alt="info"></div>
-                                <div>
-                                    <p class="my-1">Views</p>
-                                </div>
-                                <div class="bold">
-                                    <h3 class="odometer bold" data-count="151"></h3>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <hr class="section-line">
-                <div class="item py-3" id="lc">
-                    <div class="item-header">
-                        <div class="item-num item-num-green">
-                            <p>10</p>
-                        </div>
-                        <div class="item-title">
-                            <h3>LinkedIn Connected</h3>
-                            <div>
-                                <div class="item-section">Social</div>
-                                <img data-title="Title Here" data-info="Info Here" class="question" src="img/info.png"
-                                    alt="Info">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item-body myt-2">
-                        <div class="box-wrapper">
-                            <div class="answer">
-                                <div><img src="img/success.png"></div>
-                                <div>
-                                    <p>Your page has a link to a LinkedIn profile.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="box-wrapper">
-                            <div class="danger">
-                                <div><img src="img/err.png" alt="err"></div>
-                                <div>
-                                    <p>Example.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <hr class="section-line">
-                <div class="item py-3" id="fogt">
-                    <div class="item-header">
-                        <div class="item-num item-num-green">
-                            <p>10</p>
-                        </div>
-                        <div class="item-title">
-                            <h3>Facebook Open Graph Tags</h3>
-                            <div>
-                                <div class="item-section">Social</div>
-                                <img data-title="Title Here" data-info="Info Here" class="question" src="img/info.png"
-                                    alt="Info">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item-body myt-2">
-                        <div class="box-wrapper">
-                            <div class="answer">
-                                <div><img src="img/success.png"></div>
-                                <div>
-                                    <p>Your page is using Facebook Open Graph Tags</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="box-wrapper">
-                            <div class="danger">
-                                <div><img src="img/err.png" alt="err"></div>
-                                <div>
-                                    <p>Example.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                {{#each reportData.data.socialSection.subSections}}
+                    {{#ifeq this.isBlurred true}}
+                        {{> blurred-subsection}}
+                    {{else ifeq this.key 'twitterTags'}}
+                        {{> twitter-tags-subsection}}
+                    {{else ifeq this.key 'twitterActivity'}}
+                        {{> twitter-follower-subsection}}
+                    {{else ifeq this.passed null}}
+                    
+                    {{else}}
+                        {{> default-seo-subsection}}
+                    {{/ifeq}}
+                {{/each}}
             </section>
             <div class="section-title t-center py-1 px-1 myt-2">
                 <h2>Security</h2>
@@ -2658,461 +540,78 @@
             <section class="section-body px-3 myt-2 section-wrapper" id="security" data-section="security">
                 <div class="section-average py-3">
                     <div class="single-chart">
-                        <svg viewBox="0 0 36 36" class="circular-chart green">
+                        <svg viewBox="0 0 36 36" class="circular-chart {{reportData.data.securitySection.colorClass}}">
                             <path class="circle-bg" d="M18 2.0845
                     a 15.9155 15.9155 0 0 1 0 31.831
                     a 15.9155 15.9155 0 0 1 0 -31.831"></path>
                             <path class="circle" stroke-dasharray="100, 100" d="M18 2.0845
                     a 15.9155 15.9155 0 0 1 0 31.831
                     a 15.9155 15.9155 0 0 1 0 -31.831"></path>
-                            <text x="18" y="20.35" class="percentage">A+</text>
+                            <text x="18" y="20.35" class="percentage">{{reportData.data.securitySection.friendlyComputedScore}}</text>
                         </svg>
                     </div>
                     <div>
-                        <h4>Your secutity is good!</h4>
-                        <p class="c-g">We haven't identified obvious security problems on your website. Security is
-                            important to ensure your website protects user data, doesn't become compromised or
-                            experience downtime or data loss. We recommend ongoing patching and
-                            the continuous use of protective monitoring tools.</p>
+                        <h4>{{reportData.data.securitySection.title}}</h4>
+                        <p class="c-g">
+                            {{reportData.data.securitySection.description}}
+                        </p>
                     </div>
                 </div>
-                <hr class="section-line">
-                <div class="item py-3" id="ssl">
-                    <div class="item-header">
-                        <div class="item-num item-num-green">
-                            <p>10</p>
-                        </div>
-                        <div class="item-title">
-                            <h3>ssl Enabled</h3>
-                            <div>
-                                <div class="item-section">Security</div>
-                                <img data-title="Title Here" data-info="Info Here" class="question" src="img/info.png"
-                                    alt="Info">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item-body myt-2">
-                        <div class="box-wrapper">
-                            <div class="answer">
-                                <div><img src="img/success.png" alt="Check"></div>
-                                <div>
-                                    <p>Your page has a link to a Facebook Page.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="box-wrapper">
-                            <div class="danger">
-                                <div><img src="img/err.png" alt="err"></div>
-                                <div>
-                                    <p>Example.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <hr class="section-line">
-                <div class="item py-3" id="https">
-                    <div class="item-header">
-                        <div class="item-num item-num-green">
-                            <p>10</p>
-                        </div>
-                        <div class="item-title">
-                            <h3>https Redirect</h3>
-                            <div>
-                                <div class="item-section">Security</div>
-                                <img data-title="Title Here" data-info="Info Here" class="question" src="img/info.png"
-                                    alt="Info">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item-body myt-2">
-                        <div class="box-wrapper">
-                            <div class="danger">
-                                <div><img src="img/err.png" alt="err"></div>
-                                <div>
-                                    <p>No Facebook Pixel</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="box-wrapper">
-                            <div class="danger">
-                                <div><img src="img/err.png" alt="err"></div>
-                                <div>
-                                    <p>Setup & Install a Facebook Pixel</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <hr class="section-line">
-                <div class="item py-3" id="malware">
-                    <div class="item-header">
-                        <div class="item-num item-num-green">
-                            <p>10</p>
-                        </div>
-                        <div class="item-title">
-                            <h3>Malware</h3>
-                            <div>
-                                <div class="item-section">Social</div>
-                                <img data-title="Title Here" data-info="Info Here" class="question" src="img/info.png"
-                                    alt="Info">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item-body myt-2">
-                        <div class="box-wrapper">
-                            <div class="answer">
-                                <div><img src="img/success.png" alt="Check"></div>
-                                <div>
-                                    <p>Your page has a link to a Twitter profile.</p>
-                                </div>
-                            </div>
-
-                        </div>
-                        <div class="g-1-1-1-1">
-                            <div class="info info-vertical">
-                                <div><img src="img/info2.png" alt="info"></div>
-                                <div>
-                                    <p class="my-1">Google</p>
-                                </div>
-                                <div>
-                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt dolore placeat fuga
-                                        obcaecati, iste quam?</p>
-                                </div>
-                            </div>
-                            <div class="info info-vertical">
-                                <div><img src="img/info2.png" alt="info"></div>
-                                <div>
-                                    <p class="my-1">McAfee</p>
-                                </div>
-                                <div>
-                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt dolore placeat fuga
-                                        obcaecati, iste quam?</p>
-                                </div>
-                            </div>
-                            <div class="info info-vertical">
-                                <div><img src="img/info2.png" alt="info"></div>
-                                <div>
-                                    <p class="my-1">Norton</p>
-                                </div>
-                                <div>
-                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt dolore placeat fuga
-                                        obcaecati, iste quam?</p>
-                                </div>
-                            </div>
-                            <div class="info info-vertical">
-                                <div><img src="img/info2.png" alt="info"></div>
-                                <div>
-                                    <p class="my-1">Avg</p>
-                                </div>
-                                <div>
-                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt dolore placeat fuga
-                                        obcaecati, iste quam?</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <hr class="section-line">
-                <div class="item py-3" id="email">
-                    <div class="item-header">
-                        <div class="item-num item-num-green">
-                            <p>10</p>
-                        </div>
-                        <div class="item-title">
-                            <h3>E-mail</h3>
-                            <div>
-                                <div class="item-section">Security</div>
-                                <img data-title="Title Here" data-info="Info Here" class="question" src="img/info.png"
-                                    alt="Info">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item-body myt-2">
-                        <div class="box-wrapper">
-                            <div class="answer">
-                                <div><img src="img/success.png" alt="Check"></div>
-                                <div>
-                                    <p>Your page is using Twitter Cards.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                {{#each reportData.data.securitySection.subSections}}
+                    {{#ifeq this.isBlurred true}}
+                        {{> blurred-subsection}}
+                    {{else ifeq this.key 'malware'}}
+                        {{> malware-subsection}}
+                    {{else ifeq this.passed null}}
+                    
+                    {{else}}
+                        {{> default-seo-subsection}}
+                    {{/ifeq}}
+                {{/each}}
             </section>
             <div class="section-title t-center py-1 px-1 myt-2">
                 <h2>Technology</h2>
             </div>
             <section class="section-body px-3 myt-2 section-wrapper" id="technology" data-section="technology">
                 <div class="section-average py-3">
-                    <div class="single-chart">
-                        <svg viewBox="0 0 36 36" class="circular-chart green">
-                            <path class="circle-bg" d="M18 2.0845
-                                a 15.9155 15.9155 0 0 1 0 31.831
-                                a 15.9155 15.9155 0 0 1 0 -31.831"></path>
-                            <path class="circle" stroke-dasharray="100, 100" d="M18 2.0845
-                                a 15.9155 15.9155 0 0 1 0 31.831
-                                a 15.9155 15.9155 0 0 1 0 -31.831"></path>
-                            <text x="18" y="20.35" class="percentage">A+</text>
-                        </svg>
-                    </div>
                     <div>
-                        <h4>Your technology is good!</h4>
-                        <p class="c-g">You have a reasonably good social presence. Social activity is important for
-                            customer communication, brand awareness and as a marketing channel to bring more visitors to
-                            your website. We recommend that you have all of your profiles
-                            listed on your page, and work to build a larger following on those networks.</p>
+                        <h4>{{reportData.data.technologySection.title}}</h4>
+                        <p class="c-g">
+                            {{reportData.data.technologySection.description}}
+                        </p>
                     </div>
                 </div>
-                <hr class="section-line">
-                <div class="item py-3" id="technologies">
-                    <div class="item-header">
-                        <div class="item-num item-num-green">
-                            <p>10</p>
-                        </div>
-                        <div class="item-title">
-                            <h3>Technologies</h3>
-                            <div>
-                                <div class="item-section">Technology</div>
-                                <img data-title="Title Here" data-info="Info Here" class="question" src="img/info.png"
-                                    alt="Info">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item-body myt-2">
-                        <div class="box-wrapper">
-                            <div class="answer">
-                                <div><img src="img/success.png" alt="Check"></div>
-                                <div>
-                                    <p>Your page has a link to a Facebook Page.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="box-wrapper">
-                            <div class="info">
-                                <div><img src="img/info2.png" alt="info"></div>
-                                <div class="table-wrapper">
-                                    <table cellpadding="0" cellspacing="0" border="0" class="table header-tags">
-                                        <thead>
-                                            <tr>
-                                                <th>Technology</th>
-                                                <th>Version</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>Apache</td>
-                                                <td>
-                                                    1.1
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>Apache</td>
-                                                <td>
-                                                    1.1
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <hr class="section-line">
-                <div class="item py-3" id="ip">
-                    <div class="item-header">
-                        <div class="item-num item-num-green">
-                            <p>10</p>
-                        </div>
-                        <div class="item-title">
-                            <h3>Ip</h3>
-                            <div>
-                                <div class="item-section">Technology</div>
-                                <img data-title="Title Here" data-info="Info Here" class="question" src="img/info.png"
-                                    alt="Info">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item-body myt-2">
-                        <div class="box-wrapper">
-                            <div class="danger">
-                                <div><img src="img/err.png" alt="err"></div>
-                                <div>
-                                    <p>No Facebook Pixel</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="box-wrapper">
-                            <div class="danger">
-                                <div><img src="img/err.png" alt="err"></div>
-                                <div>
-                                    <p>Setup & Install a Facebook Pixel</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <hr class="section-line">
-                <div class="item py-3" id="dns">
-                    <div class="item-header">
-                        <div class="item-num item-num-green">
-                            <p>10</p>
-                        </div>
-                        <div class="item-title">
-                            <h3>Dns</h3>
-                            <div>
-                                <div class="item-section">Technology</div>
-                                <img data-title="Title Here" data-info="Info Here" class="question" src="img/info.png"
-                                    alt="Info">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item-body myt-2">
-                        <div class="box-wrapper">
-                            <div class="info">
-                                <div><img src="img/info2.png" alt="info"></div>
-                                <div>
-                                    <ul class="info-list">
-                                        <li>Did you read this?</li>
-                                        <li>I am so sorry for all the delays</li>
-                                        <li>Hope you are happy with the product</li>
-                                        <li>Good vibes</li>
-                                        <li>Kind regards, Maxim</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <hr class="section-line">
-                <div class="item py-3" id="server">
-                    <div class="item-header">
-                        <div class="item-num item-num-green">
-                            <p>10</p>
-                        </div>
-                        <div class="item-title">
-                            <h3>Web Server</h3>
-                            <div>
-                                <div class="item-section">Technology</div>
-                                <img data-title="Title Here" data-info="Info Here" class="question" src="img/info.png"
-                                    alt="Info">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item-body myt-2">
-                        <div class="box-wrapper">
-                            <div class="answer">
-                                <div><img src="img/success.png" alt="Check">
-                                </div>
-                                <div>
-                                    <p>Your page is using Twitter Cards.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <hr class="section-line">
-                <div class="item py-3" id="charset">
-                    <div class="item-header">
-                        <div class="item-num item-num-green">
-                            <p>10</p>
-                        </div>
-                        <div class="item-title">
-                            <h3>Charset</h3>
-                            <div>
-                                <div class="item-section">Technology</div>
-                                <img data-title="Title Here" data-info="Info Here" class="question" src="img/info.png"
-                                    alt="Info">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item-body myt-2">
-                        <div class="box-wrapper">
-                            <div class="answer">
-                                <div><img src="img/success.png" alt="Check">
-                                </div>
-                                <div>
-                                    <p>Your page is using Twitter Cards.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                {{#each reportData.data.technologySection.subSections}}
+                    {{#ifeq this.isBlurred true}}
+                        {{> blurred-subsection}}
+                    {{else ifeq this.key 'technologies'}}
+                        {{> technologies-subsection}}
+                    {{else}}
+                        {{> default-tech-subsection}}
+                    {{/ifeq}}
+                {{/each}}
             </section>
             <div class="section-title t-center py-1 px-1 myt-2">
                 <h2>Recommendations</h2>
             </div>
             <section class="section-body px-3 myt-2 section-wrapper" id="recommendations"
                 data-section="recommendations">
-                <div class="rec-item py-1">
-                    <div class="num-title">
-                        <div class="item-num item-num-red">
-                            <p>1</p>
-                        </div>
-                        <div>
-                            <h3>Charset</h3>
-                        </div>
-                    </div>
-                    <div class="box-wrapper">
-                        <div class="danger">
-                            <div><img src="img/err.png" alt="err"></div>
+                {{#each reportData.recommendations}}
+                    <hr class="section-line">
+                    <div class="rec-item py-1">
+                        <div class="num-title">
+                            <div class="item-num item-num-red">
+                                <p>{{this.priority}}</p>
+                            </div>
                             <div>
-                                <p>example text</p>
+                                <h3>{{this.recommendation}}</h3>
                             </div>
                         </div>
-                    </div>
-                    <div class="rec-i">
-                        <div class="item-section">Seo</div>
-                    </div>
-
-                </div>
-                <hr class="section-line">
-                <div class="rec-item py-1">
-                    <div class="num-title">
-                        <div class="item-num item-num-red">
-                            <p>1</p>
-                        </div>
-                        <div>
-                            <h3>Charset</h3>
+                        <div class="rec-i">
+                            <div class="item-section">{{this.section}}</div>
                         </div>
                     </div>
-                    <div class="box-wrapper">
-                        <div class="danger">
-                            <div><img src="img/err.png" alt="err"></div>
-                            <div>
-                                <p>example text</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="rec-i">
-                        <div class="item-section">Seo</div>
-                    </div>
-
-                </div>
-                <hr class="section-line">
-                <div class="rec-item py-1">
-                    <div class="num-title">
-                        <div class="item-num item-num-red">
-                            <p>1</p>
-                        </div>
-                        <div>
-                            <h3>Charset</h3>
-                        </div>
-                    </div>
-                    <div class="box-wrapper">
-                        <div class="danger">
-                            <div><img src="img/err.png" alt="err"></div>
-                            <div>
-                                <p>example text</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="rec-i">
-                        <div class="item-section">Seo</div>
-                    </div>
-                </div>
+                {{/each}}
             </section>
         </div>
     </div>

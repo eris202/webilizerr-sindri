@@ -1,0 +1,112 @@
+<hr class="section-line">
+<div class="item py-3" id="{{this.key}}">
+    <div class="item-header">
+        <div class="item-num {{this.passedClass}}">
+            <p>{{this.circleTextDisplay}}</p>
+        </div>
+        <div class="item-title">
+            <h3>{{this.friendlyName}}</h3>
+            <div>
+                <div class="item-section">Seo</div>
+                <img data-title="Title Here" data-info="Info Here" class="question" src="img/info.png"
+                    alt="Info">
+            </div>
+        </div>
+    </div>
+    <div class="item-body myt-2">
+        {{#if this.passed}}
+            <div class="box-wrapper">
+                <div class="answer">
+                    <div><img src="img/success.png" alt="Check"></div>
+                    <div>
+                        <p>
+                            {{this.shortAnswer}}
+                        </p>
+                    </div>
+                </div>
+                {{#if this.value}}
+                <div class="answer">
+                    <div><img src="img/success.png" alt="Check"></div>
+                    <div>
+                        <p>
+                            Value: {{this.value}}
+                        </p>
+                    </div>
+                </div>
+                {{/if}}
+            </div>
+        {{else}}
+            <div class="box-wrapper">
+                <div class="answer">
+                    <div><img src="img/success.png" alt="Check"></div>
+                    <div>
+                        <p>
+                            {{this.shortAnswer}}
+                        </p>
+                    </div>
+                </div>
+            </div>
+            {{#if this.value}}
+            <div class="answer">
+                <div><img src="img/success.png" alt="Check"></div>
+                <div>
+                    <p>
+                        Value: {{this.value}}
+                    </p>
+                </div>
+            </div>
+            {{/if}}
+            <div class="box-wrapper">
+                <div class="danger">
+                    <div><img src="img/err.png" alt="err"></div>
+                    <div>
+                        <p>
+                            {{this.recommendation}}
+                        </p>
+                    </div>
+                </div>
+            </div>
+        {{/if}}
+
+        {{#if this.data}}
+            {{#ifObject this.data}}
+                <div class="answer">
+                    <div><img src="img/success.png" alt="Check"></div>
+                    <div>
+                        <ul>
+                            {{#each this.data}}
+                                {{#ifArray this}}
+                                    
+                                {{else}}
+                                    <li>
+                                        {{friendlyText @key}}: {{this}}
+                                    </li>
+                                {{/ifArray}}
+                            {{/each}}
+                        </ul>
+                    </div>
+                </div>
+            {{else ifArray this.data}}
+
+            {{else}}
+                <div class="answer">
+                    <div><img src="img/success.png" alt="Check"></div>
+                    <div>
+                        {{this.data}}
+                    </div>
+                </div>
+            {{/ifObject}}
+        {{/if}}
+
+        {{#if this.data}}
+            {{#each this.data}}
+                {{#ifArray this}}
+                    {{> table-subsection this}}
+                {{/ifArray}}
+                {{#ifObject this}}
+                    {{> table-subsection this}}
+                {{/ifObject}}
+            {{/each}}
+        {{/if}}
+    </div>
+</div>
