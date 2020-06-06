@@ -23,6 +23,7 @@ const express_1 = require("express");
 const path = __importStar(require("path"));
 const body_parser_1 = __importDefault(require("body-parser"));
 const handlebars_1 = __importDefault(require("handlebars"));
+const multer_1 = __importDefault(require("multer"));
 const express_handlebars_1 = __importDefault(require("express-handlebars"));
 const change_case_1 = require("change-case");
 const allow_prototype_access_1 = require("@handlebars/allow-prototype-access");
@@ -37,8 +38,14 @@ class ExpressViewLoader {
     static initRequestConfigs(app) {
         return __awaiter(this, void 0, void 0, function* () {
             // Init request attribute configs
+            const callbackBasePath = process.env.BASE_HOOK;
+            if (!callbackBasePath) {
+                throw new Error('Base hook not defined');
+            }
+            console.log(callbackBasePath);
             app.use(express_1.urlencoded({ extended: false }));
             app.use(body_parser_1.default.json());
+            app.use(multer_1.default().array());
             // Init static file paths
             app.use(express_1.static(path.join(__dirname, "../../src/js")));
             app.use(express_1.static(path.join(__dirname, "../../src/public")));

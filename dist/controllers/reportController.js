@@ -68,6 +68,17 @@ let ReportController = class ReportController {
             req.flash('message', 'Please post an url in the format https://www.my-awesomewebsite.com');
             return res.redirect('/');
         });
+        this.reportHook = (req, res) => __awaiter(this, void 0, void 0, function* () {
+            const reportData = {
+                id: req.body.id,
+                input: JSON.parse(req.body.input),
+                output: JSON.parse(req.body.output),
+                created_at: req.body.created_at,
+                completed_at: req.body.completed_at
+            };
+            this.reportService.saveReport(reportData);
+            res.status(200).end();
+        });
         this.viewAboutPage = (req, res) => {
             res.render("about", {
                 reportId: null,

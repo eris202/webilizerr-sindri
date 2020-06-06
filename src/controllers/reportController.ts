@@ -3,6 +3,7 @@ import Report from "../model/Report"
 import { Service, Inject } from 'typedi'
 import { ReportService } from '../services/report-service'
 import { ReportCreateResponse } from "../model/ReportCreateResponse";
+import { Data } from "../model/TypedReport";
 
 @Service()
 export class ReportController {
@@ -58,6 +59,20 @@ export class ReportController {
 
     req.flash('message', 'Please post an url in the format https://www.my-awesomewebsite.com')
     return res.redirect('/')
+  }
+
+  reportHook = async (req, res) => {
+    const reportData = {
+      id: req.body.id,
+      input: JSON.parse(req.body.input),
+      output: JSON.parse(req.body.output),
+      created_at: req.body.created_at,
+      completed_at: req.body.completed_at
+    } as Data
+
+    this.reportService.saveReport(reportData)
+    
+    res.status(200).end() 
   }
 
   viewAboutPage = (req, res) => {

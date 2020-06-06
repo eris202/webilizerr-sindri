@@ -24,31 +24,29 @@ const keys_2 = __importDefault(require("../config/keys"));
 const typedi_1 = require("typedi");
 const change_case_1 = require("change-case");
 const blur_keys_1 = __importDefault(require("../config/blur-keys"));
+const firebase_setup_1 = __importDefault(require("../config/firebase-setup"));
 let ReportService = class ReportService {
     constructor() {
         this.renderReportPage = (reportId) => __awaiter(this, void 0, void 0, function* () {
-            // Get response from SEO api
-            const typedResponse = yield axios_1.default.get(keys_2.default.seoptimerAPI + "get/" + reportId, {
-                headers: {
-                    "x-api-key": keys_1.default.seoptimerKEY,
-                    "Content-Type": "application/json",
-                },
-            });
-            if (!typedResponse.data.success) {
+            const db = firebase_setup_1.default.database();
+            const ref = db.ref(`reports/${reportId}`);
+            const snapshot = yield ref.once('value');
+            const typedData = snapshot.val();
+            if (!typedData.output.success) {
                 return {
-                    status: typedResponse.data.success,
+                    status: typedData.output.success,
                     reportData: false,
                     reportId: reportId,
                     success: false,
                 };
             }
-            const subsections = this.divideResponseToSubsections(typedResponse.data.data.output);
-            const sectionWiseData = this.createSectionWiseData(typedResponse.data.data.output, subsections);
+            const subsections = this.divideResponseToSubsections(typedData.output);
+            const sectionWiseData = this.createSectionWiseData(typedData.output, subsections);
             // Return with success when everything done
             return {
                 success: true,
                 status: true,
-                reportData: Object.assign(Object.assign({}, sectionWiseData), { recommendations: typedResponse.data.data.output.recommendations, url: typedResponse.data.data.input.url, overall: typedResponse.data.data.output.scores.overall, screenshot: typedResponse.data.data.output.screenshot }),
+                reportData: Object.assign(Object.assign({}, sectionWiseData), { recommendations: typedData.output.recommendations, url: typedData.input.url, overall: typedData.output.scores.overall, screenshot: typedData.output.screenshot }),
                 reportId: reportId,
             };
         });
@@ -124,18 +122,39 @@ let ReportService = class ReportService {
                     error: `Invalid url ${websiteUrl}`
                 };
             }
+            const callbackBasePath = process.env.BASE_HOOK;
+            console.log(`${callbackBasePath}/hook`);
+            console.log({
+                url: websiteUrl,
+                pdf: 1,
+                callback: `${callbackBasePath}/hook`
+            });
+            console.log({
+                "x-api-key": keys_1.default.seoptimerKEY,
+                "Content-Type": "application/json",
+                "Accept": "application/json",
+            });
             try {
-                return (yield axios_1.default.post(keys_2.default.seoptimerAPI + "create", { url: websiteUrl, pdf: 1 }, {
+                return (yield axios_1.default.post(keys_2.default.seoptimerAPI + "create", {
+                    url: websiteUrl,
+                    pdf: 1,
+                    callback: `${callbackBasePath}/hook`
+                }, {
                     headers: {
                         "x-api-key": keys_1.default.seoptimerKEY,
                         "Content-Type": "application/json",
-                        Accept: "application/json",
+                        "Accept": "application/json",
                     },
                 })).data;
             }
             catch (e) {
                 console.log(e);
             }
+        });
+        this.saveReport = (data) => __awaiter(this, void 0, void 0, function* () {
+            const database = firebase_setup_1.default.database();
+            const reference = database.ref(`reports/${data.id}`);
+            yield reference.set(JSON.parse(JSON.stringify(data)));
         });
         this.getApiReport = (reportId) => __awaiter(this, void 0, void 0, function* () {
             try {

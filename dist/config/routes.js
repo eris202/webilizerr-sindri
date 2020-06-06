@@ -47,6 +47,14 @@ exports.routes = [
         ],
     },
     {
+        "/hook": [
+            {
+                method: "post",
+                handler: reportController.reportHook,
+            },
+        ],
+    },
+    {
         "/forgot-password": [
             {
                 method: "get",

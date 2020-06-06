@@ -2,10 +2,11 @@ import axios from "axios"
 import seo_API_KEY from "../config/keys"
 import seo_API_URL from "../config/keys"
 import { Service } from "typedi"
-import { TypedReport, Output } from '../model/TypedReport'
-import {capitalCase} from 'change-case'
+import { TypedReport, Output, Data } from '../model/TypedReport'
+import { capitalCase } from 'change-case'
 import blurredKeys from '../config/blur-keys'
-import { ReportCreateResponse } from "../model/ReportCreateResponse";
+import { ReportCreateResponse } from "../model/ReportCreateResponse"
+import firebaseAdmin from '../config/firebase-setup'
 
 @Service()
 export class ReportService {
@@ -18,28 +19,24 @@ export class ReportService {
     reportData: any;
     reportId: any;
   }> => {
-    // Get response from SEO api
-    const typedResponse = await axios.get<TypedReport>(
-      seo_API_URL.seoptimerAPI + "get/" + reportId,
-      {
-        headers: {
-          "x-api-key": seo_API_KEY.seoptimerKEY,
-          "Content-Type": "application/json",
-        },
-      }
-    )
 
-    if (!typedResponse.data.success) {
+    const db = firebaseAdmin.database()
+    const ref = db.ref(`reports/${reportId}`)  
+    const snapshot = await ref.once('value') 
+    
+    const typedData = snapshot.val() as Data
+
+    if (!typedData.output.success) {
       return {
-        status: typedResponse.data.success,
+        status: typedData.output.success,
         reportData: false,
         reportId: reportId,
         success: false,
       }
     }
 
-    const subsections = this.divideResponseToSubsections(typedResponse.data.data.output)
-    const sectionWiseData = this.createSectionWiseData(typedResponse.data.data.output, subsections)
+    const subsections = this.divideResponseToSubsections(typedData.output)
+    const sectionWiseData = this.createSectionWiseData(typedData.output, subsections)
 
 
     // Return with success when everything done
@@ -48,10 +45,10 @@ export class ReportService {
       status: true,
       reportData: {
         ...sectionWiseData,
-        recommendations: typedResponse.data.data.output.recommendations,
-        url: typedResponse.data.data.input.url,
-        overall: typedResponse.data.data.output.scores.overall,
-        screenshot: typedResponse.data.data.output.screenshot,
+        recommendations: typedData.output.recommendations,
+        url: typedData.input.url,
+        overall: typedData.output.scores.overall,
+        screenshot: typedData.output.screenshot,
       },
       reportId: reportId,
     }
@@ -94,12 +91,12 @@ export class ReportService {
       subSections: subsections['technology'],
     }
 
-    const overallSum = seoSection.computedScore 
-                        + uiSection.computedScore 
-                        + performanceSection.computedScore
-                        + socialSection.computedScore 
-                        + securitySection.computedScore
-    
+    const overallSum = seoSection.computedScore
+      + uiSection.computedScore
+      + performanceSection.computedScore
+      + socialSection.computedScore
+      + securitySection.computedScore
+
     return {
       data: {
         seoSection,
@@ -110,7 +107,7 @@ export class ReportService {
         technologySection,
       },
       overallSection: {
-        score: Math.round((overallSum * 10) / 50.0) 
+        score: Math.round((overallSum * 10) / 50.0)
       }
     }
   }
@@ -118,10 +115,10 @@ export class ReportService {
   private computeSectionScore = (subsections: any[]) => {
     const total = subsections.filter(value => value.passed !== null).length
     const passingScore = subsections
-                            .filter(value => value.passed !== null && value.passed)
-                            .map(value => 1)
-                            .reduce((prev, cur) => prev + cur, 0)
-    
+      .filter(value => value.passed !== null && value.passed)
+      .map(value => 1)
+      .reduce((prev, cur) => prev + cur, 0)
+
     const computedScore = Math.round((passingScore * 10) / total)
 
     return {
@@ -137,7 +134,7 @@ export class ReportService {
     } else if (score >= 5 && score < 8) {
       return 'orange'
     }
-    
+
     return 'green'
   }
 
@@ -161,9 +158,9 @@ export class ReportService {
         key: key,
         isBlurred: blurredKeys.indexOf(key) > -1,
         friendlyName: capitalCase(key),
-        passedClass: value.passed? 'item-num-green' : 'item-num-red',
-        navPassedClass: value.passed? 'score-item-nav-green' : 'score-item-nav-red',
-        circleTextDisplay:  value.passed? 'P' : 'F'
+        passedClass: value.passed ? 'item-num-green' : 'item-num-red',
+        navPassedClass: value.passed ? 'score-item-nav-green' : 'score-item-nav-red',
+        circleTextDisplay: value.passed ? 'P' : 'F'
       })
     }
 
@@ -175,32 +172,56 @@ export class ReportService {
   }> => {
     if (!this.isValidWebsiteUrl(websiteUrl)) {
       return {
-        error: `Invalid url ${websiteUrl}` 
+        error: `Invalid url ${websiteUrl}`
       }
     }
+
+    const callbackBasePath = process.env.BASE_HOOK
+    console.log(`${callbackBasePath}/hook`)
+    console.log({
+      url: websiteUrl,
+      pdf: 1,
+      callback: `${callbackBasePath}/hook`
+    })
+    console.log({
+      "x-api-key": seo_API_KEY.seoptimerKEY,
+      "Content-Type": "application/json",
+      "Accept": "application/json",
+    })
 
     try {
       return (await axios.post<ReportCreateResponse>(
         seo_API_URL.seoptimerAPI + "create",
-        { url: websiteUrl, pdf: 1 },
+        {
+          url: websiteUrl,
+          pdf: 1,
+          callback: `${callbackBasePath}/hook`
+        },
         {
           headers: {
             "x-api-key": seo_API_KEY.seoptimerKEY,
             "Content-Type": "application/json",
-            Accept: "application/json",
+            "Accept": "application/json",
           },
         }
       )).data
-      
-    } catch(e) {
+
+    } catch (e) {
       console.log(e)
     }
 
   }
 
+  saveReport = async (data: Data) => {
+    const database = firebaseAdmin.database()
+    const reference = database.ref(`reports/${data.id}`)
+
+    await reference.set(JSON.parse(JSON.stringify(data)))
+  }
+
   private isValidWebsiteUrl(url: string) {
     const websiteRegex = /^http:\/\/www\.[a-zA-Z\d]+\.[a-zA-Z\d]+$|^https:\/\/www\.[a-zA-Z\d]+\.[a-zA-Z\d]+$/
-    
+
     return websiteRegex.test(url)
   }
 

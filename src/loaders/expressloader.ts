@@ -2,6 +2,7 @@ import { Express, urlencoded, static as staticMiddleware } from 'express'
 import * as path from 'path'
 import bodyParser from 'body-parser'
 import handlebars from 'handlebars'
+import multer from 'multer'
 import expressHb from 'express-handlebars'
 import {capitalCase} from 'change-case'
 import { allowInsecurePrototypeAccess } from '@handlebars/allow-prototype-access'
@@ -16,8 +17,17 @@ export default class ExpressViewLoader {
 
     static async initRequestConfigs(app: Express) {
         // Init request attribute configs
+        const callbackBasePath = process.env.BASE_HOOK
+        if (!callbackBasePath) {
+          throw new Error('Base hook not defined')
+        } 
+
+        console.log(callbackBasePath)
+
         app.use(urlencoded({ extended: false }))
         app.use(bodyParser.json())
+
+        app.use(multer().array()); 
 
         // Init static file paths
         app.use(staticMiddleware(path.join(__dirname, "../../src/js")))
