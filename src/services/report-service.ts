@@ -5,6 +5,7 @@ import { Service } from "typedi"
 import { TypedReport, Output } from '../model/TypedReport'
 import {capitalCase} from 'change-case'
 import blurredKeys from '../config/blur-keys'
+import { ReportCreateResponse } from "../model/ReportCreateResponse";
 
 @Service()
 export class ReportService {
@@ -169,31 +170,39 @@ export class ReportService {
     return subSections
   }
 
-  postApi = async (websiteUrl: String): Promise<ReportApiResponse> => {
-    if (!websiteUrl) {
+  postApi = async (websiteUrl: string): Promise<ReportCreateResponse | {
+    error: string
+  }> => {
+    if (!this.isValidWebsiteUrl(websiteUrl)) {
       return {
-        data: "",
-        errors: ["Must enter a website url"],
-      };
+        error: `Invalid url ${websiteUrl}` 
+      }
     }
 
-    const apiResponse = await axios.post(
-      seo_API_URL + "create",
-      { url: websiteUrl, pdf: 1 },
-      {
-        headers: {
-          "x-api-key": seo_API_KEY,
-          "Content-Type": "application/json",
-          Accept: "application/json",
-        },
-      }
-    );
+    try {
+      return (await axios.post<ReportCreateResponse>(
+        seo_API_URL.seoptimerAPI + "create",
+        { url: websiteUrl, pdf: 1 },
+        {
+          headers: {
+            "x-api-key": seo_API_KEY.seoptimerKEY,
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          },
+        }
+      )).data
+      
+    } catch(e) {
+      console.log(e)
+    }
 
-    return {
-      data: apiResponse,
-      errors: [],
-    };
-  };
+  }
+
+  private isValidWebsiteUrl(url: string) {
+    const websiteRegex = /^http:\/\/www\.[a-zA-Z\d]+\.[a-zA-Z\d]+$|^https:\/\/www\.[a-zA-Z\d]+\.[a-zA-Z\d]+$/
+    
+    return websiteRegex.test(url)
+  }
 
   getApiReport = async (reportId: number): Promise<string> => {
     try {

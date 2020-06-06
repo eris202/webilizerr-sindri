@@ -237,6 +237,14 @@ export const routes: RouteMapper[] = [
     ],
   },
   {
+    "/loader": [
+      {
+        method: "get",
+        handler: (req, res) => res.render("pre-loader"),
+      },
+    ],
+  },
+  {
     "/report": [
       {
         method: "get",

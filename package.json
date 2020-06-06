@@ -3,9 +3,11 @@
   "version": "1.0.0",
   "main": "app.js",
   "scripts": {
-    "start": "tsc && nodemon dist/app.js",
+    "start": "node dist/app.ts",
+    "dev": "tsc && nodemon dist/app.js",
     "server": "node dist/app.js",
-    "tsc": "tsc --build tsconfig.json"
+    "tsc": "tsc --build tsconfig.json",
+    "postinstall": "npm run tsc"
   },
   "author": "Sindri Stefansson",
   "license": "MIT",
@@ -43,10 +45,11 @@
   "devDependencies": {
     "@types/express": "^4.17.6",
     "@types/jsonwebtoken": "^8.3.9",
-    "@types/mailgun-js": "^0.22.5",
     "@types/node": "^13.13.4",
     "@types/passport-local": "^1.0.33",
-    "nodemon": "^2.0.3"
+    "nodemon": "^2.0.3",
+    "ts-node": "^8.10.2",
+    "typescript": "^3.9.5"
   },
   "repository": {
     "type": "git",
