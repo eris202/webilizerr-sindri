@@ -67,7 +67,6 @@ export default class ExpressViewLoader {
                 },
                 ifArray: function(a, options) {
                     if (Array.isArray(a)) {
-                        console.log('yes')
                         return options.fn(this)
                     }
                     return options.inverse(this)

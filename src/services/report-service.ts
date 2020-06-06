@@ -1,15 +1,18 @@
 import axios from "axios"
 import seo_API_KEY from "../config/keys"
 import seo_API_URL from "../config/keys"
-import { Service } from "typedi"
-import { TypedReport, Output, Data } from '../model/TypedReport'
+import { Service, Inject } from "typedi"
+import { Output, Data } from '../model/TypedReport'
 import { capitalCase } from 'change-case'
 import blurredKeys from '../config/blur-keys'
 import { ReportCreateResponse } from "../model/ReportCreateResponse"
 import firebaseAdmin from '../config/firebase-setup'
+import { ImageService } from "./image-service";
 
 @Service()
 export class ReportService {
+
+  @Inject() private imageService: ImageService
 
   renderReportPage = async (
     reportId
@@ -215,6 +218,10 @@ export class ReportService {
   saveReport = async (data: Data) => {
     const database = firebaseAdmin.database()
     const reference = database.ref(`reports/${data.id}`)
+
+    data.output.screenshot = await this.imageService.storeImage(data.output.screenshot, data.id)
+    data.output.deviceRendering.data.mobile = await this.imageService.storeImage(data.output.deviceRendering.data.mobile, data.id)
+    data.output.deviceRendering.data.tablet = await this.imageService.storeImage(data.output.deviceRendering.data.tablet, data.id)
 
     await reference.set(JSON.parse(JSON.stringify(data)))
   }

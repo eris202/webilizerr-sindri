@@ -70,8 +70,10 @@ export class ReportController {
       completed_at: req.body.completed_at
     } as Data
 
+    console.log('hook called')
     this.reportService.saveReport(reportData)
     
+    console.log('hook process finished')
     res.status(200).end() 
   }
 
