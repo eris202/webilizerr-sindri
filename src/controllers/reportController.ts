@@ -2,6 +2,8 @@ import Report from "../model/Report"
 
 import { Service, Inject } from 'typedi'
 import { ReportService } from '../services/report-service'
+import { ReportCreateResponse } from "../model/ReportCreateResponse";
+import { Data } from "../model/TypedReport";
 
 @Service()
 export class ReportController {
@@ -40,13 +42,39 @@ export class ReportController {
   }
 
   postReport = async (req, res) => {
-    const websiteUrl = req.body.websiteUrl;
+    const websiteUrl = req.body.url;
 
-    // This is the service with all validations and returns 
-    // api response
-    const apiData = this.reportService.postApi(websiteUrl)
+    const response = await this.reportService.postApi(websiteUrl)
 
-    res.json(apiData)
+    if ((response as ReportCreateResponse).data) {
+      const creationResponse = response as ReportCreateResponse
+
+      if (creationResponse.success) {
+        return res.redirect(`loader?reportId=${creationResponse.data.id}`)
+      }
+
+      req.flash('message', 'There was an error connecting to our services. Please try again later')
+      return res.redirect('/')
+    }
+
+    req.flash('message', 'Please post an url in the format https://www.my-awesomewebsite.com')
+    return res.redirect('/')
+  }
+
+  reportHook = async (req, res) => {
+    const reportData = {
+      id: req.body.id,
+      input: JSON.parse(req.body.input),
+      output: JSON.parse(req.body.output),
+      created_at: req.body.created_at,
+      completed_at: req.body.completed_at
+    } as Data
+
+    console.log('hook called')
+    this.reportService.saveReport(reportData)
+    
+    console.log('hook process finished')
+    res.status(200).end() 
   }
 
   viewAboutPage = (req, res) => {
