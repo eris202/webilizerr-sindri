@@ -55,6 +55,14 @@ export const routes: RouteMapper[] = [
     ],
   },
   {
+    "/hook": [
+      {
+        method: "post",
+        handler: reportController.reportHook,
+      },
+    ],
+  },
+  {
     "/forgot-password": [
       {
         method: "get",
@@ -233,6 +241,14 @@ export const routes: RouteMapper[] = [
       {
         method: "get",
         handler: (req, res) => res.render("recently-scanned"),
+      },
+    ],
+  },
+  {
+    "/loader": [
+      {
+        method: "get",
+        handler: (req, res) => res.render("pre-loader"),
       },
     ],
   },
