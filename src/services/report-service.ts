@@ -160,7 +160,7 @@ export class ReportService {
         ...value,
         key: key,
         isBlurred: blurredKeys.indexOf(key) > -1,
-        friendlyName: capitalCase(key),
+        friendlyName: this.changeKeyName(key),
         passedClass: value.passed ? 'item-num-green' : 'item-num-red',
         navPassedClass: value.passed ? 'score-item-nav-green' : 'score-item-nav-red',
         circleTextDisplay: value.passed ? 'P' : 'F'
@@ -168,6 +168,14 @@ export class ReportService {
     }
 
     return subSections
+  }
+
+  private changeKeyName(key: string) {
+    if (key.toLowerCase() === 'analytics') {
+      return "Hit Counts"
+    }
+
+    return capitalCase(key)
   }
 
   postApi = async (websiteUrl: string): Promise<ReportCreateResponse | {
