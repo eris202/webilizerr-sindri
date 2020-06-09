@@ -13,6 +13,17 @@
   <meta property="og:url" content="http://digipunk.netii.net">
   <link rel="icon" href="images/favicon.ico" type="image/x-icon">
   <link rel="stylesheet" href="components/base/base.css">
+  <link rel="stylesheet" href="components/base/alerts.css">
+
+  <style>
+    .alertCST {
+      position: absolute !important;
+      top: 5px;
+      right: 5px;
+      width: fit-content !important;
+    }
+  </style>
+
   <script src="components/base/core.js"></script>
   <script src="components/base/script.js"></script>
 </head>
@@ -21,6 +32,7 @@
   <div class="page">
     <!--RD Navbar-->
     {{> header}}
+
 
     {{!-- <section
       class="vide section section-lg text-center d-flex align-items-center min-vh-100 overlay-dark-02 context-dark novi-vide"
@@ -81,9 +93,26 @@
           </div>
         </div>
       </div>
+      {{#if message}}
+      <div class="row justify-content-center alertCST">
+        <div>
+          <div class="close-button-wrapper">
+            <div class="close-button alertCST-close"></div>
+          </div>
+          <div class="snackbar snackbar-danger">
+            <div class="snackbar-inner">
+              <div class="snackbar-title"><span class="icon snackbar-icon novi-icon int-warning"></span>
+                <span class="alertCST-text">{{{message}}}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      {{/if}}
     </section>
     {{> footer}}
   </div>
+  <script src="components/base/alertsHome.js"></script>
 </body>
 
 </html>

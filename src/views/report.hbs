@@ -97,34 +97,34 @@
                 </li>
                 <ul class="sub-nav">
                     {{#each reportData.data.seoSection.subSections}}
-                        {{#ifeq this.isBlurred true}}
-                            <li>
-                                <div class="score-item-nav">
-                                    ?
-                                </div>
-                                <a href="#{{this.key}}">{{this.friendlyName}}</a>
-                            </li>
-                        {{else ifeq this.key 'title'}}
-                            <li class="active">
-                                <div class="score-item-nav {{this.navPassedClass}}">
-                                    {{this.circleTextDisplay}}
-                                </div>
-                                <a href="#{{this.key}}">{{this.friendlyName}}</a>
-                            </li>
+                    {{#ifeq this.isBlurred true}}
+                    <li>
+                        <div class="score-item-nav">
+                            ?
+                        </div>
+                        <a href="#{{this.key}}">{{this.friendlyName}}</a>
+                    </li>
+                    {{else ifeq this.key 'title'}}
+                    <li class="active">
+                        <div class="score-item-nav {{this.navPassedClass}}">
+                            {{this.circleTextDisplay}}
+                        </div>
+                        <a href="#{{this.key}}">{{this.friendlyName}}</a>
+                    </li>
+                    {{else}}
+                    <li>
+                        {{#if this.passed}}
+                        <div class="score-item-nav {{this.navPassedClass}}">
+                            {{this.circleTextDisplay}}
+                        </div>
                         {{else}}
-                            <li>
-                                {{#if this.passed}}
-                                    <div class="score-item-nav {{this.navPassedClass}}">
-                                        {{this.circleTextDisplay}}
-                                    </div>
-                                {{else}}
-                                    <div class="score-item-nav score-item-nav-orange">
-                                        I
-                                    </div>
-                                {{/if}}
-                                <a href="#{{this.key}}">{{this.friendlyName}}</a>
-                            </li>
-                        {{/ifeq}}
+                        <div class="score-item-nav score-item-nav-orange">
+                            I
+                        </div>
+                        {{/if}}
+                        <a href="#{{this.key}}">{{this.friendlyName}}</a>
+                    </li>
+                    {{/ifeq}}
                     {{/each}}
                 </ul>
                 <li class="r-m c-l-w hov-c-w light" data-nav="nav-usability">
@@ -132,27 +132,27 @@
                 </li>
                 <ul class="sub-nav">
                     {{#each reportData.data.uiSection.subSections}}
-                        {{#ifeq this.isBlurred true}}
-                            <li>
-                                <div class="score-item-nav">
-                                    ?
-                                </div>
-                                <a href="#{{this.key}}">{{this.friendlyName}}</a>
-                            </li>
+                    {{#ifeq this.isBlurred true}}
+                    <li>
+                        <div class="score-item-nav">
+                            ?
+                        </div>
+                        <a href="#{{this.key}}">{{this.friendlyName}}</a>
+                    </li>
+                    {{else}}
+                    <li>
+                        {{#if this.passed}}
+                        <div class="score-item-nav {{this.navPassedClass}}">
+                            {{this.circleTextDisplay}}
+                        </div>
                         {{else}}
-                            <li>
-                                {{#if this.passed}}
-                                    <div class="score-item-nav {{this.navPassedClass}}">
-                                        {{this.circleTextDisplay}}
-                                    </div>
-                                {{else}}
-                                    <div class="score-item-nav score-item-nav-orange">
-                                        I
-                                    </div>
-                                {{/if}}
-                                <a href="#{{this.key}}">{{this.friendlyName}}</a>
-                            </li>
-                        {{/ifeq}}
+                        <div class="score-item-nav score-item-nav-orange">
+                            I
+                        </div>
+                        {{/if}}
+                        <a href="#{{this.key}}">{{this.friendlyName}}</a>
+                    </li>
+                    {{/ifeq}}
                     {{/each}}
                 </ul>
                 <li class="r-m c-l-w hov-c-w light" data-nav="nav-performance">
@@ -160,27 +160,27 @@
                 </li>
                 <ul class="sub-nav">
                     {{#each reportData.data.performanceSection.subSections}}
-                        {{#ifeq this.isBlurred true}}
-                            <li>
-                                <div class="score-item-nav">
-                                    ?
-                                </div>
-                                <a href="#{{this.key}}">{{this.friendlyName}}</a>
-                            </li>
+                    {{#ifeq this.isBlurred true}}
+                    <li>
+                        <div class="score-item-nav">
+                            ?
+                        </div>
+                        <a href="#{{this.key}}">{{this.friendlyName}}</a>
+                    </li>
+                    {{else}}
+                    <li>
+                        {{#if this.passed}}
+                        <div class="score-item-nav {{this.navPassedClass}}">
+                            {{this.circleTextDisplay}}
+                        </div>
                         {{else}}
-                            <li>
-                                {{#if this.passed}}
-                                    <div class="score-item-nav {{this.navPassedClass}}">
-                                        {{this.circleTextDisplay}}
-                                    </div>
-                                {{else}}
-                                    <div class="score-item-nav score-item-nav-orange">
-                                        I
-                                    </div>
-                                {{/if}}
-                                <a href="#{{this.key}}">{{this.friendlyName}}</a>
-                            </li>
-                        {{/ifeq}}
+                        <div class="score-item-nav score-item-nav-orange">
+                            I
+                        </div>
+                        {{/if}}
+                        <a href="#{{this.key}}">{{this.friendlyName}}</a>
+                    </li>
+                    {{/ifeq}}
                     {{/each}}
                 </ul>
                 <li class="r-m c-l-w hov-c-w light" data-nav="nav-social">
@@ -188,27 +188,27 @@
                 </li>
                 <ul class="sub-nav">
                     {{#each reportData.data.socialSection.subSections}}
-                        {{#ifeq this.isBlurred true}}
-                            <li>
-                                <div class="score-item-nav">
-                                    ?
-                                </div>
-                                <a href="#{{this.key}}">{{this.friendlyName}}</a>
-                            </li>
+                    {{#ifeq this.isBlurred true}}
+                    <li>
+                        <div class="score-item-nav">
+                            ?
+                        </div>
+                        <a href="#{{this.key}}">{{this.friendlyName}}</a>
+                    </li>
+                    {{else}}
+                    <li>
+                        {{#if this.passed}}
+                        <div class="score-item-nav {{this.navPassedClass}}">
+                            {{this.circleTextDisplay}}
+                        </div>
                         {{else}}
-                            <li>
-                                {{#if this.passed}}
-                                    <div class="score-item-nav {{this.navPassedClass}}">
-                                        {{this.circleTextDisplay}}
-                                    </div>
-                                {{else}}
-                                    <div class="score-item-nav score-item-nav-orange">
-                                        I
-                                    </div>
-                                {{/if}}
-                                <a href="#{{this.key}}">{{this.friendlyName}}</a>
-                            </li>
-                        {{/ifeq}}
+                        <div class="score-item-nav score-item-nav-orange">
+                            I
+                        </div>
+                        {{/if}}
+                        <a href="#{{this.key}}">{{this.friendlyName}}</a>
+                    </li>
+                    {{/ifeq}}
                     {{/each}}
                 </ul>
                 <li class="r-m c-l-w hov-c-w light" data-nav="nav-security">
@@ -216,27 +216,27 @@
                 </li>
                 <ul class="sub-nav">
                     {{#each reportData.data.securitySection.subSections}}
-                        {{#ifeq this.isBlurred true}}
-                            <li>
-                                <div class="score-item-nav">
-                                    ?
-                                </div>
-                                <a href="#{{this.key}}">{{this.friendlyName}}</a>
-                            </li>
+                    {{#ifeq this.isBlurred true}}
+                    <li>
+                        <div class="score-item-nav">
+                            ?
+                        </div>
+                        <a href="#{{this.key}}">{{this.friendlyName}}</a>
+                    </li>
+                    {{else}}
+                    <li>
+                        {{#if this.passed}}
+                        <div class="score-item-nav {{this.navPassedClass}}">
+                            {{this.circleTextDisplay}}
+                        </div>
                         {{else}}
-                            <li>
-                                {{#if this.passed}}
-                                    <div class="score-item-nav {{this.navPassedClass}}">
-                                        {{this.circleTextDisplay}}
-                                    </div>
-                                {{else}}
-                                    <div class="score-item-nav score-item-nav-orange">
-                                        I
-                                    </div>
-                                {{/if}}
-                                <a href="#{{this.key}}">{{this.friendlyName}}</a>
-                            </li>
-                        {{/ifeq}}
+                        <div class="score-item-nav score-item-nav-orange">
+                            I
+                        </div>
+                        {{/if}}
+                        <a href="#{{this.key}}">{{this.friendlyName}}</a>
+                    </li>
+                    {{/ifeq}}
                     {{/each}}
                 </ul>
                 <li class="r-m c-l-w hov-c-w light" data-nav="nav-technology">
@@ -244,21 +244,21 @@
                 </li>
                 <ul class="sub-nav">
                     {{#each reportData.data.technologySection.subSections}}
-                        {{#ifeq this.isBlurred true}}
-                            <li>
-                                <div class="score-item-nav">
-                                    ?
-                                </div>
-                                <a href="#{{this.key}}">{{this.friendlyName}}</a>
-                            </li>
-                        {{else}}
-                            <li>
-                                <div class="score-item-nav score-item-nav-orange">
-                                    I
-                                </div>
-                                <a href="#{{this.key}}">{{this.friendlyName}}</a>
-                            </li>
-                        {{/ifeq}}
+                    {{#ifeq this.isBlurred true}}
+                    <li>
+                        <div class="score-item-nav">
+                            ?
+                        </div>
+                        <a href="#{{this.key}}">{{this.friendlyName}}</a>
+                    </li>
+                    {{else}}
+                    <li>
+                        <div class="score-item-nav score-item-nav-orange">
+                            I
+                        </div>
+                        <a href="#{{this.key}}">{{this.friendlyName}}</a>
+                    </li>
+                    {{/ifeq}}
                     {{/each}}
                 </ul>
                 <li class="c-l-w hov-c-w light" data-nav="nav-recommendations"><a class="hov-dec-u"
@@ -304,7 +304,8 @@
                 <div>
                     <h2>Seo</h2>
                     <div class="single-chart">
-                        <svg viewBox="0 0 36 36" class="m-a myt-1 circular-chart {{reportData.data.seoSection.colorClass}}">
+                        <svg viewBox="0 0 36 36"
+                            class="m-a myt-1 circular-chart {{reportData.data.seoSection.colorClass}}">
                             <path class="circle-bg" d="M18 2.0845
                         a 15.9155 15.9155 0 0 1 0 31.831
                         a 15.9155 15.9155 0 0 1 0 -31.831"></path>
@@ -320,7 +321,8 @@
                 <div>
                     <h2>Usability</h2>
                     <div class="single-chart">
-                        <svg viewBox="0 0 36 36" class="m-a myt-1 circular-chart {{reportData.data.uiSection.colorClass}}">
+                        <svg viewBox="0 0 36 36"
+                            class="m-a myt-1 circular-chart {{reportData.data.uiSection.colorClass}}">
                             <path class="circle-bg" d="M18 2.0845
                         a 15.9155 15.9155 0 0 1 0 31.831
                         a 15.9155 15.9155 0 0 1 0 -31.831"></path>
@@ -336,7 +338,8 @@
                 <div>
                     <h2>Performance</h2>
                     <div class="single-chart">
-                        <svg viewBox="0 0 36 36" class="m-a myt-1 circular-chart {{reportData.data.performanceSection.colorClass}}">
+                        <svg viewBox="0 0 36 36"
+                            class="m-a myt-1 circular-chart {{reportData.data.performanceSection.colorClass}}">
                             <path class="circle-bg" d="M18 2.0845
                         a 15.9155 15.9155 0 0 1 0 31.831
                         a 15.9155 15.9155 0 0 1 0 -31.831"></path>
@@ -352,7 +355,8 @@
                 <div>
                     <h2>Social</h2>
                     <div class="single-chart">
-                        <svg viewBox="0 0 36 36" class="m-a myt-1 circular-chart {{reportData.data.socialSection.colorClass}}">
+                        <svg viewBox="0 0 36 36"
+                            class="m-a myt-1 circular-chart {{reportData.data.socialSection.colorClass}}">
                             <path class="circle-bg" d="M18 2.0845
                         a 15.9155 15.9155 0 0 1 0 31.831
                         a 15.9155 15.9155 0 0 1 0 -31.831"></path>
@@ -368,7 +372,8 @@
                 <div>
                     <h2>Security</h2>
                     <div class="single-chart">
-                        <svg viewBox="0 0 36 36" class="m-a myt-1 circular-chart {{reportData.data.securitySection.colorClass}}">
+                        <svg viewBox="0 0 36 36"
+                            class="m-a myt-1 circular-chart {{reportData.data.securitySection.colorClass}}">
                             <path class="circle-bg" d="M18 2.0845
                         a 15.9155 15.9155 0 0 1 0 31.831
                         a 15.9155 15.9155 0 0 1 0 -31.831"></path>
@@ -395,7 +400,8 @@
                             <path class="circle" stroke-dasharray="80, 100" d="M18 2.0845
                     a 15.9155 15.9155 0 0 1 0 31.831
                     a 15.9155 15.9155 0 0 1 0 -31.831"></path>
-                            <text x="18" y="20.35" class="percentage">{{reportData.data.seoSection.friendlyComputedScore}}</text>
+                            <text x="18" y="20.35"
+                                class="percentage">{{reportData.data.seoSection.friendlyComputedScore}}</text>
                         </svg>
                     </div>
                     <div>
@@ -406,19 +412,19 @@
                     </div>
                 </div>
                 {{#each reportData.data.seoSection.subSections}}
-                    {{#ifeq this.isBlurred true}}
-                        {{> blurred-subsection}}
-                    {{else ifeq this.key 'headers'}}
-                        {{> header-subsection}}
-                    {{else ifeq this.key 'keywords'}}
-                        {{> keywords-subsection}}
-                    {{else ifeq this.key 'onPageLinks'}}
-                        {{> on-page-subsection}}
-                    {{else ifeq this.passed null}}
-                    
-                    {{else}}
-                        {{> default-seo-subsection}}
-                    {{/ifeq}}
+                {{#ifeq this.isBlurred true}}
+                {{> blurred-subsection}}
+                {{else ifeq this.key 'headers'}}
+                {{> header-subsection}}
+                {{else ifeq this.key 'keywords'}}
+                {{> keywords-subsection}}
+                {{else ifeq this.key 'onPageLinks'}}
+                {{> on-page-subsection}}
+                {{else ifeq this.passed null}}
+
+                {{else}}
+                {{> default-seo-subsection}}
+                {{/ifeq}}
                 {{/each}}
             </section>
             <div class="section-title myt-2 t-center py-1 px-1">
@@ -434,7 +440,8 @@
                             <path class="circle" stroke-dasharray="100, 100" d="M18 2.0845
                     a 15.9155 15.9155 0 0 1 0 31.831
                     a 15.9155 15.9155 0 0 1 0 -31.831"></path>
-                            <text x="18" y="20.35" class="percentage">{{reportData.data.uiSection.friendlyComputedScore}}</text>
+                            <text x="18" y="20.35"
+                                class="percentage">{{reportData.data.uiSection.friendlyComputedScore}}</text>
                         </svg>
                     </div>
                     <div>
@@ -447,13 +454,13 @@
                     </div>
                 </div>
                 {{#each reportData.data.uiSection.subSections}}
-                    {{#ifeq this.isBlurred true}}
-                        {{> blurred-subsection}}
-                    {{else ifeq this.key 'deviceRendering'}}
-                        {{> device-rendering-subsection}}
-                    {{else}}
-                        {{> default-seo-subsection}}
-                    {{/ifeq}}
+                {{#ifeq this.isBlurred true}}
+                {{> blurred-subsection}}
+                {{else ifeq this.key 'deviceRendering'}}
+                {{> device-rendering-subsection}}
+                {{else}}
+                {{> default-seo-subsection}}
+                {{/ifeq}}
                 {{/each}}
             </section>
             <div class="section-title t-center py-1 px-1 myt-2">
@@ -462,14 +469,16 @@
             <section class="section-body px-3 myt-2 section-wrapper" id="performance" data-section="performance">
                 <div class="section-average py-3">
                     <div class="single-chart">
-                        <svg viewBox="0 0 36 36" class="circular-chart {{reportData.data.performanceSection.colorClass}}">
+                        <svg viewBox="0 0 36 36"
+                            class="circular-chart {{reportData.data.performanceSection.colorClass}}">
                             <path class="circle-bg" d="M18 2.0845
                     a 15.9155 15.9155 0 0 1 0 31.831
                     a 15.9155 15.9155 0 0 1 0 -31.831"></path>
                             <path class="circle" stroke-dasharray="100, 100" d="M18 2.0845
                     a 15.9155 15.9155 0 0 1 0 31.831
                     a 15.9155 15.9155 0 0 1 0 -31.831"></path>
-                            <text x="18" y="20.35" class="percentage">{{reportData.data.performanceSection.friendlyComputedScore}}</text>
+                            <text x="18" y="20.35"
+                                class="percentage">{{reportData.data.performanceSection.friendlyComputedScore}}</text>
                         </svg>
                     </div>
                     <div>
@@ -482,19 +491,19 @@
                     </div>
                 </div>
                 {{#each reportData.data.performanceSection.subSections}}
-                    {{#ifeq this.isBlurred true}}
-                        {{> blurred-subsection}}
-                    {{else ifeq this.key 'serverResponseTime'}}
-                        {{> response-time-subsection}}
-                    {{else ifeq this.key 'pageSize'}}
-                        {{> page-size-subsection}}
-                    {{else ifeq this.key 'numberOfResources'}}
-                        {{> resource-number-subsection}}
-                    {{else ifeq this.passed null}}
-                    
-                    {{else}}
-                        {{> default-seo-subsection}}
-                    {{/ifeq}}
+                {{#ifeq this.isBlurred true}}
+                {{> blurred-subsection}}
+                {{else ifeq this.key 'serverResponseTime'}}
+                {{> response-time-subsection}}
+                {{else ifeq this.key 'pageSize'}}
+                {{> page-size-subsection}}
+                {{else ifeq this.key 'numberOfResources'}}
+                {{> resource-number-subsection}}
+                {{else ifeq this.passed null}}
+
+                {{else}}
+                {{> default-seo-subsection}}
+                {{/ifeq}}
                 {{/each}}
             </section>
             <div class="section-title t-center py-1 px-1 myt-2">
@@ -510,7 +519,8 @@
                             <path class="circle" stroke-dasharray="100, 100" d="M18 2.0845
                 a 15.9155 15.9155 0 0 1 0 31.831
                 a 15.9155 15.9155 0 0 1 0 -31.831"></path>
-                            <text x="18" y="20.35" class="percentage">{{reportData.data.socialSection.friendlyComputedScore}}</text>
+                            <text x="18" y="20.35"
+                                class="percentage">{{reportData.data.socialSection.friendlyComputedScore}}</text>
                         </svg>
                     </div>
                     <div>
@@ -521,17 +531,17 @@
                     </div>
                 </div>
                 {{#each reportData.data.socialSection.subSections}}
-                    {{#ifeq this.isBlurred true}}
-                        {{> blurred-subsection}}
-                    {{else ifeq this.key 'twitterTags'}}
-                        {{> twitter-tags-subsection}}
-                    {{else ifeq this.key 'twitterActivity'}}
-                        {{> twitter-follower-subsection}}
-                    {{else ifeq this.passed null}}
-                    
-                    {{else}}
-                        {{> default-seo-subsection}}
-                    {{/ifeq}}
+                {{#ifeq this.isBlurred true}}
+                {{> blurred-subsection}}
+                {{else ifeq this.key 'twitterTags'}}
+                {{> twitter-tags-subsection}}
+                {{else ifeq this.key 'twitterActivity'}}
+                {{> twitter-follower-subsection}}
+                {{else ifeq this.passed null}}
+
+                {{else}}
+                {{> default-seo-subsection}}
+                {{/ifeq}}
                 {{/each}}
             </section>
             <div class="section-title t-center py-1 px-1 myt-2">
@@ -547,7 +557,8 @@
                             <path class="circle" stroke-dasharray="100, 100" d="M18 2.0845
                     a 15.9155 15.9155 0 0 1 0 31.831
                     a 15.9155 15.9155 0 0 1 0 -31.831"></path>
-                            <text x="18" y="20.35" class="percentage">{{reportData.data.securitySection.friendlyComputedScore}}</text>
+                            <text x="18" y="20.35"
+                                class="percentage">{{reportData.data.securitySection.friendlyComputedScore}}</text>
                         </svg>
                     </div>
                     <div>
@@ -558,15 +569,15 @@
                     </div>
                 </div>
                 {{#each reportData.data.securitySection.subSections}}
-                    {{#ifeq this.isBlurred true}}
-                        {{> blurred-subsection}}
-                    {{else ifeq this.key 'malware'}}
-                        {{> malware-subsection}}
-                    {{else ifeq this.passed null}}
-                    
-                    {{else}}
-                        {{> default-seo-subsection}}
-                    {{/ifeq}}
+                {{#ifeq this.isBlurred true}}
+                {{> blurred-subsection}}
+                {{else ifeq this.key 'malware'}}
+                {{> malware-subsection}}
+                {{else ifeq this.passed null}}
+
+                {{else}}
+                {{> default-seo-subsection}}
+                {{/ifeq}}
                 {{/each}}
             </section>
             <div class="section-title t-center py-1 px-1 myt-2">
@@ -582,13 +593,13 @@
                     </div>
                 </div>
                 {{#each reportData.data.technologySection.subSections}}
-                    {{#ifeq this.isBlurred true}}
-                        {{> blurred-subsection}}
-                    {{else ifeq this.key 'technologies'}}
-                        {{> technologies-subsection}}
-                    {{else}}
-                        {{> default-tech-subsection}}
-                    {{/ifeq}}
+                {{#ifeq this.isBlurred true}}
+                {{> blurred-subsection}}
+                {{else ifeq this.key 'technologies'}}
+                {{> technologies-subsection}}
+                {{else}}
+                {{> default-tech-subsection}}
+                {{/ifeq}}
                 {{/each}}
             </section>
             <div class="section-title t-center py-1 px-1 myt-2">
@@ -597,20 +608,20 @@
             <section class="section-body px-3 myt-2 section-wrapper" id="recommendations"
                 data-section="recommendations">
                 {{#each reportData.recommendations}}
-                    <hr class="section-line">
-                    <div class="rec-item py-1">
-                        <div class="num-title">
-                            <div class="item-num item-num-red">
-                                <p>{{this.priority}}</p>
-                            </div>
-                            <div>
-                                <h3>{{this.recommendation}}</h3>
-                            </div>
+                <hr class="section-line">
+                <div class="rec-item py-1">
+                    <div class="num-title">
+                        <div class="item-num item-num-red">
+                            <p>{{this.priority}}</p>
                         </div>
-                        <div class="rec-i">
-                            <div class="item-section">{{this.section}}</div>
+                        <div>
+                            <h3>{{this.recommendation}}</h3>
                         </div>
                     </div>
+                    <div class="rec-i">
+                        <div class="item-section">{{this.section}}</div>
+                    </div>
+                </div>
                 {{/each}}
             </section>
         </div>

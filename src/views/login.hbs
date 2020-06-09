@@ -1,73 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
 
-  <head>
-    <title>Login</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta property="og:title" content="Template Monster Admin Template">
-    <meta property="og:description"
-      content="brevis, barbatus clabulares aliquando convertam de dexter, peritus capio. devatio clemens habitio est.">
-    <meta property="og:image" content="http://digipunk.netii.net/images/radar.gif">
-    <meta property="og:url" content="http://digipunk.netii.net">
-    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="components/base/base.css">
-    <script src="components/base/core.js"></script>
-    <script src="components/base/script.js"></script>
-  </head>
+<head>
+  <title>Login</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta property="og:title" content="Template Monster Admin Template">
+  <meta property="og:description"
+    content="brevis, barbatus clabulares aliquando convertam de dexter, peritus capio. devatio clemens habitio est.">
+  <meta property="og:image" content="http://digipunk.netii.net/images/radar.gif">
+  <meta property="og:url" content="http://digipunk.netii.net">
+  <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="components/base/base.css">
+  <link rel="stylesheet" href="components/base/alerts.css">
 
-  <body>
-    {{> header}}
-    <div class="page">
-      <!-- Login form-->
-      <section class="section section-one-screen section-sm overlay-dark-07 novi-background"
-        data-preset='{"title":"Login","category":"one screen page, form","reload":true,"id":"login"}'>
-        <div class="container">
-          <div class="row justify-content-center novi-disabled">
-            <div class="col-md-8 col-lg-6 col-xxl-5">
-              <article class="accent-box">
-                <h4 class="accent-box-title text-center">Login to your account</h4>
-                {{> messages}}
+  <script src="components/base/core.js"></script>
+  <script src="components/base/script.js"></script>
+</head>
 
-                <p class="accent-box-text text-center">Enter your credentials below.</p>
-                <form action="" method="post">
-                  <div class="form-group">
-                    <div class="input-group">
-                      <div class="input-group-prepend"><span class="input-group-text int-user novi-icon"></span></div>
-                      <input class="form-control" type="text" name="login" placeholder="Your login"
-                        data-constraints="@Required">
-                    </div>
+<body>
+  {{> header}}
+  <div class="page">
+    <!-- Login form-->
+    <section class="section section-one-screen section-sm overlay-dark-07 novi-background"
+      data-preset='{"title":"Login","category":"one screen page, form","reload":true,"id":"login"}'>
+      <div class="container">
+        <div class="row justify-content-center novi-disabled">
+          <div class="col-md-8 col-lg-6 col-xxl-5">
+            <article class="accent-box">
+              <h4 class="accent-box-title text-center">Login to your account</h4>
+              {{> messages}}
+
+              <p class="accent-box-text text-center">Enter your credentials below.</p>
+              <div class="alerts-wrapper">
+              </div>
+              <form id="formCST" action="" method="post">
+                <div class="form-group">
+                  <div class="input-group">
+                    <div class="input-group-prepend"><span class="input-group-text int-user novi-icon"></span></div>
+                    <input id="name-input" class="form-control" type="text" name="login" placeholder="Your login">
                   </div>
-                  <div class="form-group">
-                    <div class="input-group">
-                      <div class="input-group-prepend"><span class="input-group-text int-user novi-icon"></span></div>
-                      <input class="form-control input-password password-login" type="text" name="password"
-                        placeholder="Password" data-constraints="@Required">
-                      <div class="input-group-append"><span
-                          class="input-group-text input-group-text-nodivider input-password-icon"
-                          data-multi-switch='{"targets":".password-login"}'></span></div>
-                    </div>
+                </div>
+                <div class="form-group">
+                  <div class="input-group">
+                    <div class="input-group-prepend"><span class="input-group-text int-user novi-icon"></span></div>
+                    <input id="password-input" class="form-control input-password password-login" type="text"
+                      name="password" placeholder="Password">
+                    <div class="input-group-append"><span
+                        class="input-group-text input-group-text-nodivider input-password-icon"
+                        data-multi-switch='{"targets":".password-login"}'></span></div>
                   </div>
-                  <button class="btn btn-block btn-lg btn-primary accent-box-btn" type="submit">Sign in</button>
-                  <div class="accent-box-text small group-15">
-                    <div>
-                      <u class="font-weight-medium"><a class="link-inherit" href="/forgot-password">Forgot your
-                          password?</a></u>
-                    </div>
-                    <div>Haven’t an account?
-                      <u class="font-weight-medium"><a class="link-inherit" href="/register">Sign up here.</a></u>
-                    </div>
-                    <div>Are you in a wrong place?
-                      <u class="font-weight-medium"><a class="link-inherit" href="/">Go home.</a></u>
-                    </div>
+                </div>
+                <button id="sbmt-btn" class="btn btn-block btn-lg btn-primary accent-box-btn" type="submit">Sign
+                  in</button>
+                <div class="accent-box-text small group-15">
+                  <div>
+                    <u class="font-weight-medium"><a class="link-inherit" href="/forgot-password">Forgot your
+                        password?</a></u>
                   </div>
-                </form>
-              </article>
-            </div>
+                  <div>Haven’t an account?
+                    <u class="font-weight-medium"><a class="link-inherit" href="/register">Sign up
+                        here.</a></u>
+                  </div>
+                  <div>Are you in a wrong place?
+                    <u class="font-weight-medium"><a class="link-inherit" href="/">Go home.</a></u>
+                  </div>
+                </div>
+              </form>
+            </article>
           </div>
         </div>
-      </section>
-    </div>
-  </body>
+      </div>
+    </section>
+  </div>
+  <script src="components/base/alertsLogin.js"></script>
+
+</body>
+
 </html>

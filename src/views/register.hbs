@@ -13,8 +13,10 @@
   <meta property="og:url" content="http://digipunk.netii.net">
   <link rel="icon" href="images/favicon.ico" type="image/x-icon">
   <link rel="stylesheet" href="components/base/base.css">
+  <link rel="stylesheet" href="components/base/alerts.css">
   <script src="components/base/core.js"></script>
   <script src="components/base/script.js"></script>
+
 </head>
 
 <body>
@@ -30,26 +32,27 @@
               <h4 class="accent-box-title text-center">Create your account</h4>
               {{> errors }}
               <p class="accent-box-text text-center mt-2">All fields are required</p>
-              <form class="accent-box-form" action="/register" method="post">
+              <div class="alerts-wrapper">
+              </div>
+              <form id="formCST" class="accent-box-form" action="/register" method="post">
                 <div class="form-group">
                   <div class="input-group">
                     <div class="input-group-prepend"><span class="input-group-text int-user novi-icon"></span></div>
-                    <input class="form-control" @value="{{this.name}}" type="name" name="name" placeholder="Your name"
-                      data-constraints="@Required">
+                    <input id="name-input" class="form-control" @value="{{this.name}}" type="name" name="name"
+                      placeholder="Your name">
                   </div>
                 </div>
                 <div class="form-group">
                   <div class="input-group">
                     <div class="input-group-prepend"><span class="input-group-text int-user novi-icon"></span></div>
-                    <input class="form-control" type="email" name="email" placeholder="E-mail"
-                      data-constraints="@Email @Required">
+                    <input id="email-input" class="form-control" type="email" name="email" placeholder="E-mail">
                   </div>
                 </div>
                 <div class="form-group">
                   <div class="input-group">
                     <div class="input-group-prepend"><span class="input-group-text int-user novi-icon"></span></div>
-                    <input class="form-control input-password password-register-1" type="text" name="password"
-                      placeholder="Password" data-constraints="@Required">
+                    <input id="password-input" class="form-control input-password password-register-1" type="text"
+                      name="password" placeholder="Password">
                     <div class="input-group-append"><span
                         class="input-group-text input-group-text-nodivider input-password-icon"
                         data-multi-switch='{"targets":".password-register-1"}'></span></div>
@@ -58,8 +61,8 @@
                 <div class="form-group">
                   <div class="input-group">
                     <div class="input-group-prepend"><span class="input-group-text int-user novi-icon"></span></div>
-                    <input class="form-control input-password password-register-2" type="text" name="password2"
-                      placeholder="Confirm password" data-constraints="@Required">
+                    <input id="cpassword-input" class="form-control input-password password-register-2" type="text"
+                      name="password2" placeholder="Confirm password">
                     <div class="input-group-append"><span
                         class="input-group-text input-group-text-nodivider input-password-icon"
                         data-multi-switch='{"targets":".password-register-2"}'></span></div>
@@ -67,11 +70,13 @@
                 </div>
                 <div class="custom-control custom-checkbox accent-box-text">
                   <input class="custom-control-input" type="checkbox" id="check1">
-                  <label class="custom-control-label" for="check1">I agree with the
-                    <u class="font-weight-medium"></u><a class="link-inherit small" href="#">Terms of use.</a>
+                  <label id="terms-input" class="custom-control-label" for="check1">I agree with the
+                    <u class="font-weight-medium"></u><a class="link-inherit small link" href="#">Terms
+                      of use.</a>
                   </label>
                 </div>
-                <button class="btn btn-block btn-lg btn-secondary accent-box-btn" type="submit">Sign Up!</button>
+                <button id="sbmt-btn" class="btn btn-block btn-lg btn-secondary accent-box-btn">Sign
+                  Up!</button>
               </form>
             </article>
           </div>
@@ -79,6 +84,7 @@
       </div>
     </section>
   </div>
+  <script src="components/base/alerts.js"></script>
 </body>
 
 </html>
