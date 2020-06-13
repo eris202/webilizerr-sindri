@@ -198,7 +198,7 @@ export class ReportService {
     const callbackBasePath = process.env.BASE_HOOK;
     console.log(`${callbackBasePath}/hook`);
     console.log({
-      url: websiteUrl,
+      url: this.createValidUrl(websiteUrl),
       pdf: 1,
       callback: `${callbackBasePath}/hook`,
     });
@@ -251,10 +251,20 @@ export class ReportService {
     await reference.set(JSON.parse(JSON.stringify(data)));
   };
 
-  private isValidWebsiteUrl(url: string) {
-    const websiteRegex = /^http:\/\/www\.[a-zA-Z\d]+\.[a-zA-Z\d]+$|^https:\/\/www\.[a-zA-Z\d]+\.[a-zA-Z\d]+$/;
+  private isValidWebsiteUrl(url: string): boolean {
+    const websiteRegex = /^[a-zA-Z\d]+\.[a-zA-Z\d]+$|^http:\/\/www\.[a-zA-Z\d]+\.[a-zA-Z\d]+$|^https:\/\/www\.[a-zA-Z\d]+\.[a-zA-Z\d]+$|^www\.[a-zA-Z\d]+\.[a-zA-Z\d]+$/
 
     return websiteRegex.test(url);
+  }
+
+  private createValidUrl(url: string): string {
+    if (url.indexOf("https://") >= 0 || url.indexOf("http://") >= 0) {
+      return url
+    } else if (url.indexOf("www.") >= 0) {
+      return `https://${url}`
+    }
+
+    return `https://www.${url}`
   }
 
   getApiReport = async (reportId: number): Promise<string> => {
