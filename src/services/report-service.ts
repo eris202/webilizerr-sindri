@@ -1,13 +1,14 @@
-import axios from "axios";
-import seo_API_KEY from "../config/keys";
-import seo_API_URL from "../config/keys";
-import { Service, Inject } from "typedi";
-import { Output, Data } from "../model/TypedReport";
-import { capitalCase } from "change-case";
-import blurredKeys from "../config/blur-keys";
-import { ReportCreateResponse } from "../model/ReportCreateResponse";
-import firebaseAdmin from "../config/firebase-setup";
-import { ImageService } from "./image-service";
+import axios from "axios"
+import seo_API_KEY from "../config/keys"
+import seo_API_URL from "../config/keys"
+import { Service, Inject } from "typedi"
+import { Output, Data } from "../model/TypedReport"
+import { capitalCase } from "change-case"
+import blurredKeys from "../config/blur-keys"
+import { ReportCreateResponse } from "../model/ReportCreateResponse"
+import firebaseAdmin from "../config/firebase-setup"
+import { ImageService } from "./image-service"
+import * as timeAgo from 'time-ago'
 
 @Service()
 export class ReportService {
@@ -22,10 +23,10 @@ export class ReportService {
     reportId: any;
   }> => {
     const db = firebaseAdmin.database();
-    const ref = db.ref(`reports/${reportId}`);
-    const snapshot = await ref.once("value");
+    const ref = db.ref(`reports/${reportId}`)
+    const snapshot = await ref.once("value")
 
-    const typedData = snapshot.val() as Data;
+    const typedData = snapshot.val() as Data
 
     if (!typedData.output.success) {
       return {
@@ -33,7 +34,7 @@ export class ReportService {
         reportData: false,
         reportId: reportId,
         success: false,
-      };
+      }
     }
 
     const subsections = this.divideResponseToSubsections(typedData.output);
@@ -229,26 +230,53 @@ export class ReportService {
     } catch (e) {
       console.log(e);
     }
-  };
+  }
+
+  getRecentlyScannedReport = async (pageNum: number) => {
+    const database = firebaseAdmin.database()
+    const reference = database.ref(`reports`)
+
+    const recentlyScannedList = (await reference
+                                        .orderByKey()
+                                        .limitToFirst(100)
+                                        .once('value')).exportVal()
+    const keyList = Object.keys(recentlyScannedList)
+    const keyName = keyList[keyList.length - pageNum]
+    const data = recentlyScannedList[keyName] as Data
+
+    const subsections = this.divideResponseToSubsections(data.output)
+    const score = this.createSectionWiseData(data.output, subsections).overallSection.score
+    
+    return {
+      score: score,
+      total: Object.keys(recentlyScannedList).length,
+      url: this.createValidUrl(data.input.url),
+      timeAgo: timeAgo.ago(new Date(data.hookedTime? data.hookedTime : data.completed_at))
+    }
+  } 
 
   saveReport = async (data: Data) => {
-    const database = firebaseAdmin.database();
-    const reference = database.ref(`reports/${data.id}`);
+    const database = firebaseAdmin.database()
+    const reference = database.ref(`reports/${data.id}`)
 
     data.output.screenshot = await this.imageService.storeImage(
       data.output.screenshot,
       data.id
-    );
+    )
+
     data.output.deviceRendering.data.mobile = await this.imageService.storeImage(
       data.output.deviceRendering.data.mobile,
       data.id
-    );
+    )
+
     data.output.deviceRendering.data.tablet = await this.imageService.storeImage(
       data.output.deviceRendering.data.tablet,
       data.id
-    );
+    )
+    
+    data.hookedTime = new Date().toString()
 
-    await reference.set(JSON.parse(JSON.stringify(data)));
+    await reference.set(JSON.parse(JSON.stringify(data)))
   };
 
   private isValidWebsiteUrl(url: string): boolean {

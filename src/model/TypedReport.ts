@@ -649,11 +649,12 @@ export interface Output {
 }
 
 export interface Data {
-    id: number;
-    input: Input;
-    output: Output;
-    created_at: string;
-    completed_at: string;
+    id: number
+    input: Input
+    output: Output
+    created_at: string
+    completed_at: string
+    hookedTime: string
 }
 
 export interface TypedReport {

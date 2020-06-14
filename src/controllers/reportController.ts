@@ -77,6 +77,13 @@ export class ReportController {
     res.status(200).end() 
   }
 
+  viewRecentlyScanned = async (req, res) => {
+    const pageNum = +(req.query.page? req.query.page : 1)
+    const model = await this.reportService.getRecentlyScannedReport(pageNum)
+
+    return res.render('recently-scanned', model)
+  }
+
   viewAboutPage = (req, res) => {
     res.render("about", {
       reportId: null,

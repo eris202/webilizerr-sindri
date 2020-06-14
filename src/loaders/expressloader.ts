@@ -7,6 +7,7 @@ import expressHb from 'express-handlebars'
 import {capitalCase} from 'change-case'
 import { allowInsecurePrototypeAccess } from '@handlebars/allow-prototype-access'
 import flash from 'connect-flash'
+import * as paginateHelper from 'handlebars-paginate'
 
 export default class ExpressViewLoader {
 
@@ -87,7 +88,19 @@ export default class ExpressViewLoader {
                     }
 
                     return ""
-                }
+                },
+                paginateHelper: paginateHelper,
+                times: function(n, block) {
+                    var accum = '';
+                    for(var i = 0; i < n; ++i) {
+                        block.data.index = i;
+                        block.data.loopCount = i + 1;
+                        block.data.first = i === 0;
+                        block.data.last = i === (n - 1);
+                        accum += block.fn(this);
+                    }
+                    return accum;
+                },
             }
         })
 

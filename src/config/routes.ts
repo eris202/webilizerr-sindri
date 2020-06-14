@@ -240,7 +240,7 @@ export const routes: RouteMapper[] = [
     "/recently-scanned": [
       {
         method: "get",
-        handler: (req, res) => res.render("recently-scanned"),
+        handler: reportController.viewRecentlyScanned,
       },
     ],
   },
