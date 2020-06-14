@@ -1,6 +1,7 @@
 import { Service, Inject } from "typedi";
 import mailer from '../factories/mailer-factory'
 import { TokenService } from '../services/encryption-token-service'
+import { ContactUsRequest } from "../model/ContactRequest";
 
 @Service()
 export class MailService {
@@ -23,7 +24,33 @@ export class MailService {
             The link will be valid for 30 minutes.
             `)
             .then((result) => console.log('Done', result))
-            .catch((error) => console.error('Error: ', error));
+            .catch((error) => console.error('Error: ', error))
+    }
+
+    sendContactUsRequest = async (contactUsRequest: ContactUsRequest) => {
+        mailer
+        .send(`${contactUsRequest.email}`, 
+        'Your contact request has been received', 
+        `
+            Our customer representative will be with you soon.
+        `)
+        .then((result) => console.log('Done', result))
+        .catch((error) => console.error('Error: ', error))
+
+        mailer
+        .send(`info@webilizerr.com`, 
+        `New Contact (${contactUsRequest.subject})`, 
+        `
+            Name: ${contactUsRequest.name}
+
+            Email: ${contactUsRequest.email}
+
+            Phone: ${contactUsRequest.phoneNumber}
+
+            Question: ${contactUsRequest.question}
+        `)
+        .then((result) => console.log('Done', result))
+        .catch((error) => console.error('Error: ', error))
     }
 
     sendResetLink = async (emailAddress: string) => {

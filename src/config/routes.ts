@@ -2,10 +2,12 @@ import { ReportController } from "../controllers/reportController";
 import { AuthController } from "../controllers/authController";
 import { Container } from "typedi";
 import { InvoiceController } from "../controllers/invoiceController";
+import { ContactUsController } from "../controllers/contactUsController";
 
-const reportController = Container.get(ReportController);
-const authController = Container.get(AuthController);
-const invoiceController = Container.get(InvoiceController);
+const reportController = Container.get(ReportController)
+const authController = Container.get(AuthController)
+const invoiceController = Container.get(InvoiceController)
+const contactUsController = Container.get(ContactUsController)
 
 const alreadyLoggedInMiddleWare = (req, res, next) => {
   if (!req.isAuthenticated()) {
@@ -208,7 +210,11 @@ export const routes: RouteMapper[] = [
     "/get-in-touch": [
       {
         method: "get",
-        handler: (req, res) => res.render("get-in-touch"),
+        handler: contactUsController.viewContactUsForm,
+      },
+      {
+        method: "post",
+        handler: contactUsController.postContactUsForm,
       },
     ],
   },
