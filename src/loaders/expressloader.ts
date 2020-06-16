@@ -45,7 +45,6 @@ export default class ExpressViewLoader {
 
         app.use('*', async (req, res, next) => {
             if (!req.isAuthenticated()) {
-                console.log('not auth')
                 return next()
             }
 

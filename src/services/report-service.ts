@@ -9,13 +9,14 @@ import { ReportCreateResponse } from "../model/ReportCreateResponse"
 import firebaseAdmin from "../config/firebase-setup"
 import { ImageService } from "./image-service"
 import * as timeAgo from 'time-ago'
+import User from "../model/User"
 
 @Service()
 export class ReportService {
   @Inject() private imageService: ImageService;
 
   renderReportPage = async (
-    reportId
+    reportId, user
   ): Promise<{
     success: any;
     status: any;
@@ -41,7 +42,36 @@ export class ReportService {
     const sectionWiseData = this.createSectionWiseData(
       typedData.output,
       subsections
-    );
+    )
+
+    if (user) {
+      typedData.generatedByUser = {
+        email: user.email,
+        name: user.name,
+        id: user.id,
+        isActive: user.isActive
+      }
+
+      ref.update(typedData)
+
+      const dbUser = await User.findOne({
+        email: user.email,
+        isActive: true
+      })
+
+      console.log('decreasing')
+      dbUser.numOfScans = Math.max(0, dbUser.numOfScans - 1)
+      await dbUser.save()
+    } else {
+      typedData.generatedByUser = {
+        email: '',
+        name: '',
+        id: '',
+        isActive: false
+      }
+
+      ref.update(typedData)
+    }
 
     // Return with success when everything done
     return {
@@ -55,8 +85,8 @@ export class ReportService {
         screenshot: typedData.output.screenshot,
       },
       reportId: reportId,
-    };
-  };
+    }
+  }
 
   //TODO: Move to a factory
   private createSectionWiseData = (output: Output, subsections) => {
@@ -182,32 +212,38 @@ export class ReportService {
     return capitalCase(key);
   }
 
+  isUserAuthorizedForGeneratingReport = async (user) => {
+    if (!user) {
+      return true
+    }
+
+    const dbUser = await User.findOne({
+      email: user.email,
+      isActive: true
+    })
+
+    return dbUser.numOfScans > 0
+  }
+
   postApi = async (
-    websiteUrl: string
+    websiteUrl: string, user
   ): Promise<
     | ReportCreateResponse
     | {
-        error: string;
-      }
+      error: string;
+    }
   > => {
     if (!this.isValidWebsiteUrl(websiteUrl)) {
       return {
-        error: `Invalid url ${websiteUrl}`,
-      };
+        error: `Invalid url format: ${websiteUrl}`,
+      }
+    } else if (! await this.isUserAuthorizedForGeneratingReport(user)) {
+      return {
+        error: `You have no scans left`
+      }
     }
 
-    const callbackBasePath = process.env.BASE_HOOK;
-    console.log(`${callbackBasePath}/hook`);
-    console.log({
-      url: this.createValidUrl(websiteUrl),
-      pdf: 1,
-      callback: `${callbackBasePath}/hook`,
-    });
-    console.log({
-      "x-api-key": seo_API_KEY.seoptimerKEY,
-      "Content-Type": "application/json",
-      Accept: "application/json",
-    });
+    const callbackBasePath = process.env.BASE_HOOK
 
     try {
       return (
@@ -232,28 +268,59 @@ export class ReportService {
     }
   }
 
-  getRecentlyScannedReport = async (pageNum: number) => {
+  getMyScannedReport = async (pageNum: number, user: any) => {
     const database = firebaseAdmin.database()
     const reference = database.ref(`reports`)
 
-    const recentlyScannedList = (await reference
-                                        .orderByKey()
-                                        .limitToFirst(100)
-                                        .once('value')).exportVal()
+    const recentlyScannedQuery = (await reference
+      .orderByChild('generatedByUser/email')
+      .equalTo(`${user.email}`)
+      .limitToFirst(100)
+      .once('value'))
+
+    if (!recentlyScannedQuery) {
+      return {}
+    }
+
+    const recentlyScannedList = recentlyScannedQuery.exportVal()
     const keyList = Object.keys(recentlyScannedList)
     const keyName = keyList[keyList.length - pageNum]
     const data = recentlyScannedList[keyName] as Data
 
     const subsections = this.divideResponseToSubsections(data.output)
     const score = this.createSectionWiseData(data.output, subsections).overallSection.score
-    
+
     return {
       score: score,
       total: Object.keys(recentlyScannedList).length,
       url: this.createValidUrl(data.input.url),
-      timeAgo: timeAgo.ago(new Date(data.hookedTime? data.hookedTime : data.completed_at))
+      timeAgo: timeAgo.ago(new Date(data.hookedTime ? data.hookedTime : data.completed_at))
     }
-  } 
+  }
+
+  getRecentlyScannedReport = async (pageNum: number) => {
+    const database = firebaseAdmin.database()
+    const reference = database.ref(`reports`)
+
+    const recentlyScannedList = (await reference
+      .orderByKey()
+      .limitToFirst(100)
+      .once('value')).exportVal()
+      
+    const keyList = Object.keys(recentlyScannedList)
+    const keyName = keyList[keyList.length - pageNum]
+    const data = recentlyScannedList[keyName] as Data
+
+    const subsections = this.divideResponseToSubsections(data.output)
+    const score = this.createSectionWiseData(data.output, subsections).overallSection.score
+
+    return {
+      score: score,
+      total: Object.keys(recentlyScannedList).length,
+      url: this.createValidUrl(data.input.url),
+      timeAgo: timeAgo.ago(new Date(data.hookedTime ? data.hookedTime : data.completed_at))
+    }
+  }
 
   saveReport = async (data: Data) => {
     const database = firebaseAdmin.database()
@@ -273,7 +340,7 @@ export class ReportService {
       data.output.deviceRendering.data.tablet,
       data.id
     )
-    
+
     data.hookedTime = new Date().toString()
 
     await reference.set(JSON.parse(JSON.stringify(data)))

@@ -93,6 +93,15 @@ export const routes: RouteMapper[] = [
     ],
   },
   {
+    "/my-reports": [
+      {
+        method: "get",
+        handler: reportController.viewMyReports,
+        middleWares: [shouldBeLoggedInMiddleWare]
+      },
+    ],
+  },
+  {
     "/forgot-password": [
       {
         method: "get",

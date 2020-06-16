@@ -655,6 +655,7 @@ export interface Data {
     created_at: string
     completed_at: string
     hookedTime: string
+    generatedByUser: any
 }
 
 export interface TypedReport {
