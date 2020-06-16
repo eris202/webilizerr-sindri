@@ -3,6 +3,7 @@ import * as path from 'path'
 import bodyParser from 'body-parser'
 import handlebars from 'handlebars'
 import multer from 'multer'
+import User from "../model/User"
 import expressHb from 'express-handlebars'
 import {capitalCase} from 'change-case'
 import { allowInsecurePrototypeAccess } from '@handlebars/allow-prototype-access'
@@ -39,7 +40,23 @@ export default class ExpressViewLoader {
 
         app.use('*', (req, res, next) => {
             res.locals.absoluteUrl = `${req.protocol}://${req.get('Host')}`
-            next()
+            return next()
+        })
+
+        app.use('*', async (req, res, next) => {
+            if (!req.isAuthenticated()) {
+                console.log('not auth')
+                return next()
+            }
+
+            const dbUser = await User.findOne({
+                email: req.user['email'],
+                isActive: true
+            })
+
+            res.locals.numOfScans = dbUser.numOfScans
+
+            return next()
         })
     }
 

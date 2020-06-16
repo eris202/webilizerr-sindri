@@ -45,7 +45,6 @@ const shouldHaveOneTimePayment = async (req, res, next) => {
     return res.redirect(`/login?backUrl=${backUrl}`)
   }
 
-  console.log('hello')
   const plan = ProductPlan.getProductConfig(dbUser.productPlan)
   
   if (plan.isOneTime) {

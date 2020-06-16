@@ -44,7 +44,6 @@ export class InvoiceController {
 
     const productConfig = ProductPlan.getProductConfig(plan)
     
-    console.log('success')
     req.flash('message', `You are now using ${productConfig.name}`)
     
     return res.redirect(result.redirectUrl)
