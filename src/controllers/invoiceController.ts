@@ -3,11 +3,14 @@ import { Service, Inject } from 'typedi'
 import { InvoiceService } from '../services/invoice-service'
 import { ProductPlan } from '../factories/product-plan-factory'
 import User from "../model/User"
+import { MailService } from '../services/mail-service';
 
 @Service()
 export class InvoiceController {
 
   @Inject() private invoiceService: InvoiceService
+
+  @Inject() private mailService: MailService
 
   viewPricingPage = (req, res) => {
     res.render('pricing')
@@ -52,7 +55,8 @@ export class InvoiceController {
     const localUser = req.user
 
     const user = await User.findOne({ email: localUser.email, isActive: true })
-    user.appointment = {
+    
+    const appointment = {
       email,
       name,
       url,
@@ -62,9 +66,11 @@ export class InvoiceController {
       notes
     }
 
-    await user.save()
-    console.log(user.appointment)
+    user.appointment = appointment
 
+    await user.save()
+    this.mailService.sendAppointmentRequest(appointment)
+    
     return res.redirect('/')
   }
 }

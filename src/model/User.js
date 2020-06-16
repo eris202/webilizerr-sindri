@@ -23,6 +23,14 @@ const UserSchema = new Schema({
         type: Boolean,
         default: false
     },
+    numOfScans: {
+        type: Number,
+        default: 0,
+    },
+    productPlan: {
+        type: Number,
+        default: -1
+    },
     stripeCustomerId: {
         type: String,
         default: null

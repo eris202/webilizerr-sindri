@@ -53,6 +53,46 @@ export class MailService {
         .catch((error) => console.error('Error: ', error))
     }
 
+    sendAppointmentRequest = async (appointmentRequest: {
+        email,
+        name,
+        url,
+        backendUrl,
+        userName,
+        userPassword,
+        notes
+    }) => {
+        mailer
+        .send(`${appointmentRequest.email}`, 
+        'Your appointment request has been received', 
+        `
+            Our SEO Expert will be with you soon.
+        `)
+        .then((result) => console.log('Done', result))
+        .catch((error) => console.error('Error: ', error))
+
+        mailer
+        .send(`info@webilizerr.com`, 
+        `New Appointment Request`, 
+        `
+            Name: ${appointmentRequest.name}
+
+            Email: ${appointmentRequest.email}
+
+            URL: ${appointmentRequest.url}
+
+            Backend-URL: ${appointmentRequest.backendUrl}
+
+            Backend-URL: ${appointmentRequest.userName}
+
+            Backend-URL: ${appointmentRequest.userPassword}
+
+            Notes: ${appointmentRequest.notes}
+        `)
+        .then((result) => console.log('Done', result))
+        .catch((error) => console.error('Error: ', error))
+    }
+
     sendResetLink = async (emailAddress: string) => {
 
         const mailOptions = {
