@@ -21,7 +21,7 @@ $(function () {
 
     var ref = database.ref('reports/' + param)
 
-    ref.on('child_added', function (snap) {
+    ref.once('child_added', function (snap) {
         if(!snap.val()) {
             return
         }

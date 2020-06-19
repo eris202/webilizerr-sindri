@@ -3,10 +3,13 @@ import * as path from 'path'
 import bodyParser from 'body-parser'
 import handlebars from 'handlebars'
 import multer from 'multer'
+import User from "../model/User"
 import expressHb from 'express-handlebars'
-import {capitalCase} from 'change-case'
+import { capitalCase } from 'change-case'
 import { allowInsecurePrototypeAccess } from '@handlebars/allow-prototype-access'
 import flash from 'connect-flash'
+import * as paginateHelper from 'handlebars-paginate'
+import { ProductPlan } from '../factories/product-plan-factory'
 
 export default class ExpressViewLoader {
 
@@ -19,15 +22,15 @@ export default class ExpressViewLoader {
         // Init request attribute configs
         const callbackBasePath = process.env.BASE_HOOK
         if (!callbackBasePath) {
-          throw new Error('Base hook not defined')
-        } 
+            throw new Error('Base hook not defined')
+        }
 
         console.log(callbackBasePath)
 
         app.use(urlencoded({ extended: false }))
         app.use(bodyParser.json())
 
-        app.use(multer().array()); 
+        app.use(multer().array());
 
         // Init static file paths
         app.use(staticMiddleware(path.join(__dirname, "../../src/js")))
@@ -38,7 +41,29 @@ export default class ExpressViewLoader {
 
         app.use('*', (req, res, next) => {
             res.locals.absoluteUrl = `${req.protocol}://${req.get('Host')}`
-            next()
+            return next()
+        })
+
+        app.use('*', async (req, res, next) => {
+            if (!req.isAuthenticated()) {
+                return next()
+            }
+
+            const dbUser = await User.findOne({
+                email: req.user['email'],
+                isActive: true
+            })
+
+            try {
+                const plan = ProductPlan.getProductConfig(dbUser.productPlan)
+
+                res.locals.numOfScans = dbUser.numOfScans
+                res.locals.showAppointmentLink = plan.isOneTime
+            } catch(e) {
+                res.locals.numOfScans = 0
+            }
+
+            return next()
         })
     }
 
@@ -50,44 +75,56 @@ export default class ExpressViewLoader {
             extname: "hbs",
             handlebars: allowInsecurePrototypeAccess(handlebars),
             helpers: {
-                ifeq: function(a, b, options) {
-                    if(a === b) {
+                ifeq: function (a, b, options) {
+                    if (a === b) {
                         return options.fn(this)
                     }
 
                     return options.inverse(this)
                 },
-                ifObject: function(a, options) {
+                ifObject: function (a, options) {
                     if (!Array.isArray(a) && typeof a === 'object') {
-                        
+
                         return options.fn(this)
                     }
 
                     return options.inverse(this)
                 },
-                ifArray: function(a, options) {
+                ifArray: function (a, options) {
                     if (Array.isArray(a)) {
                         return options.fn(this)
                     }
                     return options.inverse(this)
                 },
-                numeric: function(a, options) {
-                    return a? new handlebars.SafeString(a) : 0
+                numeric: function (a, options) {
+                    return a ? new handlebars.SafeString(a) : 0
                 },
-                ifString: function(a, options) {
+                ifString: function (a, options) {
                     if (typeof a === "string") {
                         return options.fn(this)
                     }
 
                     return options.inverse(this)
                 },
-                friendlyText: function(val, options) {
+                friendlyText: function (val, options) {
                     if (val) {
                         return capitalCase(val)
                     }
 
                     return ""
-                }
+                },
+                paginateHelper: paginateHelper,
+                times: function (n, block) {
+                    var accum = '';
+                    for (var i = 0; i < n; ++i) {
+                        block.data.index = i;
+                        block.data.loopCount = i + 1;
+                        block.data.first = i === 0;
+                        block.data.last = i === (n - 1);
+                        accum += block.fn(this);
+                    }
+                    return accum;
+                },
             }
         })
 

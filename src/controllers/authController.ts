@@ -116,7 +116,6 @@ export class AuthController {
     const { password, repeatedPassword } = req.body
 
     const result: any = await this.authService.updatePassword(token, password, repeatedPassword)
-    console.log(result)
 
     if (result.error) {
       req.flash('message', result.error)

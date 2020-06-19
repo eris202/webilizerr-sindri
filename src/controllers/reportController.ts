@@ -14,7 +14,7 @@ export class ReportController {
     const reportId = req.params.reportId;
 
     try {
-      const data = await this.reportService.renderReportPage(reportId)
+      const data = await this.reportService.renderReportPage(reportId, req.user)
       res.render('report', data)
     } catch (e) {
       console.log(e)
@@ -42,9 +42,9 @@ export class ReportController {
   }
 
   postReport = async (req, res) => {
-    const websiteUrl = req.body.url;
+    const websiteUrl = req.body.url
 
-    const response = await this.reportService.postApi(websiteUrl)
+    const response = await this.reportService.postApi(websiteUrl, req.user)
 
     if ((response as ReportCreateResponse).data) {
       const creationResponse = response as ReportCreateResponse
@@ -57,8 +57,16 @@ export class ReportController {
       return res.redirect('/')
     }
 
-    req.flash('message', 'Please post an url in the format https://www.my-awesomewebsite.com')
+    req.flash('message', (response as {error: string}).error)
+
     return res.redirect('/')
+  }
+
+  viewMyReports = async (req, res) => {
+    const pageNum = +(req.query.page? req.query.page : 1)
+    const model = await this.reportService.getMyScannedReport(pageNum, req.user)
+
+    return res.render('recently-scanned', model)
   }
 
   reportHook = async (req, res) => {
@@ -75,6 +83,13 @@ export class ReportController {
     
     console.log('hook process finished')
     res.status(200).end() 
+  }
+
+  viewRecentlyScanned = async (req, res) => {
+    const pageNum = +(req.query.page? req.query.page : 1)
+    const model = await this.reportService.getRecentlyScannedReport(pageNum)
+
+    return res.render('recently-scanned', model)
   }
 
   viewAboutPage = (req, res) => {

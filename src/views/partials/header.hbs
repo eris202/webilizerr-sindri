@@ -29,13 +29,10 @@
                         <div class="navbar-subpanel">
                             <div class="navbar-subpanel-item">
 
-
-
-
                                 <button class=" int-cart btn btn-outline btn-warning btn-anis"
                                     style="width: auto; padding-top: 6px;padding-bottom: 6px; font-weight: 400"
                                     data-multi-switch='{"targets":".rd-navbar","scope":".rd-navbar","class":"navbar-cart-active","isolate":"[data-multi-switch]"}'>
-                                    Scans left: &nbsp; <span class="text-dark"><span data-counter=""> 5</span></span>
+                                    Scans left: &nbsp; <span class="text-dark"><span data-counter="">{{numOfScans}}</span></span>
 
                                 </button>
 
@@ -174,10 +171,17 @@
                     </div>
 
             </div>
+
+            <li class="navbar-navigation-root-item active"><a href="/my-reports"><button
+                        style="padding-top: 6px;padding-bottom: 6px;"
+                        class="btn btn-outline btn-secondary btn-anis">My Reports</button></a>
+            </li>
+            
             <li class="navbar-navigation-root-item active"><a href="/logout"><button
                         style="padding-top: 6px;padding-bottom: 6px;"
                         class="btn btn-outline btn-secondary btn-anis">Logout</button></a>
             </li>
+
             {{else}}
             <li class="navbar-navigation-root-item"><a class="navbar-navigation-root-link" style="color: #6b39bd;"
                     href="/login">Login</a>

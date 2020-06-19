@@ -22,14 +22,19 @@ export class InvoiceService {
         }
 
         try {
+            console.log(`here at plan ${offerPlan}`)
             const config = ProductPlan.getProductConfig(offerPlan)
 
             if (config.isOneTime) {
                 const paymentIntent = await this.stripeService.createPayment(dbUser.stripeCustomerId, stripeToken, offerPlan, couponName)
                 dbUser.stripeSubscriptionPlanId = paymentIntent.id
+                dbUser.numOfScans += config.scanCount
+                dbUser.productPlan = offerPlan
             } else {
                 const subscription = await this.stripeService.createSubscription(dbUser.stripeCustomerId, stripeToken, offerPlan, couponName)
                 dbUser.stripeSubscriptionPlanId = subscription.id
+                dbUser.numOfScans += config.scanCount
+                dbUser.productPlan = offerPlan
             }
 
             await dbUser.save()

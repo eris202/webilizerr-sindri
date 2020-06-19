@@ -1,11 +1,15 @@
-import { ReportController } from "../controllers/reportController";
-import { AuthController } from "../controllers/authController";
-import { Container } from "typedi";
-import { InvoiceController } from "../controllers/invoiceController";
+import { ReportController } from "../controllers/reportController"
+import { AuthController } from "../controllers/authController"
+import { Container } from "typedi"
+import { InvoiceController } from "../controllers/invoiceController"
+import { ContactUsController } from "../controllers/contactUsController"
+import { ProductPlan } from '../factories/product-plan-factory'
+import User from "../model/User"
 
-const reportController = Container.get(ReportController);
-const authController = Container.get(AuthController);
-const invoiceController = Container.get(InvoiceController);
+const reportController = Container.get(ReportController)
+const authController = Container.get(AuthController)
+const invoiceController = Container.get(InvoiceController)
+const contactUsController = Container.get(ContactUsController)
 
 const alreadyLoggedInMiddleWare = (req, res, next) => {
   if (!req.isAuthenticated()) {
@@ -14,16 +18,42 @@ const alreadyLoggedInMiddleWare = (req, res, next) => {
 
   req.flash("message", "You cannot access the page while logged in.");
   return res.redirect("/");
-};
+}
 
 const shouldBeLoggedInMiddleWare = (req, res, next) => {
   if (req.isAuthenticated()) {
-    return next();
+    return next()
   }
 
-  const backUrl = `${req.protocol}://${req.get("Host")}${req.originalUrl}`;
-  return res.redirect(`/login?backUrl=${backUrl}`);
-};
+  const backUrl = `${req.protocol}://${req.get("Host")}${req.originalUrl}`
+  return res.redirect(`/login?backUrl=${backUrl}`)
+}
+
+const shouldHaveOneTimePayment = async (req, res, next) => {
+  if (!req.isAuthenticated()) {
+    const backUrl = `${req.protocol}://${req.get("Host")}${req.originalUrl}`
+    return res.redirect(`/login?backUrl=${backUrl}`)
+  }
+
+  const dbUser = await User.findOne({
+      email: req.user.email,
+      isActive: true
+  })
+
+  if (!dbUser) {
+    const backUrl = `${req.protocol}://${req.get("Host")}${req.originalUrl}`
+    return res.redirect(`/login?backUrl=${backUrl}`)
+  }
+
+  const plan = ProductPlan.getProductConfig(dbUser.productPlan)
+  
+  if (plan.isOneTime) {
+    return next()
+  }
+
+  const backUrl = `${req.protocol}://${req.get("Host")}${req.originalUrl}`
+  return res.redirect(`/login?backUrl=${backUrl}`)
+}
 
 export interface RouteMapper {
   [key: string]: RouteDefinition[];
@@ -59,6 +89,15 @@ export const routes: RouteMapper[] = [
       {
         method: "post",
         handler: reportController.reportHook,
+      },
+    ],
+  },
+  {
+    "/my-reports": [
+      {
+        method: "get",
+        handler: reportController.viewMyReports,
+        middleWares: [shouldBeLoggedInMiddleWare]
       },
     ],
   },
@@ -194,12 +233,12 @@ export const routes: RouteMapper[] = [
     "/appointment": [
       {
         method: "get",
-        middleWares: [shouldBeLoggedInMiddleWare],
+        middleWares: [shouldBeLoggedInMiddleWare, shouldHaveOneTimePayment],
         handler: (req, res) => res.render("appointment"),
       },
       {
         method: "post",
-        middleWares: [shouldBeLoggedInMiddleWare],
+        middleWares: [shouldBeLoggedInMiddleWare, shouldHaveOneTimePayment],
         handler: invoiceController.postAppointment,
       },
     ],
@@ -208,7 +247,11 @@ export const routes: RouteMapper[] = [
     "/get-in-touch": [
       {
         method: "get",
-        handler: (req, res) => res.render("get-in-touch"),
+        handler: contactUsController.viewContactUsForm,
+      },
+      {
+        method: "post",
+        handler: contactUsController.postContactUsForm,
       },
     ],
   },
@@ -240,7 +283,7 @@ export const routes: RouteMapper[] = [
     "/recently-scanned": [
       {
         method: "get",
-        handler: (req, res) => res.render("recently-scanned"),
+        handler: reportController.viewRecentlyScanned,
       },
     ],
   },
