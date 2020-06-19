@@ -112,11 +112,11 @@ export class MailService {
 
     // TODO: These two can be one method
     private createConfirmationLink = (email): string => {
-        return `http://localhost:5555/auth/verify?token=${this.tokenService.createTokenWithEmailEmbedded(email)}`
+        return `${process.env.BASE_HOOK}/auth/verify?token=${this.tokenService.createTokenWithEmailEmbedded(email)}`
     }
 
     private createResetLink = (email): string => {
-        return `http://localhost:5555/reset-password?token=${this.tokenService.createTokenWithEmailEmbedded(email)}`
+        return `${process.env.BASE_HOOK}/reset-password?token=${this.tokenService.createTokenWithEmailEmbedded(email)}`
     }
 
 }
