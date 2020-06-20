@@ -56,11 +56,11 @@ export default class ExpressViewLoader {
 
             try {
                 const plan = ProductPlan.getProductConfig(dbUser.productPlan)
-
+                
                 res.locals.numOfScans = dbUser.numOfScans
                 res.locals.showAppointmentLink = plan.isOneTime
             } catch(e) {
-                res.locals.numOfScans = 0
+                res.locals.numOfScans = dbUser.numOfScans
             }
 
             return next()

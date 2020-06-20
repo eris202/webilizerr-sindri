@@ -63,9 +63,10 @@ export class AuthService {
     verifyUserLink = async (token: string) => {
         const data = await this.tokenService.getTokenPayload(token)
         const userEmail = data.email
-        const user = await User.findOne({ email: userEmail, isActive: false })
-
+        const user = await User.findOne({ email: userEmail })
         user.isActive = true
+        // TODO: Don't work like this
+        user.numOfScans = 6
 
         const session = await User.startSession();
         session.startTransaction();
@@ -76,8 +77,9 @@ export class AuthService {
             await user.save()
 
             // Deleting inactive users with same email
-            await User.deleteMany({ email: userEmail, isActive: false })
-            
+            const res = await User.deleteMany({ email: userEmail, isActive: false })
+            console.log(res.deletedCount)
+
             await session.commitTransaction()
         } catch (e) {
             await session.abortTransaction()
