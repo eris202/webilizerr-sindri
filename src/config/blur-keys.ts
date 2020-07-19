@@ -1,3 +1,1 @@
-export default [
-    'tapTargetSizing',
-]
+export default ["analytics"];

@@ -25,13 +25,12 @@
                 </div>
             </div>
             {{/if}}
-            {{#if this.value}}
+
+            {{#if this.data}}
             <div class="answer">
-                <div><img style="height: 50px;" src="img/success.png" alt="Check"></div>
+                <div><img style="height: 50px;" src="img/info3.png" alt="data"></div>
                 <div style="margin-top: 20px;">
-                    <p>
-                        Value: <br> {{this.value}}
-                    </p>
+                    Facebook Pixel: <br> <b>{{this.data}}</b>
                 </div>
             </div>
             {{/if}}
@@ -49,16 +48,19 @@
             </div>
         </div>
         {{/if}}
-        {{#if this.value}}
+        {{#if this.data}}
         <div class="answer">
-            <div><img style="height: 50px;" src="img/info3.png" alt="Value"></div>
+            <div><img style="height: 50px;" src="img/info3.png" alt="data"></div>
             <div style="margin-top: 20px;">
                 <p>
-                    Value: <br> {{this.value}}
+                    Facebook Pixel: <br> <b>{{this.data}}</b>
                 </p>
             </div>
         </div>
         {{/if}}
+        {{/if}}
+
+
         {{#if this.recommendation}}
         <div class="box-wrapper">
             <div class="danger">
@@ -72,64 +74,5 @@
         </div>
         {{/if}}
 
-        {{/if}}
-
-        {{#if this.data}}
-        {{#ifObject this.data}}
-        <div class="answer" style="margin-top: 20px;">
-
-            {{#ifeq this.key 'backlinksList'}}
-            <ul>
-                {{#each this.data}}
-                {{#ifArray this}}
-
-                {{else}}
-                <li>
-                    {{friendlyText @key}}: {{this}}
-                </li>
-                {{/ifArray}}
-                {{/each}}
-            </ul>
-            {{else}}
-            <div><img style="height: 50px;" src="img/info3.png" alt="data"></div>
-            <div>
-
-
-                <ul>
-                    {{#each this.data}}
-                    {{#ifArray this}}
-
-                    {{else}}
-                    <li>
-                        {{friendlyText @key}}: {{this}}
-                    </li>
-                    {{/ifArray}}
-                    {{/each}}
-                </ul>
-            </div>
-            {{/ifeq}}
-
-        </div>
-
-        {{else}}
-        <div class="answer">
-            <div><img style="height: 50px;" src="img/info3.png" alt="data"></div>
-            <div style="margin-top: 20px;">
-                {{this.data}}
-            </div>
-        </div>
-        {{/ifObject}}
-        {{/if}}
-
-        {{#if this.data}}
-        {{#each this.data}}
-        {{#ifArray this}}
-        {{> table-subsection this}}
-        {{/ifArray}}
-        {{#ifObject this}}
-        {{> table-subsection this}}
-        {{/ifObject}}
-        {{/each}}
-        {{/if}}
     </div>
 </div>

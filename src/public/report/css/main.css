@@ -1016,6 +1016,7 @@ aside.premium {
   border-radius: 5px;
   background: #d0e5ff;
   color: #3a597f;
+  text-transform: capitalize;
 }
 
 #recommendations .rec-i img {

@@ -68,26 +68,48 @@
                 <div class="py-1">
                     <p class="c-l-w hov-c-w light"><a class="hov-dec-u" href="#">Site Crawl</a></p>
                 </div>
+
             </aside>
         </nav>
         <nav id="desk-nav" class="py-1 px-1">
 
             <div>
-                <img src="img/logo.png" alt="Logo">
+                <a href="/"><img src="img/logo.png" alt="Logo"></a>
+
             </div>
+
+            {{#if loggedIn}}
             <ul>
-                <li class="mx-2"><a href="#" class="hov-c-b d-i-b">Home</a></li>
-                <li class="mx-2"><a href="#" class="hov-c-b d-i-b">Features</a></li>
-                <li class="mx-2"><a href="#" class="hov-c-b d-i-b">About Us</a></li>
-                <li class="mx-2"><a href="#" class="color-b d-i-b">Log In</a></li>
-                <li class="mx-2"><a href="#"
+                <li class="mx-1"><a class="hov-c-b d-i-b">Scans Left: {{numOfScans}}</a></li>
+                <li class="mx-2"><a href="/my-reports" class="hov-c-b d-i-b">My Reports</a></li>
+                <li class="mx-2"><a href="/logout"
+                        class="color-b brd-b brd-r-5 py-0-5 px-1-5 d-i-b hov-c-w hov-bg-b">Logout</a></li>
+                </li>
+
+                {{else}}
+                <li class="mx-2"><a href="/login" class="hov-c-b d-i-b">Login</a></li>
+                <li class="mx-2"><a href="/register"
                         class="color-b brd-b brd-r-5 py-0-5 px-1-5 d-i-b hov-c-w hov-bg-b">Register</a></li>
+                </li>
+
+
             </ul>
+            {{/if}}
+
+
             <aside class="t-center premium bg-b py-2 px-2">
-                <div class="premium-icon">
-                    <img src="img/premium.png" alt="Premium">
-                </div>
-                <p class="premium-btn c-l-w hov-c-w myt-1"><a href="#">Site Crawl</a></p>
+                <a href="../pricing-scans">
+                    <div class="premium-icon" style="margin-top: 50%;">
+                        <img src="img/angle.png" alt="Premium">
+                    </div>
+                    <p class="premium-btn c-l-w hov-c-w myt-1">More Scans</p>
+                </a>
+                <a href="#">
+                    <div class="premium-icon" style="margin-top: 50%;">
+                        <img src="img/premium.png" alt="Premium">
+                    </div>
+                    <p class="premium-btn c-l-w hov-c-w myt-1">Service</p>
+                </a>
             </aside>
             <aside class="section-nav py-2 px-2 nav-links">
                 <li class="c-w active hov-c-w" data-nav="nav-overview"><a class="hov-dec-u"
@@ -266,6 +288,9 @@
             </aside>
         </nav>
         <div class="inner-body py-4 px-3">
+            <div>
+                <div class="item-section">Performance</div>
+            </div>
             <h1>Audit Results for {{reportData.url}} </h1>
             <header class="myt-2 section-wrapper" id="overview" data-section="overview">
                 <div class="py-2 px-1">
@@ -273,16 +298,16 @@
                         <path class="circle-bg" d="M18 2.0845
                     a 15.9155 15.9155 0 0 1 0 31.831
                     a 15.9155 15.9155 0 0 1 0 -31.831"></path>
-                        <path class="circle" stroke-dasharray="80, 100" d="M18 2.0845
+                        <path class="circle" stroke-dasharray="{{reportData.overallSection.score}}, 100" d="M18 2.0845
                     a 15.9155 15.9155 0 0 1 0 31.831
                     a 15.9155 15.9155 0 0 1 0 -31.831"></path>
-                        <text x="18" y="20.35" class="percentage">{{reportData.overallSection.score}}</text>
+                        <text x="18" y="20.35" class="percentage">{{reportData.overallSection.score}}%</text>
                     </svg>
                     <h2 class="t-center my-1">{{reportData.overall.title}}</h2>
                     <a href="#recommendations">
-                        <div class="box-wrapper">
-                            <div class="danger">
-                                <div><img src="img/err.png" alt="err"></div>
+                        <div class="box-wrapper" style="width: 100%;">
+                            <div class="info">
+                                <div><img src="img/info2.png" alt="info"></div>
                                 <div>
                                     <p>You have {{reportData.recommendations.length}} improvements recommended</p>
                                 </div>
@@ -309,11 +334,12 @@
                             <path class="circle-bg" d="M18 2.0845
                         a 15.9155 15.9155 0 0 1 0 31.831
                         a 15.9155 15.9155 0 0 1 0 -31.831"></path>
-                            <path class="circle" stroke-dasharray="100, 100" d="M18 2.0845
+                            <path class="circle"
+                                stroke-dasharray="{{reportData.data.seoSection.friendlyComputedScore}}, 100" d="M18 2.0845
                         a 15.9155 15.9155 0 0 1 0 31.831
                         a 15.9155 15.9155 0 0 1 0 -31.831"></path>
                             <text x="18" y="20.35" class="percentage">
-                                {{reportData.data.seoSection.friendlyComputedScore}}
+                                {{reportData.data.seoSection.friendlyComputedScore}}%
                             </text>
                         </svg>
                     </div>
@@ -326,11 +352,12 @@
                             <path class="circle-bg" d="M18 2.0845
                         a 15.9155 15.9155 0 0 1 0 31.831
                         a 15.9155 15.9155 0 0 1 0 -31.831"></path>
-                            <path class="circle" stroke-dasharray="100, 100" d="M18 2.0845
+                            <path class="circle"
+                                stroke-dasharray="{{reportData.data.uiSection.friendlyComputedScore}}, 100" d="M18 2.0845
                         a 15.9155 15.9155 0 0 1 0 31.831
                         a 15.9155 15.9155 0 0 1 0 -31.831"></path>
                             <text x="18" y="20.35" class="percentage">
-                                {{reportData.data.uiSection.friendlyComputedScore}}
+                                {{reportData.data.uiSection.friendlyComputedScore}}%
                             </text>
                         </svg>
                     </div>
@@ -343,11 +370,12 @@
                             <path class="circle-bg" d="M18 2.0845
                         a 15.9155 15.9155 0 0 1 0 31.831
                         a 15.9155 15.9155 0 0 1 0 -31.831"></path>
-                            <path class="circle" stroke-dasharray="100, 100" d="M18 2.0845
+                            <path class="circle"
+                                stroke-dasharray="{{reportData.data.performanceSection.friendlyComputedScore}}, 100" d="M18 2.0845
                         a 15.9155 15.9155 0 0 1 0 31.831
                         a 15.9155 15.9155 0 0 1 0 -31.831"></path>
                             <text x="18" y="20.35" class="percentage">
-                                {{reportData.data.performanceSection.friendlyComputedScore}}
+                                {{reportData.data.performanceSection.friendlyComputedScore}}%
                             </text>
                         </svg>
                     </div>
@@ -360,11 +388,12 @@
                             <path class="circle-bg" d="M18 2.0845
                         a 15.9155 15.9155 0 0 1 0 31.831
                         a 15.9155 15.9155 0 0 1 0 -31.831"></path>
-                            <path class="circle" stroke-dasharray="100, 100" d="M18 2.0845
+                            <path class="circle"
+                                stroke-dasharray="{{reportData.data.socialSection.friendlyComputedScore}}, 100" d="M18 2.0845
                         a 15.9155 15.9155 0 0 1 0 31.831
                         a 15.9155 15.9155 0 0 1 0 -31.831"></path>
                             <text x="18" y="20.35" class="percentage">
-                                {{reportData.data.socialSection.friendlyComputedScore}}
+                                {{reportData.data.socialSection.friendlyComputedScore}}%
                             </text>
                         </svg>
                     </div>
@@ -377,11 +406,12 @@
                             <path class="circle-bg" d="M18 2.0845
                         a 15.9155 15.9155 0 0 1 0 31.831
                         a 15.9155 15.9155 0 0 1 0 -31.831"></path>
-                            <path class="circle" stroke-dasharray="100, 100" d="M18 2.0845
+                            <path class="circle"
+                                stroke-dasharray="{{reportData.data.securitySection.friendlyComputedScore}}, 100" d="M18 2.0845
                         a 15.9155 15.9155 0 0 1 0 31.831
                         a 15.9155 15.9155 0 0 1 0 -31.831"></path>
                             <text x="18" y="20.35" class="percentage">
-                                {{reportData.data.securitySection.friendlyComputedScore}}
+                                {{reportData.data.securitySection.friendlyComputedScore}}%
                             </text>
                         </svg>
                     </div>
@@ -397,11 +427,12 @@
                             <path class="circle-bg" d="M18 2.0845
                     a 15.9155 15.9155 0 0 1 0 31.831
                     a 15.9155 15.9155 0 0 1 0 -31.831"></path>
-                            <path class="circle" stroke-dasharray="80, 100" d="M18 2.0845
+                            <path class="circle"
+                                stroke-dasharray="{{reportData.data.seoSection.friendlyComputedScore}}, 100" d="M18 2.0845
                     a 15.9155 15.9155 0 0 1 0 31.831
                     a 15.9155 15.9155 0 0 1 0 -31.831"></path>
                             <text x="18" y="20.35"
-                                class="percentage">{{reportData.data.seoSection.friendlyComputedScore}}</text>
+                                class="percentage">{{reportData.data.seoSection.friendlyComputedScore}}%</text>
                         </svg>
                     </div>
                     <div>
@@ -416,8 +447,22 @@
                 {{> blurred-subsection}}
                 {{else ifeq this.key 'headers'}}
                 {{> header-subsection}}
+                {{else ifeq this.key 'title'}}
+                {{> title-subsection}}
                 {{else ifeq this.key 'keywords'}}
                 {{> keywords-subsection}}
+                {{else ifeq this.key 'backlinks'}}
+                {{> backlinks-subsection}}
+                {{else ifeq this.key 'contentLength'}}
+                {{> contentLength-subsection}}
+                {{else ifeq this.key 'description'}}
+                {{> description-subsection}}
+                {{else ifeq this.key 'imageAlt'}}
+                {{> imageAlt-subsection}}
+                {{else ifeq this.key 'robotsTxt'}}
+                {{> robotsTxt-subsection}}
+                {{else ifeq this.key 'analytics'}}
+                {{> analytics-subsection}}
                 {{else ifeq this.key 'onPageLinks'}}
                 {{> on-page-subsection}}
                 {{else ifeq this.passed null}}
@@ -437,11 +482,12 @@
                             <path class="circle-bg" d="M18 2.0845
                     a 15.9155 15.9155 0 0 1 0 31.831
                     a 15.9155 15.9155 0 0 1 0 -31.831"></path>
-                            <path class="circle" stroke-dasharray="100, 100" d="M18 2.0845
+                            <path class="circle"
+                                stroke-dasharray="{{reportData.data.uiSection.friendlyComputedScore}}, 100" d="M18 2.0845
                     a 15.9155 15.9155 0 0 1 0 31.831
                     a 15.9155 15.9155 0 0 1 0 -31.831"></path>
                             <text x="18" y="20.35"
-                                class="percentage">{{reportData.data.uiSection.friendlyComputedScore}}</text>
+                                class="percentage">{{reportData.data.uiSection.friendlyComputedScore}}%</text>
                         </svg>
                     </div>
                     <div>
@@ -474,11 +520,12 @@
                             <path class="circle-bg" d="M18 2.0845
                     a 15.9155 15.9155 0 0 1 0 31.831
                     a 15.9155 15.9155 0 0 1 0 -31.831"></path>
-                            <path class="circle" stroke-dasharray="100, 100" d="M18 2.0845
+                            <path class="circle"
+                                stroke-dasharray="{{reportData.data.performanceSection.friendlyComputedScore}}, 100" d="M18 2.0845
                     a 15.9155 15.9155 0 0 1 0 31.831
                     a 15.9155 15.9155 0 0 1 0 -31.831"></path>
                             <text x="18" y="20.35"
-                                class="percentage">{{reportData.data.performanceSection.friendlyComputedScore}}</text>
+                                class="percentage">{{reportData.data.performanceSection.friendlyComputedScore}}%</text>
                         </svg>
                     </div>
                     <div>
@@ -516,11 +563,12 @@
                             <path class="circle-bg" d="M18 2.0845
                 a 15.9155 15.9155 0 0 1 0 31.831
                 a 15.9155 15.9155 0 0 1 0 -31.831"></path>
-                            <path class="circle" stroke-dasharray="100, 100" d="M18 2.0845
+                            <path class="circle"
+                                stroke-dasharray="{{reportData.data.socialSection.friendlyComputedScore}}, 100" d="M18 2.0845
                 a 15.9155 15.9155 0 0 1 0 31.831
                 a 15.9155 15.9155 0 0 1 0 -31.831"></path>
                             <text x="18" y="20.35"
-                                class="percentage">{{reportData.data.socialSection.friendlyComputedScore}}</text>
+                                class="percentage">{{reportData.data.socialSection.friendlyComputedScore}}%</text>
                         </svg>
                     </div>
                     <div>
@@ -535,6 +583,10 @@
                 {{> blurred-subsection}}
                 {{else ifeq this.key 'twitterTags'}}
                 {{> twitter-tags-subsection}}
+                {{else ifeq this.key 'facebookPixel'}}
+                {{> facebookPixel-subsection}}
+                {{else ifeq this.key 'openGraphTags'}}
+                {{> openGraphTags-subsection}}
                 {{else ifeq this.key 'twitterActivity'}}
                 {{> twitter-follower-subsection}}
                 {{else ifeq this.passed null}}
@@ -554,11 +606,12 @@
                             <path class="circle-bg" d="M18 2.0845
                     a 15.9155 15.9155 0 0 1 0 31.831
                     a 15.9155 15.9155 0 0 1 0 -31.831"></path>
-                            <path class="circle" stroke-dasharray="100, 100" d="M18 2.0845
+                            <path class="circle"
+                                stroke-dasharray="{{reportData.data.securitySection.friendlyComputedScore}}, 100" d="M18 2.0845
                     a 15.9155 15.9155 0 0 1 0 31.831
                     a 15.9155 15.9155 0 0 1 0 -31.831"></path>
                             <text x="18" y="20.35"
-                                class="percentage">{{reportData.data.securitySection.friendlyComputedScore}}</text>
+                                class="percentage">{{reportData.data.securitySection.friendlyComputedScore}}%</text>
                         </svg>
                     </div>
                     <div>
@@ -585,10 +638,11 @@
             </div>
             <section class="section-body px-3 myt-2 section-wrapper" id="technology" data-section="technology">
                 <div class="section-average py-3">
+
                     <div>
-                        <h4>{{reportData.data.technologySection.title}}</h4>
+                        <h4>Technology Results</h4>
                         <p class="c-g">
-                            {{reportData.data.technologySection.description}}
+                            Here are your technology information on you page. They dont count for SEO ranking.
                         </p>
                     </div>
                 </div>
@@ -608,9 +662,8 @@
             <section class="section-body px-3 myt-2 section-wrapper" id="recommendations"
                 data-section="recommendations">
                 {{#each reportData.recommendations}}
-                <hr class="section-line">
                 <div class="rec-item py-1">
-                    <div class="num-title">
+                    <div style="width: 50%;text-align: left;display: initial;margin-left: 10%;" class="num-title">
                         <div class="item-num item-num-red">
                             <p>{{this.priority}}</p>
                         </div>
@@ -622,6 +675,8 @@
                         <div class="item-section">{{this.section}}</div>
                     </div>
                 </div>
+                <hr class="section-line">
+
                 {{/each}}
             </section>
         </div>

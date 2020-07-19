@@ -31,7 +31,75 @@
 <body>
   <div class="page">
     <!--RD Navbar-->
-    {{> header}}
+    <!--RD Navbar-->
+    <header class="section rd-navbar-wrap" style="height: 50px;"
+      data-preset='{"title":"Navbar Default","category":"header","reload":true,"id":"navbar-default"}'>
+      <nav class="rd-navbar" style="height: 50px;">
+        <div class="navbar-container">
+          <div class="navbar-cell">
+            <div class="navbar-panel">
+              <button class="navbar-switch int-hamburger novi-icon"
+                data-multi-switch='{"targets":".rd-navbar","scope":".rd-navbar","isolate":"[data-multi-switch]"}'></button>
+              <div class="navbar-logo"><a class="navbar-logo-link" href="/"><img class="navbar-logo-default"
+                    src="images/logos/webilizerr3.png" alt="Intense" width="200" height="27" /><img
+                    class="navbar-logo-inverse" src="images/logos/webilizerr3.png" alt="Intense" width="170" height="27"
+                    style="padding-top: 10px;" /></a></div>
+            </div>
+          </div>
+
+
+
+          <div class="navbar-cell navbar-spacer"></div>
+
+          <div class="navbar-cell navbar-sidebar">
+            <ul class="navbar-navigation rd-navbar-nav">
+
+
+
+              {{#if loggedIn}}
+
+              <div class="navbar-cell">
+                <div class="navbar-subpanel">
+                  <div class="navbar-subpanel-item">
+
+                    <a href="/pricing-scans"><button href="" class=" int-cart btn btn-outline btn-warning btn-anis"
+                        style="width: auto; padding-top: 6px;padding-bottom: 6px; font-weight: 400"
+                        data-multi-switch='{"targets":".rd-navbar","scope":".rd-navbar","class":"navbar-cart-active","isolate":"[data-multi-switch]"}'>
+                        Scans left: &nbsp; <span class="text-dark"><span
+                            data-counter="">{{numOfScans}}</span></span></button></a>
+                    </button>
+
+
+                  </div>
+                </div>
+
+              </div>
+
+
+              <li class="navbar-navigation-root-item active"><a href="/my-reports"><button
+                    style="padding-top: 6px;padding-bottom: 6px;" class="btn btn-outline btn-secondary btn-anis">My
+                    Reports</button></a>
+              </li>
+
+              <li class="navbar-navigation-root-item active"><a href="/logout"><button
+                    style="padding-top: 6px;padding-bottom: 6px;"
+                    class="btn btn-outline btn-secondary btn-anis">Logout</button></a>
+              </li>
+
+              {{else}}
+              <li class="navbar-navigation-root-item"><a class="navbar-navigation-root-link" style="color: #6b39bd;"
+                  href="/login">Login</a>
+              </li>
+              <li class="navbar-navigation-root-item active"><a href="/register"><button
+                    style="padding-top: 6px;padding-bottom: 6px;"
+                    class="btn btn-outline btn-secondary btn-anis">Register</button></a>
+              </li>
+              {{/if}}
+            </ul>
+          </div>
+
+      </nav>
+    </header>
 
 
     {{!-- <section

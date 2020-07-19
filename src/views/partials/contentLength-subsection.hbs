@@ -16,21 +16,24 @@
         {{#if this.passed}}
         <div class="box-wrapper">
             {{#if this.shortAnswer}}
-            <div class="answer">
-                <div><img style="height: 50px;" src="img/success.png" alt="Check"></div>
-                <div style="margin-top: 20px;">
-                    <p>
-                        {{this.shortAnswer}}
-                    </p>
-                </div>
-            </div>
-            {{/if}}
             {{#if this.value}}
             <div class="answer">
                 <div><img style="height: 50px;" src="img/success.png" alt="Check"></div>
                 <div style="margin-top: 20px;">
                     <p>
-                        Value: <br> {{this.value}}
+                        {{this.shortAnswer}} Page has {{this.value}} characters.
+
+                    </p>
+                </div>
+            </div>
+            {{/if}}
+            {{else}}
+
+            <div class="answer">
+                <div><img style="height: 50px;" src="img/success.png" alt="Check"></div>
+                <div style="margin-top: 20px;">
+                    <p>
+                        {{this.shortAnswer}}
                     </p>
                 </div>
             </div>
@@ -38,23 +41,25 @@
         </div>
         {{else}}
         {{#if this.shortAnswer}}
+        {{#if this.value}}
         <div class="box-wrapper">
             <div class="answer">
                 <div><img style="height: 50px;" src="img/err.png" alt="Check"></div>
                 <div style="margin-top: 20px;">
                     <p>
-                        {{this.shortAnswer}}
+                        {{this.shortAnswer}}. <br> Page has {{this.value}} characters.
                     </p>
                 </div>
             </div>
         </div>
         {{/if}}
-        {{#if this.value}}
+        {{else}}
+
         <div class="answer">
-            <div><img style="height: 50px;" src="img/info3.png" alt="Value"></div>
+            <div><img style="height: 50px;" src="img/err.png" alt="Check"></div>
             <div style="margin-top: 20px;">
                 <p>
-                    Value: <br> {{this.value}}
+                    {{this.shortAnswer}}
                 </p>
             </div>
         </div>
@@ -65,7 +70,7 @@
                 <div><img style="height: 50px;" src="img/info3.png" alt="recommendation"></div>
                 <div style="margin-top: 20px;">
                     <p>
-                        Recommendation: <br> {{this.recommendation}}
+                        Recommendation:<br> {{this.recommendation}}
                     </p>
                 </div>
             </div>
@@ -74,62 +79,6 @@
 
         {{/if}}
 
-        {{#if this.data}}
-        {{#ifObject this.data}}
-        <div class="answer" style="margin-top: 20px;">
 
-            {{#ifeq this.key 'backlinksList'}}
-            <ul>
-                {{#each this.data}}
-                {{#ifArray this}}
-
-                {{else}}
-                <li>
-                    {{friendlyText @key}}: {{this}}
-                </li>
-                {{/ifArray}}
-                {{/each}}
-            </ul>
-            {{else}}
-            <div><img style="height: 50px;" src="img/info3.png" alt="data"></div>
-            <div>
-
-
-                <ul>
-                    {{#each this.data}}
-                    {{#ifArray this}}
-
-                    {{else}}
-                    <li>
-                        {{friendlyText @key}}: {{this}}
-                    </li>
-                    {{/ifArray}}
-                    {{/each}}
-                </ul>
-            </div>
-            {{/ifeq}}
-
-        </div>
-
-        {{else}}
-        <div class="answer">
-            <div><img style="height: 50px;" src="img/info3.png" alt="data"></div>
-            <div style="margin-top: 20px;">
-                {{this.data}}
-            </div>
-        </div>
-        {{/ifObject}}
-        {{/if}}
-
-        {{#if this.data}}
-        {{#each this.data}}
-        {{#ifArray this}}
-        {{> table-subsection this}}
-        {{/ifArray}}
-        {{#ifObject this}}
-        {{> table-subsection this}}
-        {{/ifObject}}
-        {{/each}}
-        {{/if}}
     </div>
 </div>

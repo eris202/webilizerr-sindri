@@ -6,9 +6,8 @@
         <div class="item-title">
             <h3>Youtube Activity</h3>
             <div>
-                <div class="item-section">Social</div>
-                <img data-title="Title Here" data-info="Info Here" class="question" src="img/info.png"
-                    alt="Info">
+                <div class="item-section">{{this.section}}</div>
+                {{!-- <img data-title="Title Here" data-info="Info Here" class="question" src="img/info.png" alt="Info"> --}}
             </div>
         </div>
     </div>
@@ -45,16 +44,16 @@
             </div>
         </div>
         {{else}}
-            <div class="box-wrapper">
-                <div class="danger">
-                    <div><img src="img/err.png" alt="err"></div>
-                    <div>
-                        <p>
-                            {{this.recommendation}}
-                        </p>
-                    </div>
+        <div class="box-wrapper">
+            <div class="danger">
+                <div><img src="img/err.png" alt="err"></div>
+                <div>
+                    <p>
+                        recommendation: <br> {{this.recommendation}}
+                    </p>
                 </div>
             </div>
+        </div>
         {{/if}}
     </div>
 </div>

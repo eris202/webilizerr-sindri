@@ -7,96 +7,132 @@
         <div class="item-title">
             <h3>{{this.friendlyName}}</h3>
             <div>
-                <div class="item-section">Performance</div>
-                <img data-title="Title Here" data-info="Info Here" class="question" src="img/info.png"
-                    alt="Info">
+                <div class="item-section">{{this.section}}</div>
+                {{!-- <img data-title="Title Here" data-info="Info Here" class="question" src="img/info.png" alt="Info"> --}}
             </div>
         </div>
     </div>
     <div class="item-body myt-2">
+        {{#if this.passed}}
         <div class="box-wrapper">
+            {{#if this.shortAnswer}}
             <div class="answer">
-                <div><img src="img/success.png" alt="Check"></div>
-                <div>
+                <div><img style="height: 50px;" src="img/success.png" alt="Check"></div>
+                <div style="margin-top: 20px;">
                     <p>
                         {{this.shortAnswer}}
                     </p>
                 </div>
             </div>
-            <div class="g-1-1-1">
-                <div class="info info-vertical">
-                    <div><img src="img/info2.png" alt="info"></div>
-                    <div>
-                        <p class="my-1">Total Size</p>
-                    </div>
-                    <div>
-                        <div class="f-c bold">
-                            <h3 class="odometer bold" data-count="{{this.data.totalSize}}"></h3>
-                            <h3 class="bold">&nbsp;Bytes</h3>
-                        </div>
-                    </div>
-                </div>
-                <div class="info info-vertical">
-                    <div><img src="img/info2.png" alt="info"></div>
-                    <div>
-                        <p class="my-1">HTML Size</p>
-                    </div>
-                    <div class="f-c bold">
-                        <h3 class="odometer bold" data-count="{{this.data.htmlSize}}"></h3>
-                        <h3 class="bold">&nbsp;Bytes</h3>
-                    </div>
-                </div>
-                <div class="info info-vertical">
-                    <div><img src="img/info2.png" alt="info"></div>
-                    <div>
-                        <p class="my-1">Css Size</p>
-                    </div>
-                    <div class="f-c bold">
-                        <h3 class="odometer bold" data-count="{{this.data.cssSize}}"></h3>
-                        <h3 class="bold">&nbsp;Bytes</h3>
-                    </div>
-                </div>
-                <div class="info info-vertical">
-                    <div><img src="img/info2.png" alt="info"></div>
-                    <div>
-                        <p class="my-1">Js Size</p>
-                    </div>
-                    <div class="f-c bold">
-                        <h3 class="odometer bold" data-count="{{this.data.jsSize}}"></h3>
-                        <h3 class="bold">&nbsp;Bytes</h3>
-                    </div>
-                </div>
-                <div class="info info-vertical">
-                    <div><img src="img/info2.png" alt="info"></div>
-                    <div>
-                        <p class="my-1">Image Size</p>
-                    </div>
-                    <div class="f-c bold">
-                        <h3 class="odometer bold" data-count="{{this.data.imageSize}}"></h3>
-                        <h3 class="bold">&nbsp;Bytes</h3>
-                    </div>
-                </div>
-                <div class="info info-vertical">
-                    <div><img src="img/info2.png" alt="info"></div>
-                    <div>
-                        <p class="my-1">Other Size</p>
-                    </div>
-                    <div class="f-c bold">
-                        <h3 class="odometer bold" data-count="{{this.data.otherSize}}"></h3>
-                        <h3 class="bold">&nbsp;Bytes</h3>
-                    </div>
-                </div>
+            {{/if}}
 
+
+
+        </div>
+        {{else}}
+
+        {{#if this.shortAnswer}}
+        <div class="box-wrapper">
+            <div class="answer">
+                <div><img style="height: 50px;" src="img/err.png" alt="Check"></div>
+                <div style="margin-top: 20px;">
+                    <p>
+                        {{this.shortAnswer}}
+                    </p>
+                </div>
             </div>
-            {{!-- <div class="info">
+        </div>
+        {{/if}}
+        {{/if}}
+
+
+        {{#if this.recommendation}}
+        <div class="box-wrapper">
+            <div class="danger">
+                <div><img style="height: 50px;" src="img/info3.png" alt="recommendation"></div>
+                <div style="margin-top: 20px;">
+                    <p>
+                        Recommendation: <br> {{this.recommendation}}
+                    </p>
+                </div>
+            </div>
+        </div>
+        {{/if}}
+
+        <div class="g-1-1-1">
+            <div class="info info-vertical">
+                <div><img src="img/info2.png" alt="info"></div>
+                <div>
+                    <p class="my-1">Total Size</p>
+                </div>
+                <div>
+                    <div class="f-c bold">
+                        <h3 class="odometer bold" data-count="{{this.data.totalSize}}"></h3>
+                        <h3 class="bold">&nbsp;Bytes</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="info info-vertical">
+                <div><img src="img/info2.png" alt="info"></div>
+                <div>
+                    <p class="my-1">HTML Size</p>
+                </div>
+                <div class="f-c bold">
+                    <h3 class="odometer bold" data-count="{{this.data.htmlSize}}"></h3>
+                    <h3 class="bold">&nbsp;Bytes</h3>
+                </div>
+            </div>
+            <div class="info info-vertical">
+                <div><img src="img/info2.png" alt="info"></div>
+                <div>
+                    <p class="my-1">Css Size</p>
+                </div>
+                <div class="f-c bold">
+                    <h3 class="odometer bold" data-count="{{this.data.cssSize}}"></h3>
+                    <h3 class="bold">&nbsp;Bytes</h3>
+                </div>
+            </div>
+            <div class="info info-vertical">
+                <div><img src="img/info2.png" alt="info"></div>
+                <div>
+                    <p class="my-1">Js Size</p>
+                </div>
+                <div class="f-c bold">
+                    <h3 class="odometer bold" data-count="{{this.data.jsSize}}"></h3>
+                    <h3 class="bold">&nbsp;Bytes</h3>
+                </div>
+            </div>
+            <div class="info info-vertical">
+                <div><img src="img/info2.png" alt="info"></div>
+                <div>
+                    <p class="my-1">Image Size</p>
+                </div>
+                <div class="f-c bold">
+                    <h3 class="odometer bold" data-count="{{this.data.imageSize}}"></h3>
+                    <h3 class="bold">&nbsp;Bytes</h3>
+                </div>
+            </div>
+            <div class="info info-vertical">
+                <div><img src="img/info2.png" alt="info"></div>
+                <div>
+                    <p class="my-1">Other Size</p>
+                </div>
+                <div class="f-c bold">
+                    <h3 class="odometer bold" data-count="{{this.data.otherSize}}"></h3>
+                    <h3 class="bold">&nbsp;Bytes</h3>
+                </div>
+            </div>
+
+        </div>
+        {{!-- <div class="info">
                 <div><img src="img/info2.png" alt="info"></div>
                 <div>
                     <p class="my-1">Compare your page sizes with our charts.</p>
                 </div>
 
             </div> --}}
-        </div>
-        {{!-- <div class="box-wrapper">
+    </div>
+    {{!-- <div class="box-wrapper">
             <div class="danger">
                 <div><img src="img/err.png" alt="err"></div>
                 <div>
@@ -104,5 +140,4 @@
                 </div>
             </div>
         </div> --}}
-    </div>
 </div>

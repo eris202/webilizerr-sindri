@@ -1,36 +1,57 @@
 <hr class="section-line">
-<div class="item py-3 blur" id="{{this.key}}">
-    <div class="blur-content">
-        <img src="img/logo.png" alt="logo">
-        <h3 class="my-1">Get access to unlock premium data</h3>
-        <div class="blur-buttons">
-            <button class="color-b brd-b brd-r-5 py-0-5 px-1-5 d-i-b hov-c-w hov-bg-b">Log In</button>
-            <button>Sign Up</button>
-        </div>
-    </div>
+
+
+
+<div class="item py-3" id="{{this.key}}">
     <div class="item-header">
-        <div class="item-num item-num-green">
-            <p>??</p>
+        <div class="item-num {{this.passedClass}} ">
+            <p>{{this.circleTextDisplay}}</p>
         </div>
         <div class="item-title">
             <h3>{{this.friendlyName}}</h3>
             <div>
-                <div class="item-section">Usability</div>
-                <img data-title="Title Here" data-info="Info Here" class="question" src="img/info.png"
-                    alt="Info">
+                <div class="item-section">{{this.section}}</div>
+                {{!-- <img data-title="Title Here" data-info="Info Here" class="question" src="img/info.png" alt="Info"> --}}
             </div>
         </div>
     </div>
-    <div class="item-body myt-2">
-        <div class="box-wrapper">
-            <div class="info">
-                <div><img src="img/info2.png" alt="info"></div>
-                <div>
-                    <p>
-                        ??
-                    </p>
+
+    <div class="item py-3 blur" style="display: block;" id="{{this.key}}">
+        <div class="blur-content">
+            <img src="img/logo.png" alt="logo">
+            <h3 class="my-1">Get access to unlock premium data</h3>
+            <div class="blur-buttons">
+                <button class="color-b brd-b brd-r-5 py-0-5 px-1-5 d-i-b hov-c-w hov-bg-b">Log In</button>
+                <button>Sign Up</button>
+            </div>
+        </div>
+        <div class="item-body myt-2">
+
+            <div class="box-wrapper">
+
+                <div class="answer">
+                    <div><img style="height: 50px;" src="img/err.png" alt="Check"></div>
+                    <div style="margin-top: 20px;">
+                        <p>
+                            Doesn't look like hack your way in going to work ;)
+
+
+                        </p>
+                    </div>
+                </div>
+
+                <div class="answer">
+                    <div><img style="height: 50px;" src="img/success.png" alt="Check"></div>
+                    <div style="margin-top: 20px;">
+                        <p>
+                            You need to be logged in to view these information.
+
+                        </p>
+                    </div>
                 </div>
             </div>
+
+
         </div>
     </div>
 </div>
