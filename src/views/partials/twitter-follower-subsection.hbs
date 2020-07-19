@@ -1,11 +1,13 @@
 <hr class="section-line">
 <div class="item py-3" id="{{this.key}}">
     <div class="item-header">
-        <div class="item-num {{this.passedClass}}">
-            <p>{{this.circleTextDisplay}}</p>
-        </div>
         <div class="item-title">
-            <h3>Twitter Activity</h3>
+            <div style="padding-left: 2%;  width: 100%;">
+                <h3>{{this.friendlyName}}</h3>
+                <div style="margin-left: 2%;margin-top: 4px;" class="item-num {{this.passedClass}}">
+                    <p>{{this.circleTextDisplay}}</p>
+                </div>
+            </div>
             <div>
                 <div class="item-section">{{this.section}}</div>
                 {{!-- <img data-title="Title Here" data-info="Info Here" class="question" src="img/info.png" alt="Info"> --}}

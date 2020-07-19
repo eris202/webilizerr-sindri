@@ -373,15 +373,15 @@ h4 {
 }
 
 .circular-chart.orange .circle {
-  stroke: #ff9f00;
+  stroke: #f89d0e;
 }
 
 .circular-chart.green .circle {
-  stroke: #4cc790;
+  stroke: #5cb85c;
 }
 
 .circular-chart.red .circle {
-  stroke: #d9534f;
+  stroke: #f7322b;
 }
 
 .percentage {
@@ -498,9 +498,9 @@ h4 {
 }
 
 .item-num {
-  max-width: 100px;
+  max-width: 50px;
   width: 100%;
-  height: 100px;
+  height: 50px;
   -webkit-border-radius: 50%;
   -moz-border-radius: 50%;
   border-radius: 50%;
@@ -521,13 +521,12 @@ h4 {
   justify-content: center;
   font-size: 2.4rem;
   position: relative;
-  display: none;
 }
 
 .score-item-nav-green,
 .item-num-green {
-  background: #d7eddb;
-  color: #3b6f40;
+  background: #5cb85c;
+  color: #ffffff;
 }
 
 .score-item-nav-orange,
@@ -538,8 +537,8 @@ h4 {
 
 .score-item-nav-red,
 .item-num-red {
-  background: #f4d6db;
-  color: #d9534f;
+  background: #f7322b;
+  color: #ffffff;
 }
 
 .r-m {

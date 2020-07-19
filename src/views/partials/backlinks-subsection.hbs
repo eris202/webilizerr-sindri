@@ -1,11 +1,13 @@
 <hr class="section-line">
 <div class="item py-3" id="{{this.key}}">
     <div class="item-header">
-        <div class="item-num {{this.passedClass}}">
-            <p>{{this.circleTextDisplay}}</p>
-        </div>
         <div class="item-title">
-            <h3>{{this.friendlyName}}</h3>
+            <div style="padding-left: 2%;  width: 100%;">
+                <h3>{{this.friendlyName}}</h3>
+                <div style="margin-left: 2%;margin-top: 4px;" class="item-num {{this.passedClass}}">
+                    <p>{{this.circleTextDisplay}}</p>
+                </div>
+            </div>
             <div>
                 <div class="item-section">{{this.section}}</div>
                 {{!-- <img data-title="Title Here" data-info="Info Here" class="question" src="img/info.png" alt="Info"> --}}
@@ -17,7 +19,6 @@
         <div class="box-wrapper">
             {{#if this.shortAnswer}}
             <div class="answer">
-                <div><img style="height: 50px;" src="img/success.png" alt="Check"></div>
                 <div style="margin-top: 20px;">
                     <p>
                         {{this.shortAnswer}}
@@ -57,27 +58,25 @@
 
         {{#if this.data}}
         {{#ifObject this.data}}
-        <div class="answer">
+        <div class="info">
 
 
-            <div><img style="height: 50px;" src="img/info3.png" alt="data"></div>
-            <div style="margin-top: 20px;">
+            <div><img style="" src="img/info2.png" alt="data"></div>
 
 
-                <ul>
-                    {{#each this.data}}
+            <ul>
+                {{#each this.data}}
 
-                    <li>
-                        {{#ifeq @key 'backlinks'}}
-                        Page has total of {{this}} backlinks.
-                        {{/ifeq}}
+                <li>
+                    {{#ifeq @key 'backlinks'}}
+                    Page has total of {{this}} backlinks.
+                    {{/ifeq}}
 
-                    </li>
+                </li>
 
-                    {{/each}}
-                    <p>Backlink data provided by <a href="https://moz.com/"><u><strong>Moz</strong></u></a></p>
-                </ul>
-            </div>
+                {{/each}}
+                <p>Backlink data provided by <a href="https://moz.com/"><u><strong>Moz</strong></u></a></p>
+            </ul>
         </div>
         {{/ifObject}}
         {{/if}}

@@ -194,11 +194,11 @@ export class ReportService {
         key: key,
         isBlurred: blurredKeys.indexOf(key) > -1,
         friendlyName: this.changeKeyName(key),
-        // passedClass: value.passed ? "item-num-green" : "item-num-red",
-        // navPassedClass: value.passed
-        //   ? "score-item-nav-green"
-        //   : "score-item-nav-red",
-        // circleTextDisplay: value.passed ? "P" : "F",
+        passedClass: value.passed ? "item-num-green" : "item-num-red",
+        navPassedClass: value.passed
+          ? "score-item-nav-green"
+          : "score-item-nav-red",
+        circleTextDisplay: value.passed ? "✔" : "✘",
       });
     }
 
