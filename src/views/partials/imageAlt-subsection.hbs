@@ -2,13 +2,26 @@
 <div class="item py-3" id="{{this.key}}">
     <div class="item-header">
         <div class="item-title">
-            <div style="padding-left: 2%;  width: 100%;">
-                <h3>{{this.friendlyName}}</h3>
-                <div style="margin-left: 2%;margin-top: 4px;" class="item-num {{this.passedClass}}">
+            <div class="title-sign">
+                <div class="sign item-num {{this.passedClass}}">
                     <p>{{this.circleTextDisplay}}</p>
+                </div>
+                <div class="title">
+                    <h3>{{this.friendlyName}}</h3>
                 </div>
             </div>
             <div>
+                <li class="mx-2 question" data-title="Image Alt" data-info="
+                    Alternative text allows you to add a description to an image. Since search engine crawlers cannot see images, 
+                    they rely on alternative text attributes to determine relevance to a search query. Alternative text also helps 
+                    makes an image more likely to appear in a Google image search and is used by screen readers to provide context for visually impaired users.
+
+Check the images on your website to make sure accurate and relevant alternative text is specified for each image on the page.
+
+Try to keep your alternative text to a simple, one-sentence description of what's in the image.
+">
+                    <a class="hov-c-b d-i-b">
+                        What is this?</a></li>
                 <div class="item-section">{{this.section}}</div>
                 {{!-- <img data-title="Title Here" data-info="Info Here" class="question" src="img/info.png" alt="Info"> --}}
             </div>
@@ -19,7 +32,6 @@
         <div class="box-wrapper">
             {{#if this.shortAnswer}}
             <div class="answer">
-                <div><img style="height: 50px;" src="img/success.png" alt="Check"></div>
                 <div style="margin-top: 20px;">
                     <p>
                         {{this.shortAnswer}}
@@ -30,9 +42,9 @@
 
             {{#if this.recommendation}}
             <div class="box-wrapper">
-                <div class="danger">
-                    <div><img style="height: 50px;" src="img/info3.png" alt="recommendation"></div>
-                    <div style="margin-top: 20px;">
+                <div class="info">
+                    <div><img src="img/info2.png" alt="recommendation"></div>
+                    <div>
                         <p>
                             Recommendation: <br> {{this.recommendation}}
                         </p>
@@ -47,7 +59,6 @@
             <div class="answer">
 
 
-                <div><img style="height: 50px;" src="img/info3.png" alt="data"></div>
                 <div style="margin-top: 20px;">
 
 

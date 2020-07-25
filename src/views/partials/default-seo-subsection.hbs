@@ -2,13 +2,57 @@
 <div class="item py-3" id="{{this.key}}">
     <div class="item-header">
         <div class="item-title">
-            <div style="padding-left: 2%;  width: 100%;">
-                <h3>{{this.friendlyName}}</h3>
-                <div style="margin-left: 2%;margin-top: 4px;" class="item-num {{this.passedClass}}">
+            <div class="title-sign">
+                <div class="sign item-num {{this.passedClass}}">
                     <p>{{this.circleTextDisplay}}</p>
+                </div>
+                <div class="title">
+                    <h3>{{this.friendlyName}}</h3>
                 </div>
             </div>
             <div>
+                {{#ifeq this.key 'brokenLinks'}}
+                {{> info-broken-links}}
+                {{else ifeq  this.key 'friendlyUrls'}}
+                {{> info-friendly-urls}}
+                {{else ifeq  this.key 'noindexHeaders'}}
+                {{> info-noindexHeaders}}
+                {{else ifeq  this.key 'noindexTags'}}Favicon
+                {{> info-noindexTag}}
+                {{else ifeq  this.key 'schemaOrg'}}
+                {{> info-schemaOrg}}
+                {{else ifeq  this.key 'favicon'}}
+                {{> info-favicon}}
+                {{else ifeq  this.key 'flash'}}
+                {{> info-flash}}
+                {{else ifeq  this.key 'iframe'}}
+                {{> info-iframe}}
+                {{else ifeq  this.key 'legibleFonts'}}
+                {{> info-fontsize}}
+                {{else ifeq  this.key 'mobileViewport'}}
+                {{> info-mobileViewport}}
+                {{else ifeq  this.key 'deprecated'}}
+                {{> info-deprecated}}
+                {{else ifeq  this.key 'gzip'}}
+                {{> info-gzip}}
+                {{else ifeq  this.key 'inlineCss'}}
+                {{> info-inlineCss}}
+                {{else ifeq  this.key 'minified'}}
+                {{> info-minified}}
+                {{else ifeq  this.key 'optimizedImages'}}
+                {{> info-optimizedImages}}
+                {{else ifeq  this.key 'email'}}
+                {{> info-email}}
+                {{else ifeq  this.key 'httpsRedirect'}}
+                {{> info-httpsRedirect}}
+                {{else ifeq  this.key 'sslEnabled'}}
+                {{> info-sslEnabled}}
+
+
+
+
+
+                {{/ifeq}}
                 <div class="item-section">{{this.section}}</div>
                 {{!-- <img data-title="Title Here" data-info="Info Here" class="question" src="img/info.png" alt="Info"> --}}
             </div>
@@ -19,7 +63,7 @@
         <div class="box-wrapper">
             {{#if this.shortAnswer}}
             <div class="answer">
-                <div><img style="height: 50px;" src="img/success.png" alt="Check"></div>
+                {{!-- <div><img style="height: 50px;" src="img/success.png" alt="Check"></div> --}}
                 <div style="margin-top: 20px;">
                     <p>
                         {{this.shortAnswer}}
@@ -29,7 +73,7 @@
             {{/if}}
             {{#if this.value}}
             <div class="answer">
-                <div><img style="height: 50px;" src="img/success.png" alt="Check"></div>
+                {{!-- <div><img style="height: 50px;" src="img/success.png" alt="Check"></div> --}}
                 <div style="margin-top: 20px;">
                     <p>
                         Value: <br> {{this.value}}
@@ -42,7 +86,7 @@
         {{#if this.shortAnswer}}
         <div class="box-wrapper">
             <div class="answer">
-                <div><img style="height: 50px;" src="img/err.png" alt="Check"></div>
+                {{!-- <div><img style="height: 50px;" src="img/err.png" alt="Check"></div> --}}
                 <div style="margin-top: 20px;">
                     <p>
                         {{this.shortAnswer}}
@@ -53,7 +97,7 @@
         {{/if}}
         {{#if this.value}}
         <div class="answer">
-            <div><img style="height: 50px;" src="img/info3.png" alt="Value"></div>
+            {{!-- <div><img style="height: 50px;" src="img/info3.png" alt="Value"></div> --}}
             <div style="margin-top: 20px;">
                 <p>
                     Value: <br> {{this.value}}
@@ -63,9 +107,9 @@
         {{/if}}
         {{#if this.recommendation}}
         <div class="box-wrapper">
-            <div class="danger">
-                <div><img style="height: 50px;" src="img/info3.png" alt="recommendation"></div>
-                <div style="margin-top: 20px;">
+            <div class="info">
+                <div><img src="img/info2.png" alt="recommendation"></div>
+                <div>
                     <p>
                         Recommendation: <br> {{this.recommendation}}
                     </p>
@@ -78,22 +122,10 @@
 
         {{#if this.data}}
         {{#ifObject this.data}}
-        <div class="answer" style="margin-top: 20px;">
+        <div class="info" style="margin-top: 20px;">
 
-            {{#ifeq this.key 'backlinksList'}}
-            <ul>
-                {{#each this.data}}
-                {{#ifArray this}}
 
-                {{else}}
-                <li>
-                    {{friendlyText @key}}: {{this}}
-                </li>
-                {{/ifArray}}
-                {{/each}}
-            </ul>
-            {{else}}
-            <div><img style="height: 50px;" src="img/info3.png" alt="data"></div>
+            <div><img style="height: 50px;" src="img/info2.png" alt="data"></div>
             <div>
 
 
@@ -109,13 +141,12 @@
                     {{/each}}
                 </ul>
             </div>
-            {{/ifeq}}
 
         </div>
 
         {{else}}
-        <div class="answer">
-            <div><img style="height: 50px;" src="img/info3.png" alt="data"></div>
+        <div class="info">
+            <div><img style="height: 50px;" src="img/info2.png" alt="data"></div>
             <div style="margin-top: 20px;">
                 {{this.data}}
             </div>

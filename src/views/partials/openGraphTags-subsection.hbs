@@ -2,25 +2,32 @@
 <div class="item py-3" id="{{this.key}}">
     <div class="item-header">
         <div class="item-title">
-            <div style="padding-left: 2%;  width: 100%;">
-                <h3>{{this.friendlyName}}</h3>
-                <div style="margin-left: 2%;margin-top: 4px;" class="item-num {{this.passedClass}}">
+            <div class="title-sign">
+                <div class="sign item-num {{this.passedClass}}">
                     <p>{{this.circleTextDisplay}}</p>
+                </div>
+                <div class="title">
+                    <h3>{{this.friendlyName}}</h3>
                 </div>
             </div>
             <div>
+                <li class="mx-2 question" data-title="Open Graph Tag" data-info="
+
+Facebook developed the Open Graph protocol to enable the integration of any web page with its social media platform. 
+Other social media platforms have also adopted the protocol, allowing you to control how your web pages are presented when shared across social media.
+Check out Facebook's Guide to Sharing for Webmasters to learn how to add Open Graph tags.
+"><a class="hov-c-b d-i-b">
+                        What is this?</a></li>
                 <div class="item-section">{{this.section}}</div>
                 {{!-- <img data-title="Title Here" data-info="Info Here" class="question" src="img/info.png" alt="Info"> --}}
             </div>
         </div>
     </div>
     <div class="item-body myt-2">
-        {{#if this.passed}}
         <div class="box-wrapper">
             {{#if this.shortAnswer}}
             <div class="answer">
-                <div><img style="height: 50px;" src="img/success.png" alt="Check"></div>
-                <div style="margin-top: 20px;">
+                <div>
                     <p>
                         {{this.shortAnswer}}
                     </p>
@@ -30,9 +37,9 @@
 
             {{#if this.recommendation}}
             <div class="box-wrapper">
-                <div class="danger">
-                    <div><img style="height: 50px;" src="img/info3.png" alt="recommendation"></div>
-                    <div style="margin-top: 20px;">
+                <div class="info">
+                    <div><img src="img/info2.png" alt="recommendation"></div>
+                    <div>
                         <p>
                             Recommendation: <br> {{this.recommendation}}
                         </p>
@@ -44,98 +51,36 @@
 
             {{#if this.data}}
             {{#ifObject this.data}}
-            <div class="answer">
-
-
-                <div><img style="height: 50px;" src="img/info3.png" alt="data"></div>
-                <div style="margin-top: 20px;">
-
-
+            <div class="info">
+                <div><img src="img/info2.png" alt="data"></div>
+                <div>
                     <ul>
                         {{#each this.data}}
                         {{#ifArray this}}
-
                         {{else}}
                         <li>
                             {{#ifeq @key 'og:site_name'}}
-                            Site Name: {{this}}
+                            <b>Site Name: </b> {{this}}
                             {{else ifeq @key 'og:type'}}
-                            Type: {{this}}
+                            <b>Type:</b> {{this}}
                             {{else ifeq @key 'og:url'}}
-                            URL: {{this}}
+                            <b>URL:</b> {{this}}
                             {{else ifeq @key 'og:image'}}
-                            Image: {{this}}
+                            <b> Image:</b> {{this}}
 
                             {{else ifeq @key 'og:title'}}
-                            Title: {{this}}
+                            <b>Title:</b> {{this}}
                             {{else ifeq @key 'og:description'}}
-                            Description: {{this}}
+                            <b>Description:</b> {{this}}
                             {{/ifeq}}
-
-
-
-
-
-
-                            <!-- {{friendlyText @key}}: {{this}}-->
                         </li>
                         {{/ifArray}}
                         {{/each}}
                     </ul>
                 </div>
-
             </div>
-
             {{/ifObject}}
             {{/if}}
-
-
-
-
-
-
-
-
         </div>
-        {{else}}
-        {{#if this.shortAnswer}}
-        <div class="box-wrapper">
-            <div class="answer">
-                <div><img style="height: 50px;" src="img/err.png" alt="Check"></div>
-                <div style="margin-top: 20px;">
-                    <p>
-                        {{this.shortAnswer}}
-                    </p>
-                </div>
-            </div>
-        </div>
-        {{/if}}
-        {{#if this.recommendation}}
-        <div class="box-wrapper">
-            <div class="danger">
-                <div><img style="height: 50px;" src="img/info3.png" alt="recommendation"></div>
-                <div style="margin-top: 20px;">
-                    <p>
-                        Recommendation: {{this.recommendation}}
-                    </p>
-                </div>
-            </div>
-        </div>
-        {{/if}}
-        {{#if this.data}}
-        <div class="answer">
-            <div><img style="height: 50px;" src="img/info3.png" alt="data"></div>
-            <div style="margin-top: 20px;">
-                <p>
-                    Facebook Pixel: <b>{{this.data}}</b>
-                </p>
-            </div>
-        </div>
-        {{/if}}
-        {{/if}}
-
-
-
-
     </div>
 </div>

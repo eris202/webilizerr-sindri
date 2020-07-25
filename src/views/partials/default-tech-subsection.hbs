@@ -2,7 +2,14 @@
 <div class="item py-3" id="{{this.key}}">
     <div class="item-header">
         <div class="item-title">
-            <h3>{{this.friendlyName}}</h3>
+            <div class="title-sign">
+                <div class="sign item-num {{this.passedClass}}">
+                    <p>{{this.circleTextDisplay}}</p>
+                </div>
+                <div class="title">
+                    <h3>{{this.friendlyName}}</h3>
+                </div>
+            </div>
             <div>
                 <div class="item-section">{{this.section}}</div>
                 {{!-- <img data-title="Title Here" data-info="Info Here" class="question" src="img/info.png" alt="Info"> --}}
@@ -12,8 +19,7 @@
     <div class="item-body myt-2">
         <div class="box-wrapper">
             <div class="answer">
-                <div><img style="height: 50px;" src="img/info3.png" alt="Value"></div>
-                <div style="margin-top: 20px;">
+                <div>
                     <p>
                         {{this.data}}
                     </p>

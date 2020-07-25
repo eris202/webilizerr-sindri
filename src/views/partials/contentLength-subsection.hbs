@@ -2,15 +2,28 @@
 <div class="item py-3" id="{{this.key}}">
     <div class="item-header">
         <div class="item-title">
-            <div style="padding-left: 2%;  width: 100%;">
-                <h3>{{this.friendlyName}}</h3>
-                <div style="margin-left: 2%;margin-top: 4px;" class="item-num {{this.passedClass}}">
+            <div class="title-sign">
+                <div class="sign item-num {{this.passedClass}}">
                     <p>{{this.circleTextDisplay}}</p>
+                </div>
+                <div class="title">
+                    <h3>{{this.friendlyName}}</h3>
                 </div>
             </div>
             <div>
+                <li class="mx-2 question" data-title="Amount of Content"
+                    data-info="Why is it important?
+                        Textual content is important for many reasons:
+
+                        Users generally crave substantial information which only text can provide.
+                        To rank competitively in search engines, they must find a sufficient volume of content for your desired keywords.
+                        How is it measured?
+                        Each page is analysed in turn, and non-content text is intelligently removed. For example, navigation, menus, breadcrumb trails and footers.
+
+                        The remaining text represents the unique ‘body text’ of the page. The length of this content is measured and recorded for each page.">
+                    <a class="hov-c-b d-i-b">
+                        What is this?</a></li>
                 <div class="item-section">{{this.section}}</div>
-                {{!-- <img data-title="Title Here" data-info="Info Here" class="question" src="img/info.png" alt="Info"> --}}
             </div>
         </div>
     </div>
@@ -21,7 +34,7 @@
             {{#if this.shortAnswer}}
             {{#if this.value}}
             <div class="answer">
-                <div><img style="height: 50px;" src="img/success.png" alt="Check"></div>
+                {{!-- <div><img style="height: 50px;" src="img/success.png" alt="Check"></div> --}}
                 <div style="margin-top: 20px;">
                     <p>
                         {{this.shortAnswer}} Page has {{this.value}} characters.
@@ -31,13 +44,14 @@
             </div>
             {{/if}}
             {{else}}
-
-            <div class="answer">
-                <div><img style="height: 50px;" src="img/success.png" alt="Check"></div>
-                <div style="margin-top: 20px;">
-                    <p>
-                        {{this.shortAnswer}}
-                    </p>
+            <div class="box-wrapper">
+                <div class="answer">
+                    {{!-- <div><img style="height: 50px;" src="img/success.png" alt="Check"></div> --}}
+                    <div style="margin-top: 20px;">
+                        <p>
+                            {{this.shortAnswer}}
+                        </p>
+                    </div>
                 </div>
             </div>
             {{/if}}
@@ -47,7 +61,7 @@
         {{#if this.value}}
         <div class="box-wrapper">
             <div class="answer">
-                <div><img style="height: 50px;" src="img/err.png" alt="Check"></div>
+                {{!-- <div><img style="height: 50px;" src="img/err.png" alt="Check"></div> --}}
                 <div style="margin-top: 20px;">
                     <p>
                         {{this.shortAnswer}}. <br> Page has {{this.value}} characters.
@@ -57,13 +71,14 @@
         </div>
         {{/if}}
         {{else}}
-
-        <div class="answer">
-            <div><img style="height: 50px;" src="img/err.png" alt="Check"></div>
-            <div style="margin-top: 20px;">
-                <p>
-                    {{this.shortAnswer}}
-                </p>
+        <div class="box-wrapper">
+            <div class="answer">
+                {{!-- <div><img style="height: 50px;" src="img/err.png" alt="Check"></div> --}}
+                <div style="margin-top: 20px;">
+                    <p>
+                        {{this.shortAnswer}}
+                    </p>
+                </div>
             </div>
         </div>
         {{/if}}
@@ -71,11 +86,10 @@
         <div class="box-wrapper">
             <div class="info">
                 <div><img src="img/info2.png" alt="recommendation"></div>
-                <div>
-                    <p>
-                        Recommendation:<br> {{this.recommendation}}
-                    </p>
-                </div>
+                <p>
+                    Recommendation:<br>{{this.nullColor}}
+                    <p>{{this.nullSign}}</p> {{this.recommendation}}
+                </p>
             </div>
         </div>
         {{/if}}

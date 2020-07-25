@@ -87,9 +87,12 @@
                 </li>
 
                 {{else}}
-                <li class="mx-2"><a href="/login" class="hov-c-b d-i-b">Login</a></li>
-                <li class="mx-2"><a href="/register"
-                        class="color-b brd-b brd-r-5 py-0-5 px-1-5 d-i-b hov-c-w hov-bg-b">Register</a></li>
+                <li class="mx-2"></li>
+                <li class="mx-2">
+                    <a href="/login" class="color-b brd-b brd-r-5 py-0-5 px-1-5 d-i-b hov-c-w hov-bg-b">Login
+                    </a>
+                    <a href="/register" class="color-b brd-b brd-r-5 py-0-5 px-1-5 d-i-b hov-c-w hov-bg-b">Register
+                    </a>
                 </li>
 
 
@@ -102,14 +105,14 @@
                     <div class="premium-icon" style="margin-top: 50%;">
                         <img src="img/angle.png" alt="Premium">
                     </div>
-                    <p class="premium-btn c-l-w hov-c-w myt-1">More Scans</p>
+                    <p class="premium-btn c-l-w hov-c-w myt-1">Buy Scans</p>
                 </a>
-                <a href="#">
+                {{!-- <a href="../pricing-service">
                     <div class="premium-icon" style="margin-top: 50%;">
                         <img src="img/premium.png" alt="Premium">
                     </div>
                     <p class="premium-btn c-l-w hov-c-w myt-1">Service</p>
-                </a>
+                </a> --}}
             </aside>
             <aside class="section-nav py-2 px-2 nav-links">
                 <li class="c-w active hov-c-w" data-nav="nav-overview"><a class="hov-dec-u"
@@ -121,29 +124,24 @@
                     {{#each reportData.data.seoSection.subSections}}
                     {{#ifeq this.isBlurred true}}
                     <li>
-                        <div class="score-item-nav">
-                            ?
+                        <div class="score-item-nav {{this.passedClass}}">
+                            <p style="font-size: 0.85rem;">{{this.circleTextDisplay}}</p>
                         </div>
                         <a href="#{{this.key}}">{{this.friendlyName}}</a>
                     </li>
                     {{else ifeq this.key 'title'}}
                     <li class="active">
-                        <div class="score-item-nav {{this.navPassedClass}}">
-                            {{this.circleTextDisplay}}
+                        <div class="score-item-nav {{this.passedClass}}">
+                            <p style="font-size: 0.85rem;">{{this.circleTextDisplay}}</p>
                         </div>
                         <a href="#{{this.key}}">{{this.friendlyName}}</a>
                     </li>
                     {{else}}
                     <li>
-                        {{#if this.passed}}
-                        <div class="score-item-nav {{this.navPassedClass}}">
-                            {{this.circleTextDisplay}}
+                        <div class="score-item-nav {{this.passedClass}}">
+                            <p style="font-size: 0.85rem;">{{this.circleTextDisplay}}</p>
                         </div>
-                        {{else}}
-                        <div class="score-item-nav score-item-nav-orange">
-                            I
-                        </div>
-                        {{/if}}
+
                         <a href="#{{this.key}}">{{this.friendlyName}}</a>
                     </li>
                     {{/ifeq}}
@@ -163,15 +161,10 @@
                     </li>
                     {{else}}
                     <li>
-                        {{#if this.passed}}
-                        <div class="score-item-nav {{this.navPassedClass}}">
-                            {{this.circleTextDisplay}}
+                        <div class="score-item-nav {{this.passedClass}}">
+                            <p style="font-size: 0.85rem;">{{this.circleTextDisplay}}</p>
                         </div>
-                        {{else}}
-                        <div class="score-item-nav score-item-nav-orange">
-                            I
-                        </div>
-                        {{/if}}
+
                         <a href="#{{this.key}}">{{this.friendlyName}}</a>
                     </li>
                     {{/ifeq}}
@@ -191,15 +184,10 @@
                     </li>
                     {{else}}
                     <li>
-                        {{#if this.passed}}
-                        <div class="score-item-nav {{this.navPassedClass}}">
-                            {{this.circleTextDisplay}}
+                        <div class="score-item-nav {{this.passedClass}}">
+                            <p style="font-size: 0.85rem;">{{this.circleTextDisplay}}</p>
                         </div>
-                        {{else}}
-                        <div class="score-item-nav score-item-nav-orange">
-                            I
-                        </div>
-                        {{/if}}
+
                         <a href="#{{this.key}}">{{this.friendlyName}}</a>
                     </li>
                     {{/ifeq}}
@@ -219,15 +207,10 @@
                     </li>
                     {{else}}
                     <li>
-                        {{#if this.passed}}
-                        <div class="score-item-nav {{this.navPassedClass}}">
-                            {{this.circleTextDisplay}}
+                        <div class="score-item-nav {{this.passedClass}}">
+                            <p style="font-size: 0.85rem;">{{this.circleTextDisplay}}</p>
                         </div>
-                        {{else}}
-                        <div class="score-item-nav score-item-nav-orange">
-                            I
-                        </div>
-                        {{/if}}
+
                         <a href="#{{this.key}}">{{this.friendlyName}}</a>
                     </li>
                     {{/ifeq}}
@@ -247,15 +230,10 @@
                     </li>
                     {{else}}
                     <li>
-                        {{#if this.passed}}
-                        <div class="score-item-nav {{this.navPassedClass}}">
-                            {{this.circleTextDisplay}}
+                        <div class="score-item-nav {{this.passedClass}}">
+                            <p style="font-size: 0.85rem;">{{this.circleTextDisplay}}</p>
                         </div>
-                        {{else}}
-                        <div class="score-item-nav score-item-nav-orange">
-                            I
-                        </div>
-                        {{/if}}
+
                         <a href="#{{this.key}}">{{this.friendlyName}}</a>
                     </li>
                     {{/ifeq}}
@@ -275,9 +253,10 @@
                     </li>
                     {{else}}
                     <li>
-                        <div class="score-item-nav score-item-nav-orange">
-                            I
+                        <div class="score-item-nav {{this.passedClass}}">
+                            <p style="font-size: 0.85rem;">{{this.circleTextDisplay}}</p>
                         </div>
+
                         <a href="#{{this.key}}">{{this.friendlyName}}</a>
                     </li>
                     {{/ifeq}}
@@ -453,6 +432,8 @@
                 {{> keywords-subsection}}
                 {{else ifeq this.key 'backlinks'}}
                 {{> backlinks-subsection}}
+                {{else ifeq this.key 'backlinksList'}}
+                {{> backlinksList-subsection}}
                 {{else ifeq this.key 'contentLength'}}
                 {{> contentLength-subsection}}
                 {{else ifeq this.key 'description'}}
@@ -463,6 +444,8 @@
                 {{> robotsTxt-subsection}}
                 {{else ifeq this.key 'analytics'}}
                 {{> analytics-subsection}}
+                {{else ifeq this.key 'sitemap'}}
+                {{> sitemap-subsection}}
                 {{else ifeq this.key 'onPageLinks'}}
                 {{> on-page-subsection}}
                 {{else ifeq this.passed null}}
@@ -662,10 +645,10 @@
             <section class="section-body px-3 myt-2 section-wrapper" id="recommendations"
                 data-section="recommendations">
                 {{#each reportData.recommendations}}
-                <div class="rec-item py-1">
-                    <div style="width: 50%;text-align: left;display: initial;margin-left: 10%;" class="num-title">
+                <div class="rec-item py-2;">
+                    <div style="width: 100%; display: flex; padding:20px" class="box-wrapper">
                         <div class="item-num item-num-red">
-                            <p>{{this.priority}}</p>
+                            <p style="font-size:0.7rem;">{{this.priority}}</p>
                         </div>
                         <div>
                             <h3>{{this.recommendation}}</h3>

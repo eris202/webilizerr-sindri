@@ -12,8 +12,9 @@
   <meta property="og:image" content="http://digipunk.netii.net/images/radar.gif">
   <meta property="og:url" content="http://digipunk.netii.net">
   <link rel="icon" href="images/favicon.ico" type="image/x-icon">
-  <link rel="stylesheet" href="components/base/base.css">
   <link rel="stylesheet" href="components/base/alerts.css">
+  <link rel="stylesheet" href="components/base/base.css">
+
 
   <style>
     .alertCST {
@@ -150,14 +151,20 @@
           <div class="row justify-content-center novi-disabled">
             <div class="col-lg-7 col-xl-6">
               <h1>Scan Any Website</h1>
+              <hr class="divider footer-divider" style="margin-top:1rem">
+              <h6 style="margin-top: 1rem;">Takes only about a minute</h6>
               <form class="form-inline justify-content-center group-20" method="post">
                 <div class="form-inline-group has-error">
                   <input class="form-control form-control-has-validation form-control-last-child" type="text" name="url"
-                    value="" placeholder="awesome-website.com" data-constraints="@Required">
+                    value="" placeholder="www.awesome-website.com" data-constraints="@Required">
                 </div>
                 <button class="btn btn-lg btn-primary">Scan!</button>
+
               </form>
+              <button style="width: 100%;" class="btn btn-secondary disabled">Over 1.000.230 websites scanned </button>
+
             </div>
+
           </div>
         </div>
       </div>
@@ -170,13 +177,15 @@
           <div class="snackbar snackbar-danger">
             <div class="snackbar-inner">
               <div class="snackbar-title"><span class="icon snackbar-icon novi-icon int-warning"></span>
-                <span class="alertCST-text">{{{message}}}</span>
+                <span class="alertCST-text">{{{message}}} </span>
               </div>
             </div>
           </div>
+
         </div>
       </div>
       {{/if}}
+
     </section>
     {{> footer}}
   </div>

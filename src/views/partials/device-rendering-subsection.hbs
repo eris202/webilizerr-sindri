@@ -2,55 +2,63 @@
 <div class="item py-3" id="{{this.key}}">
     <div class="item-header">
         <div class="item-title">
-            <div style="padding-left: 2%;  width: 100%;">
-                <h3>{{this.friendlyName}}</h3>
-                <div style="margin-left: 2%;margin-top: 4px;" class="item-num {{this.passedClass}}">
+            < <div class="title-sign">
+                <div class="sign item-num {{this.passedClass}}">
                     <p>{{this.circleTextDisplay}}</p>
                 </div>
-            </div>
+                <div class="title">
+                    <h3>{{this.friendlyName}}</h3>
+                </div>
+        </div>
+        <div>
+            <li class="mx-2 question" data-title="Title Here" data-info="
+                This is how your website appears when displayed on different mobile devices.
+                With more than half of all Google search queries originating on a mobile device, 
+                it is important to make sure your mobile site is optimized for these users.
+                "><a class="hov-c-b d-i-b">
+                    What is this?</a></li>
+            <div class="item-section">{{this.section}}</div>
+            {{!-- <img data-title="Title Here" data-info="Info Here" class="question" src="img/info.png" alt="Info"> --}}
+        </div>
+    </div>
+</div>
+<div class="item-body myt-2" style="margin-left: auto;">
+    <div class="box-wrapper" style="margin-left: 300px;">
+        <div class="info">
+            <div><img src="img/info2.png" alt="Check"></div>
             <div>
-                <div class="item-section">{{this.section}}</div>
-                {{!-- <img data-title="Title Here" data-info="Info Here" class="question" src="img/info.png" alt="Info"> --}}
+                <p>
+                    {{this.shortAnswer}}
+                </p>
             </div>
         </div>
     </div>
-    <div class="item-body myt-2">
-        <div class="box-wrapper">
-            <div class="info">
-                <div><img src="img/info2.png" alt="Check"></div>
-                <div>
-                    <p>
-                        {{this.shortAnswer}}
-                    </p>
+    <div class="g-1-1">
+        <div class="box-device">
+            <div>
+                <p class="my-1">Mobile</p>
+                <div class="mobile-wrapper">
+                    <div class="mobile">
+                        <img src="{{this.data.mobile}}" alt="mobile">
+                    </div>
+                    <img class="mxh-375" src="img/mobile.png" alt="mobile">
                 </div>
             </div>
         </div>
-        <div class="g-1-1">
-            <div class="box-device">
-                <div>
-                    <p class="my-1">Mobile</p>
-                    <div class="mobile-wrapper">
-                        <div class="mobile">
-                            <img src="{{this.data.mobile}}" alt="mobile">
-                        </div>
-                        <img class="mxh-375" src="img/mobile.png" alt="mobile">
-                    </div>
-                </div>
-            </div>
-            <div class="box-device">
+        <div class="box-device">
 
-                <div>
-                    <p class="my-1">Tablet</p>
-                    <div class="tablet-wrapper">
-                        <div class="tablet">
-                            <img src="{{this.data.tablet}}" alt="tablet">
-                        </div>
-                        <img class="mxh-375" src="img/tablet.png" alt="tablet">
+            <div>
+                <p class="my-1">Tablet</p>
+                <div class="tablet-wrapper">
+                    <div class="tablet">
+                        <img src="{{this.data.tablet}}" alt="tablet">
                     </div>
+                    <img class="mxh-375" src="img/tablet.png" alt="tablet">
                 </div>
             </div>
         </div>
-        {{!-- <div class="box-wrapper">
+    </div>
+    {{!-- <div class="box-wrapper">
             <div class="danger">
                 <div><img src="img/err.png" alt="err"></div>
                 <div>
@@ -58,5 +66,5 @@
                 </div>
             </div>
         </div> --}}
-    </div>
+</div>
 </div>

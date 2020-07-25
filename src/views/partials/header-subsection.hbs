@@ -2,13 +2,22 @@
 <div class="item py-3" id="{{this.key}}">
     <div class="item-header">
         <div class="item-title">
-            <div style="padding-left: 2%;  width: 100%;">
-                <h3>{{this.friendlyName}}</h3>
-                <div style="margin-left: 2%;margin-top: 4px;" class="item-num {{this.passedClass}}">
+            <div class="title-sign">
+                <div class="sign item-num {{this.passedClass}}">
                     <p>{{this.circleTextDisplay}}</p>
+                </div>
+                <div class="title">
+                    <h3>{{this.friendlyName}}</h3>
                 </div>
             </div>
             <div>
+                <li class="mx-2 question" data-title="Headings"
+                    data-info="
+                        Use your keywords in the headings and make sure the first level H1 includes your most important keywords. Never duplicate your title tag content in your header tag.
+
+                        While it is important to ensure every page has an H1 tag, only include more than one per page if you're using HTML5. Instead, use multiple H2 - H6 tags.">
+                    <a class="hov-c-b d-i-b">
+                        What is this?</a></li>
                 <div class="item-section">{{this.section}}</div>
                 {{!-- <img data-title="Title Here" data-info="Info Here" class="question" src="img/info.png" alt="Info"> --}}
             </div>
@@ -19,7 +28,6 @@
         <div class="box-wrapper">
             {{#if this.shortAnswer}}
             <div class="answer">
-                <div><img style="height: 50px;" src="img/success.png" alt="Check"></div>
                 <div style="margin-top: 20px;">
                     <p>
                         {{this.shortAnswer}}
@@ -32,7 +40,6 @@
         {{#if this.shortAnswer}}
         <div class="box-wrapper">
             <div class="answer">
-                <div><img style="height: 50px;" src="img/err.png" alt="Check"></div>
                 <div style="margin-top: 20px;">
                     <p>
                         {{this.shortAnswer}}
@@ -43,9 +50,9 @@
         {{/if}}
         {{#if this.recommendation}}
         <div class="box-wrapper">
-            <div class="danger">
-                <div><img style="height: 50px;" src="img/info3.png" alt="recommendation"></div>
-                <div style="margin-top: 20px;">
+            <div class="info">
+                <div><img src="img/info2.png" alt="recommendation"></div>
+                <div>
                     <p>
                         Recommendation: <br> {{this.recommendation}}
                     </p>

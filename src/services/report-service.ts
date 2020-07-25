@@ -3,7 +3,7 @@ import seo_API_KEY from "../config/keys";
 import seo_API_URL from "../config/keys";
 import { Service, Inject } from "typedi";
 import { Output, Data } from "../model/TypedReport";
-import { capitalCase } from "change-case";
+import { capitalCase, capitalCaseTransform } from "change-case";
 import blurredKeys from "../config/blur-keys";
 import { ReportCreateResponse } from "../model/ReportCreateResponse";
 import firebaseAdmin from "../config/firebase-setup";
@@ -40,6 +40,8 @@ export class ReportService {
     }
 
     const subsections = this.divideResponseToSubsections(typedData.output);
+    console.log("3;  " + subsections);
+
     const sectionWiseData = this.createSectionWiseData(
       typedData.output,
       subsections
@@ -194,20 +196,86 @@ export class ReportService {
         key: key,
         isBlurred: blurredKeys.indexOf(key) > -1,
         friendlyName: this.changeKeyName(key),
-        passedClass: value.passed ? "item-num-green" : "item-num-red",
+        passedClass: String(this.IfNullColor(value)),
+        circleTextDisplay: String(this.IfNullSign(value)),
         navPassedClass: value.passed
           ? "score-item-nav-green"
           : "score-item-nav-red",
-        circleTextDisplay: value.passed ? "✔" : "✘",
+        // passedClass: value.passed ? "item-num-green" : "item-num-red",
+        // circleTextDisplay: value.passed ? "✔" : "✘",
       });
     }
-
+    console.log(subSections);
     return subSections;
   };
+
+  private IfNullColor(value: any) {
+    if (value.passed === undefined) {
+      return "item-num-orange";
+    } else if (value.passed) {
+      return "item-num-green";
+    } else if (!value.passed) {
+      return "item-num-red";
+    }
+  }
+
+  private IfNullSign(value: any) {
+    if (value.passed === undefined) {
+      return "𝓲";
+    } else if (value.passed) {
+      return "✔";
+    } else {
+      return "✘";
+    }
+  }
 
   private changeKeyName(key: string) {
     if (key.toLowerCase() === "analytics") {
       return "Analytics";
+    } else if (key.toLowerCase() === "robotstxt") {
+      return "Robots.txt";
+    } else if (key.toLowerCase() === "contentlength") {
+      return "Amount of Content";
+    } else if (key.toLowerCase() === "description") {
+      return "Meta Description";
+    } else if (key.toLowerCase() === "headers") {
+      return "Headings";
+    } else if (key.toLowerCase() === "noindexheaders") {
+      return "No Index Headers";
+    } else if (key.toLowerCase() === "schemaorg") {
+      return "Schema.org";
+    } else if (key.toLowerCase() === "sitemap") {
+      return "XML Sitemap";
+    } else if (key.toLowerCase() === "title") {
+      return "Title Tag";
+    } else if (key.toLowerCase() === "iframe") {
+      return "iFrames";
+    } else if (key.toLowerCase() === "legiblefonts") {
+      return "Font Size Legibility";
+    } else if (key.toLowerCase() === "deprecated") {
+      return "Deprecated HTML Tags";
+    } else if (key.toLowerCase() === "gzip") {
+      return "GZIP Compression";
+    } else if (key.toLowerCase() === "inlineCss") {
+      return "Inline CSS";
+    } else if (key.toLowerCase() === "minified") {
+      return "Minified JavaScript and CSS ";
+    } else if (key.toLowerCase() === "optimizedImages") {
+      return "Image Optimization";
+    } else if (key.toLowerCase() === "linkedInLink") {
+      return "Linkedin Link";
+    } else if (key.toLowerCase() === "twitterTags") {
+      return "Twitter Cards";
+    } else if (key.toLowerCase() === "email") {
+      return "Email Privacy";
+    } else if (key.toLowerCase() === "httpsRedirect") {
+      return "URL Resolve";
+    } else if (key.toLowerCase() === "Malware") {
+      return "Malware Scanners";
+    } else if (key.toLowerCase() === "ip") {
+      return "Service IP Address";
+    } else if (key.toLowerCase() === "dns") {
+      return "DNS";
     }
 
     return capitalCase(key);
@@ -292,6 +360,7 @@ export class ReportService {
     const subsections = this.divideResponseToSubsections(data.output);
     const score = this.createSectionWiseData(data.output, subsections)
       .overallSection.score;
+    console.log("1;  " + subsections);
 
     return {
       score: score,
@@ -318,6 +387,7 @@ export class ReportService {
     const subsections = this.divideResponseToSubsections(data.output);
     const score = this.createSectionWiseData(data.output, subsections)
       .overallSection.score;
+    console.log("2;  " + subsections);
 
     return {
       score: score,

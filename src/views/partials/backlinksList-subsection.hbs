@@ -12,35 +12,54 @@
             </div>
             <div>
 
-                <li class="mx-2 question" data-title="Technologies"
-                    data-info="Get to know the technologies used for your website. Some codes might slow down your website. Ask your webmaster to take a look at this.">
-                    <a class="hov-c-b d-i-b">
-                        What is this?</a></li>
                 <div class="item-section">{{this.section}}</div>
                 {{!-- <img data-title="Title Here" data-info="Info Here" class="question" src="img/info.png" alt="Info"> --}}
             </div>
         </div>
     </div>
-    <div class="item-body myt-2">
-        <div class="box-wrapper">
+    <div class="item-body myt-2" style="margin: 5%;">
+
+
+
+        {{#if this.data}}
+        {{#each this.data}}
+        {{#ifArray this}}
+        <div class="box-wrapper" style="width: 100%;">
             <div class="info">
                 <div><img src="img/info2.png" alt="info"></div>
-                <div>
-                    <table cellpadding="0" cellspacing="0" border="0" class="table header-tags">
+                {{#ifArray this}}
+
+                <div class="table-wrapper">
+                    <table cellpadding="0" cellspacing="0" border="0" class="table">
+                        {{#each this}}
+                        {{#if @first}}
                         <thead>
-                            <tr>
-                            </tr>
+                            {{#each this}}
+                            <th>
+                                {{friendlyText @key}}
+                            </th>
+                            {{/each}}
                         </thead>
+                        {{/if}}
                         <tbody>
-                            {{#each this.data}}
-                            <tr>
-                                <td>{{this}}</td>
-                            </tr>
+                            {{#each this}}
+                            <td>
+                                {{this}}
+                            </td>
                             {{/each}}
                         </tbody>
+                        {{/each}}
                     </table>
                 </div>
+
+                {{/ifArray}}
             </div>
         </div>
+        {{/ifArray}}
+        {{#ifObject this}}
+        {{> table-subsection this}}
+        {{/ifObject}}
+        {{/each}}
+        {{/if}}
     </div>
 </div>

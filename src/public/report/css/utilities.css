@@ -18,8 +18,8 @@
 }
 
 .py-3 {
-  padding-top: 3rem;
-  padding-bottom: 3rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
 }
 
 .py-4 {
@@ -301,6 +301,18 @@ h4 {
   stroke-width: 3.8;
 }
 
+.title-sign {
+  padding-left: 2%;
+  width: 100%;
+}
+
+.sign {
+}
+
+.title {
+  margin-left: 2rem;
+}
+
 .circle {
   fill: none;
   stroke-width: 2.8;
@@ -525,19 +537,19 @@ h4 {
 
 .score-item-nav-green,
 .item-num-green {
-  background: #5cb85c;
+  background: #4bca81;
   color: #ffffff;
 }
 
 .score-item-nav-orange,
 .item-num-orange {
-  background: #feebcf;
-  color: #f89d0e;
+  background: #0099cc;
+  color: #ffffff;
 }
 
 .score-item-nav-red,
 .item-num-red {
-  background: #f7322b;
+  background: #ea504b;
   color: #ffffff;
 }
 
@@ -644,19 +656,26 @@ h4 {
 }
 
 .item-body {
-  margin-left: -webkit-calc(100px + 10rem);
-  margin-left: -moz-calc(100px + 10rem);
-  margin-left: calc(100px + 10rem);
+  margin-left: -webkit-calc(200px + 10rem);
+  margin-left: -moz-calc(200px + 10rem);
+  margin-left: calc(200px + 10rem);
   -moz-box-flex: 3;
   -webkit-flex: 3;
   -ms-flex: 3;
   flex: 3;
 }
 
+.item-body-Resources {
+  margin-top: 5rem;
+  margin-left: 1rem;
+}
+
 .box-wrapper {
   display: -ms-grid;
   display: grid;
   width: 50%;
+
+  padding-bottom: 2rem;
 }
 
 .answer {
@@ -830,6 +849,6 @@ h4 {
 }
 
 .mxh-375 {
-  max-height: 375px;
+  max-height: 450px;
   width: auto;
 }
