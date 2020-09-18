@@ -40,7 +40,6 @@ export class ReportService {
     }
 
     const subsections = this.divideResponseToSubsections(typedData.output);
-    console.log("3;  " + subsections);
 
     const sectionWiseData = this.createSectionWiseData(
       typedData.output,
@@ -63,7 +62,7 @@ export class ReportService {
       });
 
       dbUser.numOfScans = Math.max(0, dbUser.numOfScans - 1);
-      console.log("decreasing: " + dbUser.numOfScans);
+      console.log("decreasing number of scanns: " + dbUser.numOfScans);
 
       await dbUser.save();
     } else {
@@ -96,36 +95,42 @@ export class ReportService {
   private createSectionWiseData = (output: Output, subsections) => {
     const seoSection = {
       ...output.scores.seo,
-      ...this.computeSectionScore(subsections["seo"]),
+      ...this.computeSectionScore(output.scores.seo, subsections["seo"]),
       subSections: subsections["seo"],
     };
 
     const uiSection = {
       ...output.scores.ui,
-      ...this.computeSectionScore(subsections["ui"]),
+      ...this.computeSectionScore(output.scores.ui, subsections["ui"]),
       subSections: subsections["ui"],
     };
 
     const performanceSection = {
       ...output.scores.performance,
-      ...this.computeSectionScore(subsections["performance"]),
+      ...this.computeSectionScore(
+        output.scores.performance,
+        subsections["performance"]
+      ),
       subSections: subsections["performance"],
     };
 
     const socialSection = {
       ...output.scores.social,
-      ...this.computeSectionScore(subsections["social"]),
+      ...this.computeSectionScore(output.scores.social, subsections["social"]),
       subSections: subsections["social"],
     };
 
     const securitySection = {
       ...output.scores.security,
-      ...this.computeSectionScore(subsections["security"]),
+      ...this.computeSectionScore(
+        output.scores.security,
+        subsections["security"]
+      ),
       subSections: subsections["security"],
     };
 
     const technologySection = {
-      ...this.computeSectionScore(subsections["technology"]),
+      ...this.computeSectionScore(output, subsections["technology"]),
       subSections: subsections["technology"],
     };
 
@@ -151,14 +156,20 @@ export class ReportService {
     };
   };
 
-  private computeSectionScore = (subsections: any[]) => {
-    const total = subsections.filter((value) => value.passed !== null).length;
-    const passingScore = subsections
-      .filter((value) => value.passed !== null && value.passed)
-      .map((value) => 1)
-      .reduce((prev, cur) => prev + cur, 0);
+  private computeSectionScore = (output, subsections: any[]) => {
+    console.log("output.scores.seo: " + JSON.stringify(output.grade));
 
-    const computedScore = Math.round((passingScore * 10) / total) * 10;
+    // We used to need to create our own grades but now it comes with the API
+    //const total = subsections.filter((value) => value.passed !== null).length;
+    // console.log("total: " + total + subsections);
+    // const passingScore = subsections
+    //   .filter((value) => value.passed !== null && value.passed)
+    //   .map((value) => 1)
+    //   .reduce((prev, cur) => prev + cur, 0);
+    // console.log("passingScore: " + passingScore + subsections);
+
+    const computedScore = parseFloat(output.grade);
+    console.log("computedScore: " + computedScore);
 
     return {
       computedScore,
@@ -205,7 +216,6 @@ export class ReportService {
         // circleTextDisplay: value.passed ? "✔" : "✘",
       });
     }
-    console.log(subSections);
     return subSections;
   };
 
@@ -360,7 +370,7 @@ export class ReportService {
     const subsections = this.divideResponseToSubsections(data.output);
     const score = this.createSectionWiseData(data.output, subsections)
       .overallSection.score;
-    console.log("1;  " + subsections);
+    //console.log("1;  " + subsections);
 
     return {
       score: score,
@@ -387,7 +397,7 @@ export class ReportService {
     const subsections = this.divideResponseToSubsections(data.output);
     const score = this.createSectionWiseData(data.output, subsections)
       .overallSection.score;
-    console.log("2;  " + subsections);
+    //console.log("2;  " + subsections);
 
     return {
       score: score,
