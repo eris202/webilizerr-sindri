@@ -70,8 +70,9 @@
                 </div>
                 <div>
                     <div class="f-c bold">
-                        <h3 class="odometer bold" data-count="{{this.data.totalSize}}"></h3>
-                        <h3 class="bold">&nbsp;Bytes</h3>
+
+                        {{!-- See the last one for rolling numbers --}}
+                        <h3 class="bold" data-count="">{{this.data.totalSize}}</h3>
                     </div>
                 </div>
             </div>
@@ -81,8 +82,7 @@
                     <p class="my-1">HTML Size</p>
                 </div>
                 <div class="f-c bold">
-                    <h3 class="odometer bold" data-count="{{this.data.htmlSize}}"></h3>
-                    <h3 class="bold">&nbsp;Bytes</h3>
+                    <h3 class="bold" data-count="">{{this.data.htmlSize}}</h3>
                 </div>
             </div>
             <div class="info info-vertical">
@@ -91,8 +91,7 @@
                     <p class="my-1">Css Size</p>
                 </div>
                 <div class="f-c bold">
-                    <h3 class="odometer bold" data-count="{{this.data.cssSize}}"></h3>
-                    <h3 class="bold">&nbsp;Bytes</h3>
+                    <h3 class=" bold" data-count="{{this.data.cssSize}}">{{this.data.cssSize}}</h3>
                 </div>
             </div>
             <div class="info info-vertical">
@@ -101,8 +100,7 @@
                     <p class="my-1">Js Size</p>
                 </div>
                 <div class="f-c bold">
-                    <h3 class="odometer bold" data-count="{{this.data.jsSize}}"></h3>
-                    <h3 class="bold">&nbsp;Bytes</h3>
+                    <h3 class=" bold" data-count="{{this.data.jsSize}}">{{this.data.jsSize}}</h3>
                 </div>
             </div>
             <div class="info info-vertical">
@@ -111,8 +109,7 @@
                     <p class="my-1">Image Size</p>
                 </div>
                 <div class="f-c bold">
-                    <h3 class="odometer bold" data-count="{{this.data.imageSize}}"></h3>
-                    <h3 class="bold">&nbsp;Bytes</h3>
+                    <h3 class=" bold" data-count="{{this.data.imageSize}}">{{this.data.imageSize}}</h3>
                 </div>
             </div>
             <div class="info info-vertical">
@@ -121,8 +118,8 @@
                     <p class="my-1">Other Size</p>
                 </div>
                 <div class="f-c bold">
-                    <h3 class="odometer bold" data-count="{{this.data.otherSize}}"></h3>
-                    <h3 class="bold">&nbsp;Bytes</h3>
+                    <h3 class="bold" data-count="{{this.data.otherSize}}">{{this.data.otherSize}}</h3>
+                    {{!-- <h3 class="odometer bold" data-count="{{this.data.otherSize}}"></h3> --}}
                 </div>
             </div>
 

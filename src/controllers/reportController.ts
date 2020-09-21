@@ -4,6 +4,8 @@ import { Service, Inject } from "typedi";
 import { ReportService } from "../services/report-service";
 import { ReportCreateResponse } from "../model/ReportCreateResponse";
 import { Data } from "../model/TypedReport";
+import firebaseAdmin from "../config/firebase-setup";
+import User from "../model/User";
 
 @Service()
 export class ReportController {
@@ -26,21 +28,31 @@ export class ReportController {
     }
   };
 
+  // todo 'Homepage' "Over 10k scanns" At the moment we are fetching the whole database and then count
+  // and it looks like firebase doesnt offer count feature on their side so we need
+  // to fetch everything and then count. With that we are paying extra "read" from
+  // them. Solution would be to have our own db servers.
   viewHomePage = async (req, res) => {
-    const sessionId = req.sessionID;
-    try {
-      const report = await Report.find({ sessionId });
+    const database = firebaseAdmin.database();
+    const reference = database.ref(`reports`);
+    const totalScans = await reference.once("value").then(function (snapshot) {
+      var a = snapshot.numChildren();
+      return a;
+    });
 
-      console.log(`worked ${report.sessionID}`);
-    } catch (e) {
-      console.log(e);
-    }
+    // const sessionId = req.sessionID;
+    // try {
+    //   const report = await Report.find({ sessionId });
+
+    //   console.log("worked: " + report);
+    // } catch (e) {
+    //   console.log(e);
+    // }
 
     const flashMessage = req.flash("message");
-
-    console.log(`flash message ${flashMessage}`);
     res.render("index", {
       message: flashMessage,
+      totalScans: totalScans,
     });
   };
 
@@ -53,6 +65,14 @@ export class ReportController {
       const creationResponse = response as ReportCreateResponse;
 
       if (creationResponse.success) {
+        const dbUser = await User.findOne({
+          email: req.user.email,
+          isActive: true,
+        });
+
+        dbUser.numOfScans = Math.max(0, dbUser.numOfScans - 1);
+        console.log("decreasing number of scanns: " + dbUser.numOfScans);
+        await dbUser.save();
         return res.redirect(`loader?reportId=${creationResponse.data.id}`);
       }
 

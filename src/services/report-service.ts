@@ -61,10 +61,10 @@ export class ReportService {
         isActive: true,
       });
 
-      dbUser.numOfScans = Math.max(0, dbUser.numOfScans - 1);
-      console.log("decreasing number of scanns: " + dbUser.numOfScans);
-
-      await dbUser.save();
+      // // TODO
+      // dbUser.numOfScans = Math.max(0, dbUser.numOfScans - 1);
+      // console.log("decreasing number of scanns: " + dbUser.numOfScans);
+      // await dbUser.save();
     } else {
       typedData.generatedByUser = {
         email: "",
@@ -157,10 +157,9 @@ export class ReportService {
   };
 
   private computeSectionScore = (output, subsections: any[]) => {
-    console.log("output.scores.seo: " + JSON.stringify(output.grade));
-
     // We used to need to create our own grades but now it comes with the API
     //const total = subsections.filter((value) => value.passed !== null).length;
+
     // console.log("total: " + total + subsections);
     // const passingScore = subsections
     //   .filter((value) => value.passed !== null && value.passed)
@@ -169,7 +168,6 @@ export class ReportService {
     // console.log("passingScore: " + passingScore + subsections);
 
     const computedScore = parseFloat(output.grade);
-    console.log("computedScore: " + computedScore);
 
     return {
       computedScore,
@@ -209,6 +207,7 @@ export class ReportService {
         friendlyName: this.changeKeyName(key),
         passedClass: String(this.IfNullColor(value)),
         circleTextDisplay: String(this.IfNullSign(value)),
+        formatChanged: String(this.subsectionChangeFormat(key, value)),
         navPassedClass: value.passed
           ? "score-item-nav-green"
           : "score-item-nav-red",
@@ -218,6 +217,39 @@ export class ReportService {
     }
     return subSections;
   };
+
+  // TODO Change pageSize so we can use numbers rolling in UI and "mb" "kb" own property behind.
+  private subsectionChangeFormat(key: any, value: any) {
+    if (key.toLowerCase() === "backlinks") {
+      value.data.backlinks = value.data.backlinks
+        .toString()
+        .replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,");
+    }
+    if (key === "pageSize" && !isNaN(value.data.totalSize)) {
+      const obj = value.data;
+      //this.formatByteToMB(obj);
+
+      for (let key in obj) {
+        obj[key] = this.formatByteToMB(obj[key]);
+      }
+    } else {
+    }
+  }
+  e;
+
+  private formatByteToMB(data: any) {
+    if (data === 0) {
+      return (data = "0 Bytes");
+    }
+
+    const decimals = 2;
+    const k = 1024;
+    const dm = decimals < 0 ? 0 : decimals;
+    const sizes = ["Bytes", "KB", "MB", "GB", "TB", "PB", "EB", "ZB", "YB"];
+
+    const i = Math.floor(Math.log(data) / Math.log(k));
+    return parseFloat((data / Math.pow(k, i)).toFixed(dm)) + " " + sizes[i];
+  }
 
   private IfNullColor(value: any) {
     if (value.passed === undefined) {
