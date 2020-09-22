@@ -30,7 +30,57 @@
           <div class="col-md-8 col-lg-6 col-xxl-5">
             <article class="accent-box">
               <h4 class="accent-box-title text-center">Create your account</h4>
-              {{> errors }}
+              {{#if message.success}}
+              <div class="row justify-content-center alertCST">
+                <div>
+                  <div class="close-button-wrapper">
+                    <div class="close-button alertCST-close"></div>
+                  </div>
+                  <div class="snackbar snackbar-success">
+                    <div class="snackbar-inner">
+                      <div class="snackbar-title"><span class="icon snackbar-icon novi-icon int-warning"></span>
+                        <span class="alertCST-text">{{{message.success}}} </span>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+              {{/if}}
+              {{#if message.warning}}
+              <div class="row justify-content-center alertCST">
+                <div>
+                  <div class="close-button-wrapper">
+                    <div class="close-button alertCST-close"></div>
+                  </div>
+                  <div class="snackbar snackbar-warning">
+                    <div class="snackbar-inner">
+                      <div class="snackbar-title"><span class="icon snackbar-icon novi-icon int-warning"></span>
+                        <span class="alertCST-text">{{{message.warning}}} </span>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+              {{/if}}
+              {{#if message.error}}
+              <div class="row justify-content-center alertCST">
+                <div>
+                  <div class="close-button-wrapper">
+                    <div class="close-button alertCST-close"></div>
+                  </div>
+                  <div class="snackbar snackbar-danger">
+                    <div class="snackbar-inner">
+                      <div class="snackbar-title"><span class="icon snackbar-icon novi-icon int-warning"></span>
+                        <span class="alertCST-text">{{{message.error}}} </span>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+              {{/if}}
               <p class="accent-box-text text-center mt-2">All fields are required</p>
               <div class="alerts-wrapper">
               </div>
@@ -71,12 +121,22 @@
                 <div class="custom-control custom-checkbox accent-box-text">
                   <input class="custom-control-input" type="checkbox" id="check1">
                   <label id="terms-input" class="custom-control-label" for="check1">I agree with the
-                    <u class="font-weight-medium"></u><a class="link-inherit small link" href="#">Terms
+                    <u class="font-weight-medium"></u><a class="link-inherit small link" href="/terms">Terms
                       of use.</a>
                   </label>
                 </div>
                 <button id="sbmt-btn" class="btn btn-block btn-lg btn-secondary accent-box-btn">Sign
                   Up!</button>
+                <div class="accent-box-text small group-15">
+
+                  <div>Already a member?
+                    <u class="font-weight-medium"><a class="link-inherit" href="/register">Sign in
+                        here</a></u>
+                  </div>
+                  <div>Are you in a wrong place?
+                    <u class="font-weight-medium"><a class="link-inherit" href="/">Go home</a></u>
+                  </div>
+                </div>
               </form>
             </article>
           </div>

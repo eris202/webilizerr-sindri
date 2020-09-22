@@ -49,7 +49,9 @@ export class ReportController {
     //   console.log(e);
     // }
 
-    const flashMessage = req.flash("message");
+    const flashMessage = req.flash();
+    console.log("Controller flash: " + JSON.stringify(flashMessage));
+
     res.render("index", {
       message: flashMessage,
       totalScans: totalScans,

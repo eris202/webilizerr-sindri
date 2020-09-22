@@ -16,7 +16,7 @@ const alreadyLoggedInMiddleWare = (req, res, next) => {
     return next();
   }
 
-  req.flash("message", "You cannot access the page while logged in.");
+  req.flash("message", "You cannot access the page while logged out.");
   return res.redirect("/");
 };
 
@@ -24,6 +24,7 @@ const shouldBeLoggedInMiddleWare = (req, res, next) => {
   if (req.isAuthenticated()) {
     return next();
   }
+  req.flash("error", "error");
 
   const backUrl = `${req.protocol}://${req.get("Host")}${req.originalUrl}`;
   return res.redirect(`/login?backUrl=${backUrl}`);

@@ -169,7 +169,42 @@
           </div>
         </div>
       </div>
-      {{#if message}}
+
+      {{#if message.success}}
+      <div class="row justify-content-center alertCST">
+        <div>
+          <div class="close-button-wrapper">
+            <div class="close-button alertCST-close"></div>
+          </div>
+          <div class="snackbar snackbar-success">
+            <div class="snackbar-inner">
+              <div class="snackbar-title"><span class="icon snackbar-icon novi-icon int-warning"></span>
+                <span class="alertCST-text">{{{message.success}}} </span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      {{/if}}
+      {{#if message.warning}}
+      <div class="row justify-content-center alertCST">
+        <div>
+          <div class="close-button-wrapper">
+            <div class="close-button alertCST-close"></div>
+          </div>
+          <div class="snackbar snackbar-warning">
+            <div class="snackbar-inner">
+              <div class="snackbar-title"><span class="icon snackbar-icon novi-icon int-warning"></span>
+                <span class="alertCST-text">{{{message.warning}}} </span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      {{/if}}
+      {{#if message.error}}
       <div class="row justify-content-center alertCST">
         <div>
           <div class="close-button-wrapper">
@@ -178,7 +213,7 @@
           <div class="snackbar snackbar-danger">
             <div class="snackbar-inner">
               <div class="snackbar-title"><span class="icon snackbar-icon novi-icon int-warning"></span>
-                <span class="alertCST-text">{{{message}}} </span>
+                <span class="alertCST-text">{{{message.error}}} </span>
               </div>
             </div>
           </div>

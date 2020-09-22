@@ -30,7 +30,57 @@
           <div class="col-md-8 col-lg-6 col-xxl-5">
             <article class="accent-box">
               <h4 class="accent-box-title text-center">Login to your account</h4>
-              {{> messages}}
+              {{#if message.success}}
+              <div class="row justify-content-center alertCST">
+                <div>
+                  <div class="close-button-wrapper">
+                    <div class="close-button alertCST-close"></div>
+                  </div>
+                  <div class="snackbar snackbar-success">
+                    <div class="snackbar-inner">
+                      <div class="snackbar-title"><span class="icon snackbar-icon novi-icon int-warning"></span>
+                        <span class="alertCST-text">{{{message.success}}} </span>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+              {{/if}}
+              {{#if message.warning}}
+              <div class="row justify-content-center alertCST">
+                <div>
+                  <div class="close-button-wrapper">
+                    <div class="close-button alertCST-close"></div>
+                  </div>
+                  <div class="snackbar snackbar-warning">
+                    <div class="snackbar-inner">
+                      <div class="snackbar-title"><span class="icon snackbar-icon novi-icon int-warning"></span>
+                        <span class="alertCST-text">{{{message.warning}}} </span>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+              {{/if}}
+              {{#if message.error}}
+              <div class="row justify-content-center alertCST">
+                <div>
+                  <div class="close-button-wrapper">
+                    <div class="close-button alertCST-close"></div>
+                  </div>
+                  <div class="snackbar snackbar-danger">
+                    <div class="snackbar-inner">
+                      <div class="snackbar-title"><span class="icon snackbar-icon novi-icon int-warning"></span>
+                        <span class="alertCST-text">{{{message.error}}} </span>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+              {{/if}}
 
               <p class="accent-box-text text-center">Enter your credentials below.</p>
               <div class="alerts-wrapper">
@@ -39,7 +89,7 @@
                 <div class="form-group">
                   <div class="input-group">
                     <div class="input-group-prepend"><span class="input-group-text int-user novi-icon"></span></div>
-                    <input id="name-input" class="form-control" type="text" name="login" placeholder="Your login">
+                    <input id="email-input" class="form-control" type="text" name="login" placeholder="Your login">
                   </div>
                 </div>
                 <div class="form-group">
@@ -56,15 +106,15 @@
                   in</button>
                 <div class="accent-box-text small group-15">
                   <div>
-                    <u class="font-weight-medium"><a class="link-inherit" href="/forgot-password">Forgot your
+                    <u class="font-weight-medium"><a class="link-inherit" href="/forgot-password"> Forgot your
                         password?</a></u>
                   </div>
-                  <div>Haven’t an account?
-                    <u class="font-weight-medium"><a class="link-inherit" href="/register">Sign up
+                  <div>Not a member yet?
+                    <u class="font-weight-medium"><a class="link-inherit" href="/register"> Sign up
                         here.</a></u>
                   </div>
                   <div>Are you in a wrong place?
-                    <u class="font-weight-medium"><a class="link-inherit" href="/">Go home.</a></u>
+                    <u class="font-weight-medium"><a class="link-inherit" href="/"> Go home</a></u>
                   </div>
                 </div>
               </form>
@@ -72,6 +122,7 @@
           </div>
         </div>
       </div>
+
     </section>
   </div>
   <script src="components/base/alertsLogin.js"></script>

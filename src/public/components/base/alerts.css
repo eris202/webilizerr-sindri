@@ -1,70 +1,78 @@
 .alertCST {
-    margin-top: 1rem !important;
-    margin-left: 0 !important;
-    margin-right: 0 !important;
-    transition: transform .3s ease-in,
-        opacity .3s ease-in,
-        max-height .2s ease-in,
-        margin-top .3s ease-in;
-    overflow: hidden;
+  margin-top: 1rem !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  transition: transform 0.3s ease-in, opacity 0.3s ease-in,
+    max-height 0.2s ease-in, margin-top 0.3s ease-in;
+  overflow: hidden;
 }
 
 .alertCST.hide {
-    opacity: 0;
-    transform: translateY(-100%);
-    margin-top: 0 !important;
+  opacity: 0;
+  transform: translateY(-100%);
+  margin-top: 0 !important;
 }
 
-.alertCST>div {
-    width: 100%;
-    position: relative;
+.alertCST > div {
+  width: 100%;
+  position: relative;
 }
 
 .close-button-wrapper {
-    position: absolute;
-    top: 6px;
-    right: 6px;
+  position: absolute;
+  top: 6px;
+  right: 6px;
 }
 
 .close-button {
-    cursor: pointer;
-    height: 20px;
-    width: 20px;
-    position: relative;
-    box-sizing: border-box;
-    line-height: 20px;
-    display: inline-block;
+  cursor: pointer;
+  height: 20px;
+  width: 20px;
+  position: relative;
+  box-sizing: border-box;
+  line-height: 20px;
+  display: inline-block;
 }
 
 .close-button:before,
 .close-button:after {
-    transform: rotate(-45deg);
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    margin-top: -1.5px;
-    margin-left: -10px;
-    display: block;
-    height: 3px;
-    width: 20px;
-    transition: all 0.2s ease-out;
+  transform: rotate(-45deg);
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -1.5px;
+  margin-left: -10px;
+  display: block;
+  height: 3px;
+  width: 20px;
+  transition: all 0.2s ease-out;
 }
 
 .alertCST-close::after,
 .alertCST-close::before {
-    background: #e72660;
+  background: #6b39bd;
+}
+
+.warningCST-close::after,
+.warningCST-close::before {
+  background: #f89d0e;
+}
+
+.successCST-close::after,
+.successCST-close::before {
+  background: #5cb85c;
 }
 
 .close-button:after {
-    transform: rotate(45deg);
+  transform: rotate(45deg);
 }
 
 .close-button:hover:before,
 .close-button:hover:after {
-    transform: rotate(0deg);
+  transform: rotate(0deg);
 }
 
 .snackbar {
-    padding: 17px 40px !important;
+  padding: 17px 40px !important;
 }

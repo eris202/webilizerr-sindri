@@ -14,13 +14,20 @@ export class AuthController {
     );
 
     if (result.errors.length > 0) {
+      const text = result.errors.map(function (item) {
+        return item["msg"];
+      });
+      req.flash("error", text);
+      const flash = req.flash();
+
       res.render("register", {
         error: result.errors,
         ...userInfo,
+        message: flash,
       });
     } else {
       req.flash(
-        "message",
+        "warning",
         "You have been sent an email for account confirmation"
       );
       res.redirect("/");
@@ -40,7 +47,7 @@ export class AuthController {
     try {
       await this.authService.verifyUserLink(token);
       req.flash(
-        "message",
+        "success",
         "Account has been registered successfully. Please log in now."
       );
 
@@ -54,37 +61,39 @@ export class AuthController {
   logout = (req, res) => {
     req.logout();
 
-    req.flash("message", "You have been logged out.");
+    req.flash("success", "You have been logged out.");
     res.redirect("/");
   };
 
   postLogin = (req, res, next) => {
     // passport authenticate
+    console.log("passport authenticate");
     passport.authenticate("local", async (err, user, info) => {
       if (err) {
+        console.log("err in postLogin" + err);
         return next(err);
       }
 
       if (!user) {
-        req.flash("message", "Invalid user name or password");
+        req.flash("error", "Invalid user name or password");
         return res.redirect("/login");
       }
 
       req.login(user, (info) => {
         if (info) {
+          req.flash("success", "You are logged innnnnnn");
           next(info);
         }
-
         const redirectUrl = req.query.backUrl || "/";
 
-        req.flash("message", "You are logged in");
+        console.log("My-messages login", req.flash());
         return res.redirect(redirectUrl);
       });
     })(req, res, next);
   };
 
   viewLoginPage = (req, res) => {
-    const message = req.flash("message");
+    const message = req.flash();
     res.render("login", {
       message: message,
     });
@@ -102,7 +111,7 @@ export class AuthController {
       console.log(e);
     } finally {
       req.flash(
-        "message",
+        "warning",
         `An email with instructions has been sent to your email 
       address (please also check your spam folder)`
       );
@@ -129,9 +138,9 @@ export class AuthController {
     );
 
     if (result.error) {
-      req.flash("message", result.error);
+      req.flash("error", result.error);
     } else {
-      req.flash("message", result.data);
+      req.flash("success", result.data);
     }
 
     return res.redirect("/");
