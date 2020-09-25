@@ -32,6 +32,7 @@ export class InvoiceService {
       if (config.isOneTime) {
         const paymentIntent = await this.stripeService.createPayment(
           dbUser.stripeCustomerId,
+          email,
           stripeToken,
           offerPlan,
           couponName
@@ -42,6 +43,7 @@ export class InvoiceService {
       } else {
         const subscription = await this.stripeService.createSubscription(
           dbUser.stripeCustomerId,
+          email,
           stripeToken,
           offerPlan,
           couponName

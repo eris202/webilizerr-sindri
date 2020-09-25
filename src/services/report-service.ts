@@ -10,6 +10,7 @@ import firebaseAdmin from "../config/firebase-setup";
 import { ImageService } from "./image-service";
 import * as timeAgo from "time-ago";
 import User from "../model/User";
+import { userInfo } from "os";
 
 @Service()
 export class ReportService {
@@ -37,9 +38,21 @@ export class ReportService {
         reportId: reportId,
         success: false,
       };
+    } else if (!typedData.output.success == null) {
+      console.log("Unable to get report, Report-Service");
     }
 
-    const subsections = this.divideResponseToSubsections(typedData.output);
+    // const dbUser = await User.findOne({
+    //   email: user.email,
+    //   isActive: true,
+    // });
+
+    // console.log("dbUser: " + dbUser);
+
+    const subsections = this.divideResponseToSubsections(
+      typedData.output,
+      user
+    );
 
     const sectionWiseData = this.createSectionWiseData(
       typedData.output,
@@ -185,7 +198,7 @@ export class ReportService {
     return "green";
   };
 
-  private divideResponseToSubsections = (output: Output) => {
+  private divideResponseToSubsections = (output: Output, user: any) => {
     const subSections = {
       seo: [],
       ui: [],
@@ -195,15 +208,25 @@ export class ReportService {
       technology: [],
     };
 
+    let blurrKey = false;
     for (let [key, value] of Object.entries(output)) {
       if (!value.section) {
         continue;
       }
 
+      if (typeof user == "undefined" && blurredKeys.indexOf(key) > -1) {
+        console.log("blurr 1");
+        blurrKey = true;
+      } else {
+        blurrKey = false;
+      }
+
       subSections[value.section].push({
         ...value,
         key: key,
-        isBlurred: blurredKeys.indexOf(key) > -1,
+
+        isBlurred: blurrKey,
+
         friendlyName: this.changeKeyName(key),
         passedClass: String(this.IfNullColor(value)),
         circleTextDisplay: String(this.IfNullSign(value)),
@@ -399,7 +422,7 @@ export class ReportService {
     const keyName = keyList[keyList.length - pageNum];
     const data = recentlyScannedList[keyName] as Data;
 
-    const subsections = this.divideResponseToSubsections(data.output);
+    const subsections = this.divideResponseToSubsections(data.output, user);
     const score = this.createSectionWiseData(data.output, subsections)
       .overallSection.score;
     //console.log("1;  " + subsections);
@@ -426,7 +449,7 @@ export class ReportService {
     const keyName = keyList[keyList.length - pageNum];
     const data = recentlyScannedList[keyName] as Data;
 
-    const subsections = this.divideResponseToSubsections(data.output);
+    const subsections = this.divideResponseToSubsections(data.output, null);
     const score = this.createSectionWiseData(data.output, subsections)
       .overallSection.score;
     //console.log("2;  " + subsections);

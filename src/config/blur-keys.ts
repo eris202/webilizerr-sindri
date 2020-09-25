@@ -1,1 +1,1 @@
-export default ["analytics"];
+export default ["analytics", "backlinks", "brokenLinks", "contentLength"];

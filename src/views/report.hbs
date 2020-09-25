@@ -26,6 +26,7 @@
                     <p class="c-l-w hov-c-w light"><a class="hov-dec-u" href="#">Home</a></p>
                 </div>
                 <hr>
+
                 <ul class="py-1 nav-links">
                     <li class="r-m c-w active hov-c-w" data-nav="nav-overview">
                         <a class="hov-dec-u" href="#overview">Overview</a>
@@ -423,7 +424,85 @@
                 </div>
                 {{#each reportData.data.seoSection.subSections}}
                 {{#ifeq this.isBlurred true}}
-                {{> blurred-subsection}}
+
+                {{!-- 
+
+                Needed to keep blurr section UI here in the front to get access to the "reportId"
+
+                --}}
+                <hr class="section-line">
+                <div class="item py-3" id="{{this.key}}">
+                    <div class="item-header">
+                        <div class="item-title">
+                            <div class="title-sign">
+                                <div class="sign item-num {{this.passedClass}}">
+                                    <p>{{this.circleTextDisplay}}</p>
+                                </div>
+                                <div class="title">
+                                    <h3>{{this.friendlyName}}</h3>
+                                </div>
+                            </div>
+                            <div>
+                                <li class="mx-2 question" data-title="Title Here" data-info="Info Here"><a
+                                        class="hov-c-b d-i-b">
+                                        What is this?</a></li>
+                                <div class="item-section">{{this.section}}</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="item py-3 blur" style="display: block;" id="{{this.key}}">
+                        <div class="blur-content">
+                            <img src="img/logo.png" alt="logo">
+                            <h3 class="my-1">Get access to unlock premium data</h3>
+                            <div class="blur-buttons">
+                                <ul class="navbar-navigation rd-navbar-nav">
+
+                                    <a href="/letslogin?/report/{{../reportId}}"><button
+                                            class="color-b brd-b brd-r-5 py-0-5 px-1-5 d-i-b hov-c-w hov-bg-b">Log
+                                            In</button></a>
+                                    <a href="/letsregister?/report/{{../reportId}}"><button
+                                            class="color-b brd-b brd-r-5 py-0-5 px-1-5 d-i-b hov-c-w hov-bg-b">
+                                            Sign Up</button>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="item-body myt-2">
+
+                            <div class="box-wrapper">
+
+                                <div class="answer">
+                                    <div><img style="height: 50px;" src="img/err.png" alt="Check"></div>
+                                    <div style="margin-top: 20px;">
+                                        <p>Doesn't look like hack your way in going to work ;)</p>
+                                    </div>
+                                </div>
+
+                                <div class="answer">
+                                    <div><img style="height: 50px;" src="img/success.png" alt="Check"></div>
+                                    <div style="margin-top: 20px;">
+                                        <p>You need to be logged in to view these information.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
                 {{else ifeq this.key 'headers'}}
                 {{> header-subsection}}
                 {{else ifeq this.key 'title'}}

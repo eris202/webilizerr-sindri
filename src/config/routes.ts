@@ -21,13 +21,90 @@ const alreadyLoggedInMiddleWare = (req, res, next) => {
 };
 
 const shouldBeLoggedInMiddleWare = (req, res, next) => {
-  if (req.isAuthenticated()) {
+  const backUrl = `${req.protocol}://${req.get("Host")}${req.originalUrl}`;
+  console.log("BackURL: " + backUrl);
+  console.log("req.isAuthenticated(): " + req.isAuthenticated());
+
+  if (
+    backUrl.includes("http://localhost:5555/checkout?") &&
+    req.isAuthenticated()
+  ) {
+    console.log("is authenticated in shouldBeLoggedInMiddleWare");
     return next();
   }
-  req.flash("error", "error");
+
+  if (
+    backUrl.includes("http://localhost:5555/letslogin?") &&
+    req.isAuthenticated()
+  ) {
+    const string = backUrl.replace("/letslogin?", "");
+    console.log("Its A MATCH");
+    return res.redirect(string);
+
+    //return res.redirect(`${backUrl}`);
+  } else {
+    console.log("NOOOOO");
+    return res.redirect(`/login?backUrl=${backUrl}`);
+    //return next();
+  }
+};
+
+const shouldBeSignUpInMiddleWare = (req, res, next) => {
+  const backUrl = `${req.protocol}://${req.get("Host")}${req.originalUrl}`;
+  console.log("BackURL: " + backUrl);
+  console.log(
+    "req.isAuthenticated() in shouldBeSignUpInMiddleWare: " +
+      req.isAuthenticated()
+  );
+
+  if (
+    backUrl.includes("http://localhost:5555/checkout?") &&
+    req.isAuthenticated()
+  ) {
+    console.log("is authenticated in shouldBeSignUpInMiddleWare");
+    return next();
+  }
+
+  if (
+    backUrl.includes("http://localhost:5555/letsregister?") &&
+    req.isAuthenticated()
+  ) {
+    const string = backUrl.replace("/letsregister?", "");
+    console.log("Its A MATCH");
+    return res.redirect(string);
+
+    //return res.redirect(`${backUrl}`);
+  } else {
+    console.log("NOOOOO");
+    return res.redirect(`/register?backUrl=${backUrl}`);
+    //return next();
+  }
+};
+
+const shouldBeLoggedInReportMiddleWare = (req, res, next) => {
+  console.log("HELLO shouldBeLoggedInReportMiddleWare");
+
+  if (req.isAuthenticated()) {
+    console.log("is authenticated in shouldBeLoggedInReportMiddleWare");
+    return next();
+  }
+  //console.log(req);
 
   const backUrl = `${req.protocol}://${req.get("Host")}${req.originalUrl}`;
-  return res.redirect(`/login?backUrl=${backUrl}`);
+  console.log("BackURL: " + backUrl);
+  console.log("Original URL: " + req.originalUrl);
+  console.log(backUrl.includes("http://localhost:5555/letslogin?"));
+
+  if (backUrl.includes("http://localhost:5555/letslogin?")) {
+    console.log("Its A MATCH");
+
+    return res.redirect(`${backUrl}`);
+  } else {
+    console.log("NOOOOO");
+
+    //return res.redirect(`${req.originalUrl}`);
+    return next();
+  }
 };
 
 const shouldHaveOneTimePayment = async (req, res, next) => {
@@ -73,6 +150,89 @@ export class RouteDefinition {
     will automatically be configured with the express router.
 */
 export const routes: RouteMapper[] = [
+  {
+    "/report/:reportId": [
+      {
+        method: "get",
+        handler: reportController.renderReportPage,
+        //middleWares: [shouldBeLoggedInReportMiddleWare],
+      },
+    ],
+  },
+  {
+    "/logout": [
+      {
+        method: "get",
+        handler: authController.logout,
+      },
+    ],
+  },
+  {
+    "/letsregister": [
+      {
+        method: "get",
+        handler: authController.viewRegisterPage,
+        middleWares: [shouldBeSignUpInMiddleWare],
+      },
+      {
+        method: "post",
+        handler: authController.postRegister,
+        middleWares: [shouldBeSignUpInMiddleWare],
+      },
+    ],
+  },
+  {
+    "/register": [
+      {
+        method: "get",
+        handler: authController.viewRegisterPage,
+        middleWares: [alreadyLoggedInMiddleWare],
+      },
+      {
+        method: "post",
+        handler: authController.postRegister,
+        middleWares: [alreadyLoggedInMiddleWare],
+      },
+    ],
+  },
+  {
+    "/letslogin": [
+      {
+        method: "get",
+        middleWares: [shouldBeLoggedInMiddleWare],
+        handler: reportController.renderLoginPage,
+      },
+      {
+        method: "post",
+        middleWares: [shouldBeLoggedInMiddleWare],
+        handler: reportController.renderLoginPage,
+      },
+    ],
+  },
+
+  {
+    "/login": [
+      {
+        method: "get",
+        handler: authController.viewLoginPage,
+        middleWares: [alreadyLoggedInMiddleWare],
+      },
+      {
+        method: "post",
+        handler: authController.postLogin,
+        middleWares: [alreadyLoggedInMiddleWare],
+      },
+    ],
+  },
+  {
+    "/report": [
+      {
+        method: "get",
+        handler: (req, res) => res.render("report"),
+        // middleWares: [shouldBeLoggedInReportMiddleWare],
+      },
+    ],
+  },
   {
     "/": [
       {
@@ -134,14 +294,7 @@ export const routes: RouteMapper[] = [
       },
     ],
   },
-  {
-    "/report/:reportId": [
-      {
-        method: "get",
-        handler: reportController.renderReportPage,
-      },
-    ],
-  },
+
   {
     "/pricing": [
       {
@@ -164,28 +317,7 @@ export const routes: RouteMapper[] = [
       },
     ],
   },
-  {
-    "/logout": [
-      {
-        method: "get",
-        handler: authController.logout,
-      },
-    ],
-  },
-  {
-    "/login": [
-      {
-        method: "get",
-        handler: authController.viewLoginPage,
-        middleWares: [alreadyLoggedInMiddleWare],
-      },
-      {
-        method: "post",
-        handler: authController.postLogin,
-        middleWares: [alreadyLoggedInMiddleWare],
-      },
-    ],
-  },
+
   {
     "/forgotpassword": [
       {
@@ -200,20 +332,7 @@ export const routes: RouteMapper[] = [
       },
     ],
   },
-  {
-    "/register": [
-      {
-        method: "get",
-        handler: authController.viewRegisterPage,
-        middleWares: [alreadyLoggedInMiddleWare],
-      },
-      {
-        method: "post",
-        handler: authController.postRegister,
-        middleWares: [alreadyLoggedInMiddleWare],
-      },
-    ],
-  },
+
   {
     "/features": [
       {
@@ -296,14 +415,7 @@ export const routes: RouteMapper[] = [
       },
     ],
   },
-  {
-    "/report": [
-      {
-        method: "get",
-        handler: (req, res) => res.render("report"),
-      },
-    ],
-  },
+
   {
     "/pricing-scans": [
       {

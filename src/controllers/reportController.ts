@@ -28,6 +28,13 @@ export class ReportController {
     }
   };
 
+  renderLoginPage = (req, res) => {
+    const message = req.flash();
+    res.render("login", {
+      message: message,
+    });
+  };
+
   // todo 'Homepage' "Over 10k scanns" At the moment we are fetching the whole database and then count
   // and it looks like firebase doesnt offer count feature on their side so we need
   // to fetch everything and then count. With that we are paying extra "read" from
@@ -67,25 +74,28 @@ export class ReportController {
       const creationResponse = response as ReportCreateResponse;
 
       if (creationResponse.success) {
-        const dbUser = await User.findOne({
-          email: req.user.email,
-          isActive: true,
-        });
+        if (typeof User.email !== "undefined") {
+          const dbUser = await User.findOne({
+            email: req.user.email,
+            isActive: true,
+          });
 
-        dbUser.numOfScans = Math.max(0, dbUser.numOfScans - 1);
-        console.log("decreasing number of scanns: " + dbUser.numOfScans);
-        await dbUser.save();
+          dbUser.numOfScans = Math.max(0, dbUser.numOfScans - 1);
+          console.log("decreasing number of scanns: " + dbUser.numOfScans);
+
+          await dbUser.save();
+        }
         return res.redirect(`loader?reportId=${creationResponse.data.id}`);
       }
 
       req.flash(
-        "message",
+        "error",
         "There was an error connecting to our services. Please try again later"
       );
       return res.redirect("/");
     }
 
-    req.flash("message", (response as { error: string }).error);
+    req.flash("error", (response as { error: string }).error);
 
     return res.redirect("/");
   };

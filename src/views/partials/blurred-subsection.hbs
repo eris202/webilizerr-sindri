@@ -24,8 +24,15 @@
             <img src="img/logo.png" alt="logo">
             <h3 class="my-1">Get access to unlock premium data</h3>
             <div class="blur-buttons">
-                <button class="color-b brd-b brd-r-5 py-0-5 px-1-5 d-i-b hov-c-w hov-bg-b">Log In</button>
-                <button>Sign Up</button>
+                <ul class="navbar-navigation rd-navbar-nav">
+
+                    <a href="/letslogin?/report/{{data.reportId}}"><button
+                            class="color-b brd-b brd-r-5 py-0-5 px-1-5 d-i-b hov-c-w hov-bg-b">Log
+                            In</button></a>
+                    <a href="/letsregister?/report/{{data.reportId}}"><button
+                            class="color-b brd-b brd-r-5 py-0-5 px-1-5 d-i-b hov-c-w hov-bg-b">Sign Up
+                        </button></a>
+                </ul>
             </div>
         </div>
         <div class="item-body myt-2">
@@ -35,21 +42,14 @@
                 <div class="answer">
                     <div><img style="height: 50px;" src="img/err.png" alt="Check"></div>
                     <div style="margin-top: 20px;">
-                        <p>
-                            Doesn't look like hack your way in going to work ;)
-
-
-                        </p>
+                        <p>Doesn't look like hack your way in going to work ;)</p>
                     </div>
                 </div>
 
                 <div class="answer">
                     <div><img style="height: 50px;" src="img/success.png" alt="Check"></div>
                     <div style="margin-top: 20px;">
-                        <p>
-                            You need to be logged in to view these information.
-
-                        </p>
+                        <p>You need to be logged in to view these information.</p>
                     </div>
                 </div>
             </div>

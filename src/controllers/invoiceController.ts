@@ -41,7 +41,7 @@ export class InvoiceController {
     );
 
     if (result.error) {
-      console.log("error");
+      console.log("error in invoicecontroller");
       return res.redirect(req.originalUrl);
     }
 
