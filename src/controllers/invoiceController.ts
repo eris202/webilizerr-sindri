@@ -24,7 +24,19 @@ export class InvoiceController {
       discountedPrice: await this.invoiceService.applyDiscount(plan, couponId),
     };
 
-    res.render("checkout", data);
+    const dbUser = await User.findOne({
+      email: req.user.email,
+      isActive: true,
+    });
+
+    const flashMessage = req.flash();
+    console.log("Controller flash: " + JSON.stringify(flashMessage));
+
+    res.render("checkout", {
+      data: data,
+      message: flashMessage,
+      user: dbUser,
+    });
   };
 
   postCheckout = async (req, res) => {
@@ -41,13 +53,19 @@ export class InvoiceController {
     );
 
     if (result.error) {
-      console.log("error in invoicecontroller");
+      console.log("error in invoicecontroller: " + result.error);
+      req.flash(
+        "error",
+        `${result.error} in our database. Be sure to use same email as is used with Webilizerr.`
+      );
+      console.log("req.originalUrl: " + req.originalUrl);
+
       return res.redirect(req.originalUrl);
     }
 
     const productConfig = ProductPlan.getProductConfig(plan);
 
-    req.flash("message", `You are now using ${productConfig.name}`);
+    req.flash("success", `You are now using ${productConfig.name}`);
 
     return res.redirect(result.redirectUrl);
   };

@@ -22,14 +22,14 @@ const alreadyLoggedInMiddleWare = (req, res, next) => {
 
 const shouldBeLoggedInMiddleWare = (req, res, next) => {
   const backUrl = `${req.protocol}://${req.get("Host")}${req.originalUrl}`;
-  console.log("BackURL: " + backUrl);
-  console.log("req.isAuthenticated(): " + req.isAuthenticated());
+  // console.log("BackURL: " + backUrl);
+  // console.log("req.isAuthenticated(): " + req.isAuthenticated());
 
   if (
     backUrl.includes("http://localhost:5555/checkout?") &&
     req.isAuthenticated()
   ) {
-    console.log("is authenticated in shouldBeLoggedInMiddleWare");
+    // console.log("is authenticated in shouldBeLoggedInMiddleWare");
     return next();
   }
 
@@ -38,12 +38,12 @@ const shouldBeLoggedInMiddleWare = (req, res, next) => {
     req.isAuthenticated()
   ) {
     const string = backUrl.replace("/letslogin?", "");
-    console.log("Its A MATCH");
+    // console.log("Its A MATCH");
     return res.redirect(string);
 
     //return res.redirect(`${backUrl}`);
   } else {
-    console.log("NOOOOO");
+    // console.log("NOOOOO");
     return res.redirect(`/login?backUrl=${backUrl}`);
     //return next();
   }
@@ -51,17 +51,17 @@ const shouldBeLoggedInMiddleWare = (req, res, next) => {
 
 const shouldBeSignUpInMiddleWare = (req, res, next) => {
   const backUrl = `${req.protocol}://${req.get("Host")}${req.originalUrl}`;
-  console.log("BackURL: " + backUrl);
-  console.log(
-    "req.isAuthenticated() in shouldBeSignUpInMiddleWare: " +
-      req.isAuthenticated()
-  );
+  // console.log("BackURL: " + backUrl);
+  // console.log(
+  //   "req.isAuthenticated() in shouldBeSignUpInMiddleWare: " +
+  //     req.isAuthenticated()
+  // );
 
   if (
     backUrl.includes("http://localhost:5555/checkout?") &&
     req.isAuthenticated()
   ) {
-    console.log("is authenticated in shouldBeSignUpInMiddleWare");
+    // console.log("is authenticated in shouldBeSignUpInMiddleWare");
     return next();
   }
 
@@ -70,40 +70,14 @@ const shouldBeSignUpInMiddleWare = (req, res, next) => {
     req.isAuthenticated()
   ) {
     const string = backUrl.replace("/letsregister?", "");
-    console.log("Its A MATCH");
+    // console.log("Its A MATCH");
     return res.redirect(string);
 
     //return res.redirect(`${backUrl}`);
   } else {
-    console.log("NOOOOO");
+    // console.log("NOOOOO");
     return res.redirect(`/register?backUrl=${backUrl}`);
     //return next();
-  }
-};
-
-const shouldBeLoggedInReportMiddleWare = (req, res, next) => {
-  console.log("HELLO shouldBeLoggedInReportMiddleWare");
-
-  if (req.isAuthenticated()) {
-    console.log("is authenticated in shouldBeLoggedInReportMiddleWare");
-    return next();
-  }
-  //console.log(req);
-
-  const backUrl = `${req.protocol}://${req.get("Host")}${req.originalUrl}`;
-  console.log("BackURL: " + backUrl);
-  console.log("Original URL: " + req.originalUrl);
-  console.log(backUrl.includes("http://localhost:5555/letslogin?"));
-
-  if (backUrl.includes("http://localhost:5555/letslogin?")) {
-    console.log("Its A MATCH");
-
-    return res.redirect(`${backUrl}`);
-  } else {
-    console.log("NOOOOO");
-
-    //return res.redirect(`${req.originalUrl}`);
-    return next();
   }
 };
 

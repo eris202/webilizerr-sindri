@@ -20,6 +20,8 @@ export class InvoiceService {
     });
 
     if (!dbUser) {
+      console.log(JSON.stringify(dbUser));
+
       return {
         error: "The user is inactive or does not exist",
       };

@@ -17,117 +17,58 @@
   <script src="components/base/script.js"></script>
 </head>
 
-<body>
+<body class="expansion-alids-init">
   <div class="page">
     <!--RD Navbar-->
     {{> header}}
-    <!-- Breadcrumb default-->
-    <section class="section section-sm bg-transparent novi-background"
-      data-preset='{"title":"Breadcrumb","category":"breadcrumb","reload":false,"id":"breadcrumb-1"}'>
+    <!-- Subscribe-->
+    <section class="section section-lg overlay-secondary-06 bg-image pt-5 novi-background"
+      style="background-image: url(images/image-31-1920x954.jpg)"
+      data-preset="{&quot;title&quot;:&quot;Subscribe&quot;,&quot;category&quot;:&quot;form&quot;,&quot;reload&quot;:true,&quot;id&quot;:&quot;subscribe&quot;}">
       <div class="container">
-        <!-- Breadcrumb-->
-        <ul class="breadcrumb">
-          <li class="breadcrumb-item"><a class="breadcrumb-link" href="/">Home</a></li>
-          <li class="breadcrumb-item"><a class="breadcrumb-link" href="pricing-scans">Shop</a></li>
-          <li class="breadcrumb-item"><span class="breadcrumb-text breadcrumb">Payment</span></li>
-          <li class="breadcrumb-item"><span class="breadcrumb-text breadcrumb-active">Thank You</span></li>
-        </ul>
-        <h4>Order 1256</h4>
-      </div>
-    </section>
-    <!-- Mailchimp-->
-    <section class="section section-lg text-center context-dark bg-image novi-background"
-      style="background-image: url(&quot;images/image-03-1920x583.jpg&quot;)"
-      data-preset='{"title":"Mailchimp","category":"form","reload":true,"id":"mailchimp"}'>
-      <div class="container">
-        <div class="row justify-content-center novi-disabled">
-          <div class="col-md-9 col-lg-7 col-xl-6">
-            <h2>Thank You</h2>
-            <p>Thank you for your order. We will send a receipt in email.</p> <br> <br> If you have any questions or
-            concerns then let us know.
-            <form class="mailchimp-mailform form-inline justify-content-center group-20 novi-disabled"
-              data-form-output="mailchimp-output"
-              action="https://templatemonster.us15.list-manage.com/subscribe/post?u=ba5bb362073a413f48e4a7b90&amp;id=8dc95d9dec"
-              method="post">
+        <div class="context-dark">
+          <!-- Breadcrumb-->
+          <ul class="breadcrumb">
+            <li class="breadcrumb-item"><a class="breadcrumb-link" href="/">Home</a></li>
+            <li class="breadcrumb-item"><a class="breadcrumb-link" href="pricing-scans">Products</a></li>
 
-              <a class="btn btn-lg btn-secondary" href="/">Lets Go Home</a>
-            </form>
+            <li class="breadcrumb-item"><a class="breadcrumb-link">Checkout</a></li>
+            <li class="breadcrumb-item"><span class="breadcrumb-text breadcrumb-active">Thank You</span></li>
+          </ul>
+          <h1 class="text-center">Thanks for you order!</h1>
+        </div>
+        <div class="row row-offset-lg row-30 justify-content-center novi-disabled">
+          <div class="col-md-11 col-lg-8">
+            <article class="accent-box">
+              <h4 class="accent-box-title">
+                <br class="d-none d-xs-block">
+                We're so lucky to have customers like you!
+              </h4>
+              <p class="accent-box-text"> Thank you for your purchase from Webilizerr. Please let us know if we can do
+                anything else to help! </p>
+
+              <a href="/">
+                <button class="btn btn-lg btn-outline btn-primary btn-aqil-horizontal btn-block"
+                  style="padding: 20px; margin-top: 30px;">
+                  Go Home!</button>
+              </a>
+
+
+              <div class="offset-md small">By clicking the button you agree to the
+                <u class="font-weight-medium"><a class="link-inherit" href="privacy-policy">Privacy Policy</a></u>
+                and
+                <u class="font-weight-medium"><a class="link-inherit" href="terms">Terms and Conditions</a></u>
+              </div>
+            </article>
           </div>
         </div>
       </div>
     </section>
-    <div class="form-output snackbar snackbar-secondary" id="mailchimp-output"></div>
-
-    <div class="form-output snackbar snackbar-secondary" id="campaign-monitor-output"></div>
     <!-- Footer default-->
-    <footer class="section footer bg-800 text-400 context-dark novi-background"
-      data-preset='{"title":"Footer Extended","category":"footer","reload":false,"id":"footer-extended"}'>
-      <div class="container">
-
-        <hr class="divider footer-divider">
-        <div class="row row-30 justify-content-xxl-between novi-disabled">
-          <div class="col-lg-5">
-            <!-- Logo-->
-            <div class="logo"><a class="logo-link" href="/"><img class="logo-image-default"
-                  src="images/logos/webilizerr_white.png" alt="Intense" width="170" height="27" /><img
-                  class="logo-image-inverse" src="images/logos/webilizerr_white.png" alt="Intense" width="170"
-                  height="27" /></a></div>
-            <p class="small">Get the most for your website with Webilizerr.</p>
-          </div>
-          <div class="col-md-11 col-lg-7 col-xxl-6">
-            <p class="small">C. Segovia 2-4, Finestrat, Alicante 03509, Spain</p>
-            <div class="row row-20 novi-disabled">
-              <div class="col-auto col-sm-4">
-                <div class="media media-xxs text-white">
-                  <div class="media-left"><span class="icon icon-xs int-phone novi-icon"></span></div>
-                  <div class="media-body">
-                    <ul class="list list-contact">
-                      <li class="list-contact-item"><a class="list-contact-link" href="tel:#">+34 601980086</a></li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-              <div class="col-auto col-sm-4">
-                <ul class="list list-xs small">
-                  <li class="list-item">Mon-Fri: 8am - 6pm</li>
-                  <li class="list-item">Sat-Sun: 8am - 4pm</li>
-                  <li class="list-item">Holidays: closed</li>
-                </ul>
-              </div>
-              <div class="col-auto col-sm-4">
-                <ul class="list list-lg small text-white">
-                  <li class="list-item"><a class="link link-contrast link-secondary" href="mailto:#">info @
-                      webilizerr.com</a></li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-        <hr class="divider footer-divider">
-        <div class="row row-15 align-items-center justify-content-between footer-panel novi-disabled">
-          <div class="col-auto">
-            <!-- Copyright-->
-            <p class="rights"><span>&copy; 2020&nbsp;</span><span>Webilizerr</span><span>. All rights
-                reserved.&nbsp;</span><a class="rights-link" href="/privacy-policy">Privacy Policy</a></p>
-          </div>
-          <div class="col-auto">
-            <div class="group-30 d-flex align-items-center text-white"><a
-                class="icon icon-xs icon-social int-facebook novi-icon"
-                href="https://www.facebook.com/webilizerr"></a><a
-                class="icon icon-xs icon-social int-instagram novi-icon"
-                href="https://www.instagram.com/webilizerr/"></a><a
-                class="icon icon-xs icon-social int-twitter novi-icon" href="https://twitter.com/Webilizerr"></a><a
-                class="icon icon-xs icon-social int-linkedin novi-icon"
-                href="https://www.linkedin.com/company/13004002"></a></div>
-          </div>
-        </div>
-        <span id="siteseal">
-          <script async type="text/javascript"
-            src="https://seal.godaddy.com/getSeal?sealID=R1olB8HGqvj1MQajxuJaNwZZd3vaLlezScszr3Hda09ljTHeQOV680PsNTIv"></script>
-        </span>
-      </div>
-    </footer>
+    {{> footer}}
   </div>
+
+  <div class="to-top int-arrow-up"></div>
 </body>
 
 </html>

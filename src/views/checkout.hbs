@@ -30,12 +30,13 @@
             <div class="container">
                 <!-- Breadcrumb-->
                 <ul class="breadcrumb">
-                    <li class="breadcrumb-item"><a class="breadcrumb-link" href="index.html">Home</a></li>
+                    <li class="breadcrumb-item"><a class="breadcrumb-link" href="#">Home</a></li>
                     <li class="breadcrumb-item"><a class="breadcrumb-link" href="#">Shop</a></li>
                     <li class="breadcrumb-item"><span class="breadcrumb-text breadcrumb-active">Payment</span></li>
                 </ul>
             </div>
         </section>
+
 
 
         <!-- Contact us-->
@@ -46,6 +47,7 @@
 
                     <div class="col-md-6">
                         <table class="table table-cart table-responsive-lg">
+
                             <tbody>
                                 <tr>
 
@@ -58,7 +60,7 @@
                                             <li>Dimension: 180X1250mm</li>
                                         </ul>
                                     </td>
-                                    <td style="min-width: 80px; width: 12.6%">€{{price}}</td>
+                                    <td style="min-width: 80px; width: 12.6%">€{{data.price}}</td>
                                     <td style="min-width: 120px; width: 14.3%">
                                         <div class="form-group mb-4">
                                             <label class="d-block small" for="input-quality">Qty:</label>
@@ -66,7 +68,7 @@
                                                 type="text" data-masked="99" value="01" size="2">
                                         </div>
                                     </td>
-                                    <td class="text-right" style="min-width: 60px; width: 9.8%">€{{price}}</td>
+                                    <td class="text-right" style="min-width: 60px; width: 9.8%">€{{data.price}}</td>
                                 </tr>
 
                             </tbody>
@@ -74,8 +76,8 @@
                         <div class="offset-sm group-20 d-flex align-items-center flex-wrap justify-content-end"
                             style="float: left;">
                             <div class="small">Have a promo code?</div>
-                            {{#if discountedPrice}}
-                            {{#if discountedPrice.error}}
+                            {{#if data.discountedPrice}}
+                            {{#if data.discountedPrice.error}}
                             <div class="alert alert-danger alert-dismissible fade show" role="alert">
                                 {{discountedPrice.error}}
                                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -97,8 +99,8 @@
 
                         <table class="table table-cart-total">
                             <tbody>
-                                {{#if discountedPrice}}
-                                {{#if discountedPrice.percentage}}
+                                {{#if data.discountedPrice}}
+                                {{#if data.discountedPrice.percentage}}
                                 <tr>
                                     <th style="min-width: 100px; width: 50%">Discount:</th>
                                     <td style="min-width: 100px; width: 50%">{{discountedPrice.percentage}}%</td>
@@ -120,11 +122,11 @@
                                     <th>Total:</th>
                                     <td>
                                         <h3 style="line-height: 1">
-                                            {{#if discountedPrice}}
-                                            {{#if discountedPrice.discountPrice}}
-                                            €{{discountedPrice.discountPrice}}
+                                            {{#if data.discountedPrice}}
+                                            {{#if data.discountedPrice.discountPrice}}
+                                            €{{data.discountedPrice.discountPrice}}
                                             {{else}}
-                                            €{{price}}
+                                            €{{data.price}}
                                             {{/if}}
                                             {{/if}}
                                         </h3>Tax excl.
@@ -139,11 +141,72 @@
                             <form action="" method="POST" id="card-form">
                                 <div class="form-row row-15 novi-disabled">
                                     <div class="col-sm-12">
+                                        {{#if message.success}}
+                                        <div class="row justify-content-center alertCST" style="
+    margin-bottom: 50px;
+">
+                                            <div>
+                                                <div class="close-button-wrapper">
+                                                    <div class="close-button alertCST-close"></div>
+                                                </div>
+                                                <div class="snackbar snackbar-success">
+                                                    <div class="snackbar-inner">
+                                                        <div class="snackbar-title"><span
+                                                                class="icon snackbar-icon novi-icon int-warning"></span>
+                                                            <span class="alertCST-text">{{{message.success}}} </span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                        {{/if}}
+                                        {{#if message.warning}}
+                                        <div class="row justify-content-center alertCST " style="
+    margin-bottom: 50px;
+">
+                                            <div>
+                                                <div class="close-button-wrapper">
+                                                    <div class="close-button alertCST-close"></div>
+                                                </div>
+                                                <div class="snackbar snackbar-warning">
+                                                    <div class="snackbar-inner">
+                                                        <div class="snackbar-title"><span
+                                                                class="icon snackbar-icon novi-icon int-warning"></span>
+                                                            <span class="alertCST-text">{{{message.warning}}} </span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                        {{/if}}
+                                        {{#if message.error}}
+                                        <div class="row justify-content-center alertCST" style="
+    margin-bottom: 50px;
+">
+                                            <div>
+                                                <div class="close-button-wrapper">
+                                                    <div class="close-button alertCST-close"></div>
+                                                </div>
+                                                <div class="snackbar snackbar-danger">
+                                                    <div class="snackbar-inner">
+                                                        <div class="snackbar-title"><span
+                                                                class="icon snackbar-icon novi-icon int-warning"></span>
+                                                            <span class="alertCST-text">{{{message.error}}} </span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                        {{/if}}
+
                                         <div class="form-group">
                                             <label for="input-email">E-mail:</label>
                                             <div class="position-relative">
                                                 <input class="form-control" id="input-email" type="email" name="email"
-                                                    placeholder="Your e-mail address"
+                                                    placeholder="Your Registered Email" value="{{user.email}}"
                                                     data-constraints="@Email @Required">
                                             </div>
                                         </div>
@@ -382,6 +445,8 @@
                 </div>
             </div>
     </div>
+
+
     </section>
 
 
