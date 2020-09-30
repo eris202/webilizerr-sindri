@@ -2,7 +2,7 @@ import axios from "axios";
 import seo_API_KEY from "../config/keys";
 import seo_API_URL from "../config/keys";
 import { Service, Inject } from "typedi";
-import { Output, Data } from "../model/TypedReport";
+import { Output, Data, RecentReport } from "../model/TypedReport";
 import { capitalCase, capitalCaseTransform } from "change-case";
 import blurredKeys from "../config/blur-keys";
 import { ReportCreateResponse } from "../model/ReportCreateResponse";
@@ -42,12 +42,13 @@ export class ReportService {
       console.log("Unable to get report, Report-Service");
     }
 
-    // const dbUser = await User.findOne({
-    //   email: user.email,
-    //   isActive: true,
-    // });
-
-    // console.log("dbUser: " + dbUser);
+    if (user) {
+      const dbUser = await User.findOne({
+        email: user.email,
+        isActive: true,
+      });
+      console.log("dbUser is login: " + dbUser);
+    }
 
     const subsections = this.divideResponseToSubsections(
       typedData.output,
@@ -215,7 +216,9 @@ export class ReportService {
       }
 
       if (typeof user == "undefined" && blurredKeys.indexOf(key) > -1) {
-        console.log("blurr 1");
+        console.log(
+          "blurr 1: " + JSON.stringify(key) + " " + JSON.stringify(value)
+        );
         blurrKey = true;
       } else {
         blurrKey = false;
@@ -228,8 +231,8 @@ export class ReportService {
         isBlurred: blurrKey,
 
         friendlyName: this.changeKeyName(key),
-        passedClass: String(this.IfNullColor(value)),
-        circleTextDisplay: String(this.IfNullSign(value)),
+        passedClass: String(this.IfNullColor(value, blurrKey)),
+        circleTextDisplay: String(this.IfNullSign(value, blurrKey)),
         formatChanged: String(this.subsectionChangeFormat(key, value)),
         navPassedClass: value.passed
           ? "score-item-nav-green"
@@ -274,23 +277,31 @@ export class ReportService {
     return parseFloat((data / Math.pow(k, i)).toFixed(dm)) + " " + sizes[i];
   }
 
-  private IfNullColor(value: any) {
-    if (value.passed === undefined) {
-      return "item-num-orange";
-    } else if (value.passed) {
-      return "item-num-green";
-    } else if (!value.passed) {
-      return "item-num-red";
+  private IfNullColor(value: any, blurr: any) {
+    if (blurr) {
+      return "item-num-yellow";
+    } else {
+      if (value.passed === undefined) {
+        return "item-num-orange";
+      } else if (value.passed) {
+        return "item-num-green";
+      } else if (!value.passed) {
+        return "item-num-red";
+      }
     }
   }
 
-  private IfNullSign(value: any) {
-    if (value.passed === undefined) {
-      return "𝓲";
-    } else if (value.passed) {
-      return "✔";
+  private IfNullSign(value: any, blurr: any) {
+    if (blurr) {
+      return "?";
     } else {
-      return "✘";
+      if (value.passed === undefined) {
+        return "𝓲";
+      } else if (value.passed) {
+        return "✔";
+      } else {
+        return "✘";
+      }
     }
   }
 
@@ -404,37 +415,52 @@ export class ReportService {
   };
 
   getMyScannedReport = async (pageNum: number, user: any) => {
+    const fetch_reports = 100;
     const database = firebaseAdmin.database();
     const reference = database.ref(`reports`);
-
     const recentlyScannedQuery = await reference
       .orderByChild("generatedByUser/email")
       .equalTo(`${user.email}`)
       .limitToFirst(100)
       .once("value");
+    //console.log(JSON.stringify(recentlyScannedQuery));
 
     if (!recentlyScannedQuery) {
       return {};
     }
-
+    const reportArray: RecentReport[] = [];
+    console.log(user.email + " is fetching my-report");
     const recentlyScannedList = recentlyScannedQuery.exportVal();
-    const keyList = Object.keys(recentlyScannedList);
-    const keyName = keyList[keyList.length - pageNum];
-    const data = recentlyScannedList[keyName] as Data;
+    let keyList = Object.keys(recentlyScannedList);
+    var n = 1; //get the first 5 items
+    keyList = keyList.slice(Math.max(keyList.length - fetch_reports, 0));
+    console.log(JSON.stringify(keyList));
 
-    const subsections = this.divideResponseToSubsections(data.output, user);
-    const score = this.createSectionWiseData(data.output, subsections)
-      .overallSection.score;
-    //console.log("1;  " + subsections);
+    for (var property in keyList) {
+      if (keyList.hasOwnProperty(property) && n <= fetch_reports) {
+        const modal = {} as RecentReport;
+        let keyName = keyList[keyList.length - n];
+        console.log("keyName " + keyName);
 
-    return {
-      score: score,
-      total: Object.keys(recentlyScannedList).length,
-      url: this.createValidUrl(data.input.url),
-      timeAgo: timeAgo.ago(
-        new Date(data.hookedTime ? data.hookedTime : data.completed_at)
-      ),
-    };
+        let data = recentlyScannedList[keyName] as Data;
+        const subsections = this.divideResponseToSubsections(data.output, user);
+        const score = this.createSectionWiseData(data.output, subsections);
+
+        modal.id = data.id;
+        modal.score = score.overallSection.score;
+        (modal.timeAgo = timeAgo.ago(
+          new Date(data.hookedTime ? data.hookedTime : data.completed_at)
+        )),
+          (modal.url = this.createValidUrl(data.input.url));
+        modal.url = modal.url.replace(/^(?:https?:\/\/)?/i, "").split("/")[0];
+        modal.color1 = this.getRecentReportColor(modal);
+
+        reportArray.splice(reportArray.length, 0, modal);
+      }
+      n++;
+    }
+
+    return reportArray;
   };
 
   getRecentlyScannedReport = async (pageNum: number) => {
@@ -444,24 +470,48 @@ export class ReportService {
     const recentlyScannedList = (
       await reference.orderByKey().limitToFirst(100).once("value")
     ).exportVal();
+    if (!recentlyScannedList) {
+      return {};
+    }
 
-    const keyList = Object.keys(recentlyScannedList);
-    const keyName = keyList[keyList.length - pageNum];
-    const data = recentlyScannedList[keyName] as Data;
+    const reportArray: RecentReport[] = [];
+    let keyList = Object.keys(recentlyScannedList);
+    var n = 0; //get the first 5 items
 
-    const subsections = this.divideResponseToSubsections(data.output, null);
-    const score = this.createSectionWiseData(data.output, subsections)
-      .overallSection.score;
-    //console.log("2;  " + subsections);
+    keyList = keyList.slice(Math.max(keyList.length - 50, 1));
 
-    return {
-      score: score,
-      total: Object.keys(recentlyScannedList).length,
-      url: this.createValidUrl(data.input.url),
-      timeAgo: timeAgo.ago(
-        new Date(data.hookedTime ? data.hookedTime : data.completed_at)
-      ),
-    };
+    for (var property in keyList) {
+      n = n + 1;
+      if (keyList.hasOwnProperty(property) && n <= 50) {
+        const modal = {} as RecentReport;
+        let keyName = keyList[keyList.length - n];
+        let data = recentlyScannedList[keyName] as Data;
+        const subsections = this.divideResponseToSubsections(data.output, null);
+        const score = this.createSectionWiseData(data.output, subsections);
+
+        modal.id = data.id;
+        modal.score = score.overallSection.score;
+        (modal.timeAgo = timeAgo.ago(
+          new Date(data.hookedTime ? data.hookedTime : data.completed_at)
+        )),
+          (modal.url = this.createValidUrl(data.input.url));
+        modal.url = modal.url.replace(/^(?:https?:\/\/)?/i, "").split("/")[0];
+        modal.color1 = this.getRecentReportColor(modal);
+
+        reportArray.splice(reportArray.length, 0, modal);
+      }
+    }
+    return reportArray;
+  };
+
+  private getRecentReportColor = (modal) => {
+    if (modal.score < 50) {
+      return "alert alert-danger";
+    } else if (modal.score >= 50 && modal.score < 80) {
+      return "alert alert-warning";
+    } else {
+      return "alert alert-primary";
+    }
   };
 
   saveReport = async (data: Data) => {
@@ -489,6 +539,8 @@ export class ReportService {
   };
 
   private isValidWebsiteUrl(url: string): boolean {
+    url = url.replace(/\/$/, "");
+
     const websiteRegex = /^[a-zA-Z\d]+\.[a-zA-Z\d]+$|^http:\/\/www\.[a-zA-Z\d]+\.[a-zA-Z\d]+$|^https:\/\/www\.[a-zA-Z\d]+\.[a-zA-Z\d]+$|^www\.[a-zA-Z\d]+\.[a-zA-Z\d]+$/;
 
     return websiteRegex.test(url);
@@ -500,7 +552,6 @@ export class ReportService {
     } else if (url.indexOf("www.") >= 0) {
       return `https://${url}`;
     }
-
     return `https://www.${url}`;
   }
 

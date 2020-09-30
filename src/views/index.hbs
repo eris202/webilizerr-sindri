@@ -12,21 +12,12 @@
   <meta property="og:image" content="http://digipunk.netii.net/images/radar.gif">
   <meta property="og:url" content="http://digipunk.netii.net">
   <link rel="icon" href="images/favicon.ico" type="image/x-icon">
-  <link rel="stylesheet" href="components/base/alerts.css">
   <link rel="stylesheet" href="components/base/base.css">
 
+  <link rel="stylesheet" href="components/base/alerts.css">
 
-  <style>
-    .alertCST {
-      position: absolute !important;
-      top: 5px;
-      right: 5px;
-      width: fit-content !important;
-    }
-  </style>
 
-  <script src="components/base/core.js"></script>
-  <script src="components/base/script.js"></script>
+
 </head>
 
 <body>
@@ -156,7 +147,7 @@
               <form class="form-inline justify-content-center group-20" method="post">
                 <div class="form-inline-group has-error">
                   <input class="form-control form-control-has-validation form-control-last-child" type="text" name="url"
-                    value="" placeholder="www.awesome-website.com" data-constraints="@Required">
+                    value="www." placeholder="www.awesome-website.com" data-constraints="@Required">
                 </div>
                 <button class="btn btn-lg btn-primary">Scan!</button>
 
@@ -226,6 +217,18 @@
     {{> footer}}
   </div>
   <script src="components/base/alertsHome.js"></script>
+  <script src="components/base/core.js"></script>
+  <script src="components/base/script.js"></script>
+  <style>
+    .alertCST {
+      position: absolute !important;
+      top: 5px;
+      right: 5px;
+      width: fit-content !important;
+    }
+  </style>
+
+
 </body>
 
 </html>

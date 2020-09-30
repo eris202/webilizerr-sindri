@@ -32,13 +32,13 @@ export class ProductPlan {
         scanCount: 30,
         name: "One Time Plan",
         isOneTime: true,
-      }
+      };
     } else if (plan === 4) {
       return {
         planId: "plan_HKiDtU7794m0RR",
         price: 24.9,
         scanCount: 10,
-        name: "Business Plan",
+        name: "Light Idea",
         isOneTime: false,
       };
     } else if (plan === 5) {

@@ -649,6 +649,15 @@ export interface Data {
   completed_at: string;
   hookedTime: string;
   generatedByUser: any;
+  paidFor: boolean;
+}
+
+export interface RecentReport {
+  id: number;
+  score: number;
+  timeAgo: Date;
+  url: string;
+  color1: string;
 }
 
 export interface TypedReport {

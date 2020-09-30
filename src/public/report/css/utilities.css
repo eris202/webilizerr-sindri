@@ -541,6 +541,12 @@ h4 {
   color: #ffffff;
 }
 
+.score-item-nav-yellow,
+.item-num-yellow {
+  background: #f89d0e;
+  color: #ffffff;
+}
+
 .score-item-nav-orange,
 .item-num-orange {
   background: #0099cc;

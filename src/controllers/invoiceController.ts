@@ -30,7 +30,7 @@ export class InvoiceController {
     });
 
     const flashMessage = req.flash();
-    console.log("Controller flash: " + JSON.stringify(flashMessage));
+    console.log("Controller flash: " + JSON.stringify(productConfig));
 
     res.render("checkout", {
       data: data,

@@ -13,8 +13,11 @@ const contactUsController = Container.get(ContactUsController);
 
 const alreadyLoggedInMiddleWare = (req, res, next) => {
   if (!req.isAuthenticated()) {
+    console.log("4");
+
     return next();
   }
+  console.log("5");
 
   req.flash("message", "You cannot access the page while logged out.");
   return res.redirect("/");
@@ -22,13 +25,13 @@ const alreadyLoggedInMiddleWare = (req, res, next) => {
 
 const shouldBeLoggedInMiddleWare = (req, res, next) => {
   const backUrl = `${req.protocol}://${req.get("Host")}${req.originalUrl}`;
-  // console.log("BackURL: " + backUrl);
-  // console.log("req.isAuthenticated(): " + req.isAuthenticated());
 
   if (
     backUrl.includes("http://localhost:5555/checkout?") &&
     req.isAuthenticated()
   ) {
+    console.log("1");
+
     // console.log("is authenticated in shouldBeLoggedInMiddleWare");
     return next();
   }
@@ -37,33 +40,47 @@ const shouldBeLoggedInMiddleWare = (req, res, next) => {
     backUrl.includes("http://localhost:5555/letslogin?") &&
     req.isAuthenticated()
   ) {
+    console.log("2");
+
+    if (typeof req.user !== "undefined") {
+      console.log("44");
+
+      const dbUser = User.findOne({
+        email: req.user.email,
+        isActive: true,
+      });
+
+      dbUser.numOfScans = Math.max(0, dbUser.numOfScans - 1);
+      console.log("decreasing number of scanns: " + dbUser.numOfScans);
+
+      dbUser.save();
+    }
+    return false;
     const string = backUrl.replace("/letslogin?", "");
     // console.log("Its A MATCH");
     return res.redirect(string);
 
     //return res.redirect(`${backUrl}`);
   } else {
+    if (req.isAuthenticated()) {
+      console.log("0");
+      return next();
+    }
+    console.log("3");
+
     // console.log("NOOOOO");
     return res.redirect(`/login?backUrl=${backUrl}`);
     //return next();
   }
 };
 
-const shouldBeSignUpInMiddleWare = (req, res, next) => {
+const shouldBeLoggedInReportMiddleWare = (req, res, next) => {
   const backUrl = `${req.protocol}://${req.get("Host")}${req.originalUrl}`;
   // console.log("BackURL: " + backUrl);
   // console.log(
   //   "req.isAuthenticated() in shouldBeSignUpInMiddleWare: " +
   //     req.isAuthenticated()
   // );
-
-  if (
-    backUrl.includes("http://localhost:5555/checkout?") &&
-    req.isAuthenticated()
-  ) {
-    // console.log("is authenticated in shouldBeSignUpInMiddleWare");
-    return next();
-  }
 
   if (
     backUrl.includes("http://localhost:5555/letsregister?") &&
@@ -76,7 +93,8 @@ const shouldBeSignUpInMiddleWare = (req, res, next) => {
     //return res.redirect(`${backUrl}`);
   } else {
     // console.log("NOOOOO");
-    return res.redirect(`/register?backUrl=${backUrl}`);
+    //return res.redirect(`/register?backUrl=${backUrl}`);
+    return res.render(`reportold`);
     //return next();
   }
 };
@@ -129,7 +147,7 @@ export const routes: RouteMapper[] = [
       {
         method: "get",
         handler: reportController.renderReportPage,
-        //middleWares: [shouldBeLoggedInReportMiddleWare],
+        // middleWares: [shouldBeLoggedInReportMiddleWare],
       },
     ],
   },
@@ -146,12 +164,12 @@ export const routes: RouteMapper[] = [
       {
         method: "get",
         handler: authController.viewRegisterPage,
-        middleWares: [shouldBeSignUpInMiddleWare],
+        //middleWares: [shouldBeSignUpInMiddleWare],
       },
       {
         method: "post",
         handler: authController.postRegister,
-        middleWares: [shouldBeSignUpInMiddleWare],
+        //middleWares: [shouldBeSignUpInMiddleWare],
       },
     ],
   },

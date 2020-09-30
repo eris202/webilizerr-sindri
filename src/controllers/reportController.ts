@@ -35,6 +35,13 @@ export class ReportController {
     });
   };
 
+  renderBlurrPage = (req, res) => {
+    const message = req.flash();
+    res.render("reportold", {
+      message: message,
+    });
+  };
+
   // todo 'Homepage' "Over 10k scanns" At the moment we are fetching the whole database and then count
   // and it looks like firebase doesnt offer count feature on their side so we need
   // to fetch everything and then count. With that we are paying extra "read" from
@@ -57,7 +64,6 @@ export class ReportController {
     // }
 
     const flashMessage = req.flash();
-    console.log("Controller flash: " + JSON.stringify(flashMessage));
 
     res.render("index", {
       message: flashMessage,
@@ -65,33 +71,38 @@ export class ReportController {
     });
   };
 
+  decreasingNumOfScans = async (req, res) => {
+    if (typeof req.user !== "undefined") {
+      const dbUser = await User.findOne({
+        email: req.user.email,
+        isActive: true,
+      });
+      dbUser.scanCounter = dbUser.scanCounter++;
+      console.log("dbUser.scanCounter: " + dbUser.scanCounter);
+      dbUser.numOfScans = Math.max(0, dbUser.numOfScans - 1);
+      console.log("decreasing number of scanns: " + dbUser.numOfScans);
+
+      return await dbUser.save();
+    }
+    return false;
+  };
+
   postReport = async (req, res) => {
     const websiteUrl = req.body.url;
 
     const response = await this.reportService.postApi(websiteUrl, req.user);
-
     if ((response as ReportCreateResponse).data) {
       const creationResponse = response as ReportCreateResponse;
 
       if (creationResponse.success) {
-        if (typeof User.email !== "undefined") {
-          const dbUser = await User.findOne({
-            email: req.user.email,
-            isActive: true,
-          });
-
-          dbUser.numOfScans = Math.max(0, dbUser.numOfScans - 1);
-          console.log("decreasing number of scanns: " + dbUser.numOfScans);
-
-          await dbUser.save();
-        }
+        await this.decreasingNumOfScans(req, res);
         return res.redirect(`loader?reportId=${creationResponse.data.id}`);
+      } else {
+        req.flash(
+          "error",
+          "There was an error connecting to our services. Please try again later"
+        );
       }
-
-      req.flash(
-        "error",
-        "There was an error connecting to our services. Please try again later"
-      );
       return res.redirect("/");
     }
 
@@ -106,7 +117,7 @@ export class ReportController {
       pageNum,
       req.user
     );
-
+    console.log("viewMyReports " + JSON.stringify(model));
     return res.render("recently-scanned", model);
   };
 
@@ -117,22 +128,18 @@ export class ReportController {
       output: JSON.parse(req.body.output),
       created_at: req.body.created_at,
       completed_at: req.body.completed_at,
+      generatedByUser: req.user,
     } as Data;
 
-    console.log("hook called");
     this.reportService.saveReport(reportData);
 
-    console.log("hook process finished");
     res.status(200).end();
   };
 
   viewRecentlyScanned = async (req, res) => {
     const pageNum = +(req.query.page ? req.query.page : 1);
-    const model = await this.reportService.getRecentlyScannedReport(pageNum);
-    console.log("page num: " + pageNum);
-    console.log("model: " + JSON.stringify(model));
-
-    return res.render("recently-scanned", model);
+    const data = await this.reportService.getRecentlyScannedReport(pageNum);
+    return res.render("recently-scanned", data);
   };
 
   viewAboutPage = (req, res) => {
