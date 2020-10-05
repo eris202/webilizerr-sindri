@@ -13,11 +13,8 @@ const contactUsController = Container.get(ContactUsController);
 
 const alreadyLoggedInMiddleWare = (req, res, next) => {
   if (!req.isAuthenticated()) {
-    console.log("4");
-
     return next();
   }
-  console.log("5");
 
   req.flash("message", "You cannot access the page while logged out.");
   return res.redirect("/");
@@ -74,28 +71,24 @@ const shouldBeLoggedInMiddleWare = (req, res, next) => {
   }
 };
 
-const shouldBeLoggedInReportMiddleWare = (req, res, next) => {
+const reportMiddleWare = (req, res, next) => {
   const backUrl = `${req.protocol}://${req.get("Host")}${req.originalUrl}`;
-  // console.log("BackURL: " + backUrl);
-  // console.log(
-  //   "req.isAuthenticated() in shouldBeSignUpInMiddleWare: " +
-  //     req.isAuthenticated()
-  // );
+  console.log("reportMiddleWare...");
+  if (req.isAuthenticated()) {
+    console.log("reportMiddleWare getout");
+    return next();
+  }
+  return next();
 
-  if (
-    backUrl.includes("http://localhost:5555/letsregister?") &&
-    req.isAuthenticated()
-  ) {
-    const string = backUrl.replace("/letsregister?", "");
-    // console.log("Its A MATCH");
+  if (backUrl.includes("http://localhost:5555/report/")) {
+    const string = backUrl.replace("/letslogin?", "");
     return res.redirect(string);
 
     //return res.redirect(`${backUrl}`);
   } else {
-    // console.log("NOOOOO");
-    //return res.redirect(`/register?backUrl=${backUrl}`);
-    return res.render(`reportold`);
-    //return next();
+    return next();
+
+    //return res.redirect(`/login?backUrl=${backUrl}`);
   }
 };
 
@@ -147,7 +140,10 @@ export const routes: RouteMapper[] = [
       {
         method: "get",
         handler: reportController.renderReportPage,
-        // middleWares: [shouldBeLoggedInReportMiddleWare],
+      },
+      {
+        method: "post",
+        handler: authController.postLogin,
       },
     ],
   },
@@ -221,7 +217,10 @@ export const routes: RouteMapper[] = [
       {
         method: "get",
         handler: (req, res) => res.render("report"),
-        // middleWares: [shouldBeLoggedInReportMiddleWare],
+      },
+      {
+        method: "post",
+        handler: authController.postLogin,
       },
     ],
   },

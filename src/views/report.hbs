@@ -13,6 +13,60 @@
 
 <body data-gr-c-s-loaded="true" class="">
     {{#if status}}
+    {{#if message.success}}
+    <div class="row justify-content-center alertCST">
+        <div>
+            <div class="close-button-wrapper">
+                <div class="close-button alertCST-close"></div>
+            </div>
+            <div class="snackbar snackbar-success">
+                <div class="snackbar-inner">
+                    <div class="snackbar-title"><span class="icon snackbar-icon novi-icon int-warning"></span>
+                        <span class="alertCST-text">{{{message.success}}} </span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    {{/if}}
+    {{#if message.warning}}
+    <div class="row justify-content-center alertCST">
+        <div>
+            <div class="close-button-wrapper">
+                <div class="close-button alertCST-close"></div>
+            </div>
+            <div class="snackbar snackbar-warning">
+                <div class="snackbar-inner">
+                    <div class="snackbar-title"><span class="icon snackbar-icon novi-icon int-warning"></span>
+                        <span class="alertCST-text">{{{message.warning}}} </span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    {{/if}}
+    {{#if message.error}}
+    <div class="row justify-content-center alertCST">
+        <div>
+            <div class="close-button-wrapper">
+                <div class="close-button alertCST-close"></div>
+            </div>
+            <div class="snackbar snackbar-danger">
+                <div class="snackbar-inner">
+                    <div class="snackbar-title"><span class="icon snackbar-icon novi-icon int-warning"></span>
+                        <span class="alertCST-text">{{{message.error}}} </span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    {{/if}}
+
+
+
     <div class="inner-body-wrapper">
         <nav id="mobile-nav" class="px-1 py-1">
             <img src="img/logo.png" alt="logo">
@@ -115,15 +169,16 @@
                     <p class="premium-btn c-l-w hov-c-w myt-1">Service</p>
                 </a> --}}
             </aside>
-            <aside class="section-nav py-2 px-2 nav-links">
+            <aside class="section-nav py-2 px-2 nav-links" {{#ifeq blurr true}}
+                style="filter: blur(8px);-webkit-filter: blur(8px);" {{/ifeq}}>
                 <li class="c-w active hov-c-w" data-nav="nav-overview"><a class="hov-dec-u"
                         href="#overview">Overview</a></li>
                 <li class="r-m c-l-w hov-c-w light" data-nav="nav-seo">
                     <a class="hov-dec-u" href="#seo">SEO</a>
                 </li>
                 <ul class="sub-nav">
+
                     {{#each reportData.data.seoSection.subSections}}
-                    {{#ifeq this.isBlurred true}}
                     <li>
                         <div class="score-item-nav {{this.passedClass}}">
                             <p style="font-size: 0.85rem;">{{this.circleTextDisplay}}</p>
@@ -145,8 +200,8 @@
 
                         <a href="#{{this.key}}">{{this.friendlyName}}</a>
                     </li>
-                    {{/ifeq}}
                     {{/each}}
+
                 </ul>
                 <li class="r-m c-l-w hov-c-w light" data-nav="nav-usability">
                     <a class="hov-dec-u" href="#usability">Usability</a>
@@ -267,14 +322,90 @@
                         href="#recommendations">Recommendations</a></li>
             </aside>
         </nav>
-        <div class="inner-body py-4 px-3">
+        {{#ifeq blurr true}}
+        <div class="login-wrap " style="outline: 0 none;position: fixed !important;">
+            <div class="login-html">
+                <div class="section-title myt-2 t-center py-1 px-1">
+                    <h3>Register for Free</h3>
+                    <p>Then you can review them later...</p>
+                </div>
+                <br><br>
+                <input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Sign
+                    In</label>
+                <input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab">
+                    Register</label>
+
+                <div class="login-form">
+                    <form id="formCST" action="" method="post">
+                        <div class="sign-in-htm">
+                            <div class="group">
+                                <label for="pass" class="label">Email Address</label>
+                                <input id="email-input" class="form-control" type="text" name="login">
+                            </div>
+                            <div class="group">
+                                <label for="pass" class="label">Password</label>
+                                <input id="password-input" class="form-control input-password password-login"
+                                    type="text" name="password" placeholder="Password">
+                            </div>
+                            <div class="group">
+                                <input id="check" type="checkbox" class="check" checked>
+                                <label for="check"><span class="icon"></span> Keep me Signed in</label>
+                            </div>
+                            <div class="group">
+                                <input id="sbmt-btn" class="btn btn-block btn-lg btn-primary accent-box-btn"
+                                    type="submit" type="submit" class="button" value="Sign In">
+                            </div>
+                            <div class="hr"></div>
+                            <div class="foot-lnk">
+                                <a href="#forgot">Forgot Password?</a>
+                            </div>
+                        </div>
+                        <div class="sign-up-htm">
+                            <div class="group">
+                                <label for="user" class="label">Name</label>
+                                <input id="name-input" class="form-control" type="name" name="name">
+                            </div>
+                            <div class="group">
+                                <label for="pass" class="label">Email Address</label>
+                                <input id="email-input" class="form-control" type="email" name="email">
+                            </div>
+                            <div class="group">
+                                <label for="pass" class="label">Password</label>
+                                <input id="password-input" class="form-control input-password password-register-1"
+                                    type="text" name="pass1">
+                            </div>
+                            <div class="group">
+                                <label for="pass" class="label">Repeat Password</label>
+                                <input id="cpassword-input" class="form-control input-password password-register-2"
+                                    type="text" name="pass2">
+                            </div>
+
+                            <div class="group">
+                                <input type="submit" class="button" value="Sign Up">
+                            </div>
+                            <div class="hr"></div>
+                            <div class="foot-lnk">
+                                <label for="tab-1">Already Member?</a>
+                            </div>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+        {{/ifeq}}
+        <div class="inner-body py-4 px-3" {{#ifeq blurr true}} style="filter: blur(8px);-webkit-filter: blur(8px);"
+            {{/ifeq}}>
+
+            {{!-- {{/each}} --}}
             <div>
                 <div class="item-section">Performance</div>
             </div>
             <h1>Audit Results for {{reportData.url}} </h1>
             <header class="myt-2 section-wrapper" id="overview" data-section="overview">
                 <div class="py-2 px-1">
-                    <svg viewBox="0 0 36 36" class="circular-chart green large-chart">
+                    <svg viewBox="0 0 36 36"
+                        class="circular-chart {{reportData.overallSection.colorClass}} large-chart">
                         <path class="circle-bg" d="M18 2.0845
                     a 15.9155 15.9155 0 0 1 0 31.831
                     a 15.9155 15.9155 0 0 1 0 -31.831"></path>
@@ -424,86 +555,7 @@
                 </div>
                 {{#each reportData.data.seoSection.subSections}}
                 {{#ifeq this.isBlurred true}}
-
-                {{!-- 
-
-                Needed to keep blurr section UI here in the front to get access to the "reportId"
-
-                --}}
-                <hr class="section-line">
-                <div class="item py-3" id="{{this.key}}">
-                    <div class="item-header">
-                        <div class="item-title">
-                            <div class="title-sign">
-                                <div class="sign item-num {{this.passedClass}}">
-                                    <p>{{this.circleTextDisplay}}</p>
-                                </div>
-                                <div class="title">
-                                    <h3>{{this.friendlyName}}</h3>
-                                </div>
-                            </div>
-                            <div>
-                                <li class="mx-2 question" data-title="Title Here" data-info="Info Here"><a
-                                        class="hov-c-b d-i-b">
-                                        What is this?</a></li>
-                                <div class="item-section">{{this.section}}</div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="item py-3 blur" id="{{this.key}}">
-                        <div class="blur-content">
-                            <img src="img/logo.png" alt="logo">
-                            <h3 class="my-1">Get access to unlock premium data</h3>
-                            <div class="blur-buttons">
-                                <ul class="navbar-navigation rd-navbar-nav">
-
-                                    <a href="/letslogin?/report/{{../reportId}}"><button
-                                            class="color-b brd-b brd-r-5 py-0-5 px-1-5 d-i-b hov-c-w hov-bg-b">Log
-                                            In</button></a>
-                                    {{!-- <a href="/letsregister?/report/{{../reportId}}"><button --}}
-                                    <a href="/letsregister"><button
-                                            class="color-b brd-b brd-r-5 py-0-5 px-1-5 d-i-b hov-c-w hov-bg-b">
-                                            Sign Up</button></a>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="item-body myt-2">
-
-                            <div class="box-wrapper">
-
-                                <div class="answer">
-                                    <div><img style="height: 50px;" src="img/err.png" alt="Check"></div>
-                                    <div style="margin-top: 20px;">
-                                        <p>Doesn't look like hack your way in going to work ;)</p>
-                                    </div>
-                                </div>
-
-                                <div class="answer">
-                                    <div><img style="height: 50px;" src="img/success.png" alt="Check"></div>
-                                    <div style="margin-top: 20px;">
-                                        <p>You need to be logged in to view these information.</p>
-                                    </div>
-                                </div>
-                            </div>
-
-
-                        </div>
-                    </div>
-                </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
+                {{> blurred-subsection}}
                 {{else ifeq this.key 'headers'}}
                 {{> header-subsection}}
                 {{else ifeq this.key 'title'}}
@@ -745,6 +797,13 @@
         </div>
     </div>
     <script src="js/app.js"></script>
+    <script>
+        *,: after,: before{ box - sizing: border - box }
+.clearfix: after,.clearfix: before{ content: ''; display: table }
+.clearfix: after{ clear: both; display: block }
+        a{ color: inherit; text - decoration: none }
+
+    </script>
 
     {{/if}}
 </body>

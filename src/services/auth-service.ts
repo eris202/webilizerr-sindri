@@ -14,7 +14,10 @@ export class AuthService {
 
   @Inject() private stripeService: StripeService;
 
-  registerUser = async (userInfo: UserInfo): Promise<RegistrationResult> => {
+  registerUser = async (
+    userInfo: UserInfo,
+    backUrl: any
+  ): Promise<RegistrationResult> => {
     const errors = await this.validateUserInfo(userInfo);
 
     if (errors.length > 0) {
@@ -24,13 +27,14 @@ export class AuthService {
       };
     }
 
-    return await this.registerNewUser(userInfo);
+    return await this.registerNewUser(userInfo, backUrl);
   };
 
   private validateUserInfo = async (
     userInfo: UserInfo
   ): Promise<Array<{ msg: string }>> => {
     const errors = [];
+    console.log("validateUserInfo User:  " + userInfo.email);
     if (
       !userInfo.name ||
       !userInfo.email ||
@@ -95,7 +99,7 @@ export class AuthService {
     }
   };
 
-  private registerNewUser = async (userInfo: UserInfo) => {
+  private registerNewUser = async (userInfo: UserInfo, backUrl: any) => {
     const newUser = new User({
       name: userInfo.name,
       email: userInfo.email,
@@ -109,7 +113,10 @@ export class AuthService {
 
       const savedUser = await newUser.save();
 
-      await this.mailService.sendAccountConfirmationEmail(savedUser.email);
+      await this.mailService.sendAccountConfirmationEmail(
+        savedUser.email,
+        backUrl
+      );
 
       return {
         errors: [],

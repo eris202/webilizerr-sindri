@@ -11,6 +11,7 @@ import { ImageService } from "./image-service";
 import * as timeAgo from "time-ago";
 import User from "../model/User";
 import { userInfo } from "os";
+import { database } from "firebase-admin";
 
 @Service()
 export class ReportService {
@@ -24,10 +25,13 @@ export class ReportService {
     status: any;
     reportData: any;
     reportId: any;
+    blurr: boolean;
   }> => {
     const db = firebaseAdmin.database();
     const ref = db.ref(`reports/${reportId}`);
     const snapshot = await ref.once("value");
+    let dbUser;
+    let blurr = false;
 
     const typedData = snapshot.val() as Data;
 
@@ -37,17 +41,20 @@ export class ReportService {
         reportData: false,
         reportId: reportId,
         success: false,
+        blurr: false,
       };
     } else if (!typedData.output.success == null) {
       console.log("Unable to get report, Report-Service");
     }
+    console.log("User in report render: " + user);
+    if (typeof user == "undefined") {
+      console.log("Blurr 1: ");
 
-    if (user) {
-      const dbUser = await User.findOne({
-        email: user.email,
-        isActive: true,
-      });
-      console.log("dbUser is login: " + dbUser);
+      blurr = true;
+    } else {
+      console.log("Blurr 2: ");
+
+      blurr = false;
     }
 
     const subsections = this.divideResponseToSubsections(
@@ -57,7 +64,8 @@ export class ReportService {
 
     const sectionWiseData = this.createSectionWiseData(
       typedData.output,
-      subsections
+      subsections,
+      blurr
     );
 
     if (user) {
@@ -102,20 +110,25 @@ export class ReportService {
         screenshot: typedData.output.screenshot,
       },
       reportId: reportId,
+      blurr: blurr,
     };
   };
 
   //TODO: Move to a factory
-  private createSectionWiseData = (output: Output, subsections) => {
+  private createSectionWiseData = (
+    output: Output,
+    subsections,
+    blur: boolean
+  ) => {
     const seoSection = {
       ...output.scores.seo,
-      ...this.computeSectionScore(output.scores.seo, subsections["seo"]),
+      ...this.computeSectionScore(output.scores.seo, subsections["seo"], blur),
       subSections: subsections["seo"],
     };
 
     const uiSection = {
       ...output.scores.ui,
-      ...this.computeSectionScore(output.scores.ui, subsections["ui"]),
+      ...this.computeSectionScore(output.scores.ui, subsections["ui"], blur),
       subSections: subsections["ui"],
     };
 
@@ -123,14 +136,19 @@ export class ReportService {
       ...output.scores.performance,
       ...this.computeSectionScore(
         output.scores.performance,
-        subsections["performance"]
+        subsections["performance"],
+        blur
       ),
       subSections: subsections["performance"],
     };
 
     const socialSection = {
       ...output.scores.social,
-      ...this.computeSectionScore(output.scores.social, subsections["social"]),
+      ...this.computeSectionScore(
+        output.scores.social,
+        subsections["social"],
+        blur
+      ),
       subSections: subsections["social"],
     };
 
@@ -138,13 +156,14 @@ export class ReportService {
       ...output.scores.security,
       ...this.computeSectionScore(
         output.scores.security,
-        subsections["security"]
+        subsections["security"],
+        blur
       ),
       subSections: subsections["security"],
     };
 
     const technologySection = {
-      ...this.computeSectionScore(output, subsections["technology"]),
+      ...this.computeSectionScore(output, subsections["technology"], blur),
       subSections: subsections["technology"],
     };
 
@@ -154,6 +173,7 @@ export class ReportService {
       performanceSection.computedScore +
       socialSection.computedScore +
       securitySection.computedScore;
+    let colorClass = this.getColorClass(Math.round((overallSum * 10) / 50.0));
 
     return {
       data: {
@@ -166,11 +186,12 @@ export class ReportService {
       },
       overallSection: {
         score: Math.round((overallSum * 10) / 50.0),
+        colorClass: colorClass,
       },
     };
   };
 
-  private computeSectionScore = (output, subsections: any[]) => {
+  private computeSectionScore = (output, subsections: any[], blur: boolean) => {
     // We used to need to create our own grades but now it comes with the API
     //const total = subsections.filter((value) => value.passed !== null).length;
 
@@ -180,6 +201,16 @@ export class ReportService {
     //   .map((value) => 1)
     //   .reduce((prev, cur) => prev + cur, 0);
     // console.log("passingScore: " + passingScore + subsections);
+
+    if (blur) {
+      const computedScore = Math.random() * (65 - 35) + 35;
+
+      return {
+        computedScore,
+        friendlyComputedScore: `${computedScore}`,
+        colorClass: this.getColorClass(computedScore),
+      };
+    }
 
     const computedScore = parseFloat(output.grade);
 
@@ -196,6 +227,7 @@ export class ReportService {
     } else if (score >= 50 && score < 80) {
       return "orange";
     }
+    console.log(score);
     return "green";
   };
 
@@ -208,21 +240,48 @@ export class ReportService {
       security: [],
       technology: [],
     };
-
     let blurrKey = false;
+
+    if (typeof user == "undefined") {
+      blurrKey = true;
+      for (let [key, value] of Object.entries(output)) {
+        if (!value.section) {
+          continue;
+        }
+        subSections[value.section].push({
+          ...value,
+          key: key,
+
+          isBlurred: blurrKey,
+
+          friendlyName: this.changeKeyName(key),
+          passedClass: String(this.IfNullColor(value, blurrKey)),
+          circleTextDisplay: String(this.IfNullSign(value, blurrKey)),
+          formatChanged: String(this.subsectionChangeFormat(key, value)),
+          navPassedClass: value.passed
+            ? "score-item-nav-green"
+            : "score-item-nav-red",
+          // passedClass: value.passed ? "item-num-green" : "item-num-red",
+          // circleTextDisplay: value.passed ? "✔" : "✘",
+        });
+      }
+    } else {
+      blurrKey = false;
+    }
+
     for (let [key, value] of Object.entries(output)) {
       if (!value.section) {
         continue;
       }
 
-      if (typeof user == "undefined" && blurredKeys.indexOf(key) > -1) {
-        console.log(
-          "blurr 1: " + JSON.stringify(key) + " " + JSON.stringify(value)
-        );
-        blurrKey = true;
-      } else {
-        blurrKey = false;
-      }
+      // if (typeof user == "undefined" && blurredKeys.indexOf(key) > -1) {
+      //   console.log(
+      //     "blurr 1: " + JSON.stringify(key) + " " + JSON.stringify(value)
+      //   );
+      //   blurrKey = true;
+      // } else {
+      //   blurrKey = false;
+      // }
 
       subSections[value.section].push({
         ...value,
@@ -423,7 +482,6 @@ export class ReportService {
       .equalTo(`${user.email}`)
       .limitToFirst(100)
       .once("value");
-    //console.log(JSON.stringify(recentlyScannedQuery));
 
     if (!recentlyScannedQuery) {
       return {};
@@ -431,36 +489,46 @@ export class ReportService {
     const reportArray: RecentReport[] = [];
     console.log(user.email + " is fetching my-report");
     const recentlyScannedList = recentlyScannedQuery.exportVal();
-    let keyList = Object.keys(recentlyScannedList);
-    var n = 1; //get the first 5 items
-    keyList = keyList.slice(Math.max(keyList.length - fetch_reports, 0));
-    console.log(JSON.stringify(keyList));
+    console.log("recentlyScannedList: " + JSON.stringify(recentlyScannedList));
+    if (recentlyScannedList != null) {
+      let keyList = Object.keys(recentlyScannedList);
+      var n = 1; //get the first 5 items
+      keyList = keyList.slice(Math.max(keyList.length - fetch_reports, 0));
+      console.log(JSON.stringify(keyList));
 
-    for (var property in keyList) {
-      if (keyList.hasOwnProperty(property) && n <= fetch_reports) {
-        const modal = {} as RecentReport;
-        let keyName = keyList[keyList.length - n];
-        console.log("keyName " + keyName);
+      for (var property in keyList) {
+        if (keyList.hasOwnProperty(property) && n <= fetch_reports) {
+          const modal = {} as RecentReport;
+          let keyName = keyList[keyList.length - n];
+          console.log("keyName " + keyName);
 
-        let data = recentlyScannedList[keyName] as Data;
-        const subsections = this.divideResponseToSubsections(data.output, user);
-        const score = this.createSectionWiseData(data.output, subsections);
+          let data = recentlyScannedList[keyName] as Data;
+          const subsections = this.divideResponseToSubsections(
+            data.output,
+            user
+          );
+          const score = this.createSectionWiseData(
+            data.output,
+            subsections,
+            null
+          );
 
-        modal.id = data.id;
-        modal.score = score.overallSection.score;
-        (modal.timeAgo = timeAgo.ago(
-          new Date(data.hookedTime ? data.hookedTime : data.completed_at)
-        )),
-          (modal.url = this.createValidUrl(data.input.url));
-        modal.url = modal.url.replace(/^(?:https?:\/\/)?/i, "").split("/")[0];
-        modal.color1 = this.getRecentReportColor(modal);
+          modal.id = data.id;
+          modal.score = score.overallSection.score;
+          (modal.timeAgo = timeAgo.ago(
+            new Date(data.hookedTime ? data.hookedTime : data.completed_at)
+          )),
+            (modal.url = this.createValidUrl(data.input.url));
+          modal.url = modal.url.replace(/^(?:https?:\/\/)?/i, "").split("/")[0];
+          modal.color1 = this.getRecentReportColor(modal);
 
-        reportArray.splice(reportArray.length, 0, modal);
+          reportArray.splice(reportArray.length, 0, modal);
+        }
+        n++;
       }
-      n++;
+      return reportArray;
     }
-
-    return reportArray;
+    return {};
   };
 
   getRecentlyScannedReport = async (pageNum: number) => {
@@ -487,7 +555,11 @@ export class ReportService {
         let keyName = keyList[keyList.length - n];
         let data = recentlyScannedList[keyName] as Data;
         const subsections = this.divideResponseToSubsections(data.output, null);
-        const score = this.createSectionWiseData(data.output, subsections);
+        const score = this.createSectionWiseData(
+          data.output,
+          subsections,
+          null
+        );
 
         modal.id = data.id;
         modal.score = score.overallSection.score;

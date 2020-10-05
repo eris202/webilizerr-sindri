@@ -107,7 +107,6 @@ export class ReportController {
     }
 
     req.flash("error", (response as { error: string }).error);
-
     return res.redirect("/");
   };
 
@@ -117,8 +116,13 @@ export class ReportController {
       pageNum,
       req.user
     );
-    console.log("viewMyReports " + JSON.stringify(model));
-    return res.render("recently-scanned", model);
+    console.log("Model: " + JSON.stringify(model));
+    if (!(Object.keys(model).length === 0 && model.constructor === Object)) {
+      return res.render("recently-scanned", model);
+    } else {
+      req.flash("warning", "You dont have any reports in database, yet!");
+      return res.redirect("/");
+    }
   };
 
   reportHook = async (req, res) => {

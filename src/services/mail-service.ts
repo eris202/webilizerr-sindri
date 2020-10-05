@@ -7,7 +7,7 @@ import { ContactUsRequest } from "../model/ContactRequest";
 export class MailService {
   @Inject() private tokenService: TokenService;
 
-  sendAccountConfirmationEmail = async (emailAddress: string) => {
+  sendAccountConfirmationEmail = async (emailAddress: string, backUrl: any) => {
     const mailOptions = {
       from: "webbilizertestapp@gmail.com",
       to: `${emailAddress}`,
@@ -25,7 +25,7 @@ export class MailService {
         "Email Confirmation",
         `Please confirm your email by clicking ${this.createConfirmationLink(
           emailAddress
-        )}
+        )}&backurl=${backUrl}
             The link will be valid for 30 minutes.
             `
       )
