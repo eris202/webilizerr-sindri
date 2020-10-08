@@ -62,7 +62,7 @@ export class AuthController {
         "success",
         "Account has been registered successfully. Please log in now."
       );
-      console.log("Registration complete");
+      console.log("Registration complete: " + backUrl);
       if (backUrl.length > 2) {
         return res.redirect(backUrl);
       }
@@ -82,6 +82,8 @@ export class AuthController {
   };
 
   postLogin = async (req, res, next) => {
+    const urlParams = new URLSearchParams(req.query);
+    const backUrl = urlParams.get("backurl");
     // passport authenticate
 
     if (req.body.pass2) {
@@ -97,19 +99,15 @@ export class AuthController {
         userInfo,
         backUrl
       );
+      console.log("1: ");
 
       if (result.errors.length > 0) {
         const text = result.errors.map(function (item) {
           return item["msg"];
         });
-        req.flash("error", text);
-        const flash = req.flash();
 
-        res.render("register", {
-          error: result.errors,
-          ...userInfo,
-          message: flash,
-        });
+        req.flash("error", text);
+        return res.redirect(backUrl);
       } else {
         req.flash(
           "warning",
@@ -128,17 +126,18 @@ export class AuthController {
 
         if (!user) {
           req.flash("error", "Invalid user name or password");
-          return res.redirect("/login");
+          return res.redirect(backUrl);
         }
 
         req.login(user, (info) => {
           if (info) {
-            req.flash("success", "You are logged innnnnnn");
+            req.flash("success", "You have successfully logged in");
             next(info);
           }
           const redirectUrl = req.query.backUrl || "/";
+          console.log("backUrl " + backUrl);
 
-          if (backUrl.includes("http://localhost:5555/report/")) {
+          if (backUrl.includes("report/")) {
             return res.redirect(backUrl);
           }
 

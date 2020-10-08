@@ -10,6 +10,13 @@ export class InvoiceService {
 
   subscribeUser = async (
     email: String,
+    name: String,
+    line1: string,
+    line2: string,
+    country: string,
+    postal_code: string,
+    state: string,
+    city: string,
     stripeToken: any,
     offerPlan: number,
     couponName: string
@@ -30,6 +37,14 @@ export class InvoiceService {
     try {
       console.log(`here at plan ${offerPlan}`);
       const config = ProductPlan.getProductConfig(offerPlan);
+      const tempAddress = {
+        line1,
+        line2,
+        country,
+        postal_code,
+        state,
+        city,
+      };
 
       if (config.isOneTime) {
         const paymentIntent = await this.stripeService.createPayment(
@@ -45,7 +60,6 @@ export class InvoiceService {
       } else {
         const subscription = await this.stripeService.createSubscription(
           dbUser.stripeCustomerId,
-          email,
           stripeToken,
           offerPlan,
           couponName

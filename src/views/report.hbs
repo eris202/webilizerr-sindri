@@ -8,11 +8,14 @@
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/utilities.css">
     <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="../components/base/alerts.css">
+
     <title>Webilizerr Report</title>
 </head>
 
 <body data-gr-c-s-loaded="true" class="">
-    {{#if status}}
+
+    {{#if data.status}}
     {{#if message.success}}
     <div class="row justify-content-center alertCST">
         <div>
@@ -21,8 +24,9 @@
             </div>
             <div class="snackbar snackbar-success">
                 <div class="snackbar-inner">
-                    <div class="snackbar-title"><span class="icon snackbar-icon novi-icon int-warning"></span>
-                        <span class="alertCST-text">{{{message.success}}} </span>
+                    <div class="snackbar-title">
+                        <span class="alertCST-text">✔</span>
+                        <span class="alertCST-text"> {{{message.success}}} </span>
                     </div>
                 </div>
             </div>
@@ -38,8 +42,9 @@
             </div>
             <div class="snackbar snackbar-warning">
                 <div class="snackbar-inner">
-                    <div class="snackbar-title"><span class="icon snackbar-icon novi-icon int-warning"></span>
-                        <span class="alertCST-text">{{{message.warning}}} </span>
+                    <div class="snackbar-title">
+                        <span class="alertCST-text">✘</span>
+                        <span class="alertCST-text"> {{{message.warning}}} </span>
                     </div>
                 </div>
             </div>
@@ -55,8 +60,9 @@
             </div>
             <div class="snackbar snackbar-danger">
                 <div class="snackbar-inner">
-                    <div class="snackbar-title"><span class="icon snackbar-icon novi-icon int-warning"></span>
-                        <span class="alertCST-text">{{{message.error}}} </span>
+                    <div class="snackbar-title">
+                        <span class="alertCST-text">✘</span>
+                        <span class="alertCST-text"> {{{message.error}}} </span>
                     </div>
                 </div>
             </div>
@@ -142,13 +148,13 @@
                 </li>
 
                 {{else}}
-                <li class="mx-2"></li>
+                {{!-- <li class="mx-2"></li>
                 <li class="mx-2">
                     <a href="/login" class="color-b brd-b brd-r-5 py-0-5 px-1-5 d-i-b hov-c-w hov-bg-b">Login
                     </a>
                     <a href="/register" class="color-b brd-b brd-r-5 py-0-5 px-1-5 d-i-b hov-c-w hov-bg-b">Register
                     </a>
-                </li>
+                </li> --}}
 
 
             </ul>
@@ -162,6 +168,12 @@
                     </div>
                     <p class="premium-btn c-l-w hov-c-w myt-1">Buy Scans</p>
                 </a>
+                <a href="../on-page-seo">
+                    <div class="premium-icon" style="margin-top: 50%;">
+                        <img src="img/angle.png" alt="Premium">
+                    </div>
+                    <p class="premium-btn c-l-w hov-c-w myt-1">Fix My Site</p>
+                </a>
                 {{!-- <a href="../pricing-service">
                     <div class="premium-icon" style="margin-top: 50%;">
                         <img src="img/premium.png" alt="Premium">
@@ -169,7 +181,7 @@
                     <p class="premium-btn c-l-w hov-c-w myt-1">Service</p>
                 </a> --}}
             </aside>
-            <aside class="section-nav py-2 px-2 nav-links" {{#ifeq blurr true}}
+            <aside class="section-nav py-2 px-2 nav-links" {{#ifeq data.blurr true}}
                 style="filter: blur(8px);-webkit-filter: blur(8px);" {{/ifeq}}>
                 <li class="c-w active hov-c-w" data-nav="nav-overview"><a class="hov-dec-u"
                         href="#overview">Overview</a></li>
@@ -178,7 +190,7 @@
                 </li>
                 <ul class="sub-nav">
 
-                    {{#each reportData.data.seoSection.subSections}}
+                    {{#each data.reportData.data.seoSection.subSections}}
                     <li>
                         <div class="score-item-nav {{this.passedClass}}">
                             <p style="font-size: 0.85rem;">{{this.circleTextDisplay}}</p>
@@ -207,7 +219,7 @@
                     <a class="hov-dec-u" href="#usability">Usability</a>
                 </li>
                 <ul class="sub-nav">
-                    {{#each reportData.data.uiSection.subSections}}
+                    {{#each data.reportData.data.uiSection.subSections}}
                     {{#ifeq this.isBlurred true}}
                     <li>
                         <div class="score-item-nav">
@@ -230,7 +242,7 @@
                     <a class="hov-dec-u" href="#performance">Performance</a>
                 </li>
                 <ul class="sub-nav">
-                    {{#each reportData.data.performanceSection.subSections}}
+                    {{#each data.reportData.data.performanceSection.subSections}}
                     {{#ifeq this.isBlurred true}}
                     <li>
                         <div class="score-item-nav">
@@ -253,7 +265,7 @@
                     <a class="hov-dec-u" href="#social">Social</a>
                 </li>
                 <ul class="sub-nav">
-                    {{#each reportData.data.socialSection.subSections}}
+                    {{#each data.reportData.data.socialSection.subSections}}
                     {{#ifeq this.isBlurred true}}
                     <li>
                         <div class="score-item-nav">
@@ -276,7 +288,7 @@
                     <a class="hov-dec-u" href="#security">Security</a>
                 </li>
                 <ul class="sub-nav">
-                    {{#each reportData.data.securitySection.subSections}}
+                    {{#each data.reportData.data.securitySection.subSections}}
                     {{#ifeq this.isBlurred true}}
                     <li>
                         <div class="score-item-nav">
@@ -299,7 +311,7 @@
                     <a class="hov-dec-u" href="#technology">Technology</a>
                 </li>
                 <ul class="sub-nav">
-                    {{#each reportData.data.technologySection.subSections}}
+                    {{#each data.reportData.data.technologySection.subSections}}
                     {{#ifeq this.isBlurred true}}
                     <li>
                         <div class="score-item-nav">
@@ -322,12 +334,12 @@
                         href="#recommendations">Recommendations</a></li>
             </aside>
         </nav>
-        {{#ifeq blurr true}}
+        {{#ifeq data.blurr true}}
         <div class="login-wrap " style="outline: 0 none;position: fixed !important;">
             <div class="login-html">
                 <div class="section-title myt-2 t-center py-1 px-1">
-                    <h3>Register for Free</h3>
-                    <p>Then you can review them later...</p>
+                    <h3>Register/login for Free</h3>
+                    <p>To get access to this premium data</p>
                 </div>
                 <br><br>
                 <input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Sign
@@ -394,33 +406,37 @@
             </div>
         </div>
         {{/ifeq}}
-        <div class="inner-body py-4 px-3" {{#ifeq blurr true}} style="filter: blur(8px);-webkit-filter: blur(8px);"
+        <div class="inner-body py-4 px-3" {{#ifeq data.blurr true}} style="filter: blur(8px);-webkit-filter: blur(8px);"
             {{/ifeq}}>
 
             {{!-- {{/each}} --}}
             <div>
                 <div class="item-section">Performance</div>
             </div>
-            <h1>Audit Results for {{reportData.url}} </h1>
+
+
+            <h1>Audit Results for {{#ifeq data.blurr true}} www.example.com {{else}}{{data.reportData.url}}
+                {{/ifeq}}
+            </h1>
             <header class="myt-2 section-wrapper" id="overview" data-section="overview">
                 <div class="py-2 px-1">
                     <svg viewBox="0 0 36 36"
-                        class="circular-chart {{reportData.overallSection.colorClass}} large-chart">
+                        class="circular-chart {{data.reportData.overallSection.colorClass}} large-chart">
                         <path class="circle-bg" d="M18 2.0845
                     a 15.9155 15.9155 0 0 1 0 31.831
                     a 15.9155 15.9155 0 0 1 0 -31.831"></path>
-                        <path class="circle" stroke-dasharray="{{reportData.overallSection.score}}, 100" d="M18 2.0845
+                        <path class="circle" stroke-dasharray="{{data.reportData.overallSection.score}}, 100" d="M18 2.0845
                     a 15.9155 15.9155 0 0 1 0 31.831
                     a 15.9155 15.9155 0 0 1 0 -31.831"></path>
-                        <text x="18" y="20.35" class="percentage">{{reportData.overallSection.score}}%</text>
+                        <text x="18" y="20.35" class="percentage">{{data.reportData.overallSection.score}}%</text>
                     </svg>
-                    <h2 class="t-center my-1">{{reportData.overall.title}}</h2>
+                    <h2 class="t-center my-1">{{data.reportData.overall.title}}</h2>
                     <a href="#recommendations">
                         <div class="box-wrapper" style="width: 100%;">
                             <div class="info">
                                 <div><img src="img/info2.png" alt="info"></div>
                                 <div>
-                                    <p>You have {{reportData.recommendations.length}} improvements recommended</p>
+                                    <p>You have {{data.reportData.recommendations.length}} improvements recommended</p>
                                 </div>
                             </div>
                         </div>
@@ -431,7 +447,7 @@
 
                         <img class="mxw-450" src="img/pc.png" alt="pc">
                         <div class="imac">
-                            <img src="{{reportData.screenshot}}" alt="imac">
+                            <img src="{{data.screenshot}}" alt="imac">
                         </div>
                     </div>
                 </div>
@@ -441,16 +457,16 @@
                     <h2>Seo</h2>
                     <div class="single-chart">
                         <svg viewBox="0 0 36 36"
-                            class="m-a myt-1 circular-chart {{reportData.data.seoSection.colorClass}}">
+                            class="m-a myt-1 circular-chart {{data.reportData.data.seoSection.colorClass}}">
                             <path class="circle-bg" d="M18 2.0845
                         a 15.9155 15.9155 0 0 1 0 31.831
                         a 15.9155 15.9155 0 0 1 0 -31.831"></path>
                             <path class="circle"
-                                stroke-dasharray="{{reportData.data.seoSection.friendlyComputedScore}}, 100" d="M18 2.0845
+                                stroke-dasharray="{{data.reportData.data.seoSection.friendlyComputedScore}}, 100" d="M18 2.0845
                         a 15.9155 15.9155 0 0 1 0 31.831
                         a 15.9155 15.9155 0 0 1 0 -31.831"></path>
                             <text x="18" y="20.35" class="percentage">
-                                {{reportData.data.seoSection.friendlyComputedScore}}%
+                                {{data.reportData.data.seoSection.friendlyComputedScore}}%
                             </text>
                         </svg>
                     </div>
@@ -459,16 +475,16 @@
                     <h2>Usability</h2>
                     <div class="single-chart">
                         <svg viewBox="0 0 36 36"
-                            class="m-a myt-1 circular-chart {{reportData.data.uiSection.colorClass}}">
+                            class="m-a myt-1 circular-chart {{data.reportData.data.uiSection.colorClass}}">
                             <path class="circle-bg" d="M18 2.0845
                         a 15.9155 15.9155 0 0 1 0 31.831
                         a 15.9155 15.9155 0 0 1 0 -31.831"></path>
                             <path class="circle"
-                                stroke-dasharray="{{reportData.data.uiSection.friendlyComputedScore}}, 100" d="M18 2.0845
+                                stroke-dasharray="{{data.reportData.data.uiSection.friendlyComputedScore}}, 100" d="M18 2.0845
                         a 15.9155 15.9155 0 0 1 0 31.831
                         a 15.9155 15.9155 0 0 1 0 -31.831"></path>
                             <text x="18" y="20.35" class="percentage">
-                                {{reportData.data.uiSection.friendlyComputedScore}}%
+                                {{data.reportData.data.uiSection.friendlyComputedScore}}%
                             </text>
                         </svg>
                     </div>
@@ -477,16 +493,17 @@
                     <h2>Performance</h2>
                     <div class="single-chart">
                         <svg viewBox="0 0 36 36"
-                            class="m-a myt-1 circular-chart {{reportData.data.performanceSection.colorClass}}">
+                            class="m-a myt-1 circular-chart {{data.reportData.data.performanceSection.colorClass}}">
                             <path class="circle-bg" d="M18 2.0845
                         a 15.9155 15.9155 0 0 1 0 31.831
                         a 15.9155 15.9155 0 0 1 0 -31.831"></path>
                             <path class="circle"
-                                stroke-dasharray="{{reportData.data.performanceSection.friendlyComputedScore}}, 100" d="M18 2.0845
+                                stroke-dasharray="{{data.reportData.data.performanceSection.friendlyComputedScore}}, 100"
+                                d="M18 2.0845
                         a 15.9155 15.9155 0 0 1 0 31.831
                         a 15.9155 15.9155 0 0 1 0 -31.831"></path>
                             <text x="18" y="20.35" class="percentage">
-                                {{reportData.data.performanceSection.friendlyComputedScore}}%
+                                {{data.reportData.data.performanceSection.friendlyComputedScore}}%
                             </text>
                         </svg>
                     </div>
@@ -495,16 +512,16 @@
                     <h2>Social</h2>
                     <div class="single-chart">
                         <svg viewBox="0 0 36 36"
-                            class="m-a myt-1 circular-chart {{reportData.data.socialSection.colorClass}}">
+                            class="m-a myt-1 circular-chart {{data.reportData.data.socialSection.colorClass}}">
                             <path class="circle-bg" d="M18 2.0845
                         a 15.9155 15.9155 0 0 1 0 31.831
                         a 15.9155 15.9155 0 0 1 0 -31.831"></path>
                             <path class="circle"
-                                stroke-dasharray="{{reportData.data.socialSection.friendlyComputedScore}}, 100" d="M18 2.0845
+                                stroke-dasharray="{{data.reportData.data.socialSection.friendlyComputedScore}}, 100" d="M18 2.0845
                         a 15.9155 15.9155 0 0 1 0 31.831
                         a 15.9155 15.9155 0 0 1 0 -31.831"></path>
                             <text x="18" y="20.35" class="percentage">
-                                {{reportData.data.socialSection.friendlyComputedScore}}%
+                                {{data.reportData.data.socialSection.friendlyComputedScore}}%
                             </text>
                         </svg>
                     </div>
@@ -513,16 +530,17 @@
                     <h2>Security</h2>
                     <div class="single-chart">
                         <svg viewBox="0 0 36 36"
-                            class="m-a myt-1 circular-chart {{reportData.data.securitySection.colorClass}}">
+                            class="m-a myt-1 circular-chart {{data.reportData.data.securitySection.colorClass}}">
                             <path class="circle-bg" d="M18 2.0845
                         a 15.9155 15.9155 0 0 1 0 31.831
                         a 15.9155 15.9155 0 0 1 0 -31.831"></path>
                             <path class="circle"
-                                stroke-dasharray="{{reportData.data.securitySection.friendlyComputedScore}}, 100" d="M18 2.0845
+                                stroke-dasharray="{{data.reportData.data.securitySection.friendlyComputedScore}}, 100"
+                                d="M18 2.0845
                         a 15.9155 15.9155 0 0 1 0 31.831
                         a 15.9155 15.9155 0 0 1 0 -31.831"></path>
                             <text x="18" y="20.35" class="percentage">
-                                {{reportData.data.securitySection.friendlyComputedScore}}%
+                                {{data.reportData.data.securitySection.friendlyComputedScore}}%
                             </text>
                         </svg>
                     </div>
@@ -534,26 +552,26 @@
             <section class="section-body px-3 myt-2 section-wrapper" id="seo" data-section="seo">
                 <div class="section-average py-3">
                     <div class="single-chart">
-                        <svg viewBox="0 0 36 36" class="circular-chart {{reportData.data.seoSection.colorClass}}">
+                        <svg viewBox="0 0 36 36" class="circular-chart {{data.reportData.data.seoSection.colorClass}}">
                             <path class="circle-bg" d="M18 2.0845
                     a 15.9155 15.9155 0 0 1 0 31.831
                     a 15.9155 15.9155 0 0 1 0 -31.831"></path>
                             <path class="circle"
-                                stroke-dasharray="{{reportData.data.seoSection.friendlyComputedScore}}, 100" d="M18 2.0845
+                                stroke-dasharray="{{data.reportData.data.seoSection.friendlyComputedScore}}, 100" d="M18 2.0845
                     a 15.9155 15.9155 0 0 1 0 31.831
                     a 15.9155 15.9155 0 0 1 0 -31.831"></path>
                             <text x="18" y="20.35"
-                                class="percentage">{{reportData.data.seoSection.friendlyComputedScore}}%</text>
+                                class="percentage">{{data.reportData.data.seoSection.friendlyComputedScore}}%</text>
                         </svg>
                     </div>
                     <div>
-                        <h4>{{reportData.data.seoSection.title}}</h4>
+                        <h4>{{data.reportData.data.seoSection.title}}</h4>
                         <p class="c-g">
-                            {{reportData.data.seoSection.description}}
+                            {{data.reportData.data.seoSection.description}}
                         </p>
                     </div>
                 </div>
-                {{#each reportData.data.seoSection.subSections}}
+                {{#each data.reportData.data.seoSection.subSections}}
                 {{#ifeq this.isBlurred true}}
                 {{> blurred-subsection}}
                 {{else ifeq this.key 'headers'}}
@@ -593,28 +611,28 @@
             <section class="section-body px-3 myt-2 section-wrapper" id="usability" data-section="usability">
                 <div class="section-average py-3">
                     <div class="single-chart">
-                        <svg viewBox="0 0 36 36" class="circular-chart {{reportData.data.seoSection.colorClass}}">
+                        <svg viewBox="0 0 36 36" class="circular-chart {{data.reportData.data.seoSection.colorClass}}">
                             <path class="circle-bg" d="M18 2.0845
                     a 15.9155 15.9155 0 0 1 0 31.831
                     a 15.9155 15.9155 0 0 1 0 -31.831"></path>
                             <path class="circle"
-                                stroke-dasharray="{{reportData.data.uiSection.friendlyComputedScore}}, 100" d="M18 2.0845
+                                stroke-dasharray="{{data.reportData.data.uiSection.friendlyComputedScore}}, 100" d="M18 2.0845
                     a 15.9155 15.9155 0 0 1 0 31.831
                     a 15.9155 15.9155 0 0 1 0 -31.831"></path>
                             <text x="18" y="20.35"
-                                class="percentage">{{reportData.data.uiSection.friendlyComputedScore}}%</text>
+                                class="percentage">{{data.reportData.data.uiSection.friendlyComputedScore}}%</text>
                         </svg>
                     </div>
                     <div>
                         <h4>
-                            {{reportData.data.uiSection.title}}
+                            {{data.reportData.data.uiSection.title}}
                         </h4>
                         <p class="c-g">
-                            {{reportData.data.uiSection.description}}
+                            {{data.reportData.data.uiSection.description}}
                         </p>
                     </div>
                 </div>
-                {{#each reportData.data.uiSection.subSections}}
+                {{#each data.reportData.data.uiSection.subSections}}
                 {{#ifeq this.isBlurred true}}
                 {{> blurred-subsection}}
                 {{else ifeq this.key 'deviceRendering'}}
@@ -631,28 +649,29 @@
                 <div class="section-average py-3">
                     <div class="single-chart">
                         <svg viewBox="0 0 36 36"
-                            class="circular-chart {{reportData.data.performanceSection.colorClass}}">
+                            class="circular-chart {{data.reportData.data.performanceSection.colorClass}}">
                             <path class="circle-bg" d="M18 2.0845
                     a 15.9155 15.9155 0 0 1 0 31.831
                     a 15.9155 15.9155 0 0 1 0 -31.831"></path>
                             <path class="circle"
-                                stroke-dasharray="{{reportData.data.performanceSection.friendlyComputedScore}}, 100" d="M18 2.0845
+                                stroke-dasharray="{{data.reportData.data.performanceSection.friendlyComputedScore}}, 100"
+                                d="M18 2.0845
                     a 15.9155 15.9155 0 0 1 0 31.831
                     a 15.9155 15.9155 0 0 1 0 -31.831"></path>
                             <text x="18" y="20.35"
-                                class="percentage">{{reportData.data.performanceSection.friendlyComputedScore}}%</text>
+                                class="percentage">{{data.reportData.data.performanceSection.friendlyComputedScore}}%</text>
                         </svg>
                     </div>
                     <div>
                         <h4>
-                            {{reportData.data.performanceSection.title}}
+                            {{data.reportData.data.performanceSection.title}}
                         </h4>
                         <p class="c-g">
-                            {{reportData.data.performanceSection.description}}
+                            {{data.reportData.data.performanceSection.description}}
                         </p>
                     </div>
                 </div>
-                {{#each reportData.data.performanceSection.subSections}}
+                {{#each data.reportData.data.performanceSection.subSections}}
                 {{#ifeq this.isBlurred true}}
                 {{> blurred-subsection}}
                 {{else ifeq this.key 'serverResponseTime'}}
@@ -674,26 +693,27 @@
             <section class="section-body px-3 myt-2 section-wrapper" id="social" data-section="social">
                 <div class="section-average py-3">
                     <div class="single-chart">
-                        <svg viewBox="0 0 36 36" class="circular-chart {{reportData.data.socialSection.colorClass}}">
+                        <svg viewBox="0 0 36 36"
+                            class="circular-chart {{data.reportData.data.socialSection.colorClass}}">
                             <path class="circle-bg" d="M18 2.0845
                 a 15.9155 15.9155 0 0 1 0 31.831
                 a 15.9155 15.9155 0 0 1 0 -31.831"></path>
                             <path class="circle"
-                                stroke-dasharray="{{reportData.data.socialSection.friendlyComputedScore}}, 100" d="M18 2.0845
+                                stroke-dasharray="{{data.reportData.data.socialSection.friendlyComputedScore}}, 100" d="M18 2.0845
                 a 15.9155 15.9155 0 0 1 0 31.831
                 a 15.9155 15.9155 0 0 1 0 -31.831"></path>
                             <text x="18" y="20.35"
-                                class="percentage">{{reportData.data.socialSection.friendlyComputedScore}}%</text>
+                                class="percentage">{{data.reportData.data.socialSection.friendlyComputedScore}}%</text>
                         </svg>
                     </div>
                     <div>
-                        <h4>{{reportData.data.socialSection.title}}</h4>
+                        <h4>{{data.reportData.data.socialSection.title}}</h4>
                         <p class="c-g">
-                            {{reportData.data.socialSection.description}}
+                            {{data.reportData.data.socialSection.description}}
                         </p>
                     </div>
                 </div>
-                {{#each reportData.data.socialSection.subSections}}
+                {{#each data.reportData.data.socialSection.subSections}}
                 {{#ifeq this.isBlurred true}}
                 {{> blurred-subsection}}
                 {{else ifeq this.key 'twitterTags'}}
@@ -717,26 +737,28 @@
             <section class="section-body px-3 myt-2 section-wrapper" id="security" data-section="security">
                 <div class="section-average py-3">
                     <div class="single-chart">
-                        <svg viewBox="0 0 36 36" class="circular-chart {{reportData.data.securitySection.colorClass}}">
+                        <svg viewBox="0 0 36 36"
+                            class="circular-chart {{data.reportData.data.securitySection.colorClass}}">
                             <path class="circle-bg" d="M18 2.0845
                     a 15.9155 15.9155 0 0 1 0 31.831
                     a 15.9155 15.9155 0 0 1 0 -31.831"></path>
                             <path class="circle"
-                                stroke-dasharray="{{reportData.data.securitySection.friendlyComputedScore}}, 100" d="M18 2.0845
+                                stroke-dasharray="{{data.reportData.data.securitySection.friendlyComputedScore}}, 100"
+                                d="M18 2.0845
                     a 15.9155 15.9155 0 0 1 0 31.831
                     a 15.9155 15.9155 0 0 1 0 -31.831"></path>
                             <text x="18" y="20.35"
-                                class="percentage">{{reportData.data.securitySection.friendlyComputedScore}}%</text>
+                                class="percentage">{{data.reportData.data.securitySection.friendlyComputedScore}}%</text>
                         </svg>
                     </div>
                     <div>
-                        <h4>{{reportData.data.securitySection.title}}</h4>
+                        <h4>{{data.reportData.data.securitySection.title}}</h4>
                         <p class="c-g">
-                            {{reportData.data.securitySection.description}}
+                            {{data.reportData.data.securitySection.description}}
                         </p>
                     </div>
                 </div>
-                {{#each reportData.data.securitySection.subSections}}
+                {{#each data.reportData.data.securitySection.subSections}}
                 {{#ifeq this.isBlurred true}}
                 {{> blurred-subsection}}
                 {{else ifeq this.key 'malware'}}
@@ -761,7 +783,7 @@
                         </p>
                     </div>
                 </div>
-                {{#each reportData.data.technologySection.subSections}}
+                {{#each data.reportData.data.technologySection.subSections}}
                 {{#ifeq this.isBlurred true}}
                 {{> blurred-subsection}}
                 {{else ifeq this.key 'technologies'}}
@@ -776,7 +798,7 @@
             </div>
             <section class="section-body px-3 myt-2 section-wrapper" id="recommendations"
                 data-section="recommendations">
-                {{#each reportData.recommendations}}
+                {{#each data.reportData.recommendations}}
                 <div class="rec-item py-2;">
                     <div style="width: 100%; display: flex; padding:20px" class="box-wrapper">
                         <div class="item-num item-num-red">
@@ -804,6 +826,17 @@
         a{ color: inherit; text - decoration: none }
 
     </script>
+    <script src="../components/base/alertsHome.js"></script>
+    <style>
+        .alertCST {
+            position: absolute !important;
+            top: 100px;
+            right: 5px;
+            width: fit-content !important;
+            z-index: 10;
+        }
+    </style>
+
 
     {{/if}}
 </body>

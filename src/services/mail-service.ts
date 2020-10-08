@@ -75,7 +75,7 @@ export class MailService {
     mailer
       .send(
         `${appointmentRequest.email}`,
-        "Your appointment request has been received",
+        "Your On-Page SEO order has been received",
         `
             Our SEO Expert will be with you soon.
         `

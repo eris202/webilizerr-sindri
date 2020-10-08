@@ -17,6 +17,29 @@ import { database } from "firebase-admin";
 export class ReportService {
   @Inject() private imageService: ImageService;
 
+  renderServicePage = async (
+    user
+  ): Promise<{
+    reportData: any;
+  }> => {
+    const db = firebaseAdmin.database();
+    const ref = db
+      .ref(`reports`)
+      .orderByChild(`generatedByUser/email`)
+      .equalTo(`55@55.is`)
+      .limitToLast(1);
+
+    const snapshot = await ref.once("value");
+    let typedData = snapshot.val() as Data;
+
+    if (typedData) {
+      return {
+        reportData: typedData,
+      };
+    } else {
+      return;
+    }
+  };
   renderReportPage = async (
     reportId,
     user
@@ -30,10 +53,13 @@ export class ReportService {
     const db = firebaseAdmin.database();
     const ref = db.ref(`reports/${reportId}`);
     const snapshot = await ref.once("value");
-    let dbUser;
     let blurr = false;
 
     const typedData = snapshot.val() as Data;
+    console.log(
+      "typedData.generatedByUser: " +
+        JSON.stringify(typedData.generatedByUser.email)
+    );
 
     if (!typedData.output.success) {
       return {
@@ -46,14 +72,9 @@ export class ReportService {
     } else if (!typedData.output.success == null) {
       console.log("Unable to get report, Report-Service");
     }
-    console.log("User in report render: " + user);
     if (typeof user == "undefined") {
-      console.log("Blurr 1: ");
-
       blurr = true;
     } else {
-      console.log("Blurr 2: ");
-
       blurr = false;
     }
 
@@ -68,35 +89,28 @@ export class ReportService {
       blurr
     );
 
-    if (user) {
-      typedData.generatedByUser = {
-        email: user.email,
-        name: user.name,
-        id: user.id,
-        isActive: user.isActive,
-      };
-
-      ref.update(typedData);
-
+    if (user && !typedData.generatedByUser.email) {
       const dbUser = await User.findOne({
         email: user.email,
         isActive: true,
       });
-
-      // // TODO
-      // dbUser.numOfScans = Math.max(0, dbUser.numOfScans - 1);
-      // console.log("decreasing number of scanns: " + dbUser.numOfScans);
-      // await dbUser.save();
-    } else {
-      typedData.generatedByUser = {
-        email: "",
-        name: "",
-        id: "",
-        isActive: false,
-      };
-
-      ref.update(typedData);
+      if (dbUser) {
+        typedData.generatedByUser = {
+          email: dbUser.email,
+          name: dbUser.name,
+          id: dbUser.id,
+          isActive: dbUser.isActive,
+        };
+        console.log("Saving user to a report..");
+        // TODO
+        dbUser.numOfScans = Math.max(0, dbUser.numOfScans - 1);
+        console.log("decreasing number of scanns: " + dbUser.numOfScans);
+        await dbUser.save();
+        ref.update(typedData);
+      }
     }
+
+    ref.update(typedData);
 
     // Return with success when everything done
     return {
@@ -167,13 +181,8 @@ export class ReportService {
       subSections: subsections["technology"],
     };
 
-    const overallSum =
-      seoSection.computedScore +
-      uiSection.computedScore +
-      performanceSection.computedScore +
-      socialSection.computedScore +
-      securitySection.computedScore;
-    let colorClass = this.getColorClass(Math.round((overallSum * 10) / 50.0));
+    const overallSum = output.scores.overall.grade;
+    let colorClass = this.getColorClass(overallSum);
 
     return {
       data: {
@@ -185,7 +194,7 @@ export class ReportService {
         technologySection,
       },
       overallSection: {
-        score: Math.round((overallSum * 10) / 50.0),
+        score: overallSum,
         colorClass: colorClass,
       },
     };
@@ -204,16 +213,16 @@ export class ReportService {
 
     if (blur) {
       const computedScore = Math.random() * (65 - 35) + 35;
+      const score = computedScore.toFixed(0);
 
       return {
         computedScore,
-        friendlyComputedScore: `${computedScore}`,
-        colorClass: this.getColorClass(computedScore),
+        friendlyComputedScore: `${score}`,
+        colorClass: this.getColorClass(score),
       };
     }
 
     const computedScore = parseFloat(output.grade);
-
     return {
       computedScore,
       friendlyComputedScore: `${computedScore}`,
@@ -227,7 +236,7 @@ export class ReportService {
     } else if (score >= 50 && score < 80) {
       return "orange";
     }
-    console.log(score);
+
     return "green";
   };
 
@@ -489,18 +498,15 @@ export class ReportService {
     const reportArray: RecentReport[] = [];
     console.log(user.email + " is fetching my-report");
     const recentlyScannedList = recentlyScannedQuery.exportVal();
-    console.log("recentlyScannedList: " + JSON.stringify(recentlyScannedList));
     if (recentlyScannedList != null) {
       let keyList = Object.keys(recentlyScannedList);
       var n = 1; //get the first 5 items
       keyList = keyList.slice(Math.max(keyList.length - fetch_reports, 0));
-      console.log(JSON.stringify(keyList));
 
       for (var property in keyList) {
         if (keyList.hasOwnProperty(property) && n <= fetch_reports) {
           const modal = {} as RecentReport;
           let keyName = keyList[keyList.length - n];
-          console.log("keyName " + keyName);
 
           let data = recentlyScannedList[keyName] as Data;
           const subsections = this.divideResponseToSubsections(
@@ -514,7 +520,7 @@ export class ReportService {
           );
 
           modal.id = data.id;
-          modal.score = score.overallSection.score;
+          modal.score = data.output.scores.overall.grade;
           (modal.timeAgo = timeAgo.ago(
             new Date(data.hookedTime ? data.hookedTime : data.completed_at)
           )),

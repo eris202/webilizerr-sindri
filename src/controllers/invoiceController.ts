@@ -21,6 +21,8 @@ export class InvoiceController {
     const productConfig = ProductPlan.getProductConfig(plan);
     const data = {
       price: productConfig.price,
+      name: productConfig.name,
+      scans: productConfig.scanCount,
       discountedPrice: await this.invoiceService.applyDiscount(plan, couponId),
     };
 
@@ -30,7 +32,8 @@ export class InvoiceController {
     });
 
     const flashMessage = req.flash();
-    console.log("Controller flash: " + JSON.stringify(productConfig));
+    console.log("productConfig: " + JSON.stringify(productConfig));
+    console.log("data: " + JSON.stringify(data));
 
     res.render("checkout", {
       data: data,
@@ -41,12 +44,36 @@ export class InvoiceController {
 
   postCheckout = async (req, res) => {
     const email = req.body.email;
+    const name = req.body.name;
+    const address = req.body.address;
+    const addressnumber = req.body.addressnumber;
+    const city = req.body.town;
+    const state = req.body.county;
+    const zip = req.body.zip;
+    const location = req.body.location;
+
     const token = req.body.stripeToken;
     const plan = +req.query.plan;
     const couponName = req.query.coupon;
 
+    const tempAddress = {
+      address,
+      addressnumber,
+      location,
+      zip,
+      state,
+      city,
+    };
+
     const result = await this.invoiceService.subscribeUser(
       email,
+      name,
+      address,
+      addressnumber,
+      location,
+      zip,
+      state,
+      city,
       token,
       plan,
       couponName
@@ -65,7 +92,7 @@ export class InvoiceController {
 
     const productConfig = ProductPlan.getProductConfig(plan);
 
-    req.flash("success", `You are now using ${productConfig.name}`);
+    req.flash("success", `Activated: ${productConfig.name}`);
 
     return res.redirect(result.redirectUrl);
   };

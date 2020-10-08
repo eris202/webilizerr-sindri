@@ -71,24 +71,26 @@ const shouldBeLoggedInMiddleWare = (req, res, next) => {
   }
 };
 
-const reportMiddleWare = (req, res, next) => {
+const serviceMiddleWare = (req, res, next) => {
   const backUrl = `${req.protocol}://${req.get("Host")}${req.originalUrl}`;
-  console.log("reportMiddleWare...");
+  console.log("serviceMiddleWare...");
   if (req.isAuthenticated()) {
-    console.log("reportMiddleWare getout");
-    return next();
-  }
-  return next();
+    console.log("backUrl: " + backUrl);
 
-  if (backUrl.includes("http://localhost:5555/report/")) {
-    const string = backUrl.replace("/letslogin?", "");
-    return res.redirect(string);
+    if (backUrl.includes("http://localhost:5555/report/")) {
+      var parts = backUrl.split("/");
+      var lastSegment = parts.pop() || parts.pop(); // handle potential trailing slash
 
-    //return res.redirect(`${backUrl}`);
-  } else {
-    return next();
+      console.log("lastSegment: " + lastSegment);
 
-    //return res.redirect(`/login?backUrl=${backUrl}`);
+      return res.redirect(backUrl);
+
+      //return res.redirect(`${backUrl}`);
+    } else {
+      return next();
+
+      //return res.redirect(`/login?backUrl=${backUrl}`);
+    }
   }
 };
 
@@ -152,6 +154,14 @@ export const routes: RouteMapper[] = [
       {
         method: "get",
         handler: authController.logout,
+      },
+    ],
+  },
+  {
+    "/on-page-seo": [
+      {
+        method: "get",
+        handler: reportController.renderOnPageSeo,
       },
     ],
   },
@@ -416,10 +426,10 @@ export const routes: RouteMapper[] = [
     ],
   },
   {
-    "/pricing-service": [
+    "/on-page-seo": [
       {
         method: "get",
-        handler: (req, res) => res.render("pricing-service"),
+        handler: reportController.renderOnPageSeo,
       },
     ],
   },

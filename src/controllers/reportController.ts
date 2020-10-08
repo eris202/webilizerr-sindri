@@ -13,13 +13,18 @@ export class ReportController {
 
   renderReportPage = async (req, res) => {
     const reportId = req.params.reportId;
+    console.log("renderReportPage " + reportId);
 
     try {
       const data = await this.reportService.renderReportPage(
         reportId,
         req.user
       );
-      res.render("report", data);
+      const flashMessage = req.flash();
+      res.render("report", {
+        data: data,
+        message: flashMessage,
+      });
     } catch (e) {
       console.log(e);
       res.render("report", {
@@ -33,6 +38,27 @@ export class ReportController {
     res.render("login", {
       message: message,
     });
+  };
+  renderOnPageSeo = async (req, res) => {
+    try {
+      if (req.user) {
+        const data = await this.reportService.renderServicePage(req.user);
+        const tempData = Object.assign({}, Object.values(data.reportData));
+        const flashMessage = req.flash();
+
+        res.render("on-page-seo", {
+          data: tempData,
+          message: flashMessage,
+        });
+      } else {
+        res.render("on-page-seo");
+      }
+    } catch (e) {
+      console.log(e);
+      res.render("on-page-seo", {
+        error: e,
+      });
+    }
   };
 
   renderBlurrPage = (req, res) => {
@@ -116,7 +142,6 @@ export class ReportController {
       pageNum,
       req.user
     );
-    console.log("Model: " + JSON.stringify(model));
     if (!(Object.keys(model).length === 0 && model.constructor === Object)) {
       return res.render("recently-scanned", model);
     } else {

@@ -24,7 +24,7 @@ export default class DbLoader {
     app.use(
       expressSession({
         secret: "secret",
-        resave: true,
+        resave: false,
         saveUninitialized: true,
         store: store,
       })

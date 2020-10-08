@@ -27,10 +27,10 @@ export class ProductPlan {
       };
     } else if (plan === 3) {
       return {
-        planId: "",
-        price: 199.0,
-        scanCount: 30,
-        name: "One Time Plan",
+        planId: "price_1HZbINFZus0fdoRP10bUV1nC",
+        price: 299.0,
+        scanCount: 10,
+        name: "On-Page SEO Service + 10 extra scans",
         isOneTime: true,
       };
     } else if (plan === 4) {

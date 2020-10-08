@@ -648,13 +648,20 @@ export interface Data {
   created_at: string;
   completed_at: string;
   hookedTime: string;
-  generatedByUser: any;
+  generatedByUser: GeneratedByUser;
   paidFor: boolean;
+}
+
+export interface GeneratedByUser {
+  email: string;
+  id: string;
+  isActive: boolean;
+  name: string;
 }
 
 export interface RecentReport {
   id: number;
-  score: number;
+  score: string;
   timeAgo: Date;
   url: string;
   color1: string;
