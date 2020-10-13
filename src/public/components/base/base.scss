@@ -29,3 +29,19 @@
 @import "page";
 @import "backgrounds";
 @import "text";
+
+
+
+@media(max-width:650px){
+    .navbar-logo-default{
+        width:37vw;
+    }
+    .btn-warning.btn-outline{
+        padding-left:6px;
+        padding-right:6px;
+    }
+    .navbar-logo{
+        left:35% !important;
+    }
+    
+}

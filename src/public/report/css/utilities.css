@@ -268,7 +268,12 @@
     -20px -20px 60px rgba(255, 255, 255, 0.4);
   -webkit-border-radius: 25px;
   -moz-border-radius: 25px;
-  border-radius: 25px;
+  padding-top:7px;
+  padding-bottom:13px;
+  border-radius: 50px;
+}
+.section-title h3{
+  /* line-height:0;  */
 }
 
 h2 {

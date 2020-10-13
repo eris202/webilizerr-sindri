@@ -44,3 +44,9 @@
 @import "nav-inset";
 @import "nav-line";
 @import "nav-scale";
+
+@media (max-width:269px){
+	.navbar-logo-default{
+		margin-left:12vw;
+	}
+}

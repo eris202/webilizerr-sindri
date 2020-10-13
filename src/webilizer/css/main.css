@@ -561,6 +561,9 @@ header .large-chart {
 header .box-wrapper .danger {
     padding: .7rem 1rem;
 }
+.box-wrapper{
+    width:70%;
+}
 
 #mobile-nav {
     display: -webkit-box;
@@ -887,6 +890,7 @@ aside.premium {
     width: -moz-max-content;
     width: max-content;
 }
+
 
 .header-tags {
     width: 100%;
@@ -1259,6 +1263,7 @@ aside.premium {
 }
 
 @media only screen and (max-width: 500px) {
+   
     body>div>div {
         padding: 2rem 1.5rem !important;
     }

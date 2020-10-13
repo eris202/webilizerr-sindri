@@ -12,7 +12,11 @@
 
     <title>Webilizerr Report</title>
 </head>
-
+<style>
+    body{
+        
+    }
+    </style>
 <body data-gr-c-s-loaded="true" class="">
 
     {{#if data.status}}
@@ -335,17 +339,18 @@
             </aside>
         </nav>
         {{#ifeq data.blurr true}}
-        <div class="login-wrap " style="outline: 0 none;position: fixed !important;">
+        <div class="login-wrap" >
             <div class="login-html">
                 <div class="section-title myt-2 t-center py-1 px-1">
                     <h3>Register/login for Free</h3>
                     <p>To get access to this premium data</p>
                 </div>
                 <br><br>
-                <input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Sign
-                    In</label>
+                <input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">
+                    <span class="login-section">Sign
+                    In</span></label>
                 <input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab">
-                    Register</label>
+                  <span class="register-section">Register</span></label>
 
                 <div class="login-form">
                     <form id="formCST" action="" method="post">
@@ -364,7 +369,7 @@
                                 <label for="check"><span class="icon"></span> Keep me Signed in</label>
                             </div>
                             <div class="group">
-                                <input id="sbmt-btn" class="btn btn-block btn-lg btn-primary accent-box-btn"
+                                <input id="sbmt-btn" class="btn btn-block btn-lg btn-primary accent-box-btn button"
                                     type="submit" type="submit" class="button" value="Sign In">
                             </div>
                             <div class="hr"></div>
@@ -452,7 +457,7 @@
                     </div>
                 </div>
             </header>
-            <section class="section px-3 py-2 overview-all myt-2 t-center">
+            <section class="section px-3 py-2 overview-all my-2 t-center">
                 <div>
                     <h2>Seo</h2>
                     <div class="single-chart">
@@ -800,7 +805,7 @@
                 data-section="recommendations">
                 {{#each data.reportData.recommendations}}
                 <div class="rec-item py-2;">
-                    <div style="width: 100%; display: flex; padding:20px" class="box-wrapper">
+                    <div style="width: 100%; display: flex; padding:20px" class="box-wrapper responsive-1">
                         <div class="item-num item-num-red">
                             <p style="font-size:0.7rem;">{{this.priority}}</p>
                         </div>
@@ -836,9 +841,29 @@
             z-index: 10;
         }
     </style>
+   
+    <script>
+        var getRegisterSection= document.querySelector(".register-section");
+        var getLoginSection = document.querySelector(".login-section");
+          {{!-- get parent element --}}
+            var GetParentElement= document.querySelector(".login-wrap")
+        getRegisterSection.onclick= function(){
+            {{!-- set min height --}}
+            GetParentElement.classList.add("min-height-800")
+        }
 
+         getLoginSection.onclick= function(){
+            {{!-- set min height --}}
+            GetParentElement.classList.remove("min-height-800")
+        };
 
+        </script>
+    <script>
+        let getIsLoginWrap= document.querySelector(".login-wrap ");
+        getIsLoginWrap.removeAttribute("style");
+        </script>
     {{/if}}
 </body>
+
 
 </html>
